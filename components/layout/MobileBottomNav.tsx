@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Compass, Search, PlayCircle, Newspaper, type LucideIcon } from "lucide-react";
+import { Home, Compass, PlayCircle, Newspaper, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type NavItem = {
@@ -17,7 +17,6 @@ const NAV_ITEMS: NavItem[] = [
   { key: "home", label: "Home", icon: Home, href: "/" },
   { key: "articles", label: "Articles", icon: Newspaper, href: "/blog" },
   { key: "explore", label: "Explore", icon: Compass, href: "/explore" },
-  { key: "search", label: "Search", icon: Search, href: "/search" },
   { key: "stories", label: "Stories", icon: PlayCircle, href: "/web-stories" },
 ];
 

@@ -18,7 +18,6 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Best Places", href: "/category/traveling-best-places" },
   { label: "Road Trips", href: "/category/road-trips" },
   { label: "Web Stories", href: "/web-stories" },
-  { label: "About", href: "/about" },
 ];
 
 function isActiveRoute(pathname: string, href: string): boolean {

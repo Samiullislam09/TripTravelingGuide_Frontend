@@ -17,6 +17,36 @@ import ShareBar from "@/components/post/ShareBar";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
 
+// Strip the WordPress "Easy Table of Contents" block (<div id="ez-toc-container">)
+// that is baked into migrated posts' HTML. Removes the whole container by
+// balancing <div>/</div> so nested markup goes with it.
+function stripInlineToc(html: string): string {
+  const marker = '<div id="ez-toc-container"';
+  const start = html.indexOf(marker);
+  if (start === -1) return html;
+  const afterOpen = html.indexOf(">", start);
+  if (afterOpen === -1) return html;
+
+  const re = /<\/?div\b[^>]*>/gi;
+  re.lastIndex = afterOpen + 1;
+  let depth = 1;
+  let end = -1;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html)) !== null) {
+    if (m[0].startsWith("</")) {
+      depth -= 1;
+      if (depth === 0) {
+        end = re.lastIndex;
+        break;
+      }
+    } else {
+      depth += 1;
+    }
+  }
+  if (end === -1) return html.slice(0, start);
+  return html.slice(0, start) + html.slice(end);
+}
+
 // Split rendered article HTML into two parts at a paragraph boundary near the
 // middle, so we can drop a native in-content ad between them.
 function splitHtmlForAd(html: string): [string, string] {
@@ -65,7 +95,7 @@ export default async function PostPage({
   const related = await getRelatedPosts(post, 3);
   const minutes = post.readingMinutes ?? readingTimeMinutes(post.contentHtml);
   const shareUrl = `/${post.slug}/`;
-  const [bodyTop, bodyRest] = splitHtmlForAd(post.contentHtml);
+  const [bodyTop, bodyRest] = splitHtmlForAd(stripInlineToc(post.contentHtml));
 
   const crumbs: Crumb[] = [
     { name: "Home", url: "/" },
