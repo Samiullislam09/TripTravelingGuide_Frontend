@@ -15,7 +15,9 @@ export const site = {
 
   // Brand assets (served from /public for now; swap to real logo when provided).
   logo: "/logo.png",
-  ogImage: "/og-default.jpg",
+  // Generated at request time by app/og-default/route.tsx (1200x630 PNG), so the
+  // default social preview is never a broken/missing file.
+  ogImage: "/og-default",
 
   // Author / E-E-A-T — critical for Helpful-Content recovery.
   founder: {

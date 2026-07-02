@@ -1,4 +1,4 @@
-import { getCategories, getFeaturedPosts, getLatestPosts } from "@/lib/content";
+import { getAllPosts, getCategories, getFeaturedPosts, getLatestPosts } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Hero } from "@/components/home/Hero";
@@ -17,11 +17,12 @@ import NewsletterCTA from "@/components/home/NewsletterCTA";
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const [featured, latest, categories, storyPosts] = await Promise.all([
+  const [featured, latest, categories, storyPosts, allPosts] = await Promise.all([
     getFeaturedPosts(9),
     getLatestPosts(12),
     getCategories(),
     getLatestPosts(10),
+    getAllPosts(),
   ]);
 
   return (
@@ -40,7 +41,7 @@ export default async function HomePage() {
         <AdSlot label="Advertisement" className="my-4" />
       </Container>
       <Container>
-        <StatsBand />
+        <StatsBand guides={allPosts.length} categories={categories.length} />
       </Container>
       <TestimonialsSection />
       <Container>

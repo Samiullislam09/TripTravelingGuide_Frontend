@@ -1,68 +1,47 @@
-import { Star } from "lucide-react";
+import { MapPin, Clock, Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-interface Testimonial {
-  name: string;
-  role: string;
-  quote: string;
+// Honest editorial-trust block. We do not publish fabricated reviews or invented
+// engagement numbers here — that is an E-E-A-T liability and works against the
+// Helpful-Content recovery goal. Instead this states the standards we actually
+// hold every guide to, in plain language.
+
+interface Promise {
+  icon: typeof MapPin;
+  title: string;
+  body: string;
+  color: string;
 }
 
-const TESTIMONIALS: Testimonial[] = [
+const PROMISES: Promise[] = [
   {
-    name: "Maya Rivera",
-    role: "Solo backpacker",
-    quote:
-      "The Kyoto itinerary was flawless — I hit every hidden temple and still had time for late-night ramen. Best trip planning I've ever used.",
+    icon: MapPin,
+    title: "Real comparisons, not filler",
+    body: "We line up routes, costs, and trade-offs side by side so you can decide in minutes. Each guide answers the question you actually searched for, then gets out of the way.",
+    color: "#f97316",
   },
   {
-    name: "Daniel Osei",
-    role: "Weekend explorer",
-    quote:
-      "Booked a last-minute Lisbon getaway in under ten minutes. The neighborhood guides made me feel like a local on day one.",
+    icon: Clock,
+    title: "Kept current for 2026",
+    body: "Prices, schedules, and entry rules change. We revisit our most-read guides through the year and stamp each one with the date it was last checked, so you never plan on stale advice.",
+    color: "#00a2e8",
   },
   {
-    name: "Sofia Lindqvist",
-    role: "Digital nomad",
-    quote:
-      "I plan most of my work-travel through here now. The offline maps and café picks are spot on for getting things done abroad.",
-  },
-  {
-    name: "Arjun Mehta",
-    role: "Family traveler",
-    quote:
-      "Travelling with two kids is hard, but the family-friendly Bali routes kept everyone happy. Stress-free from airport to villa.",
-  },
-  {
-    name: "Chloe Bennett",
-    role: "Adventure seeker",
-    quote:
-      "From Patagonia trekking to fjord kayaking, every recommendation matched my pace perfectly. I've never trusted a guide more.",
-  },
-  {
-    name: "Tomás García",
-    role: "Honeymoon planner",
-    quote:
-      "Planned our Santorini honeymoon down to the sunset dinner spots. Romantic, seamless, and exactly what we dreamed of.",
+    icon: Check,
+    title: "Written to be useful",
+    body: "No thin listicles and no padding to hit a word count. A person reviews and edits every guide before it goes live, and we say plainly when something is our opinion rather than a hard fact.",
+    color: "#9999ff",
   },
 ];
-
-function initials(name: string): string {
-  return name
-    .split(" ")
-    .map((part) => part.charAt(0))
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 export function TestimonialsSection() {
   return (
     <section className="py-12 sm:py-16">
       <Container>
         <SectionHeading
-          eyebrow="Travelers ❤"
-          title="Trusted by trip planners"
+          eyebrow="Our promise"
+          title="Why readers trust our guides"
           align="center"
         />
 
@@ -70,42 +49,26 @@ export function TestimonialsSection() {
           data-reveal-stagger
           className="mt-8 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {TESTIMONIALS.map((testimonial) => (
-            <figure key={testimonial.name} className="card p-6">
-              <div className="flex items-center gap-4">
+          {PROMISES.map((promise) => {
+            const Icon = promise.icon;
+            return (
+              <div key={promise.title} className="card p-6">
                 <div
                   aria-hidden="true"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl text-white"
+                  style={{ background: promise.color }}
                 >
-                  {initials(testimonial.name)}
+                  <Icon className="h-6 w-6" />
                 </div>
-                <figcaption>
-                  <div className="font-semibold text-ink-900">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-sm text-ink-500">{testimonial.role}</div>
-                </figcaption>
+                <h3 className="mt-5 font-display text-lg font-bold text-ink-900">
+                  {promise.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-ink-500">
+                  {promise.body}
+                </p>
               </div>
-
-              <blockquote className="mt-5 leading-relaxed text-ink-700">
-                “{testimonial.quote}”
-              </blockquote>
-
-              <div
-                className="mt-5 flex items-center gap-1"
-                role="img"
-                aria-label="Rated 5 out of 5 stars"
-              >
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star
-                    key={index}
-                    aria-hidden="true"
-                    className="h-4 w-4 fill-coral-500 text-coral-500"
-                  />
-                ))}
-              </div>
-            </figure>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>

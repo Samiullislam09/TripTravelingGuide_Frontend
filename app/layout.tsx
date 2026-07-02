@@ -35,8 +35,15 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: site.locale,
     url: absoluteUrl("/"),
+    // Default share image for the homepage and any page without its own cover.
+    images: [
+      { url: absoluteUrl(site.ogImage), width: 1200, height: 630, alt: site.name },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    images: [absoluteUrl(site.ogImage)],
+  },
   robots: { index: true, follow: true, "max-image-preview": "large" },
   ...(site.verification.google
     ? { verification: { google: site.verification.google } }

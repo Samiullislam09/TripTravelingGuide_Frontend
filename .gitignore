@@ -30,3 +30,6 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# legacy filesystem stores (comments/contact/newsletter now live in Supabase)
+/data/

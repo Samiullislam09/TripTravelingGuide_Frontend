@@ -1,28 +1,9 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import { addSubscriber } from "@/lib/server/newsletter-store";
 
 export const runtime = "nodejs";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const DATA_DIR = path.join(process.cwd(), "data");
-const DATA_FILE = path.join(DATA_DIR, "newsletter.json");
-
-interface NewsletterEntry {
-  email: string;
-  subscribedAt: string;
-}
-
-async function readEntries(): Promise<NewsletterEntry[]> {
-  try {
-    const raw = await fs.readFile(DATA_FILE, "utf-8");
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as NewsletterEntry[]) : [];
-  } catch {
-    return [];
-  }
-}
 
 export async function POST(request: Request): Promise<NextResponse> {
   try {
@@ -48,19 +29,8 @@ export async function POST(request: Request): Promise<NextResponse> {
       );
     }
 
-    const normalized = email.trim().toLowerCase();
-
-    const entries = await readEntries();
-    if (!entries.some((entry) => entry.email === normalized)) {
-      entries.push({
-        email: normalized,
-        subscribedAt: new Date().toISOString(),
-      });
-      await fs.mkdir(DATA_DIR, { recursive: true });
-      await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2), "utf-8");
-    }
-
-    return NextResponse.json({ ok: true });
+    const result = await addSubscriber(email);
+    return NextResponse.json(result);
   } catch {
     return NextResponse.json(
       { ok: false, error: "Something went wrong. Please try again later." },
