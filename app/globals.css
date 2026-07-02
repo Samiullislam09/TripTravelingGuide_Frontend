@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================================
+   THEME TOKENS — light (default) + dark. Neutral ink ramp, surfaces and lines
+   are CSS variables (space-separated RGB channels so Tailwind alpha modifiers
+   like `bg-ink-400/40` keep working). Brand teal is static across both themes.
+=========================================================================== */
+@layer base {
+  :root {
+    --font-display: "Plus Jakarta Sans", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Surfaces (warm neutral, to pair with the orange brand) */
+    --bg: 255 255 255;
+    --bg-soft: 252 247 240;
+    --surface: 255 255 255;
+    --surface-2: 250 245 238;
+    --line: 233 227 219;
+
+    /* Neutral text/border ramp */
+    --ink-50: 249 246 242;
+    --ink-100: 233 227 219;
+    --ink-400: 150 140 128;
+    --ink-500: 105 96 86;
+    --ink-700: 60 52 44;
+    --ink-900: 28 23 18;
+
+    --brand-soft: linear-gradient(135deg, #fff7ed 0%, #fff1e0 55%, #ffedd5 100%);
+  }
+
+  .dark {
+    --bg: 18 16 13;
+    --bg-soft: 23 20 16;
+    --surface: 26 23 18;
+    --surface-2: 32 28 22;
+    --line: 48 42 34;
+
+    --ink-50: 32 28 22;
+    --ink-100: 48 42 34;
+    --ink-400: 137 128 117;
+    --ink-500: 168 160 150;
+    --ink-700: 209 203 194;
+    --ink-900: 245 242 237;
+
+    --brand-soft: linear-gradient(135deg, #1a1510 0%, #1d1812 55%, #20190f 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-base text-ink-900 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display font-bold tracking-tight text-ink-900;
+  }
+
+  /* Lenis smooth-scroll: disable native smoothing to avoid fighting it. */
+  html.lenis { scroll-behavior: auto; }
+  html.lenis body { min-height: 100%; }
+
+  /* Themed scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--bg-soft)); }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--ink-400) / 0.5);
+    border-radius: 9999px;
+    border: 2px solid rgb(var(--bg-soft));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+}
+
+@layer components {
+  /* ---- Buttons ---- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+           text-sm font-semibold leading-none tracking-tight
+           transition-all duration-300 ease-out focus:outline-none focus-visible:ring-2
+           focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-base
+           disabled:opacity-50 sm:text-[0.95rem];
+  }
+  /* Brand button = CGHEVEN orange→red gradient. Base orange-500→red-500,
+     hover orange-600→red-600, white text + orange glow (30% → 50%). */
+  .btn-primary {
+    @apply btn text-white hover:-translate-y-0.5;
+    background-image: linear-gradient(to right, #f97316, #ef4444);
+    box-shadow: 0 10px 24px -8px rgba(249, 115, 22, 0.3);
+  }
+  .btn-primary:hover {
+    background-image: linear-gradient(to right, #ea580c, #dc2626);
+    box-shadow: 0 12px 30px -8px rgba(249, 115, 22, 0.5);
+  }
+  .btn-gradient {
+    @apply btn text-white hover:-translate-y-0.5;
+    background-image: linear-gradient(to right, #f97316, #ef4444);
+    box-shadow: 0 10px 24px -8px rgba(249, 115, 22, 0.3);
+  }
+  .btn-gradient:hover {
+    background-image: linear-gradient(to right, #ea580c, #dc2626);
+    box-shadow: 0 12px 30px -8px rgba(249, 115, 22, 0.5);
+  }
+
+  /* Reusable brand fill for non-.btn orange CTAs (Subscribe, back-to-top,
+     active filter chips, etc.) — same gradient + hover as .btn-primary. */
+  .brand-fill {
+    color: #fff;
+    background-image: linear-gradient(to right, #f97316, #ef4444);
+    box-shadow: 0 8px 22px -8px rgba(249, 115, 22, 0.3);
+  }
+  .brand-fill:hover {
+    background-image: linear-gradient(to right, #ea580c, #dc2626);
+    box-shadow: 0 10px 28px -8px rgba(249, 115, 22, 0.5);
+  }
+  .btn-coral {
+    @apply btn bg-warm-gradient text-white shadow-soft hover:-translate-y-0.5 hover:brightness-105;
+  }
+  .btn-outline {
+    @apply btn border-2 border-line bg-surface text-ink-900 hover:border-brand-400 hover:text-brand-600;
+  }
+  .btn-ghost {
+    @apply btn text-ink-700 hover:bg-ink-50;
+  }
+
+  /* ---- Pills / badges ---- */
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+  .pill-violet { @apply pill bg-brand-600/10 text-brand-700; }
+  .pill-teal { @apply pill bg-brand-600/10 text-brand-700; }
+  .pill-pink { @apply pill bg-pink-500/15 text-pink-600; }
+  .pill-coral { @apply pill bg-coral-500/15 text-coral-600; }
+
+  /* ---- Cards (flat — definition comes from rings/borders, not shadows) ---- */
+  .card {
+    @apply rounded-4xl bg-surface ring-1 ring-line transition-all duration-300;
+  }
+  .card-hover {
+    @apply card hover:-translate-y-1 hover:ring-brand-400/60;
+  }
+  .glass {
+    @apply bg-surface/70 backdrop-blur-xl ring-1 ring-line/60;
+  }
+
+  /* ---- Gradient text ---- */
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  /* Decorative blurred blobs behind hero sections. */
+  .blob {
+    @apply pointer-events-none absolute rounded-full blur-3xl opacity-60;
+  }
+
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* GSAP reveal initial state — avoids flash before ScrollTrigger binds. */
+  .gsap-reveal { opacity: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .gsap-reveal { opacity: 1 !important; }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Article body (.prose-article) — the single-post reading experience.
+--------------------------------------------------------------------------- */
+.prose-article {
+  @apply text-[1.075rem] leading-[1.85] text-ink-700;
+  /* Never let long words / URLs blow out the column on any screen. */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.prose-article > * + * { margin-top: 1.35em; }
+/* Magazine drop-cap — only when the article opens with a paragraph. */
+.prose-article > p:first-child::first-letter {
+  @apply float-left mr-3 mt-1 font-display text-[3.4rem] font-bold leading-[0.8] text-brand-600;
+}
+/* Media stays inside the column on every breakpoint. */
+.prose-article :where(img, video, iframe, svg) {
+  max-width: 100%;
+  height: auto;
+}
+.prose-article h2 { @apply mt-12 mb-2 text-2xl sm:text-3xl text-ink-900 scroll-mt-28; }
+.prose-article h3 { @apply mt-9 mb-1 text-xl sm:text-2xl text-ink-900 scroll-mt-28; }
+.prose-article p { @apply text-ink-700; }
+.prose-article a {
+  @apply font-semibold text-brand-600 underline decoration-brand-300 decoration-2 underline-offset-2 transition hover:text-brand-700 hover:decoration-brand-500;
+}
+.prose-article ul { @apply list-disc space-y-2 pl-6 marker:text-brand-500; }
+.prose-article ol { @apply list-decimal space-y-2 pl-6 marker:text-brand-500; }
+.prose-article strong { @apply font-bold text-ink-900; }
+.prose-article blockquote {
+  @apply border-l-4 border-brand-400 bg-brand-600/5 py-2 pl-5 pr-4 italic text-ink-700 rounded-r-2xl;
+}
+.prose-article img { @apply rounded-3xl my-8 w-full ring-1 ring-line; }
+/* Responsive tables: become horizontally scrollable instead of overflowing the
+   page. `display:block` + overflow-x lets wide CMS comparison tables scroll on
+   mobile AND desktop without breaking the layout. */
+.prose-article table.comparison-table,
+.prose-article table {
+  @apply my-8 block w-full max-w-full overflow-x-auto rounded-2xl border border-line text-left text-sm;
+  border-collapse: separate;
+  border-spacing: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.prose-article thead tr,
+.prose-article tbody tr { width: 100%; }
+.prose-article th,
+.prose-article td { white-space: normal; }
+.prose-article thead { @apply bg-brand-soft; }
+.prose-article th { @apply px-4 py-3 font-display font-bold text-ink-900; }
+.prose-article td { @apply border-t border-line px-4 py-3 align-top text-ink-700; }
+.prose-article tbody tr:nth-child(even) { @apply bg-ink-50/50; }
