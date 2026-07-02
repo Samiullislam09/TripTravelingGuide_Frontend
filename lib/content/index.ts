@@ -12,6 +12,7 @@ import "server-only";
 import { cache } from "react";
 import type { Post, PostSummary, Category } from "@/lib/types";
 import { supabaseAdmin } from "@/lib/supabase/server";
+import { site } from "@/lib/site";
 import { readingTimeMinutes } from "@/lib/utils";
 
 const TABLE = "Article";
@@ -22,13 +23,26 @@ const COLUMNS =
   "coverImageUrl,coverImageAlt,categoryName,categorySlug,tags,publishedAt,createdAt,status";
 
 // Posts carry no author column yet; every byline uses the editorial identity.
-// (E-E-A-T author work is a later SEO step.)
+// A real bio + social links here are a genuine E-E-A-T trust signal (they show
+// a person stands behind the guide), which matters for Helpful-Content recovery.
 const DEFAULT_AUTHOR = {
-  name: "TripTravelingGuide Editorial Team",
-  slug: "editorial",
+  name: "Samiul Islam",
+  slug: "samiul-islam",
+  role: "Founder of TripTravelingGuide",
   image:
     "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/2025/face.jpg",
-  url: "/about",
+  url: "/founder",
+  bio:
+    "Samiul Islam is the founder of TripTravelingGuide and a full-stack web developer behind projects like CGHEVEN and SnowPredictions. He researches routes, prices, and the on-the-ground details that decide a trip, fact-checks every guide before it goes live, and revisits the most-read ones through the year.",
+  // Only the profiles that are actually filled in on lib/site.ts. Empty ones are
+  // dropped by the AuthorBox, so no dead icons ever render.
+  social: {
+    portfolio: site.social.portfolio,
+    github: site.social.github,
+    linkedin: site.social.linkedin,
+    instagram: site.social.instagram,
+    youtube: site.social.youtube,
+  } as Record<string, string>,
 } as const;
 
 interface Row {
@@ -145,6 +159,21 @@ export async function getLatestPosts(limit = 9): Promise<PostSummary[]> {
   return (await getAllPosts()).slice(0, limit);
 }
 
+// "Popular" without analytics: approximate deterministically so the ordering is
+// stable across renders. Posts with a real cover image surface first, then the
+// more substantial reads. Swap this for real GA4/GSC pageview data once wired.
+export async function getPopularPosts(limit = 12): Promise<PostSummary[]> {
+  const all = await getAllPosts();
+  return [...all]
+    .sort((a, b) => {
+      const af = a.featured ? 1 : 0;
+      const bf = b.featured ? 1 : 0;
+      if (bf !== af) return bf - af;
+      return (b.readingMinutes ?? 0) - (a.readingMinutes ?? 0);
+    })
+    .slice(0, limit);
+}
+
 export async function getPostsByCategory(slug: string): Promise<PostSummary[]> {
   return (await getAllPosts()).filter((p) => p.category.slug === slug);
 }
@@ -152,7 +181,21 @@ export async function getPostsByCategory(slug: string): Promise<PostSummary[]> {
 export async function getCategories(): Promise<Category[]> {
   const all = await getAllPosts();
   const map = new Map<string, Category>();
-  for (const p of all) map.set(p.category.slug, p.category);
+  // `all` is already newest-first, so the first cover we see per category is the
+  // most recent one — a good representative "asset" image for that category.
+  for (const p of all) {
+    const existing = map.get(p.category.slug);
+    if (!existing) {
+      map.set(p.category.slug, {
+        ...p.category,
+        image: p.coverImage,
+        count: 1,
+      });
+    } else {
+      existing.count = (existing.count ?? 0) + 1;
+      if (!existing.image && p.coverImage) existing.image = p.coverImage;
+    }
+  }
   return Array.from(map.values());
 }
 

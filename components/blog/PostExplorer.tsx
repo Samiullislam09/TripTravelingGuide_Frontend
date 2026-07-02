@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, Loader2, X, SlidersHorizontal, LayoutGrid } from "lucide-react";
+import { Search, Loader2, X, SlidersHorizontal, LayoutGrid, ChevronDown, Check } from "lucide-react";
 import type { Category, PostSummary } from "@/lib/types";
 import { searchPosts } from "@/lib/api";
 import { PostCard } from "@/components/post/PostCard";
+import { Pagination } from "@/components/blog/Pagination";
+import { SortTabs } from "@/components/blog/SortTabs";
+import { sortPosts, type SortKey } from "@/lib/sort-posts";
 import { cn } from "@/lib/utils";
+
+const PAGE_SIZE = 12;
 
 interface PostExplorerProps {
   /** Full list shown when there's no search query. */
@@ -15,12 +20,13 @@ interface PostExplorerProps {
   selectableGrid?: boolean;
 }
 
-// Static column presets so Tailwind keeps the classes at build time. Every
-// preset shares the same phone/tablet base, so only large screens change.
+// Static column presets so Tailwind keeps the classes at build time. Phones
+// always show a comfortable 2-up (cards are compact), and the chosen density
+// kicks in from tablet up.
 const GRID_COLS: Record<number, string> = {
-  2: "grid-cols-1 sm:grid-cols-2",
-  3: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
-  4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+  2: "grid-cols-2",
+  3: "grid-cols-2 md:grid-cols-3",
+  4: "grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
 };
 
 /**
@@ -38,7 +44,11 @@ export function PostExplorer({
   const [results, setResults] = useState<PostSummary[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [cols, setCols] = useState<number>(4);
+  const [sort, setSort] = useState<SortKey>("latest");
+  const [gridOpen, setGridOpen] = useState(false);
+  const [page, setPage] = useState(1);
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const gridTop = useRef<HTMLParagraphElement>(null);
 
   // Remember the reader's column choice across visits (blog page only).
   useEffect(() => {
@@ -83,6 +93,28 @@ export function PostExplorer({
     return base.filter((p) => p.category.slug === active);
   }, [results, posts, active]);
 
+  const sorted = useMemo(() => sortPosts(visible, sort), [visible, sort]);
+
+  // Reset to the first page whenever the filtered / searched / sorted set changes.
+  useEffect(() => {
+    setPage(1);
+  }, [query, active, results, sort]);
+
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const paged = sorted.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  function goToPage(next: number) {
+    setPage(next);
+    if (gridTop.current) {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      gridTop.current.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "start",
+      });
+    }
+  }
+
   return (
     <div>
       {/* Toolbar */}
@@ -115,9 +147,9 @@ export function PostExplorer({
           ) : null}
         </div>
 
-        {/* Category filter chips + column chooser */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="mr-1 hidden items-center gap-1.5 text-sm font-medium text-ink-500 sm:inline-flex">
+        {/* Category filter chips — one neat row that scrolls sideways on mobile */}
+        <div className="-mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <span className="mr-1 hidden shrink-0 items-center gap-1.5 text-sm font-medium text-ink-500 sm:inline-flex">
             <SlidersHorizontal className="h-4 w-4" aria-hidden />
             Filter
           </span>
@@ -134,54 +166,100 @@ export function PostExplorer({
               onClick={() => setActive(c.slug)}
             />
           ))}
+        </div>
 
-          {/* Column density chooser — desktop only (small screens are fixed). */}
+        {/* Controls: sort + a click-to-open grid density chooser */}
+        <div className="flex items-center justify-end gap-2">
+          <SortTabs value={sort} onChange={setSort} />
           {selectableGrid ? (
-            <div
-              role="group"
-              aria-label="Choose grid columns"
-              className="ml-auto hidden items-center gap-1 rounded-full border border-line bg-surface p-1 lg:inline-flex"
-            >
-              <LayoutGrid className="ml-1 mr-0.5 h-4 w-4 text-ink-400" aria-hidden />
-              {[2, 3, 4].map((n) => (
-                <button
-                  key={n}
-                  type="button"
-                  onClick={() => chooseCols(n)}
-                  aria-pressed={cols === n}
-                  aria-label={`Show ${n} columns`}
-                  className={cn(
-                    "grid h-7 w-7 place-items-center rounded-full text-xs font-bold transition-colors",
-                    cols === n
-                      ? "brand-fill text-white"
-                      : "text-ink-500 hover:text-brand-600",
-                  )}
-                >
-                  {n}
-                </button>
-              ))}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setGridOpen((v) => !v)}
+                aria-haspopup="menu"
+                aria-expanded={gridOpen}
+                aria-label="Choose grid columns"
+                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-semibold text-ink-600 transition-colors hover:border-brand-400 hover:text-brand-600"
+              >
+                <LayoutGrid className="h-4 w-4" aria-hidden />
+                <span className="hidden sm:inline">Grid</span>
+                <span>{cols}</span>
+                <ChevronDown
+                  className={cn("h-3.5 w-3.5 transition-transform", gridOpen && "rotate-180")}
+                  aria-hidden
+                />
+              </button>
+              {gridOpen && (
+                <>
+                  {/* click-away backdrop */}
+                  <button
+                    type="button"
+                    aria-hidden
+                    tabIndex={-1}
+                    onClick={() => setGridOpen(false)}
+                    className="fixed inset-0 z-10 cursor-default"
+                  />
+                  <div
+                    role="menu"
+                    className="absolute right-0 z-20 mt-2 w-40 overflow-hidden rounded-2xl border border-line bg-surface p-1 shadow-soft"
+                  >
+                    {[2, 3, 4].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        role="menuitemradio"
+                        aria-checked={cols === n}
+                        onClick={() => {
+                          chooseCols(n);
+                          setGridOpen(false);
+                        }}
+                        className={cn(
+                          "flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-colors",
+                          cols === n
+                            ? "bg-brand-50 text-brand-600"
+                            : "text-ink-700 hover:bg-ink-50",
+                        )}
+                      >
+                        <LayoutGrid className="h-4 w-4" aria-hidden />
+                        {n} columns
+                        {cols === n && <Check className="ml-auto h-4 w-4" aria-hidden />}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           ) : null}
         </div>
       </div>
 
       {/* Results */}
-      <p className="mt-6 text-sm text-ink-500" aria-live="polite">
+      <p ref={gridTop} className="mt-6 scroll-mt-28 text-sm text-ink-500" aria-live="polite">
         {visible.length} {visible.length === 1 ? "article" : "articles"}
         {query.trim() ? ` for “${query.trim()}”` : ""}
+        {totalPages > 1 ? ` · page ${currentPage} of ${totalPages}` : ""}
       </p>
 
       {visible.length > 0 ? (
-        <div
-          className={cn(
-            "mt-5 grid items-stretch gap-5 sm:gap-6",
-            GRID_COLS[cols] ?? GRID_COLS[4],
-          )}
-        >
-          {visible.map((post, i) => (
-            <PostCard key={post.slug} post={post} index={i} priority={i < 4} />
-          ))}
-        </div>
+        <>
+          <div
+            className={cn(
+              "mt-5 grid items-stretch gap-5 sm:gap-6",
+              GRID_COLS[cols] ?? GRID_COLS[4],
+            )}
+          >
+            {paged.map((post, i) => (
+              <PostCard
+                key={post.slug}
+                post={post}
+                index={(currentPage - 1) * PAGE_SIZE + i}
+                priority={i < 4}
+              />
+            ))}
+          </div>
+
+          <Pagination page={currentPage} totalPages={totalPages} onChange={goToPage} />
+        </>
       ) : (
         <div className="mt-6 rounded-4xl border border-dashed border-line bg-surface px-6 py-16 text-center">
           <p className="text-lg font-semibold text-ink-900">No articles found</p>
@@ -209,7 +287,7 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "rounded-full px-4 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-base",
+        "shrink-0 whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-base",
         active
           ? "brand-fill text-white"
           : "border border-line bg-surface text-ink-700 hover:border-brand-400 hover:text-brand-600",

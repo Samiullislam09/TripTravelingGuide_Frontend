@@ -4,6 +4,7 @@
 export interface Author {
   name: string;
   slug: string;
+  role?: string;
   bio?: string;
   image?: string;
   url?: string;
@@ -14,6 +15,10 @@ export interface Category {
   name: string;
   slug: string;
   description?: string;
+  /** Representative cover image (from the category's top post). */
+  image?: string;
+  /** Number of published guides in this category. */
+  count?: number;
 }
 
 export interface FaqItem {

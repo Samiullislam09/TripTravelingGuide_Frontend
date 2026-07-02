@@ -52,7 +52,7 @@ export function FeaturedCarousel({ posts }: FeaturedCarouselProps) {
 
   return (
     <div
-      className="card group relative h-full min-h-[22rem] overflow-hidden sm:min-h-[26rem]"
+      className="card group relative h-full min-h-[15rem] overflow-hidden sm:min-h-[18rem] lg:min-h-[21rem]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -86,17 +86,17 @@ export function FeaturedCarousel({ posts }: FeaturedCarouselProps) {
               className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
             />
 
-            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
               <span className="pill bg-brand-gradient text-white">
                 {post.category.name}
               </span>
-              <h3 className="mt-3 max-w-2xl font-display text-2xl font-bold leading-tight text-white drop-shadow sm:text-3xl">
+              <h3 className="mt-2.5 max-w-2xl font-display text-xl font-bold leading-tight text-white drop-shadow sm:text-2xl">
                 {post.title}
               </h3>
               <p className="mt-2 hidden max-w-xl text-sm leading-relaxed text-white/80 sm:line-clamp-2">
                 {post.excerpt}
               </p>
-              <div className="mt-4 flex items-center gap-3 text-xs font-medium text-white/70">
+              <div className="mt-3.5 flex items-center gap-3 text-xs font-medium text-white/70">
                 <span>{post.author.name}</span>
                 <span aria-hidden className="h-1 w-1 rounded-full bg-white/50" />
                 <span>{formatDate(post.publishedAt)}</span>

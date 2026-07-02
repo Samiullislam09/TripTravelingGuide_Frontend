@@ -14,9 +14,27 @@ import { PostCard } from "@/components/post/PostCard";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Reveal } from "@/components/motion/Reveal";
 import ShareBar from "@/components/post/ShareBar";
-import TableOfContents from "@/components/post/TableOfContents";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
+
+// Split rendered article HTML into two parts at a paragraph boundary near the
+// middle, so we can drop a native in-content ad between them.
+function splitHtmlForAd(html: string): [string, string] {
+  const marker = "</p>";
+  const ends: number[] = [];
+  let i = html.indexOf(marker);
+  while (i !== -1) {
+    ends.push(i + marker.length);
+    i = html.indexOf(marker, i + marker.length);
+  }
+  if (ends.length < 4) return [html, ""]; // too short to split cleanly
+  const mid = html.length / 2;
+  let best = ends[0];
+  for (const idx of ends) {
+    if (Math.abs(idx - mid) < Math.abs(best - mid)) best = idx;
+  }
+  return [html.slice(0, best), html.slice(best)];
+}
 
 // Pre-render every known post at build time; revalidate via the content layer.
 export async function generateStaticParams() {
@@ -47,6 +65,7 @@ export default async function PostPage({
   const related = await getRelatedPosts(post, 3);
   const minutes = post.readingMinutes ?? readingTimeMinutes(post.contentHtml);
   const shareUrl = `/${post.slug}/`;
+  const [bodyTop, bodyRest] = splitHtmlForAd(post.contentHtml);
 
   const crumbs: Crumb[] = [
     { name: "Home", url: "/" },
@@ -178,8 +197,21 @@ export default async function PostPage({
 
               <div
                 className="prose-article mt-8"
-                dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+                dangerouslySetInnerHTML={{ __html: bodyTop }}
               />
+
+              {bodyRest ? (
+                <>
+                  {/* In-content advertisement */}
+                  <div className="my-10">
+                    <AdSlot label="Advertisement" />
+                  </div>
+                  <div
+                    className="prose-article"
+                    dangerouslySetInnerHTML={{ __html: bodyRest }}
+                  />
+                </>
+              ) : null}
 
               {/* Tags */}
               {post.tags.length > 0 && (
@@ -199,11 +231,6 @@ export default async function PostPage({
                   </div>
                 </div>
               )}
-
-              {/* Mid-content ad */}
-              <div className="my-10">
-                <AdSlot label="Advertisement" />
-              </div>
 
               {/* FAQ */}
               {post.faq && post.faq.length > 0 && (
@@ -228,10 +255,12 @@ export default async function PostPage({
               <CommentSystem postSlug={post.slug} />
             </div>
 
-            {/* Sticky aside — desktop only */}
+            {/* Sticky aside — desktop only: a large ad unit */}
             <aside className="hidden lg:block">
               <div className="sticky top-28">
-                <TableOfContents html={post.contentHtml} />
+                <div className="rounded-3xl border border-line bg-surface/60 p-4">
+                  <AdSlot label="Advertisement" minHeight={600} />
+                </div>
               </div>
             </aside>
           </div>

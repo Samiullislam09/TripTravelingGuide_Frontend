@@ -12,7 +12,7 @@ interface ShareBarProps {
 }
 
 const buttonClass =
-  "rounded-full size-10 grid place-items-center border border-line bg-surface text-ink-700 transition-colors hover:text-brand-600 hover:border-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400";
+  "rounded-full size-9 grid place-items-center border border-line bg-surface text-ink-600 transition-all hover:-translate-y-0.5 hover:text-brand-600 hover:border-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400";
 
 function absoluteUrl(url: string): string {
   if (url.startsWith("/") && typeof window !== "undefined") {
@@ -98,9 +98,13 @@ export default function ShareBar({ title, url, className }: ShareBarProps) {
   ];
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-3", className)}>
-      <span className="text-sm font-medium text-ink-400">Share</span>
+    <div className={cn("flex flex-wrap items-center gap-2", className)}>
+      <span className="mr-0.5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ink-400">
+        <Share2 className="size-3.5" aria-hidden="true" />
+        Share
+      </span>
 
+      <div className="flex items-center gap-1.5">
       <button type="button" onClick={handleNativeShare} aria-label="Share this post" className={buttonClass}>
         <Share2 className="size-4" aria-hidden="true" />
       </button>
@@ -132,6 +136,7 @@ export default function ShareBar({ title, url, className }: ShareBarProps) {
             Copied!
           </span>
         )}
+      </div>
       </div>
     </div>
   );

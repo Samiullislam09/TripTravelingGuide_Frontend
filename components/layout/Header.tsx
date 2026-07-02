@@ -14,8 +14,9 @@ type NavItem = { label: string; href: string };
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Articles", href: "/blog" },
-  { label: "Destinations", href: "/category/destinations" },
-  { label: "Transport", href: "/category/transport" },
+  { label: "Explore", href: "/explore" },
+  { label: "Best Places", href: "/category/traveling-best-places" },
+  { label: "Road Trips", href: "/category/road-trips" },
   { label: "Web Stories", href: "/web-stories" },
   { label: "About", href: "/about" },
 ];

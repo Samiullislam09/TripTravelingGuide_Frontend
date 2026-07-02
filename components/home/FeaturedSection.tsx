@@ -30,7 +30,7 @@ export function FeaturedSection({ posts, gridPosts = [] }: FeaturedSectionProps)
   }
 
   return (
-    <section className="py-12 sm:py-20">
+    <section className="py-10 sm:py-14">
       <Container>
         <SectionHeading
           eyebrow="Editor's picks"
@@ -38,8 +38,8 @@ export function FeaturedSection({ posts, gridPosts = [] }: FeaturedSectionProps)
           action={{ label: "View all", href: "/blog" }}
         />
 
-        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
-          {/* Big auto-sliding featured card */}
+        <div className="mt-7 grid grid-cols-1 items-stretch gap-5 lg:grid-cols-[1.35fr_1fr] lg:gap-6">
+          {/* Auto-sliding featured card */}
           <div data-reveal>
             <FeaturedCarousel posts={carousel} />
           </div>
@@ -48,7 +48,7 @@ export function FeaturedSection({ posts, gridPosts = [] }: FeaturedSectionProps)
           {grid.length > 0 && (
             <div
               data-reveal-stagger
-              className="grid grid-cols-1 gap-5 sm:grid-cols-2"
+              className="grid grid-cols-2 gap-4"
             >
               {grid.map((post, i) => (
                 <PostCard key={post.slug} post={post} index={i} />

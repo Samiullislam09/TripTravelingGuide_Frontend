@@ -8,11 +8,12 @@ import {
   GithubIcon,
 } from "@/components/ui/BrandIcons";
 import { Container } from "@/components/ui/Container";
+import { getCategories } from "@/lib/content";
 import { site } from "@/lib/site";
 
 const exploreLinks = [
-  { label: "Destinations", href: "/category/destinations" },
-  { label: "Transport", href: "/category/transport" },
+  { label: "All articles", href: "/blog" },
+  { label: "All categories", href: "/explore" },
   { label: "Web Stories", href: "/web-stories" },
   { label: "Search", href: "/search" },
 ];
@@ -39,12 +40,13 @@ const socials = [
   { label: "YouTube", href: site.social.youtube, Icon: YoutubeIcon },
 ].filter((s) => s.href);
 
-export function Footer() {
+export async function Footer() {
   const year = new Date().getFullYear();
+  const categories = await getCategories();
 
   return (
     <footer className="mt-24 border-t border-line bg-brand-soft">
-      <Container className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.2fr]">
+      <Container className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.2fr]">
         {/* Brand column */}
         <div data-reveal>
           <Link href="/" className="inline-flex items-center">
@@ -93,6 +95,27 @@ export function Footer() {
             ))}
           </ul>
         </div>
+
+        {/* Categories column */}
+        {categories.length > 0 && (
+          <div data-reveal data-reveal-delay="0.08">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-ink-900">
+              Categories
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {categories.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/category/${c.slug}/`}
+                    className="text-sm text-ink-500 transition hover:text-brand-600"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Company column */}
         <div data-reveal data-reveal-delay="0.1">

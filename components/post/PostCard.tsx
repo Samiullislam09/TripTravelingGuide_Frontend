@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import type { PostSummary } from "@/lib/types";
-import { formatDate } from "@/lib/utils";
 
 interface PostCardProps {
   post: PostSummary;
@@ -61,31 +60,14 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
           </span>
         </div>
 
-        {/* Body */}
-        <div className="flex flex-1 flex-col p-4">
-          <h3 className="font-display text-[0.95rem] font-bold leading-snug text-ink-900 transition-colors line-clamp-2 group-hover:[color:var(--accent)]">
+        {/* Body — title + read link only, so the card stays compact */}
+        <div className="flex flex-1 flex-col p-3.5">
+          <h3 className="font-display text-[0.92rem] font-bold leading-snug text-ink-900 transition-colors line-clamp-2 group-hover:[color:var(--accent)]">
             {post.title}
           </h3>
 
-          <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-ink-500">
-            {post.excerpt}
-          </p>
-
-          {/* Meta */}
-          <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[11px] text-ink-400">
-            <span>{formatDate(post.publishedAt)}</span>
-            {typeof post.readingMinutes === "number" ? (
-              <>
-                <span aria-hidden className="h-1 w-1 rounded-full bg-ink-400" />
-                <span>{post.readingMinutes} min read</span>
-              </>
-            ) : null}
-          </div>
-
           {/* Read more */}
-          <span
-            className="mt-2.5 inline-flex items-center gap-1 text-[13px] font-semibold text-ink-400 transition-colors duration-300 group-hover:[color:var(--accent)]"
-          >
+          <span className="mt-auto inline-flex items-center gap-1 pt-2.5 text-[12.5px] font-semibold text-ink-400 transition-colors duration-300 group-hover:[color:var(--accent)]">
             Read guide
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </span>

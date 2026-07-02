@@ -6,35 +6,13 @@ import {
   ShieldCheck,
   ArrowRight,
   BookOpen,
-  Globe,
-  Code2,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { PageBanner } from "@/components/layout/PageBanner";
-import {
-  GithubIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  YoutubeIcon,
-} from "@/components/ui/BrandIcons";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
-
-const developer = {
-  name: "Samiul Islam",
-  role: "Full-stack Web Developer, apps, websites and add-ons",
-  bio: "Samiul builds modern web applications, custom websites and add-ons, with 3+ years of experience and 26+ launched sites. He designed and developed TripTravelingGuide end to end. His toolkit: Next.js, React, GSAP, WordPress, REST APIs, SEO and clean, user-focused design.",
-  skills: ["Next.js", "React", "GSAP", "WordPress", "REST APIs", "SEO"],
-  links: [
-    { label: "Portfolio", href: "https://samiulislam.vercel.app/", Icon: Globe },
-    { label: "GitHub", href: "https://github.com/Samiullislam09", Icon: GithubIcon },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/samiulislam09/", Icon: LinkedinIcon },
-    { label: "Instagram", href: "https://www.instagram.com/samiul_islam_65/", Icon: InstagramIcon },
-    { label: "YouTube", href: "https://www.youtube.com/@WecodeTech", Icon: YoutubeIcon },
-  ],
-};
 
 export const metadata: Metadata = buildMetadata({
   title: "About TripTravelingGuide",
@@ -131,7 +109,7 @@ export default function AboutPage() {
               <div data-reveal="right">
                 <span className="pill pill-coral">Behind the guides</span>
                 <h2 className="mt-4 text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
-                  {site.founder.name}
+                  Our mission
                 </h2>
                 <p className="mt-4 leading-relaxed text-ink-700">
                   {site.name} publishes researched destination comparisons, transport
@@ -143,71 +121,13 @@ export default function AboutPage() {
                   Independent and reader-first: we test, compare, and write only what we
                   would tell a friend. No sponsored fluff, no copy-paste itineraries.
                 </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Meet the developer */}
-      <section className="py-10 sm:py-14">
-        <Container>
-          <SectionHeading
-            align="center"
-            eyebrow="Built by"
-            title="Meet the developer"
-          />
-
-          <div
-            data-reveal
-            className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-4xl border border-line bg-surface"
-          >
-            <div className="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-[auto_1fr]">
-              {/* Avatar */}
-              <div className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-4xl bg-brand-gradient text-4xl font-extrabold text-white shadow-glow sm:h-36 sm:w-36">
-                <Code2 className="h-14 w-14" aria-hidden="true" />
-              </div>
-
-              <div>
-                <span className="pill pill-coral">Developer</span>
-                <h3 className="mt-3 font-display text-2xl font-bold text-ink-900 sm:text-3xl">
-                  {developer.name}
-                </h3>
-                <p className="mt-1 font-medium text-brand-600">
-                  {developer.role}
-                </p>
-                <p className="mt-4 leading-relaxed text-ink-700">
-                  {developer.bio}
-                </p>
-
-                {/* Skills */}
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {developer.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="pill bg-brand-600/10 text-brand-700"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Social / portfolio links */}
-                <div className="mt-6 flex flex-wrap gap-2.5">
-                  {developer.links.map(({ label, href, Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${developer.name} on ${label}`}
-                      className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-semibold text-ink-700 transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-                    >
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                      {label}
-                    </a>
-                  ))}
-                </div>
+                <Link
+                  href="/founder"
+                  className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition hover:text-brand-700"
+                >
+                  Meet the founder
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </div>
