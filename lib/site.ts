@@ -46,11 +46,29 @@ export const site = {
 
   // Search Console / Analytics / Ads — filled when owner provides them.
   verification: {
-    google: "", // GSC HTML-tag verification token
+    google: "vPBdMth8k-xq-lpsNIj1i1HDRu309vHQTPL4hVWKpts", // GSC HTML-tag token
   },
   analytics: {
-    ga4: "", // G-XXXXXXXXXX
+    ga4: "G-2HFJY898LL", // GA4 Measurement ID (Trip traveling guide web stream)
     adsenseClient: "ca-pub-9402348723832780", // confirmed from AdSense screenshot
+  },
+
+  // AdSense ad UNITS (the slot ids under each unit name in AdSense → Ads).
+  // Each placement in the pages reads one of these. `format`/`layout` mirror the
+  // unit's type so <ins> renders correctly:
+  //   display  → format "auto" (responsive)
+  //   in-article → format "fluid" + layout "in-article"
+  //   multiplex  → format "autorelaxed"
+  //   in-feed    → format "fluid" + layoutKey (NOT wired yet — needs the
+  //                data-ad-layout-key value from the In-feed unit's code).
+  adUnits: {
+    postTop: { slot: "2443240984", format: "auto" }, // "display ad"
+    postInContent: { slot: "3958668481", format: "fluid", layout: "in-article" }, // "artical ad"
+    postEnd: { slot: "9747015932", format: "autorelaxed" }, // "multiple ad" (multiplex)
+    postSidebar: { slot: "1202926175", format: "auto" }, // "square ads"
+    homeTop: { slot: "8628343178", format: "auto" }, // "mobileres"
+    homeMid: { slot: "3282401749", format: "fluid", layout: "in-article" }, // "match ads"
+    // inFeed: { slot: "5786681129", format: "fluid", layoutKey: "PASTE_FROM_ADSENSE" },
   },
 } as const;
 

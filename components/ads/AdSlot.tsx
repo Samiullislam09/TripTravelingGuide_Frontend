@@ -13,8 +13,12 @@ import { cn } from "@/lib/utils";
 type AdSlotProps = {
   /** AdSense ad-unit slot id (data-ad-slot). Without it → placeholder. */
   slot?: string;
-  /** "auto" (responsive) | "fluid" | "horizontal" | "rectangle" … */
+  /** "auto" (responsive display) | "fluid" (in-article/in-feed) | "autorelaxed" (multiplex). */
   format?: string;
+  /** data-ad-layout — e.g. "in-article" for a fluid In-article unit. */
+  layout?: string;
+  /** data-ad-layout-key — required for In-feed units (from the AdSense unit code). */
+  layoutKey?: string;
   className?: string;
   label?: string;
   /** Reserve height so layout doesn't jump before the ad fills. */
@@ -24,6 +28,8 @@ type AdSlotProps = {
 export function AdSlot({
   slot,
   format = "auto",
+  layout,
+  layoutKey,
   className,
   label = "Advertisement",
   minHeight = 100,
@@ -42,6 +48,10 @@ export function AdSlot({
     }
   }, [ready]);
 
+  // Only responsive display units take full-width-responsive; fluid/multiplex
+  // units size themselves and must not receive it.
+  const isDisplay = format === "auto";
+
   return (
     <div className={cn("mx-auto w-full text-center", className)}>
       <p className="mb-1 text-[10px] uppercase tracking-widest text-ink-400">
@@ -55,7 +65,9 @@ export function AdSlot({
           data-ad-client={site.analytics.adsenseClient}
           data-ad-slot={slot}
           data-ad-format={format}
-          data-full-width-responsive="true"
+          {...(layout ? { "data-ad-layout": layout } : {})}
+          {...(layoutKey ? { "data-ad-layout-key": layoutKey } : {})}
+          {...(isDisplay ? { "data-full-width-responsive": "true" } : {})}
         />
       ) : (
         <div

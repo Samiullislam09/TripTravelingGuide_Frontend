@@ -19,8 +19,18 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    // 301 redirects for migrated/pruned URLs go here (preserve ranking equity).
-    return [];
+    return [
+      // Canonical host: force www → non-www so ranking signals never split.
+      // permanent:true emits an HTTP 308, which Google treats exactly like a 301
+      // (equity-passing permanent redirect).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.triptravelingguide.com" }],
+        destination: "https://triptravelingguide.com/:path*",
+        permanent: true,
+      },
+    ];
+    // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
 };
 

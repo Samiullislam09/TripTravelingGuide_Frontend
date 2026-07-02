@@ -137,7 +137,7 @@ export default function AboutPage() {
       {/* Advertisement */}
       <section className="py-6 sm:py-8">
         <Container>
-          <AdSlot label="Advertisement" />
+          <AdSlot label="Advertisement" {...site.adUnits.postTop} />
         </Container>
       </section>
 

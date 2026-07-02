@@ -80,6 +80,23 @@ export default function RootLayout({
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.analytics.adsenseClient}`}
           />
         ) : null}
+
+        {/* Google Analytics 4 — activates automatically once a Measurement ID is
+            set in lib/site.ts (analytics.ga4 = "G-XXXXXXXXXX"). */}
+        {site.analytics.ga4 ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${site.analytics.ga4}');`}
+            </Script>
+          </>
+        ) : null}
       </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>

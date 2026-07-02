@@ -67,6 +67,24 @@ function toIso(value: string | null): string {
   return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
 }
 
+// Migrated WordPress excerpts carry artifacts that read as low-quality in the
+// SERP: "[…]" truncation placeholders, raw HTML entities, and em/en dashes
+// (against our house style). Clean them so meta descriptions, JSON-LD, and cards
+// all show polished, human-looking copy.
+function cleanExcerpt(raw: string): string {
+  return raw
+    .replace(/&hellip;/gi, "…")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#8217;|&rsquo;/gi, "’")
+    .replace(/&amp;/gi, "&")
+    .replace(/\s*\[\s*(?:…|\.{3})\s*\]\s*/g, " ") // remove "[ … ]" placeholder
+    .replace(/\s*[—–]\s*/g, ", ") // no em/en dashes
+    .replace(/\s+/g, " ")
+    .replace(/\s*…\s*$/, "") // drop a trailing ellipsis
+    .replace(/[\s,]+$/, "")
+    .trim();
+}
+
 function rowToPost(r: Row): Post {
   const tags = (r.tags || "")
     .split(",")
@@ -80,14 +98,15 @@ function rowToPost(r: Row): Post {
 
   const contentHtml = r.contentHtml || "";
   const coverImage = r.coverImageUrl?.trim() || undefined;
+  const excerpt = cleanExcerpt(r.metaDescription || "");
 
   return {
     slug: r.slug,
     title: r.title || r.slug,
     metaTitle: r.metaTitle?.trim() || undefined,
-    metaDescription: r.metaDescription?.trim() || undefined,
+    metaDescription: excerpt || undefined,
     focusKeyword: r.primaryKeyword?.trim() || undefined,
-    excerpt: r.metaDescription?.trim() || "",
+    excerpt,
     contentHtml,
     coverImage,
     coverAlt: r.coverImageAlt?.trim() || undefined,

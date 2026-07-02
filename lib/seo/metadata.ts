@@ -32,7 +32,10 @@ export function buildMetadata({
   const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 
   return {
-    title: fullTitle,
+    // `absolute` bypasses the root layout's "%s | Brand" template. fullTitle
+    // already carries the brand (added above only when missing), so this stops
+    // the brand being appended twice (e.g. "... | Brand | Brand").
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical },
     ...(noindex ? { robots: { index: false, follow: false } } : {}),

@@ -12,8 +12,10 @@ import { Faq } from "@/components/post/Faq";
 import { AuthorBox } from "@/components/post/AuthorBox";
 import { PostCard } from "@/components/post/PostCard";
 import { AdSlot } from "@/components/ads/AdSlot";
+import { site } from "@/lib/site";
 import { Reveal } from "@/components/motion/Reveal";
 import ShareBar from "@/components/post/ShareBar";
+import { InContentLinks } from "@/components/post/InContentLinks";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
 
@@ -222,7 +224,7 @@ export default async function PostPage({
               </div>
 
               <div className="mt-8">
-                <AdSlot label="Advertisement" />
+                <AdSlot label="Advertisement" {...site.adUnits.postTop} />
               </div>
 
               <div
@@ -230,11 +232,14 @@ export default async function PostPage({
                 dangerouslySetInnerHTML={{ __html: bodyTop }}
               />
 
+              {/* Contextual internal links (topical authority) */}
+              <InContentLinks posts={related.slice(0, 3)} />
+
               {bodyRest ? (
                 <>
                   {/* In-content advertisement */}
                   <div className="my-10">
-                    <AdSlot label="Advertisement" />
+                    <AdSlot label="Advertisement" {...site.adUnits.postInContent} />
                   </div>
                   <div
                     className="prose-article"
@@ -273,7 +278,7 @@ export default async function PostPage({
               )}
 
               <div className="mt-12">
-                <AdSlot label="Advertisement" />
+                <AdSlot label="Advertisement" {...site.adUnits.postEnd} />
               </div>
 
               <AuthorBox author={post.author} />
@@ -289,7 +294,7 @@ export default async function PostPage({
             <aside className="hidden lg:block">
               <div className="sticky top-28">
                 <div className="rounded-3xl border border-line bg-surface/60 p-4">
-                  <AdSlot label="Advertisement" minHeight={600} />
+                  <AdSlot label="Advertisement" minHeight={600} {...site.adUnits.postSidebar} />
                 </div>
               </div>
             </aside>
