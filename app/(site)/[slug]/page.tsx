@@ -49,9 +49,18 @@ function stripInlineToc(html: string): string {
   return html.slice(0, start) + html.slice(end);
 }
 
-// Split rendered article HTML into two parts at a paragraph boundary near the
-// middle, so we can drop a native in-content ad between them.
-function splitHtmlForAd(html: string): [string, string] {
+// The FAQ block is rendered separately by the <Faq> accordion (and emitted as
+// FAQPage schema), so strip it from the article HTML to avoid showing it twice.
+function stripInlineFaq(html: string): string {
+  return html.replace(
+    /<h2[^>]*>\s*(?:frequently asked questions|faqs?)\s*<\/h2>[\s\S]*?(?=<h2|$)/i,
+    "",
+  );
+}
+
+// Split article HTML into n roughly-equal chunks at paragraph boundaries, so we
+// can drop native in-content ads between them (well spaced, not stacked).
+function splitHtmlIntoChunks(html: string, n: number): string[] {
   const marker = "</p>";
   const ends: number[] = [];
   let i = html.indexOf(marker);
@@ -59,13 +68,22 @@ function splitHtmlForAd(html: string): [string, string] {
     ends.push(i + marker.length);
     i = html.indexOf(marker, i + marker.length);
   }
-  if (ends.length < 4) return [html, ""]; // too short to split cleanly
-  const mid = html.length / 2;
-  let best = ends[0];
-  for (const idx of ends) {
-    if (Math.abs(idx - mid) < Math.abs(best - mid)) best = idx;
+  if (ends.length < n + 1) return [html]; // too short to split cleanly
+  const chunks: string[] = [];
+  let start = 0;
+  for (let k = 1; k < n; k++) {
+    const target = (html.length * k) / n;
+    let best = ends[0];
+    for (const idx of ends) {
+      if (idx > start && Math.abs(idx - target) < Math.abs(best - target)) best = idx;
+    }
+    if (best > start) {
+      chunks.push(html.slice(start, best));
+      start = best;
+    }
   }
-  return [html.slice(0, best), html.slice(best)];
+  chunks.push(html.slice(start));
+  return chunks.filter((c) => c.trim());
 }
 
 // Pre-render every known post at build time; revalidate via the content layer.
@@ -97,7 +115,10 @@ export default async function PostPage({
   const related = await getRelatedPosts(post, 3);
   const minutes = post.readingMinutes ?? readingTimeMinutes(post.contentHtml);
   const shareUrl = `/${post.slug}/`;
-  const [bodyTop, bodyRest] = splitHtmlForAd(stripInlineToc(post.contentHtml));
+  const bodyChunks = splitHtmlIntoChunks(
+    stripInlineFaq(stripInlineToc(post.contentHtml)),
+    3,
+  );
 
   const crumbs: Crumb[] = [
     { name: "Home", url: "/" },
@@ -229,24 +250,25 @@ export default async function PostPage({
 
               <div
                 className="prose-article mt-8"
-                dangerouslySetInnerHTML={{ __html: bodyTop }}
+                dangerouslySetInnerHTML={{ __html: bodyChunks[0] }}
               />
 
               {/* Contextual internal links (topical authority) */}
               <InContentLinks posts={related.slice(0, 3)} />
 
-              {bodyRest ? (
-                <>
-                  {/* In-content advertisement */}
+              {/* Remaining article chunks, each preceded by an in-content ad so
+                  ads sit between sections rather than stacked or over the UI. */}
+              {bodyChunks.slice(1).map((chunk, i) => (
+                <div key={i}>
                   <div className="my-10">
                     <AdSlot label="Advertisement" {...site.adUnits.postInContent} />
                   </div>
                   <div
                     className="prose-article"
-                    dangerouslySetInnerHTML={{ __html: bodyRest }}
+                    dangerouslySetInnerHTML={{ __html: chunk }}
                   />
-                </>
-              ) : null}
+                </div>
+              ))}
 
               {/* Tags */}
               {post.tags.length > 0 && (

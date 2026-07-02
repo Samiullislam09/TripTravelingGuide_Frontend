@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site";
 import { getAllPosts, getCategories } from "@/lib/content";
+import { webStories } from "@/lib/web-stories";
 
 // Native Next.js sitemap — regenerated on each build/revalidate. Submitted to
 // Google Search Console as /sitemap.xml.
@@ -30,6 +31,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const storyPages: MetadataRoute.Sitemap = webStories.map((s) => ({
+    url: absoluteUrl(`/web-stories/${s.slug}`),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
   const postPages: MetadataRoute.Sitemap = posts.map((p) => ({
     url: absoluteUrl(`/${p.slug}/`),
     lastModified: new Date(p.publishedAt),
@@ -37,5 +44,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...categoryPages, ...postPages];
+  return [...staticPages, ...storyPages, ...categoryPages, ...postPages];
 }

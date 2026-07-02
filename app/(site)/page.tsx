@@ -18,18 +18,17 @@ import NewsletterCTA from "@/components/home/NewsletterCTA";
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const [featured, latest, categories, storyPosts, allPosts] = await Promise.all([
+  const [featured, latest, categories, allPosts] = await Promise.all([
     getFeaturedPosts(9),
     getLatestPosts(12),
     getCategories(),
-    getLatestPosts(10),
     getAllPosts(),
   ]);
 
   return (
     <>
       <Hero categories={categories} />
-      <HomeStories posts={storyPosts} />
+      <HomeStories />
       <FeaturedSection posts={featured} gridPosts={latest} />
       <Container>
         <AdSlot label="Advertisement" className="my-4" {...site.adUnits.homeTop} />
