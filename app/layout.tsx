@@ -24,7 +24,7 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} | ${site.tagline}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -41,7 +41,8 @@ export const metadata: Metadata = {
   ...(site.verification.google
     ? { verification: { google: site.verification.google } }
     : {}),
-  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
+  // Favicon + apple-touch icon come from app/icon.jpg and app/apple-icon.jpg
+  // via Next's file-based icon conventions.
 };
 
 export const viewport: Viewport = {

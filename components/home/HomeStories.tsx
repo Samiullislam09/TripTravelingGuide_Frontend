@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import type { PostSummary } from "@/lib/types";
+import { brandCover } from "@/lib/placeholder";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import StoryPlayer, { type Story } from "@/components/stories/StoryPlayer";
@@ -57,8 +58,7 @@ export function HomeStories({ posts }: HomeStoriesProps) {
   const stories: Story[] = items.map((post) => ({
     id: post.slug,
     title: post.title,
-    image:
-      post.coverImage ?? `https://picsum.photos/seed/${post.slug}/720/1280`,
+    image: post.coverImage ?? brandCover(post.slug, post.title),
     href: `/${post.slug}/`,
     category: post.category.name,
   }));

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Globe } from "lucide-react";
 import {
@@ -19,8 +20,15 @@ const exploreLinks = [
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Editorial Policy", href: "/editorial-policy" },
+  { label: "Affiliate Disclosure", href: "/affiliate-disclosure" },
+];
+
+const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms", href: "/terms" },
+  { label: "Disclaimer", href: "/disclaimer" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
 ];
 
 const socials = [
@@ -36,19 +44,17 @@ export function Footer() {
 
   return (
     <footer className="mt-24 border-t border-line bg-brand-soft">
-      <Container className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+      <Container className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.2fr]">
         {/* Brand column */}
         <div data-reveal>
-          <Link
-            href="/"
-            className="flex items-center gap-2 font-display text-lg font-extrabold"
-          >
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient text-white shadow-glow-sm">
-              T
-            </span>
-            <span className="text-ink-900">
-              Trip<span className="text-gradient">Traveling</span>Guide
-            </span>
+          <Link href="/" className="inline-flex items-center">
+            <Image
+              src="/logo.png"
+              alt="TripTravelingGuide"
+              width={431}
+              height={121}
+              className="h-9 w-auto"
+            />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
             {site.tagline}
@@ -95,6 +101,25 @@ export function Footer() {
           </h4>
           <ul className="mt-4 space-y-2.5">
             {companyLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="text-sm text-ink-500 transition hover:text-brand-600"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Legal column */}
+        <div data-reveal data-reveal-delay="0.12">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-ink-900">
+            Legal
+          </h4>
+          <ul className="mt-4 space-y-2.5">
+            {legalLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}

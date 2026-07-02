@@ -4,14 +4,14 @@ import { getAllPosts, getCategories } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/ui/Container";
 import { PostExplorer } from "@/components/blog/PostExplorer";
-import { AdSlot } from "@/components/ads/AdSlot";
+import { PageBanner } from "@/components/layout/PageBanner";
 
 export const revalidate = 300;
 
 export const metadata: Metadata = buildMetadata({
   title: "All articles",
   description:
-    "Browse every TripTravelingGuide article — destination comparisons, transport guides and honest trip-planning advice. Filter by category or search live.",
+    "Browse every TripTravelingGuide article, from destination comparisons to transport guides and honest trip-planning advice. Filter by category or search live.",
   path: "/blog",
 });
 
@@ -24,32 +24,18 @@ export default async function BlogPage() {
   return (
     <>
       {/* Header band */}
-      <section className="bg-brand-soft py-12 sm:py-16">
-        <Container>
-          <div data-reveal className="max-w-2xl">
-            <span className="pill pill-coral">All articles</span>
-            <h1 className="mt-4 break-words font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-5xl">
-              Every travel guide, in one place
-            </h1>
-            <p className="mt-3 text-base text-ink-500 sm:text-lg">
-              {posts.length} honest guides and comparisons. Filter by category or
-              search live to find your next trip.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      {/* Ad band — responsive, full-width between header and explorer */}
-      <section className="pt-8 sm:pt-10">
-        <Container>
-          <AdSlot label="Advertisement" />
-        </Container>
-      </section>
+      <PageBanner
+        eyebrow="All articles"
+        title={<>Every travel guide, <span className="text-gradient">in one place</span></>}
+        description={`Browse ${posts.length} honest travel guides and side by side comparisons. Filter by category or search live to plan your next trip faster.`}
+        crumbs={[{ name: "Home", url: "/" }, { name: "Articles", url: "/blog" }]}
+        accent="coral"
+      />
 
       {/* Explorer */}
       <section className="py-12 sm:py-16">
         <Container>
-          <PostExplorer posts={posts} categories={categories} />
+          <PostExplorer posts={posts} categories={categories} selectableGrid />
         </Container>
       </section>
     </>

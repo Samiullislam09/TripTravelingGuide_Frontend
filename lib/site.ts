@@ -21,7 +21,8 @@ export const site = {
   founder: {
     name: "Samiul Islam",
     url: "https://samiulislam.vercel.app/",
-    image: "/author.jpg",
+    image:
+      "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/2025/face.jpg",
   },
 
   // Social profiles — used in Organization sameAs schema + the footer.
@@ -37,7 +38,7 @@ export const site = {
   },
 
   contact: {
-    email: "", // TODO
+    email: "triptravelingguide@gmail.com",
     phone: "", // TODO
   },
 
@@ -52,9 +53,12 @@ export const site = {
 } as const;
 
 // Helper: absolute URL from a path. Schema + canonical + OG all need absolute.
+// Values that are already absolute (e.g. a Supabase-hosted cover image or author
+// avatar) are returned untouched so we never produce "site.com/https://...".
 export function absoluteUrl(path = "/"): string {
   const base = site.url.replace(/\/$/, "");
   if (!path || path === "/") return base + "/";
+  if (/^https?:\/\//i.test(path)) return path;
   return base + (path.startsWith("/") ? path : `/${path}`);
 }
 

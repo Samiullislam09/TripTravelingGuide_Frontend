@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Search, Sparkles, X } from "lucide-react";
@@ -71,14 +72,16 @@ export function Header() {
         <Link
           href="/"
           aria-label="TripTravelingGuide home"
-          className="group flex items-center gap-2.5 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+          className="group flex items-center rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient font-display text-base font-extrabold text-white shadow-glow-sm transition-transform duration-300 group-hover:scale-105">
-            T
-          </span>
-          <span className="font-display text-lg font-extrabold tracking-tight text-ink-900">
-            Trip<span className="text-gradient">Traveling</span>Guide
-          </span>
+          <Image
+            src="/logo.png"
+            alt="TripTravelingGuide"
+            width={431}
+            height={121}
+            priority
+            className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop nav */}

@@ -12,6 +12,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AdSlot } from "@/components/ads/AdSlot";
+import { PageBanner } from "@/components/layout/PageBanner";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -23,8 +24,8 @@ import { site } from "@/lib/site";
 
 const developer = {
   name: "Samiul Islam",
-  role: "Full-stack Web Developer — apps, websites & add-ons",
-  bio: "Samiul builds modern web applications, custom websites and add-ons — with 3+ years of experience and 26+ launched sites. He designed and developed TripTravelingGuide end to end. His toolkit: Next.js, React, GSAP, WordPress, REST APIs, SEO and clean, user-focused design.",
+  role: "Full-stack Web Developer, apps, websites and add-ons",
+  bio: "Samiul builds modern web applications, custom websites and add-ons, with 3+ years of experience and 26+ launched sites. He designed and developed TripTravelingGuide end to end. His toolkit: Next.js, React, GSAP, WordPress, REST APIs, SEO and clean, user-focused design.",
   skills: ["Next.js", "React", "GSAP", "WordPress", "REST APIs", "SEO"],
   links: [
     { label: "Portfolio", href: "https://samiulislam.vercel.app/", Icon: Globe },
@@ -45,7 +46,7 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Honest first",
-    body: "Every comparison and recommendation is based on real research and first-hand experience — never paid placement dressed up as advice.",
+    body: "Every comparison and recommendation is based on real research and first-hand experience, never paid placement dressed up as advice.",
   },
   {
     icon: Compass,
@@ -55,7 +56,7 @@ const values = [
   {
     icon: HeartHandshake,
     title: "Made for people",
-    body: "Clear, human writing for USA, Canada, and global travelers — no fluff, no filler, just guidance you can act on with confidence.",
+    body: "Clear, human writing for USA, Canada, and global travelers, no fluff, no filler, just guidance you can act on with confidence.",
   },
 ];
 
@@ -70,34 +71,14 @@ export default function AboutPage() {
   return (
     <div className="pb-20">
       {/* Hero band */}
-      <section className="bg-brand-soft py-16 sm:py-20">
-        <Container className="max-w-3xl text-center">
-          <span data-reveal className="pill pill-violet">
-            About us
-          </span>
-          <h1
-            data-reveal
-            data-reveal-delay="0.05"
-            className="mt-5 text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl"
-          >
-            Honest travel guides, <span className="text-gradient">made to help</span>
-          </h1>
-          <p
-            data-reveal
-            data-reveal-delay="0.12"
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-700"
-          >
-            {site.description}
-          </p>
-          <p
-            data-reveal
-            data-reveal-delay="0.18"
-            className="mx-auto mt-4 max-w-2xl leading-relaxed text-ink-500"
-          >
-            {site.tagline}
-          </p>
-        </Container>
-      </section>
+      <PageBanner
+        eyebrow="About us"
+        title={<>Honest travel guides, <span className="text-gradient">made to help</span></>}
+        description={site.description}
+        accent="violet"
+        align="center"
+        ad={false}
+      />
 
       {/* Our values */}
       <section className="py-16 sm:py-20">
@@ -155,8 +136,8 @@ export default function AboutPage() {
                 <p className="mt-4 leading-relaxed text-ink-700">
                   {site.name} publishes researched destination comparisons, transport
                   guides, and trip-planning advice for travelers in the USA, Canada, and
-                  beyond. We obsess over the practical details — costs, timing, and the
-                  trade-offs that decide a trip — so you can plan with confidence.
+                  beyond. We obsess over the practical details (costs, timing, and the
+                  trade-offs that decide a trip) so you can plan with confidence.
                 </p>
                 <p className="mt-4 leading-relaxed text-ink-500">
                   Independent and reader-first: we test, compare, and write only what we

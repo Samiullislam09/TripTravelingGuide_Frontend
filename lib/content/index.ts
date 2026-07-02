@@ -1,21 +1,91 @@
-// Content access layer. Prefers the live CMS (dashboard /api/public) and falls
-// back to local sample posts so the site always builds. All page components go
-// through these functions — never fetch directly.
+// Content access layer — reads published posts straight from Supabase (the
+// `Article` table the dashboard writes to). Every page component goes through
+// these functions; none of them fetch Supabase directly.
 //
-// When the dashboard public API is ready, set DASHBOARD_API_URL in env and the
-// fetchers below light up automatically. Until then, sample data is served.
+// Reads run server-side with the service-role client (RLS-bypassing) and are
+// deduped per-render with React cache(). Supabase is always up, so there is no
+// sample-data fallback anymore — a read failure yields an empty list, not stale
+// dummy content.
 
+import "server-only";
+
+import { cache } from "react";
 import type { Post, PostSummary, Category } from "@/lib/types";
-import { samplePosts } from "./sample-posts";
-import { extraPosts } from "./sample-posts-extra";
+import { supabaseAdmin } from "@/lib/supabase/server";
 import { readingTimeMinutes } from "@/lib/utils";
 
-const allSamples = [...samplePosts, ...extraPosts];
+const TABLE = "Article";
 
-const API = process.env.DASHBOARD_API_URL?.replace(/\/$/, "");
+// Prisma stores columns in camelCase (quoted identifiers) — select them as-is.
+const COLUMNS =
+  "slug,title,metaTitle,metaDescription,primaryKeyword,contentHtml," +
+  "coverImageUrl,coverImageAlt,categoryName,categorySlug,tags,publishedAt,createdAt,status";
 
-// Revalidate cached CMS responses every 5 minutes (ISR-friendly).
-const REVALIDATE = 300;
+// Posts carry no author column yet; every byline uses the editorial identity.
+// (E-E-A-T author work is a later SEO step.)
+const DEFAULT_AUTHOR = {
+  name: "TripTravelingGuide Editorial Team",
+  slug: "editorial",
+  image:
+    "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/2025/face.jpg",
+  url: "/about",
+} as const;
+
+interface Row {
+  slug: string;
+  title: string | null;
+  metaTitle: string | null;
+  metaDescription: string | null;
+  primaryKeyword: string | null;
+  contentHtml: string | null;
+  coverImageUrl: string | null;
+  coverImageAlt: string | null;
+  categoryName: string | null;
+  categorySlug: string | null;
+  tags: string | null;
+  publishedAt: string | null;
+  createdAt: string | null;
+  status: string | null;
+}
+
+function toIso(value: string | null): string {
+  const d = value ? new Date(value) : new Date();
+  return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+}
+
+function rowToPost(r: Row): Post {
+  const tags = (r.tags || "")
+    .split(",")
+    .map((t) => t.trim())
+    .filter(Boolean);
+
+  const category: Category = {
+    name: r.categoryName?.trim() || "Travel",
+    slug: r.categorySlug?.trim() || "travel",
+  };
+
+  const contentHtml = r.contentHtml || "";
+  const coverImage = r.coverImageUrl?.trim() || undefined;
+
+  return {
+    slug: r.slug,
+    title: r.title || r.slug,
+    metaTitle: r.metaTitle?.trim() || undefined,
+    metaDescription: r.metaDescription?.trim() || undefined,
+    focusKeyword: r.primaryKeyword?.trim() || undefined,
+    excerpt: r.metaDescription?.trim() || "",
+    contentHtml,
+    coverImage,
+    coverAlt: r.coverImageAlt?.trim() || undefined,
+    author: { ...DEFAULT_AUTHOR },
+    category,
+    tags,
+    publishedAt: toIso(r.publishedAt || r.createdAt),
+    readingMinutes: readingTimeMinutes(contentHtml),
+    // Surface posts that actually have a real image on the homepage hero.
+    featured: Boolean(coverImage),
+  };
+}
 
 function toSummary(p: Post): PostSummary {
   return {
@@ -32,38 +102,37 @@ function toSummary(p: Post): PostSummary {
   };
 }
 
-async function fromApi<T>(path: string): Promise<T | null> {
-  if (!API) return null;
+// One Supabase round-trip per render, shared across all callers.
+const loadPosts = cache(async (): Promise<Post[]> => {
   try {
-    const res = await fetch(`${API}${path}`, {
-      next: { revalidate: REVALIDATE },
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) return null;
-    return (await res.json()) as T;
-  } catch {
-    return null;
+    const sb = supabaseAdmin();
+    const { data, error } = await sb
+      .from(TABLE)
+      .select(COLUMNS)
+      .eq("status", "published")
+      .order("publishedAt", { ascending: false, nullsFirst: false });
+
+    if (error) {
+      console.error("[content] Supabase read failed:", error.message);
+      return [];
+    }
+    return ((data ?? []) as unknown as Row[]).map(rowToPost);
+  } catch (e) {
+    console.error("[content] Supabase read threw:", (e as Error).message);
+    return [];
   }
-}
+});
 
 export async function getAllPosts(): Promise<PostSummary[]> {
-  const live = await fromApi<Post[]>("/api/public/posts");
-  const source = live && live.length ? live : allSamples;
-  return source
-    .map(toSummary)
-    .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
+  return (await loadPosts()).map(toSummary);
 }
 
 export async function getPostSlugs(): Promise<string[]> {
-  const live = await fromApi<Post[]>("/api/public/posts");
-  const source = live && live.length ? live : allSamples;
-  return source.map((p) => p.slug);
+  return (await loadPosts()).map((p) => p.slug);
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  const live = await fromApi<Post>(`/api/public/posts/${slug}`);
-  if (live) return live;
-  return allSamples.find((p) => p.slug === slug) ?? null;
+  return (await loadPosts()).find((p) => p.slug === slug) ?? null;
 }
 
 export async function getFeaturedPosts(limit = 3): Promise<PostSummary[]> {
@@ -87,10 +156,7 @@ export async function getCategories(): Promise<Category[]> {
   return Array.from(map.values());
 }
 
-export async function getRelatedPosts(
-  post: Post,
-  limit = 3
-): Promise<PostSummary[]> {
+export async function getRelatedPosts(post: Post, limit = 3): Promise<PostSummary[]> {
   const all = await getAllPosts();
   return all
     .filter((p) => p.slug !== post.slug)

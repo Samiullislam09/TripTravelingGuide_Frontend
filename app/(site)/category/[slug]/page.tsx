@@ -7,9 +7,8 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { baseGraph, breadcrumbNode } from "@/lib/seo/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
-import { Breadcrumbs } from "@/components/post/Breadcrumbs";
 import { PostCard } from "@/components/post/PostCard";
-import { AdSlot } from "@/components/ads/AdSlot";
+import { PageBanner } from "@/components/layout/PageBanner";
 
 export async function generateStaticParams() {
   const cats = await getCategories();
@@ -53,50 +52,20 @@ export default async function CategoryPage({
       <JsonLd data={baseGraph([breadcrumbNode(crumbs)])} />
 
       {/* Header band */}
-      <section className="bg-brand-soft py-12 sm:py-16">
-        <Container>
-          <Breadcrumbs crumbs={crumbs} />
-
-          <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_336px] lg:items-center">
-            <div data-reveal className="max-w-2xl">
-              <span className="pill pill-violet inline-flex items-center gap-1.5">
-                <FolderOpen aria-hidden="true" className="size-3.5" />
-                Category
-              </span>
-
-              <h1 className="mt-4 break-words font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-5xl">
-                {cat.name}
-              </h1>
-
-              <p className="mt-3 text-base text-ink-700 sm:text-lg">
-                {cat.description ||
-                  `Our latest ${cat.name.toLowerCase()} guides and honest, hands-on comparisons.`}
-              </p>
-
-              <p className="mt-4 text-sm font-medium text-ink-500">
-                {posts.length} {posts.length === 1 ? "guide" : "guides"}
-              </p>
-            </div>
-
-            {/* Ad placement — fills the empty right side of the header on large screens */}
-            <div
-              data-reveal
-              data-reveal-delay="0.1"
-              className="hidden rounded-3xl border border-line bg-surface/60 p-4 lg:block"
-            >
-              <AdSlot label="Sponsored" className="my-0" />
-            </div>
-          </div>
-
-          {/* Mobile / tablet ad — the right-side header ad is hidden below lg */}
-          <div
-            data-reveal
-            className="mt-8 rounded-3xl border border-line bg-surface/60 p-4 lg:hidden"
-          >
-            <AdSlot label="Sponsored" className="my-0" />
-          </div>
-        </Container>
-      </section>
+      <PageBanner
+        eyebrow="Category"
+        title={cat.name}
+        description={
+          cat.description ||
+          `Our latest ${cat.name.toLowerCase()} travel guides and honest, hands on comparisons.`
+        }
+        crumbs={crumbs}
+        accent="violet"
+      >
+        <p className="text-sm font-medium text-ink-500">
+          {posts.length} {posts.length === 1 ? "guide" : "guides"}
+        </p>
+      </PageBanner>
 
       {/* Posts grid */}
       <section className="py-12 sm:py-16">
@@ -114,7 +83,7 @@ export default async function CategoryPage({
                 No guides here yet
               </p>
               <p className="max-w-sm text-ink-500">
-                We&apos;re still writing for this category — check back soon for
+                We&apos;re still writing for this category, check back soon for
                 fresh {cat.name.toLowerCase()} stories.
               </p>
             </div>

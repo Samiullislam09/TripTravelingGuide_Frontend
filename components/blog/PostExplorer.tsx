@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, Loader2, X, SlidersHorizontal } from "lucide-react";
+import { Search, Loader2, X, SlidersHorizontal, LayoutGrid } from "lucide-react";
 import type { Category, PostSummary } from "@/lib/types";
 import { searchPosts } from "@/lib/api";
 import { PostCard } from "@/components/post/PostCard";
@@ -11,19 +11,46 @@ interface PostExplorerProps {
   /** Full list shown when there's no search query. */
   posts: PostSummary[];
   categories: Category[];
+  /** Show a 2 / 3 / 4 column chooser (blog page). Home leaves it off. */
+  selectableGrid?: boolean;
 }
+
+// Static column presets so Tailwind keeps the classes at build time. Every
+// preset shares the same phone/tablet base, so only large screens change.
+const GRID_COLS: Record<number, string> = {
+  2: "grid-cols-1 sm:grid-cols-2",
+  3: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
+  4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+};
 
 /**
  * Category filter chips + AJAX live search over posts. When the query is empty
  * we show `posts` filtered by the active category; when the user types we hit
  * `/api/search` (debounced) and filter those results by category too.
  */
-export function PostExplorer({ posts, categories }: PostExplorerProps) {
+export function PostExplorer({
+  posts,
+  categories,
+  selectableGrid = false,
+}: PostExplorerProps) {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState<string>("all");
   const [results, setResults] = useState<PostSummary[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const [cols, setCols] = useState<number>(4);
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Remember the reader's column choice across visits (blog page only).
+  useEffect(() => {
+    if (!selectableGrid) return;
+    const saved = Number(window.localStorage.getItem("blogGridCols"));
+    if (saved === 2 || saved === 3 || saved === 4) setCols(saved);
+  }, [selectableGrid]);
+
+  function chooseCols(n: number) {
+    setCols(n);
+    if (selectableGrid) window.localStorage.setItem("blogGridCols", String(n));
+  }
 
   // Debounced AJAX live search.
   useEffect(() => {
@@ -88,7 +115,7 @@ export function PostExplorer({ posts, categories }: PostExplorerProps) {
           ) : null}
         </div>
 
-        {/* Category filter chips */}
+        {/* Category filter chips + column chooser */}
         <div className="flex flex-wrap items-center gap-2">
           <span className="mr-1 hidden items-center gap-1.5 text-sm font-medium text-ink-500 sm:inline-flex">
             <SlidersHorizontal className="h-4 w-4" aria-hidden />
@@ -107,6 +134,34 @@ export function PostExplorer({ posts, categories }: PostExplorerProps) {
               onClick={() => setActive(c.slug)}
             />
           ))}
+
+          {/* Column density chooser — desktop only (small screens are fixed). */}
+          {selectableGrid ? (
+            <div
+              role="group"
+              aria-label="Choose grid columns"
+              className="ml-auto hidden items-center gap-1 rounded-full border border-line bg-surface p-1 lg:inline-flex"
+            >
+              <LayoutGrid className="ml-1 mr-0.5 h-4 w-4 text-ink-400" aria-hidden />
+              {[2, 3, 4].map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => chooseCols(n)}
+                  aria-pressed={cols === n}
+                  aria-label={`Show ${n} columns`}
+                  className={cn(
+                    "grid h-7 w-7 place-items-center rounded-full text-xs font-bold transition-colors",
+                    cols === n
+                      ? "brand-fill text-white"
+                      : "text-ink-500 hover:text-brand-600",
+                  )}
+                >
+                  {n}
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
 
@@ -117,9 +172,14 @@ export function PostExplorer({ posts, categories }: PostExplorerProps) {
       </p>
 
       {visible.length > 0 ? (
-        <div className="mt-5 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
+        <div
+          className={cn(
+            "mt-5 grid items-stretch gap-5 sm:gap-6",
+            GRID_COLS[cols] ?? GRID_COLS[4],
+          )}
+        >
           {visible.map((post, i) => (
-            <PostCard key={post.slug} post={post} index={i} priority={i < 3} />
+            <PostCard key={post.slug} post={post} index={i} priority={i < 4} />
           ))}
         </div>
       ) : (

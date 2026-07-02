@@ -25,7 +25,7 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
 
   return (
     <article
-      className="card group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:[--tw-ring-color:var(--accent)]"
+      className="card group flex h-full flex-col overflow-hidden !rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:ring-2 hover:[--tw-ring-color:var(--accent)]"
       style={{ ["--accent" as string]: accent.color }}
     >
       <Link
@@ -49,7 +49,7 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
 
           {/* Accent category pill */}
           <span
-            className="pill absolute left-3 top-3 font-semibold backdrop-blur"
+            className="pill absolute left-2.5 top-2.5 px-2.5 py-0.5 text-[11px] font-semibold backdrop-blur"
             style={{ background: accent.soft, color: accent.color, boxShadow: "0 1px 0 rgba(255,255,255,0.25) inset" }}
           >
             <span
@@ -62,19 +62,17 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
         </div>
 
         {/* Body */}
-        <div className="flex flex-1 flex-col p-5">
-          <h3 className="font-display text-lg font-bold leading-snug text-ink-900 transition-colors line-clamp-2 group-hover:[color:var(--accent)]">
+        <div className="flex flex-1 flex-col p-4">
+          <h3 className="font-display text-[0.95rem] font-bold leading-snug text-ink-900 transition-colors line-clamp-2 group-hover:[color:var(--accent)]">
             {post.title}
           </h3>
 
-          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-500">
+          <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-ink-500">
             {post.excerpt}
           </p>
 
           {/* Meta */}
-          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-ink-400">
-            <span>{post.author.name}</span>
-            <span aria-hidden className="h-1 w-1 rounded-full bg-ink-400" />
+          <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[11px] text-ink-400">
             <span>{formatDate(post.publishedAt)}</span>
             {typeof post.readingMinutes === "number" ? (
               <>
@@ -86,11 +84,10 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
 
           {/* Read more */}
           <span
-            className="mt-4 inline-flex items-center gap-1 pt-1 text-sm font-semibold opacity-0 transition-all duration-300 group-hover:opacity-100"
-            style={{ color: accent.color }}
+            className="mt-2.5 inline-flex items-center gap-1 text-[13px] font-semibold text-ink-400 transition-colors duration-300 group-hover:[color:var(--accent)]"
           >
             Read guide
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </span>
         </div>
       </Link>
