@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // The site's historically-indexed URLs (WordPress) all end in a trailing
+  // slash, and canonical/sitemap emit trailing-slash URLs. Serve them the same
+  // way so canonical == served == sitemap == the old Google-indexed URLs.
+  trailingSlash: true,
   // Allows an isolated build dir (e.g. NEXT_DIST_DIR=.next-verify) so a CI/verify
   // build doesn't collide with a running `next dev`. Defaults to ".next".
   distDir: process.env.NEXT_DIST_DIR || ".next",

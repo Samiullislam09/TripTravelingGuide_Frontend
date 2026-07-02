@@ -5,7 +5,7 @@ import { Globe, Mail, MapPin, ArrowRight, Snowflake, Compass, Boxes } from "luci
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { baseGraph, breadcrumbNode } from "@/lib/seo/schema";
+import { baseGraph, breadcrumbNode, personNode } from "@/lib/seo/schema";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -29,6 +29,24 @@ const crumbs = [
   { name: "Home", url: "/" },
   { name: "Founder", url: "/founder" },
 ];
+
+// Person schema for the founder — a real E-E-A-T trust signal on the page that
+// is literally about a person.
+const founderPerson = {
+  name: "Samiul Islam",
+  slug: "samiul-islam",
+  role: "Founder of TripTravelingGuide",
+  bio: "Samiul Islam is the founder of TripTravelingGuide and a full-stack web developer with 3+ years of experience and 26+ launched sites, behind projects like CGHEVEN, WCA Global, and SnowPredictions.",
+  image: site.founder.image,
+  url: "/founder",
+  social: {
+    portfolio: site.social.portfolio,
+    github: site.social.github,
+    linkedin: site.social.linkedin,
+    instagram: site.social.instagram,
+    youtube: site.social.youtube,
+  },
+};
 
 const stats = [
   { value: "3+", label: "Years experience" },
@@ -82,7 +100,7 @@ const socials = [
 export default function FounderPage() {
   return (
     <div className="pb-20">
-      <JsonLd data={baseGraph([breadcrumbNode(crumbs)])} />
+      <JsonLd data={baseGraph([personNode(founderPerson), breadcrumbNode(crumbs)])} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-soft py-12 sm:py-16">

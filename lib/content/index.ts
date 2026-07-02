@@ -10,7 +10,7 @@
 import "server-only";
 
 import { cache } from "react";
-import type { Post, PostSummary, Category } from "@/lib/types";
+import type { Post, PostSummary, Category, FaqItem } from "@/lib/types";
 import { supabaseAdmin } from "@/lib/supabase/server";
 import { site } from "@/lib/site";
 import { readingTimeMinutes } from "@/lib/utils";
@@ -85,6 +85,37 @@ function cleanExcerpt(raw: string): string {
     .trim();
 }
 
+function stripTags(s: string): string {
+  return s
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/gi, "&")
+    .replace(/&#8217;|&rsquo;/gi, "’")
+    .replace(/&#8211;|&ndash;/gi, "-")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&quot;/gi, '"')
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// Pull the on-page FAQ (an <h2>Frequently asked questions</h2> followed by
+// <h3>Q</h3><p>A</p> pairs) out of the article HTML so it can also be emitted as
+// FAQPage JSON-LD for rich results. Returns [] when there is no FAQ block.
+function extractFaq(html: string): FaqItem[] {
+  const section = html.match(
+    /<h2[^>]*>\s*(?:frequently asked questions|faqs?)\s*<\/h2>([\s\S]*?)(?:<h2|$)/i,
+  );
+  if (!section) return [];
+  const items: FaqItem[] = [];
+  const re = /<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
+  let x: RegExpExecArray | null;
+  while ((x = re.exec(section[1])) !== null) {
+    const question = stripTags(x[1]);
+    const answer = stripTags(x[2]);
+    if (question && answer) items.push({ question, answer });
+  }
+  return items;
+}
+
 function rowToPost(r: Row): Post {
   const tags = (r.tags || "")
     .split(",")
@@ -113,6 +144,7 @@ function rowToPost(r: Row): Post {
     author: { ...DEFAULT_AUTHOR },
     category,
     tags,
+    faq: extractFaq(contentHtml),
     publishedAt: toIso(r.publishedAt || r.createdAt),
     readingMinutes: readingTimeMinutes(contentHtml),
     // Surface posts that actually have a real image on the homepage hero.

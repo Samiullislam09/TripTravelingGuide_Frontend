@@ -79,7 +79,14 @@ export function absoluteUrl(path = "/"): string {
   const base = site.url.replace(/\/$/, "");
   if (!path || path === "/") return base + "/";
   if (/^https?:\/\//i.test(path)) return path;
-  return base + (path.startsWith("/") ? path : `/${path}`);
+  let p = path.startsWith("/") ? path : `/${path}`;
+  // trailingSlash: true — keep internal URLs trailing-slashed so canonical,
+  // sitemap, and JSON-LD match what the server serves. Leave fragments (#id),
+  // query strings, and files with an extension (.png, .jpg) untouched.
+  if (!p.includes("#") && !p.includes("?") && !/\.[a-z0-9]+$/i.test(p) && !p.endsWith("/")) {
+    p += "/";
+  }
+  return base + p;
 }
 
 // Non-empty social links, for Organization.sameAs.
