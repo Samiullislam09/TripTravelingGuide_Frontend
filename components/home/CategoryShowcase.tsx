@@ -13,7 +13,7 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
   }
 
   return (
-    <section className="py-12">
+    <section className="py-10 sm:py-12">
       <Container>
         <SectionHeading
           eyebrow="Browse by"
@@ -24,7 +24,7 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
 
         <div
           data-reveal-stagger
-          className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4"
+          className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
         >
           {categories.map((category, index) => (
             <CategoryCard key={category.slug} category={category} index={index} />

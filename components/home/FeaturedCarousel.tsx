@@ -117,7 +117,7 @@ export function FeaturedCarousel({ posts }: FeaturedCarouselProps) {
             type="button"
             onClick={prev}
             aria-label="Previous featured guide"
-            className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/35 text-white opacity-0 backdrop-blur transition-all hover:bg-black/55 focus-visible:opacity-100 group-hover:opacity-100"
+            className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/35 text-white opacity-70 backdrop-blur transition-all hover:bg-black/55 focus-visible:opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -125,7 +125,7 @@ export function FeaturedCarousel({ posts }: FeaturedCarouselProps) {
             type="button"
             onClick={next}
             aria-label="Next featured guide"
-            className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/35 text-white opacity-0 backdrop-blur transition-all hover:bg-black/55 focus-visible:opacity-100 group-hover:opacity-100"
+            className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/35 text-white opacity-70 backdrop-blur transition-all hover:bg-black/55 focus-visible:opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
           >
             <ChevronRight className="h-5 w-5" />
           </button>

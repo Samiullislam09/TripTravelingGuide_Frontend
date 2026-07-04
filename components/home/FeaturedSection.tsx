@@ -48,7 +48,7 @@ export function FeaturedSection({ posts, gridPosts = [] }: FeaturedSectionProps)
           {grid.length > 0 && (
             <div
               data-reveal-stagger
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
             >
               {grid.map((post, i) => (
                 <PostCard key={post.slug} post={post} index={i} />

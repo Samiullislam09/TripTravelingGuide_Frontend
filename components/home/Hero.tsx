@@ -75,7 +75,7 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-brand-soft pb-20 pt-14 sm:pt-20"
+      className="relative overflow-hidden bg-brand-soft pb-14 pt-10 sm:pb-20 sm:pt-20"
     >
       {/* Decorative parallax blobs */}
       <div
@@ -109,7 +109,7 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
               ✦ Honest travel guides since 2023
             </motion.span>
 
-            <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-ink-900 sm:mt-6 sm:text-4xl md:text-5xl lg:text-6xl">
               {HEADLINE_WORDS.map((word) => (
                 <motion.span
                   key={word}
@@ -126,7 +126,7 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
 
             <motion.p
               variants={riseVariants}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-ink-500"
+              className="mt-5 max-w-xl text-base leading-relaxed text-ink-500 sm:mt-6 sm:text-lg"
             >
               Real destination comparisons, transport guides and trip-planning
               advice — researched, honest, and built to help you decide fast.

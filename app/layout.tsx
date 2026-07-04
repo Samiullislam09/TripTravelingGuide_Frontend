@@ -68,17 +68,26 @@ export default function RootLayout({
       <head>
         {/* Sitewide Organization + WebSite schema — present on every page. */}
         <JsonLd data={baseGraph()} />
-        {/* Google AdSense — loads the library + enables Auto Ads (responsive,
-            earnings-optimized placements). Individual <AdSlot> units also use
-            this client id. Only injected when a publisher id is configured. */}
+        {/* Google AdSense — loads the library for the manual <AdSlot> units only.
+            Auto Ads (page-level, Google-chosen placements) is explicitly disabled
+            below so Google can't inject ads into arbitrary spots like the header —
+            only the <AdSlot> units we place ourselves will ever render. */}
         {site.analytics.adsenseClient ? (
-          <Script
-            id="adsbygoogle-init"
-            async
-            strategy="afterInteractive"
-            crossOrigin="anonymous"
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.analytics.adsenseClient}`}
-          />
+          <>
+            <Script
+              id="adsbygoogle-init"
+              async
+              strategy="afterInteractive"
+              crossOrigin="anonymous"
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.analytics.adsenseClient}`}
+            />
+            <Script id="adsbygoogle-disable-auto-ads" strategy="afterInteractive">
+              {`(window.adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "${site.analytics.adsenseClient}",
+  enable_page_level_ads: false
+});`}
+            </Script>
+          </>
         ) : null}
 
         {/* Google Analytics 4 — activates automatically once a Measurement ID is

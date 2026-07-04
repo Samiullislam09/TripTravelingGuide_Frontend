@@ -151,7 +151,7 @@ export default function FounderPage() {
                     target="_blank"
                     rel="noopener noreferrer me"
                     aria-label={`Samiul Islam on ${label}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-semibold text-ink-700 transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                    className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2.5 text-sm font-semibold text-ink-700 transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
                     {label}

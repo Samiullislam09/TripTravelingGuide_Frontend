@@ -44,7 +44,7 @@ export default async function ExplorePage() {
           {categories.length > 0 ? (
             <div
               data-reveal-stagger
-              className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4"
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
             >
               {categories.map((category, index) => (
                 <CategoryCard key={category.slug} category={category} index={index} />

@@ -21,12 +21,12 @@ interface PostExplorerProps {
 }
 
 // Static column presets so Tailwind keeps the classes at build time. Phones
-// always show a comfortable 2-up (cards are compact), and the chosen density
-// kicks in from tablet up.
+// always show a single full-width column (a card must never be squeezed to
+// half-width on a ~375-430px screen); the chosen density kicks in from `sm` up.
 const GRID_COLS: Record<number, string> = {
-  2: "grid-cols-2",
-  3: "grid-cols-2 md:grid-cols-3",
-  4: "grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+  2: "grid-cols-1 sm:grid-cols-2",
+  3: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
+  4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
 };
 
 /**
@@ -287,7 +287,7 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "shrink-0 whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-base",
+        "shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-base",
         active
           ? "brand-fill text-white"
           : "border border-line bg-surface text-ink-700 hover:border-brand-400 hover:text-brand-600",

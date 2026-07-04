@@ -45,8 +45,8 @@ export async function Footer() {
   const categories = await getCategories();
 
   return (
-    <footer className="mt-24 border-t border-line bg-brand-soft">
-      <Container className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.2fr]">
+    <footer className="mt-16 border-t border-line bg-brand-soft sm:mt-24">
+      <Container className="grid gap-10 py-10 sm:py-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.2fr]">
         {/* Brand column */}
         <div data-reveal>
           <Link href="/" className="inline-flex items-center">
@@ -69,7 +69,7 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface text-ink-500 transition hover:border-brand-600 hover:bg-brand-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600/60"
+                className="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface text-ink-500 transition hover:border-brand-600 hover:bg-brand-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600/60"
               >
                 <Icon className="h-4 w-4" aria-hidden="true" />
               </a>
@@ -166,7 +166,7 @@ export async function Footer() {
           </p>
           <Link
             href="/#newsletter"
-            className="btn-primary mt-4 inline-flex px-5 py-2 text-sm"
+            className="btn-primary mt-4 inline-flex px-5 py-2.5 text-sm"
           >
             Subscribe
           </Link>

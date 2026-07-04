@@ -12,7 +12,7 @@ interface ShareBarProps {
 }
 
 const buttonClass =
-  "rounded-full size-9 grid place-items-center border border-line bg-surface text-ink-600 transition-all hover:-translate-y-0.5 hover:text-brand-600 hover:border-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400";
+  "rounded-full size-10 grid place-items-center border border-line bg-surface text-ink-600 transition-all hover:-translate-y-0.5 hover:text-brand-600 hover:border-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400";
 
 function absoluteUrl(url: string): string {
   if (url.startsWith("/") && typeof window !== "undefined") {

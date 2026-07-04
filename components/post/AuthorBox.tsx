@@ -44,7 +44,7 @@ export function AuthorBox({ author }: { author: Author }) {
   return (
     <aside
       data-reveal
-      className="mt-12 rounded-4xl bg-brand-soft p-6 sm:p-8"
+      className="mt-10 rounded-4xl bg-brand-soft p-5 sm:mt-12 sm:p-8"
     >
       <div className="flex items-start gap-5">
         {author.image ? (
@@ -93,7 +93,7 @@ export function AuthorBox({ author }: { author: Author }) {
                     rel="noopener noreferrer me"
                     aria-label={label}
                     title={label}
-                    className="grid size-9 place-items-center rounded-full border border-line bg-surface text-ink-600 transition-colors hover:border-brand-400 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                    className="grid size-10 place-items-center rounded-full border border-line bg-surface text-ink-600 transition-colors hover:border-brand-400 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                   >
                     <Icon className="size-4" />
                   </a>

@@ -59,7 +59,7 @@ export function PaginatedGrid({
         <SortTabs value={sort} onChange={setSort} />
       </div>
 
-      <div className="grid grid-cols-2 items-stretch gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-7">
+      <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
         {visible.map((post, i) => (
           <PostCard key={post.slug} post={post} index={start + i} priority={i < 3} />
         ))}

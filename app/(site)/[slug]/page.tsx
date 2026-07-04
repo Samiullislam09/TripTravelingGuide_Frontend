@@ -86,6 +86,11 @@ function splitHtmlIntoChunks(html: string, n: number): string[] {
   return chunks.filter((c) => c.trim());
 }
 
+// Re-fetch each post from Supabase at most every 5 minutes (ISR), matching the
+// home/category/blog pages, so an edited or rewritten post shows its new content
+// live without a redeploy. Without this, post bodies stay baked from build time.
+export const revalidate = 300;
+
 // Pre-render every known post at build time; revalidate via the content layer.
 export async function generateStaticParams() {
   const slugs = await getPostSlugs();
@@ -155,7 +160,7 @@ export default async function PostPage({
                 <span className="pill bg-white/15 text-white ring-1 ring-white/25 backdrop-blur">
                   {post.category.name}
                 </span>
-                <h1 className="mt-4 max-w-3xl text-2xl font-bold leading-tight text-white drop-shadow sm:text-4xl lg:text-[2.9rem]">
+                <h1 className="mt-4 max-w-3xl text-2xl font-bold leading-tight text-white drop-shadow sm:text-3xl md:text-4xl lg:text-[2.9rem]">
                   {post.title}
                 </h1>
                 <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/85 sm:mt-5">
@@ -232,7 +237,7 @@ export default async function PostPage({
         )}
 
         {/* Body + sticky aside */}
-        <Container className="py-12">
+        <Container className="py-8 sm:py-12">
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12">
             {/* Main column */}
             <div className="mx-auto w-full max-w-3xl lg:mx-0">
@@ -244,12 +249,12 @@ export default async function PostPage({
                 <ShareBar title={post.title} url={shareUrl} />
               </div>
 
-              <div className="mt-8">
+              <div className="mt-6 sm:mt-8">
                 <AdSlot label="Advertisement" {...site.adUnits.postTop} />
               </div>
 
               <div
-                className="prose-article mt-8"
+                className="prose-article mt-6 sm:mt-8"
                 dangerouslySetInnerHTML={{ __html: bodyChunks[0] }}
               />
 
@@ -260,7 +265,7 @@ export default async function PostPage({
                   ads sit between sections rather than stacked or over the UI. */}
               {bodyChunks.slice(1).map((chunk, i) => (
                 <div key={i}>
-                  <div className="my-10">
+                  <div className="my-8 sm:my-10">
                     <AdSlot label="Advertisement" {...site.adUnits.postInContent} />
                   </div>
                   <div
@@ -291,21 +296,21 @@ export default async function PostPage({
 
               {/* FAQ */}
               {post.faq && post.faq.length > 0 && (
-                <section className="mt-14">
-                  <h2 className="text-2xl text-ink-900 sm:text-3xl">
+                <section className="mt-10 sm:mt-14">
+                  <h2 className="text-xl text-ink-900 sm:text-2xl md:text-3xl">
                     Frequently asked questions
                   </h2>
                   <Faq items={post.faq} />
                 </section>
               )}
 
-              <div className="mt-12">
+              <div className="mt-10 sm:mt-12">
                 <AdSlot label="Advertisement" {...site.adUnits.postEnd} />
               </div>
 
               <AuthorBox author={post.author} />
 
-              <div className="mt-12">
+              <div className="mt-10 sm:mt-12">
                 <ShareBar title={post.title} url={shareUrl} />
               </div>
 
@@ -326,11 +331,11 @@ export default async function PostPage({
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="border-t border-line py-16">
+        <section className="border-t border-line py-12 sm:py-16">
           <Container>
             <Reveal className="mb-8">
               <span className="pill-coral">Keep reading</span>
-              <h2 className="mt-3 text-2xl text-ink-900 sm:text-3xl">
+              <h2 className="mt-3 text-xl text-ink-900 sm:text-2xl md:text-3xl">
                 Related guides
               </h2>
             </Reveal>
