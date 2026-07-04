@@ -20,6 +20,7 @@ const exploreLinks = [
 
 const companyLinks = [
   { label: "About", href: "/about" },
+  { label: "Founder", href: "/founder" },
   { label: "Contact", href: "/contact" },
   { label: "Editorial Policy", href: "/editorial-policy" },
   { label: "Affiliate Disclosure", href: "/affiliate-disclosure" },

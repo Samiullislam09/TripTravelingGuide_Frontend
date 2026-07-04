@@ -168,7 +168,7 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
               className="mt-8 grid max-w-md grid-cols-2 gap-3"
             >
               <Link
-                href="/category/destinations"
+                href="/explore"
                 className="btn glass w-full justify-center whitespace-nowrap border border-line/60 px-3 py-3.5 text-[13px] text-ink-900 transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-600 sm:text-sm"
               >
                 <Compass className="h-4 w-4 shrink-0" aria-hidden />
@@ -205,7 +205,7 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
               <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Explore categories
               </p>
-              <div className="mt-3.5 grid grid-cols-2 gap-3.5">
+              <div className="mt-3.5 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
                 {cats.map((cat, i) => {
                   const Icon = iconForCategory(cat.slug);
                   const color = ACCENTS[i % ACCENTS.length];

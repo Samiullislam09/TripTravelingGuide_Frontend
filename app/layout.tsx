@@ -68,26 +68,25 @@ export default function RootLayout({
       <head>
         {/* Sitewide Organization + WebSite schema — present on every page. */}
         <JsonLd data={baseGraph()} />
-        {/* Google AdSense — loads the library for the manual <AdSlot> units only.
-            Auto Ads (page-level, Google-chosen placements) is explicitly disabled
-            below so Google can't inject ads into arbitrary spots like the header —
-            only the <AdSlot> units we place ourselves will ever render. */}
+        {/* Google AdSense — loads the library for the manual <AdSlot> units.
+            NOTE: do not add a code-side `enable_page_level_ads: false` push here.
+            When the AdSense account has (or ever had) Auto ads/ad formats enabled,
+            Google's own script already pushes its page-level-ads config
+            internally — a second manual push throws an uncaught
+            "Only one enable_page_level_ads allowed per page" TagError on every
+            page load, which can also stop the real <AdSlot> units below from
+            rendering. Auto Ads placement must be turned off from the AdSense
+            dashboard itself (Sites > Auto ads, and check individual formats like
+            Anchor/Vignette/In-page — the master toggle doesn't always cover all
+            of them, and changes can take up to 24-48h to propagate). */}
         {site.analytics.adsenseClient ? (
-          <>
-            <Script
-              id="adsbygoogle-init"
-              async
-              strategy="afterInteractive"
-              crossOrigin="anonymous"
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.analytics.adsenseClient}`}
-            />
-            <Script id="adsbygoogle-disable-auto-ads" strategy="afterInteractive">
-              {`(window.adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: "${site.analytics.adsenseClient}",
-  enable_page_level_ads: false
-});`}
-            </Script>
-          </>
+          <Script
+            id="adsbygoogle-init"
+            async
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.analytics.adsenseClient}`}
+          />
         ) : null}
 
         {/* Google Analytics 4 — activates automatically once a Measurement ID is
