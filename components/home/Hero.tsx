@@ -194,9 +194,9 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
           >
             <div className="card animate-float p-7 sm:p-8">
               {/* Orange→red gradient panel */}
-              <div className="flex items-center gap-3 rounded-4xl bg-brand-gradient p-6 text-white shadow-glow-sm">
-                <Globe2 aria-hidden className="h-10 w-10 shrink-0 opacity-90" />
-                <p className="text-lg font-semibold leading-snug">
+              <div className="flex items-center justify-center gap-3 rounded-4xl bg-brand-gradient p-5 text-center text-white shadow-glow-sm sm:p-6 sm:text-left">
+                <Globe2 aria-hidden className="h-9 w-9 shrink-0 opacity-90 sm:h-10 sm:w-10" />
+                <p className="text-base font-semibold leading-snug sm:text-lg">
                   Trusted by travelers in 30+ countries
                 </p>
               </div>

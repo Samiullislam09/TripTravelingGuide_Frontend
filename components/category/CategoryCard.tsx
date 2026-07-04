@@ -36,7 +36,7 @@ export function CategoryCard({ category, index = 0 }: CategoryCardProps) {
       style={{ ["--accent" as string]: accent.color }}
     >
       <div
-        className="relative flex h-28 items-center justify-center overflow-hidden sm:h-36"
+        className="relative flex aspect-[16/9] items-center justify-center overflow-hidden"
         style={{ background: accent.soft }}
       >
         {category.image ? (

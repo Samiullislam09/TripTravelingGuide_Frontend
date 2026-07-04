@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import type { PostSummary } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
 
 interface PostCardProps {
   post: PostSummary;
@@ -32,7 +33,7 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
         className="flex h-full flex-col focus-visible:outline-none"
       >
         {/* Cover */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-surface-2">
+        <div className="relative aspect-[16/9] overflow-hidden bg-surface-2">
           {post.coverImage ? (
             <Image
               src={post.coverImage}
@@ -60,14 +61,31 @@ export function PostCard({ post, priority = false, index = 0 }: PostCardProps) {
           </span>
         </div>
 
-        {/* Body — title + read link only, so the card stays compact */}
-        <div className="flex flex-1 flex-col p-3.5">
-          <h3 className="font-display text-[0.92rem] font-bold leading-snug text-ink-900 transition-colors line-clamp-2 group-hover:[color:var(--accent)]">
+        {/* Body — title, excerpt, byline, read link */}
+        <div className="flex flex-1 flex-col p-4">
+          <h3 className="font-display text-[0.95rem] font-bold leading-snug text-ink-900 transition-colors line-clamp-2 group-hover:[color:var(--accent)]">
             {post.title}
           </h3>
 
+          <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-ink-500">
+            {post.excerpt}
+          </p>
+
+          {/* Byline — author · date · reading time */}
+          <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11.5px] text-ink-400">
+            <span className="font-semibold text-ink-600">{post.author.name}</span>
+            <span aria-hidden className="h-1 w-1 rounded-full bg-ink-300" />
+            <span>{formatDate(post.publishedAt)}</span>
+            {post.readingMinutes ? (
+              <>
+                <span aria-hidden className="h-1 w-1 rounded-full bg-ink-300" />
+                <span>{post.readingMinutes} min read</span>
+              </>
+            ) : null}
+          </div>
+
           {/* Read more */}
-          <span className="mt-auto inline-flex items-center gap-1 pt-2.5 text-[12.5px] font-semibold text-ink-400 transition-colors duration-300 group-hover:[color:var(--accent)]">
+          <span className="mt-auto inline-flex items-center gap-1 pt-3 text-[12.5px] font-semibold text-ink-400 transition-colors duration-300 group-hover:[color:var(--accent)]">
             Read guide
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </span>
