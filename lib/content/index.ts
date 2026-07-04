@@ -116,7 +116,14 @@ function extractFaq(html: string): FaqItem[] {
   return items;
 }
 
-function rowToPost(r: Row): Post {
+// `faq` extraction runs a handful of regexes over the full article HTML — only
+// the single-post page actually renders FAQs (for the on-page accordion + the
+// FAQPage schema), so it's opt-in. Every list/summary page (home, blog,
+// category, related posts, …) shares one cached bulk fetch of every post; if
+// it computed the FAQ for all of them on every render, that's O(all posts)
+// regex work paid on every page that never uses it. Only getPostBySlug (which
+// queries a single row) turns it on.
+function rowToPost(r: Row, opts: { faq?: boolean } = {}): Post {
   const tags = (r.tags || "")
     .split(",")
     .map((t) => t.trim())
@@ -144,7 +151,7 @@ function rowToPost(r: Row): Post {
     author: { ...DEFAULT_AUTHOR },
     category,
     tags,
-    faq: extractFaq(contentHtml),
+    faq: opts.faq ? extractFaq(contentHtml) : [],
     publishedAt: toIso(r.publishedAt || r.createdAt),
     readingMinutes: readingTimeMinutes(contentHtml),
     // Surface posts that actually have a real image on the homepage hero.
@@ -181,7 +188,7 @@ const loadPosts = cache(async (): Promise<Post[]> => {
       console.error("[content] Supabase read failed:", error.message);
       return [];
     }
-    return ((data ?? []) as unknown as Row[]).map(rowToPost);
+    return ((data ?? []) as unknown as Row[]).map((r) => rowToPost(r));
   } catch (e) {
     console.error("[content] Supabase read threw:", (e as Error).message);
     return [];
@@ -196,8 +203,37 @@ export async function getPostSlugs(): Promise<string[]> {
   return (await loadPosts()).map((p) => p.slug);
 }
 
+// Single-post fetch — queries Supabase directly for the one row instead of
+// loading + parsing every published post's full HTML just to .find() one.
+// Post pages are the highest-traffic page type on this site (organic search
+// lands here), so this is the fetch worth keeping as light as possible.
+// Cached per-slug with React cache() so repeat calls in the same request
+// (generateMetadata + the page component both call this) still dedupe to one
+// Supabase round trip.
+const loadPostBySlug = cache(async (slug: string): Promise<Post | null> => {
+  try {
+    const sb = supabaseAdmin();
+    const { data, error } = await sb
+      .from(TABLE)
+      .select(COLUMNS)
+      .eq("slug", slug)
+      .eq("status", "published")
+      .maybeSingle();
+
+    if (error) {
+      console.error("[content] Supabase read failed:", error.message);
+      return null;
+    }
+    if (!data) return null;
+    return rowToPost(data as unknown as Row, { faq: true });
+  } catch (e) {
+    console.error("[content] Supabase read threw:", (e as Error).message);
+    return null;
+  }
+});
+
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  return (await loadPosts()).find((p) => p.slug === slug) ?? null;
+  return loadPostBySlug(slug);
 }
 
 export async function getFeaturedPosts(limit = 3): Promise<PostSummary[]> {

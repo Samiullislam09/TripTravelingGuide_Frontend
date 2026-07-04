@@ -2,13 +2,18 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
-// Single registration point for GSAP plugins. Import { gsap, ScrollTrigger,
-// MotionPathPlugin } from here everywhere so the plugins are only registered
-// once and tree-shaking stays predictable.
+// Single registration point for the GSAP plugins used sitewide. Import
+// { gsap, ScrollTrigger } from here everywhere so the plugin is only
+// registered once and tree-shaking stays predictable.
+//
+// MotionPathPlugin is intentionally NOT registered here: it's only used by the
+// homepage-only <FlightPath> animation (see lib/gsap-motion-path.ts), and this
+// module is imported by the sitewide <MotionRoot>, i.e. every single route.
+// Keeping MotionPathPlugin out of it means every non-homepage page (all blog
+// posts, category pages, etc.) never downloads that plugin's code at all.
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+  gsap.registerPlugin(ScrollTrigger);
 }
 
-export { gsap, ScrollTrigger, MotionPathPlugin };
+export { gsap, ScrollTrigger };

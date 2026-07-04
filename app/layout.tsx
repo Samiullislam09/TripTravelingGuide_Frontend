@@ -91,14 +91,17 @@ export default function RootLayout({
         ) : null}
 
         {/* Google Analytics 4 — activates automatically once a Measurement ID is
-            set in lib/site.ts (analytics.ga4 = "G-XXXXXXXXXX"). */}
+            set in lib/site.ts (analytics.ga4 = "G-XXXXXXXXXX"). Not needed for
+            first paint or interactivity, so it loads with the lowest-priority
+            strategy (after the browser goes idle) to keep it off the mobile
+            critical path. */}
         {site.analytics.ga4 ? (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="ga4-init" strategy="afterInteractive">
+            <Script id="ga4-init" strategy="lazyOnload">
               {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

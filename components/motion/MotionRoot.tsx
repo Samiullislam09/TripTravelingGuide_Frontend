@@ -20,27 +20,33 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 export function MotionRoot() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Touch devices (phones/tablets) already get smooth, momentum-based native
+    // scrolling from the OS — Lenis's wheel-hijacking is a desktop-mouse nicety
+    // that adds a permanent per-frame rAF cost for no visible benefit on touch,
+    // which is exactly the kind of always-on JS that hurts low-end mobile CPUs.
+    // Skip it there; ScrollTrigger-driven reveals still work fine off the
+    // native scroll position.
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
     let lenis: Lenis | null = null;
-    let rafId = 0;
+    let ticker: ((time: number) => void) | null = null;
 
-    if (!reduce) {
+    if (!reduce && !coarsePointer) {
       lenis = new Lenis({
         duration: 1.1,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
       });
       lenis.on("scroll", ScrollTrigger.update);
-      const ticker = (time: number) => lenis?.raf(time * 1000);
+      // Single driver: gsap.ticker already runs its own rAF loop at display
+      // refresh rate, so this is the only tick Lenis needs. (A second,
+      // independent requestAnimationFrame loop used to also call lenis.raf()
+      // every frame — that drove Lenis's scroll-interpolation math twice per
+      // frame, all the time, on every page. Removed.)
+      ticker = (time: number) => lenis?.raf(time * 1000);
       gsap.ticker.add(ticker);
       gsap.ticker.lagSmoothing(0);
       document.documentElement.classList.add("lenis");
-
-      const raf = (time: number) => {
-        lenis?.raf(time);
-        rafId = requestAnimationFrame(raf);
-      };
-      rafId = requestAnimationFrame(raf);
     }
 
     const ctx = gsap.context(() => {
@@ -122,8 +128,9 @@ export function MotionRoot() {
       window.clearTimeout(t1);
       window.clearTimeout(t2);
       if (lenis) {
-        cancelAnimationFrame(rafId);
-        gsap.ticker.remove((t: number) => lenis?.raf(t * 1000));
+        // Remove the exact function reference that was added — passing a new
+        // closure here (as before) silently fails to unregister it.
+        if (ticker) gsap.ticker.remove(ticker);
         lenis.destroy();
         document.documentElement.classList.remove("lenis");
       }

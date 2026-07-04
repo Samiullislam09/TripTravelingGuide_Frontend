@@ -6,7 +6,7 @@ import { Hero } from "@/components/home/Hero";
 import { FeaturedSection } from "@/components/home/FeaturedSection";
 import { CategoryShowcase } from "@/components/home/CategoryShowcase";
 import { HomeStories } from "@/components/home/HomeStories";
-import { FlightPath } from "@/components/home/FlightPath";
+import FlightPath from "@/components/home/FlightPathLazy";
 import DestinationsMarquee from "@/components/home/DestinationsMarquee";
 import { LatestGrid } from "@/components/home/LatestGrid";
 import { StatsBand } from "@/components/home/StatsBand";

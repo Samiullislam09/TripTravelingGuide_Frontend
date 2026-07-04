@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+// Side-effect import: registers MotionPathPlugin. Kept in its own module (not
+// lib/gsap.ts) so pages other than the homepage never fetch this plugin.
+import "@/lib/gsap-motion-path";
 import { Container } from "@/components/ui/Container";
 
 /**
