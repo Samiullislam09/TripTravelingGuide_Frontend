@@ -164,6 +164,76 @@ export const webStories: WebStory[] = [
       { image: U + "1578575437130-527eed3abbec", alt: "Container ship at dock", kicker: "Full guide", heading: "Prices by ship type", text: "New versus used, and what moves the market." },
     ],
   },
+  {
+    slug: "chennai-to-andaman-ship-ticket-price",
+    postSlug: "chennai-to-andaman-ship-ticket-price",
+    title: "Chennai to Andaman by Ship",
+    description:
+      "How the Chennai to Port Blair government ship works in 2026 — fares, sailing time, and booking.",
+    pages: [
+      { image: U + "1684334919617-df67b48b3371", alt: "Passenger ferry crossing the sea", kicker: "Ship Travel", heading: "Chennai to Andaman by Ship", text: "Fares, the 2.5-day crossing, and how to book." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Turquoise sea near the Andaman Islands", kicker: "Ticket price", heading: "Bunk to Deluxe cabin", text: "The 2026 DSS schedule runs roughly ₹4,100 to ₹16,000 one way. Confirm the live fare." },
+      { image: U + "1684334919617-df67b48b3371", alt: "Government passenger ship at sea", kicker: "Who runs it", heading: "A government ship, not a cruise", text: "The Directorate of Shipping Services operates the mainland sailings to Port Blair." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Open sea on the way to Andaman", kicker: "Plan ahead", heading: "Sailings every 10–15 days", text: "Departures are infrequent and sell out. Book as early as the counter allows." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Andaman island lagoon", kicker: "Full guide", heading: "Fares, classes and booking", text: "Everything you need before you sail to Port Blair." },
+    ],
+  },
+  {
+    slug: "vizag-to-andaman-ship-ticket-price",
+    postSlug: "vizag-to-andaman-ship-ticket-price",
+    title: "Vizag to Andaman by Ship",
+    description:
+      "The Visakhapatnam to Port Blair ship for 2026 — fares, the long crossing, and how to book.",
+    pages: [
+      { image: U + "1707584189430-9677d21a4704", alt: "Large passenger ferry at sea", kicker: "Ship Travel", heading: "Vizag to Andaman by Ship", text: "Fares, sailing time, and where to book." },
+      { image: U + "1707584189430-9677d21a4704", alt: "Passenger ship crossing the ocean", kicker: "Ticket price", heading: "Bunk to Deluxe cabin", text: "The 2026 DSS schedule runs roughly ₹4,100 to ₹17,500 one way. Always confirm the fare." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Open ocean between Vizag and Port Blair", kicker: "Be ready", heading: "The longest crossing", text: "Vizag to Port Blair takes about 56–60 hours — around two and a half days at sea." },
+      { image: U + "1572431447238-425af66a273b", alt: "Andaman island shore", kicker: "Plan ahead", heading: "Only a few sailings a month", text: "The schedule, not the fare, usually decides your dates. Book early." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Turquoise Andaman waters", kicker: "Full guide", heading: "Fares, time and booking", text: "All you need for the Vizag–Andaman ship." },
+    ],
+  },
+  {
+    slug: "lakshadweep-ship-ticket-online-booking",
+    postSlug: "lakshadweep-ship-ticket-online-booking",
+    title: "Book a Lakshadweep Ship Online",
+    description:
+      "Step-by-step Lakshadweep ship ticket booking for 2026 — the portal, the permit, and the ships.",
+    pages: [
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Aerial view of a Lakshadweep island and lagoon", kicker: "Lakshadweep", heading: "Book a Ship Online", text: "The portal, the permit, and how to plan." },
+      { image: U + "1572431447238-425af66a273b", alt: "Lakshadweep beach and reef", kicker: "Do this first", heading: "You need an entry permit", text: "Every visitor needs a SPORTS entry permit, tied into the booking system." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Boat on clear Lakshadweep water", kicker: "How to", heading: "Register and choose your island", text: "Sign up with Aadhaar, pick a route like Kochi–Kavaratti, then a ship and class." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Lakshadweep lagoon from above", kicker: "Don't wait", heading: "Book 3–4 months ahead", text: "Berths are limited and sell out fast in the October–May season." },
+      { image: U + "1572431447238-425af66a273b", alt: "Lakshadweep island", kicker: "Full guide", heading: "Every step to book", text: "The official portal, the permit, ships and fares." },
+    ],
+  },
+  {
+    slug: "statue-of-unity-ticket-prices-2024",
+    postSlug: "statue-of-unity-ticket-prices-2024",
+    title: "Statue of Unity Tickets",
+    description:
+      "Statue of Unity ticket types and prices for 2026 — entry, viewing gallery, timings and booking.",
+    pages: [
+      { image: U + "1642841819300-20ed449c02a1", alt: "The Statue of Unity beside the Sardar Sarovar Dam", kicker: "Gujarat", heading: "Statue of Unity Tickets", text: "Ticket types, prices and how to book for 2026." },
+      { image: U + "1598435006252-3f2499fad7e1", alt: "The Statue of Unity seen from below", kicker: "The choice", heading: "Entry vs Viewing Gallery", text: "Basic entry is about ₹150; the viewing-gallery ticket is around ₹350 for adults." },
+      { image: U + "1615033321768-6eaef881fc81", alt: "Full view of the Statue of Unity", kicker: "The highlight", heading: "153 metres up", text: "The viewing gallery inside the statue looks over the dam, the Narmada and the hills." },
+      { image: U + "1642841819300-20ed449c02a1", alt: "Statue of Unity and the river valley", kicker: "Note", heading: "Closed on Mondays", text: "Plan around the Monday closing day, except on national holidays." },
+      { image: U + "1598435006252-3f2499fad7e1", alt: "The Statue of Unity", kicker: "Full guide", heading: "Book on soutickets.in", text: "Ticket types, timings and the official portal." },
+    ],
+  },
+  {
+    slug: "sundarban-national-park-entry-fee",
+    postSlug: "sundarban-national-park-entry-fee",
+    title: "Sundarban Entry Fees",
+    description:
+      "Sundarban National Park entry fee for 2026 — park fee, boat and guide charges, and the permit.",
+    pages: [
+      { image: U + "1661707744987-57711014b7fa", alt: "Boat cruising past mangroves in the Sundarban", kicker: "West Bengal", heading: "Sundarban Entry Fees", text: "What you really pay to visit the mangrove delta." },
+      { image: U + "1661707744987-57711014b7fa", alt: "Mangrove creek in the Sundarban", kicker: "The fee", heading: "₹60 for Indians", text: "The park entry fee is small — about ₹60 for Indians and ₹200 for foreign nationals." },
+      { image: U + "1562975444-d910f117a84f", alt: "A Royal Bengal tiger", kicker: "The extras", heading: "Boat and guide add up", text: "Boat, per-person forest entry and a compulsory guide are charged on top, per day." },
+      { image: U + "1661707744987-57711014b7fa", alt: "Sundarban mangrove waterway", kicker: "Required", heading: "Permit, boat and guide", text: "No one enters the core forest without a valid permit, a registered boat and a guide." },
+      { image: U + "1562975444-d910f117a84f", alt: "Tiger in the forest", kicker: "Full guide", heading: "All the charges explained", text: "Fees, permit and why most people book a package." },
+    ],
+  },
 ];
 
 export function getWebStory(slug: string): WebStory | undefined {
