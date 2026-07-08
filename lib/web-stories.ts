@@ -262,6 +262,34 @@ export const webStories: WebStory[] = [
       { image: U + "1572025310208-2fd6b91764c1", alt: "Lakshadweep sea from above", kicker: "Full guide", heading: "Pick the right island", text: "Diving, honeymoon or culture, matched to the island, plus how to get there." },
     ],
   },
+  {
+    slug: "festivals-of-andaman-and-nicobar-islands",
+    postSlug: "festivals-of-andaman-and-nicobar-islands",
+    title: "Festivals of the Andamans",
+    description:
+      "The festivals of the Andaman and Nicobar Islands in 2026 — when they happen and which ones you can attend.",
+    pages: [
+      { image: U + "1715940093974-8836926f3f41", alt: "A traditional outrigger boat on an Andaman beach", kicker: "Andaman & Nicobar", heading: "Festivals of the Andamans", text: "When to go, and which celebrations you can actually attend." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Turquoise Andaman sea", kicker: "The big one", heading: "Island Tourism Festival", text: "The flagship festival runs 5–15 January 2026, with the traditional Nicobari Hodi boat race." },
+      { image: U + "1715940093974-8836926f3f41", alt: "Local boat on an island lagoon", kicker: "Same month", heading: "Subhash Mela, 23 Jan", text: "Marking Netaji Subhash Chandra Bose's birthday with culture, exhibitions and sport." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Boat on clear tropical water", kicker: "Respect this", heading: "Tribal festivals are off-limits", text: "Indigenous rituals in the protected tribal reserves are not tourist events. Read, don't intrude." },
+      { image: U + "1684334919617-df67b48b3371", alt: "Passenger ferry crossing the sea", kicker: "Full guide", heading: "Plan around a festival", text: "Dates, venues and how to reach Port Blair by air or ship." },
+    ],
+  },
+  {
+    slug: "kochi-to-maldives-cruise-2024",
+    postSlug: "kochi-to-maldives-cruise-2024",
+    title: "Kochi to Maldives Cruise",
+    description:
+      "Cordelia's new Kochi to Maldives cruise from October 2026 — route, fares, dates and what to pack.",
+    pages: [
+      { image: U + "1514282401047-d79a71a590e8", alt: "Overwater villas in a Maldives lagoon", kicker: "New for 2026", heading: "Kochi to Maldives Cruise", text: "Cordelia's first-ever international sailing from Kochi." },
+      { image: U + "1514282401047-d79a71a590e8", alt: "Turquoise Maldives lagoon from above", kicker: "The route", heading: "Kochi, Male, Colombo", text: "The Empress starts sailing this route on 25 October 2026, taking in the Maldives and Sri Lanka." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Boat on clear tropical water", kicker: "Two options", heading: "5-night or a weekend", text: "A 5-night Sunday-to-Friday sailing, or a shorter 2-night weekend taster." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Clear tropical sea", kicker: "Don't forget", heading: "It's international now", text: "You need a passport, plus a Sri Lanka ETA. Indians usually get Maldives visa on arrival." },
+      { image: U + "1514282401047-d79a71a590e8", alt: "Maldives overwater resort", kicker: "Full guide", heading: "Fares and how to book", text: "What's included, what's not, and where to book direct." },
+    ],
+  },
 ];
 
 export function getWebStory(slug: string): WebStory | undefined {
