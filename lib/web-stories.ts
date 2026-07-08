@@ -290,6 +290,20 @@ export const webStories: WebStory[] = [
       { image: U + "1514282401047-d79a71a590e8", alt: "Maldives overwater resort", kicker: "Full guide", heading: "Fares and how to book", text: "What's included, what's not, and where to book direct." },
     ],
   },
+  {
+    slug: "pittsburgh-winter-forecast-2024-2025",
+    postSlug: "pittsburgh-winter-forecast-2024-2025",
+    title: "Pittsburgh Winter 2026-2027",
+    description:
+      "What to expect from Pittsburgh's winter in 2026-2027, driven by a strengthening El Nino.",
+    pages: [
+      { image: U + "1611317621952-8317fc747166", alt: "A snow-covered city street during a snowfall", kicker: "Winter 2026-2027", heading: "Pittsburgh's Winter Outlook", text: "One signal is doing most of the talking this year: El Nino." },
+      { image: U + "1609650793481-55b352ac866a", alt: "A snowy street lined with glowing lamps at night", kicker: "The driver", heading: "A strengthening El Nino", text: "NOAA expects El Nino present and strengthening through winter, at 97-99% confidence." },
+      { image: U + "1611317621952-8317fc747166", alt: "Snow falling on a quiet city street", kicker: "What it means", heading: "Leaning milder", text: "El Nino usually pushes the storm track south, favouring near-to-below-normal snow here." },
+      { image: U + "1609650793481-55b352ac866a", alt: "Heavy snowfall on a city path", kicker: "But", heading: "One storm can flip it", text: "A single well-placed system can still dump heavy snow. It's a lean, not a lock." },
+      { image: U + "1611317621952-8317fc747166", alt: "Winter in the city", kicker: "Full guide", heading: "Averages and how to prep", text: "Pittsburgh's normal snowfall, what the almanacs say, and a simple prep checklist." },
+    ],
+  },
 ];
 
 export function getWebStory(slug: string): WebStory | undefined {
