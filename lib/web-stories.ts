@@ -234,6 +234,34 @@ export const webStories: WebStory[] = [
       { image: U + "1562975444-d910f117a84f", alt: "Tiger in the forest", kicker: "Full guide", heading: "All the charges explained", text: "Fees, permit and why most people book a package." },
     ],
   },
+  {
+    slug: "mumbai-to-lakshadweep-cruise-price-2024",
+    postSlug: "mumbai-to-lakshadweep-cruise-price-2024",
+    title: "Mumbai to Lakshadweep Cruise",
+    description:
+      "The Mumbai to Lakshadweep cruise for 2026 — real fares, the ships, the season and the permit.",
+    pages: [
+      { image: U + "1572431447238-425af66a273b", alt: "Aerial view of a Lakshadweep coral island and lagoon", kicker: "Cruise", heading: "Mumbai to Lakshadweep", text: "What it really costs, and the permit to sort first." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Turquoise Lakshadweep lagoon", kicker: "The fare", heading: "No single price", text: "Per person swings from ~₹36,000 for a basic cabin to well over ₹75,000 in peak season." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Boat on clear Lakshadweep water", kicker: "Who runs it", heading: "Cordelia Cruises", text: "Seasonal round trips on the Empress and newer Sky, mostly from Mumbai, some from Kochi." },
+      { image: U + "1572431447238-425af66a273b", alt: "Lakshadweep island shore", kicker: "Do this first", heading: "The permit is a must", text: "Even Indians need an entry permit at epermit.utl.gov.in. Rules eased from April 2026." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Lakshadweep sea from above", kicker: "Full guide", heading: "Fares, ships and booking", text: "The season, the permit and how to book it right." },
+    ],
+  },
+  {
+    slug: "best-places-to-visit-in-lakshadweep",
+    postSlug: "best-places-to-visit-in-lakshadweep",
+    title: "Best Islands in Lakshadweep",
+    description:
+      "Which Lakshadweep islands to visit in 2026 — Agatti, Bangaram, Kadmat, Kavaratti and Minicoy, plus the permit.",
+    pages: [
+      { image: U + "1572431447238-425af66a273b", alt: "Aerial view of a Lakshadweep coral island", kicker: "Lakshadweep", heading: "Best Islands to Visit", text: "Only a handful are open. Here's how they compare in 2026." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Turquoise Lakshadweep lagoon", kicker: "The gateway", heading: "Agatti & Bangaram", text: "Agatti has the only airport and a stunning lagoon. Bangaram is the quiet, resort-only hideaway." },
+      { image: U + "1683043430721-f4a25e539cd5", alt: "Boat on clear Lakshadweep water", kicker: "For divers", heading: "Kadmat & Kavaratti", text: "Kadmat is the diver's pick for its reef and wreck. Kavaratti is the lively capital with culture too." },
+      { image: U + "1572431447238-425af66a273b", alt: "Lakshadweep island shore", kicker: "Do this first", heading: "You need a permit", text: "Every non-islander, Indians included, needs an entry permit at epermit.utl.gov.in." },
+      { image: U + "1572025310208-2fd6b91764c1", alt: "Lakshadweep sea from above", kicker: "Full guide", heading: "Pick the right island", text: "Diving, honeymoon or culture, matched to the island, plus how to get there." },
+    ],
+  },
 ];
 
 export function getWebStory(slug: string): WebStory | undefined {
