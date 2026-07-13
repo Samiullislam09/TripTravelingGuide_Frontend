@@ -304,6 +304,20 @@ export const webStories: WebStory[] = [
       { image: U + "1611317621952-8317fc747166", alt: "Winter in the city", kicker: "Full guide", heading: "Averages and how to prep", text: "Pittsburgh's normal snowfall, what the almanacs say, and a simple prep checklist." },
     ],
   },
+  {
+    slug: "cordelia-cruise-price",
+    postSlug: "cordelia-cruise-price",
+    title: "Cordelia Cruise Price 2026",
+    description:
+      "What a Cordelia cruise really costs in 2026: fares by cabin and route, hidden charges, and how to book.",
+    pages: [
+      { image: U + "1580541631950-7282082b53ce", alt: "Aerial view of a cruise ship docked at a tropical island pier", kicker: "India's cruise line", heading: "What a Cordelia cruise costs", text: "Fares start around Rs 16,000 per person for a 2-night interior cabin, twin-sharing." },
+      { image: U + "1599640842225-85d111c60e6b", alt: "A large white cruise ship beside a turquoise beach", kicker: "By cabin", heading: "Interior to Suite", text: "Interior is cheapest; ocean view, balcony and suites cost a lot more, per person." },
+      { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship at a tropical island", kicker: "By route", heading: "Goa to Lakshadweep", text: "A weekend to Goa is cheap. Lakshadweep and the Maldives run into lakhs per person." },
+      { image: U + "1599640842225-85d111c60e6b", alt: "Cruise ship on a bright day at sea", kicker: "Watch out", heading: "Taxes and tips are extra", text: "Gratuities of about USD 12 a night, plus TCS, GST and port charges, sit on top of the fare." },
+      { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship near a palm-lined shore", kicker: "Before you book", heading: "Check the live fare", text: "Prices change daily. Confirm the current price on the official site, then read our full guide." },
+    ],
+  },
 ];
 
 export function getWebStory(slug: string): WebStory | undefined {
