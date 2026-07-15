@@ -318,6 +318,20 @@ export const webStories: WebStory[] = [
       { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship near a palm-lined shore", kicker: "Before you book", heading: "Check the live fare", text: "Prices change daily. Confirm the current price on the official site, then read our full guide." },
     ],
   },
+  {
+    slug: "cordelia-cruise-food-dining",
+    postSlug: "cordelia-cruise-food-dining",
+    title: "Cordelia Cruise Food & Dining",
+    description:
+      "What food is free on a Cordelia cruise and what costs extra: buffet meals, drinks, veg and Jain options.",
+    pages: [
+      { image: U + "1580541631950-7282082b53ce", alt: "Aerial view of a cruise ship docked at a tropical island pier", kicker: "On board", heading: "Cordelia Cruise Food", text: "What's included in your fare, and what you pay extra for." },
+      { image: U + "1599640842225-85d111c60e6b", alt: "A large white cruise ship beside a turquoise beach", kicker: "Included", heading: "Your buffet meals are free", text: "Breakfast, lunch, high tea, dinner and a midnight snack at the Starlight and Food Court restaurants." },
+      { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship at a tropical island", kicker: "Costs extra", heading: "Drinks aren't included", text: "Every drink is paid, even water beyond your cabin bottle. The two specialty restaurants cost extra too." },
+      { image: U + "1599640842225-85d111c60e6b", alt: "Cruise ship on a bright day at sea", kicker: "Good to know", heading: "Veg, Jain and halal", text: "A separate veg and Jain section, and no beef or pork is served anywhere on the ship." },
+      { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship near a palm-lined shore", kicker: "Full guide", heading: "See what's free vs paid", text: "The full food, drinks and dining breakdown before you sail." },
+    ],
+  },
 ];
 
 export function getWebStory(slug: string): WebStory | undefined {
