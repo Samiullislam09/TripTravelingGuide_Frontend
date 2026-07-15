@@ -7,18 +7,25 @@
 
 ---
 
-## The publish flow (draft-first — NEVER auto-publish)
+## The publish flow (through the CMS dashboard — NEVER auto-publish)
+
+Posts flow through the **triptravelguide-dashboard** CMS (separate app, `../triptravelguide-dashboard`), which reads/writes the SAME Supabase `Article` table the frontend reads. Verified working end-to-end on 2026-07-13 (create → edit → approve → publish → live on frontend).
 
 ```
-AI/writer drafts
+AI/writer drafts the article
   → detect.mjs = STYLE check only (is it robotic?) — NOT a publish gate
-  → insert as status = "draft"   (NOT "published")
-  → HUMAN review: verify every fact + add ≥1 original element
-  → only then flip to status = "published"
-  → drip: ≤5 posts/week, never a bulk batch
+  → insert into Supabase Article as status = "pending_review"  (NOT "published"),
+    source = "manual", with full contentHtml + meta + cover
+  → it now appears in the dashboard's Content list as a draft
+  → owner opens it in the dashboard (/review/[id]): edits, verifies every fact,
+    resolves any HUMAN-INPUT markers, adds ≥1 original element
+  → owner clicks Approve  (server gates: no unresolved markers, wordCount ≥ 700,
+    weekly cap ≤ 5) → status "approved"
+  → owner clicks Publish → status "published" → live on the frontend (ISR ~5 min)
+  → drip: ≤5 posts/week (enforced by the approve weekly cap)
 ```
 
-**Rule:** no AI-written post goes live without a human reading it and verifying the facts. Direct `status:"published"` inserts for new AI content are banned.
+**Rule:** no post goes live without the owner reviewing it in the dashboard. Direct `status:"published"` inserts (bypassing the dashboard) are **banned** — always insert as `status:"pending_review"` so it lands in the review queue. The WordPress mirror on publish is best-effort and non-blocking (the site is migrating off WP; a 403 there does not stop the article going live).
 
 ---
 
