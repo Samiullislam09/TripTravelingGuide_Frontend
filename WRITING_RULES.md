@@ -123,6 +123,20 @@ financial-transaction content held to a "very high" PQ bar.)*
 > result", "Needless to say", "At the end of the day", "keep in mind", "as
 > mentioned earlier".
 
+**Never use an em dash (—).** Not the character, not `&mdash;`, not in any post,
+heading, meta, caption or web story. It is the single loudest AI tell in our
+copy, and we lean on it far too much. Rewrite the sentence instead:
+
+| Instead of the em dash | Use |
+| --- | --- |
+| An aside mid-sentence | A comma pair, or brackets |
+| A hard turn or reveal | A colon, or a full stop and a new sentence |
+| A list gloss (`Starlight — the buffet`) | A verb: "Starlight **is** the buffet" |
+| A range (`₹350—500`) | An en dash `&ndash;` or the word "to" |
+
+En dashes in numeric ranges and ordinary hyphens are fine. Check before saving:
+a draft with a single `—` or `&mdash;` in it fails the gate.
+
 **Cut hedging & empty intensifiers.** Drop "can be / may / often / generally /
 typically / tends to / a variety of / some travellers" — either state the fact,
 attribute it with a real number/source, or admit you don't know (§3). Ban "truly
@@ -212,6 +226,7 @@ Passes only if: **people-first intent test passed** • Who/How/Why answerable �
 fact verified vs official source + dated • ≥1 **genuinely** original element •
 ≥1 explicit stance/recommendation • Trust infra live (About + contact + editorial
 policy + real byline/author page) • YMYL track applied if money/safety • cover
-image present • 3–5 contextual internal links, no orphan • no banned phrases • no
+image present • 3–5 contextual internal links, no orphan • no banned phrases •
+**zero em dashes (`—` / `&mdash;`)** • no
 forbidden schema • 700+ words of substance. **Draft-first `pending_review` —
 never auto-publish.**

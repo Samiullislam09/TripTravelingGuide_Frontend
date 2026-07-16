@@ -217,6 +217,13 @@
   @apply border-l-4 border-brand-400 bg-brand-600/5 py-2 pl-5 pr-4 italic text-ink-700 rounded-r-2xl;
 }
 .prose-article img { @apply rounded-3xl my-8 w-full ring-1 ring-line; }
+/* In-body images with a caption. The figure owns the vertical rhythm so the
+   caption sits tight under its image instead of floating a full margin away. */
+.prose-article figure { @apply my-8; }
+.prose-article figure img { @apply my-0; }
+.prose-article figcaption {
+  @apply mt-2 text-center text-sm italic leading-snug text-ink-500;
+}
 /* Responsive tables: become horizontally scrollable instead of overflowing the
    page. `display:block` + overflow-x lets wide CMS comparison tables scroll on
    mobile AND desktop without breaking the layout. */

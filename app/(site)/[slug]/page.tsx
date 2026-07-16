@@ -16,6 +16,7 @@ import { site } from "@/lib/site";
 import { Reveal } from "@/components/motion/Reveal";
 import ShareBar from "@/components/post/ShareBar";
 import { InContentLinks } from "@/components/post/InContentLinks";
+import { PostWebStories } from "@/components/post/PostWebStories";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
 
@@ -328,6 +329,9 @@ export default async function PostPage({
           </div>
         </Container>
       </article>
+
+      {/* Web stories for this guide — renders itself only if any exist */}
+      <PostWebStories postSlug={post.slug} />
 
       {/* Related */}
       {related.length > 0 && (

@@ -19,6 +19,13 @@ export interface WebStory {
   title: string;
   description: string;
   pages: WebStoryPage[];
+  /**
+   * Editorial rank for the home page's "Popular" filter (1 = show first).
+   * This is a hand-picked order, NOT measured traffic: GA4/GSC are still empty,
+   * so there is no real pageview signal to sort by yet. Swap this for actual
+   * analytics once they report, and keep the label honest until then.
+   */
+  popularRank?: number;
 }
 
 const U = "https://images.unsplash.com/photo-";
@@ -27,6 +34,7 @@ export const webStories: WebStory[] = [
   {
     slug: "kochi-to-lakshadweep-ship-ticket-price",
     postSlug: "kochi-to-lakshadweep-ship-ticket-price",
+    popularRank: 3,
     title: "Kochi to Lakshadweep by Ship",
     description:
       "Ship fares from Kochi to Lakshadweep, the entry permit you need, and how to book.",
@@ -41,6 +49,7 @@ export const webStories: WebStory[] = [
   {
     slug: "how-to-visit-vantara-step-by-step-guide",
     postSlug: "how-to-visit-vantara-step-by-step-guide",
+    popularRank: 6,
     title: "Visiting Vantara, Jamnagar",
     description:
       "The real 2026 status of Vantara in Jamnagar, who can visit, and why there are no public tickets.",
@@ -83,6 +92,7 @@ export const webStories: WebStory[] = [
   {
     slug: "how-to-visit-burj-khalifa-for-free",
     postSlug: "how-to-visit-burj-khalifa-for-free",
+    popularRank: 4,
     title: "See Burj Khalifa for Free",
     description:
       "You cannot go up Burj Khalifa for free, but here are the best free views and the fountain show.",
@@ -251,6 +261,7 @@ export const webStories: WebStory[] = [
   {
     slug: "best-places-to-visit-in-lakshadweep",
     postSlug: "best-places-to-visit-in-lakshadweep",
+    popularRank: 5,
     title: "Best Islands in Lakshadweep",
     description:
       "Which Lakshadweep islands to visit in 2026 — Agatti, Bangaram, Kadmat, Kavaratti and Minicoy, plus the permit.",
@@ -307,6 +318,7 @@ export const webStories: WebStory[] = [
   {
     slug: "cordelia-cruise-price",
     postSlug: "cordelia-cruise-price",
+    popularRank: 1,
     title: "Cordelia Cruise Price 2026",
     description:
       "What a Cordelia cruise really costs in 2026: fares by cabin and route, hidden charges, and how to book.",
@@ -321,6 +333,7 @@ export const webStories: WebStory[] = [
   {
     slug: "cordelia-cruise-food-dining",
     postSlug: "cordelia-cruise-food-dining",
+    popularRank: 2,
     title: "Cordelia Cruise Food & Dining",
     description:
       "What food is free on a Cordelia cruise and what costs extra: buffet meals, drinks, veg and Jain options.",
@@ -336,6 +349,16 @@ export const webStories: WebStory[] = [
 
 export function getWebStory(slug: string): WebStory | undefined {
   return webStories.find((s) => s.slug === slug);
+}
+
+/**
+ * Every story that belongs to one guide, matched on `postSlug`. This is what
+ * makes the story strip under an article automatic: add a story to `webStories`
+ * with the guide's slug as its `postSlug` and the section appears on that post,
+ * with no per-post wiring anywhere.
+ */
+export function getStoriesForPost(postSlug: string): WebStory[] {
+  return webStories.filter((s) => s.postSlug === postSlug);
 }
 
 // Poster / card image (portrait, sized for a story cover).
