@@ -3,8 +3,14 @@ import { absoluteUrl } from "@/lib/site";
 import { getAllPosts, getCategories } from "@/lib/content";
 import { webStories } from "@/lib/web-stories";
 
-// Native Next.js sitemap — regenerated on each build/revalidate. Submitted to
-// Google Search Console as /sitemap.xml.
+// Native Next.js sitemap, submitted to Google Search Console as /sitemap.xml.
+//
+// Posts publish straight from the CMS with no redeploy, so this must revalidate
+// on the same 5-minute clock as the pages it lists. Without this export Next
+// builds the sitemap once at deploy time and serves that copy forever: a post
+// published after a deploy stays out of the sitemap until someone happens to
+// redeploy, which is how `cordelia-cruise-rules` went missing on 17 Jul 2026.
+export const revalidate = 300;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, categories] = await Promise.all([getAllPosts(), getCategories()]);
