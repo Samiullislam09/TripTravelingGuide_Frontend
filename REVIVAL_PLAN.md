@@ -171,7 +171,7 @@ Same slug rule applies: `costco-travel-cruises-2023-2024/` → 301 →
 
 ## Status
 
-- [ ] GSC export (Queries + Pages, 16mo) — tells us current positions, not just history
+- [ ] GSC export (Queries + Pages, 16mo): tells us current positions, not just history
 - [ ] Costco research: is an honest version possible without a membership?
 - [ ] Virginia rebuilt + 301s added to `next.config.mjs`
 - [ ] Tennessee rebuilt + 301s
