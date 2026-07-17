@@ -184,6 +184,54 @@ month-level modifiers that are where the real long-tail demand sits.
 
 ---
 
+## "Can we write 100+ snow/forecast posts this summer?" No.
+
+Asked 17 Jul 2026. Recording the answer so it doesn't come back.
+
+**It breaks Rule 0** (`WRITING_RULES.md`). Google's spam policies name this
+directly: *"scaled content abuse is when many pages are generated for the primary
+purpose of manipulating search rankings and not helping users"*, and it is
+**method-agnostic**: *"whether content is produced through automation, human
+efforts, or some combination."* Writing them by hand is not a defence. A plan whose
+unit is a post count **is** the policy.
+
+**It inverts what we did the same day.** We pruned 15 posts on 17 Jul 2026 to
+shrink a thin catalogue that a classifier had already flagged. We had 60 posts, 52
+got flagged, and the site got demoted. Adding 100 more is that same trade, at
+scale, in the wrong direction.
+
+**It escalates the failure mode.** We are currently under an *algorithmic*
+demotion: no human involved, recoverable by fixing content. Scaled content abuse is
+a **spam policy**, and spam policies are what earn **manual actions**. That is a
+worse room with a harder door.
+
+**And forecasts specifically cannot be written 100 times.** We cannot forecast
+once. 100 forecast posts means asserting snowfall we have no basis to assert, 100
+times, on a site already carrying 51 fabrication-flagged posts. That is not a risk,
+it is a certainty.
+
+**What the numbers actually allow:** house drip is ≤5/week (`WRITING_RULES.md`), so
+8 summer weeks caps at ~40 *if* every post cleared the gate. In practice each post
+here needs primary sources read end to end (the Cordelia rules post took three full
+PDFs), so the real number is single digits.
+
+**The plan is 3 posts. That is not a compromise, it is the finding.**
+europeinwinter.com ranks #3 with **one** post from August 2023. They did not write
+100. Our own 60 posts produced no traffic, which is the proof that count is not the
+input.
+
+**Where the effort should go instead**, in order: connect GSC + Bing Webmaster
+Tools (we are flying blind), rewrite the ~38 flagged posts still live (they are the
+ranking ceiling), then write these 3. Writing is the fourth priority, not the first.
+
+**And the honest one:** the ~3M was Discover, not search, and Discover has no
+keyword to target. Every documented HCU recovery correlated with off-Google brand
+demand (HouseFresh's owner: YouTube and a partnership, and *"I didn't try to get
+backlinks at all. Not one bit."*). If there is summer capacity for 100 posts, that
+capacity is worth more on YouTube than on post 4 through 100.
+
+---
+
 ## Timing
 
 Evergreen climatology has **no deadline**, which is the entire point of choosing it

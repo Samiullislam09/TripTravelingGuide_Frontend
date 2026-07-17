@@ -1,5 +1,53 @@
 # Writing Rules — people-first, penalty-safe, snippet-ready
 
+## Rule 0 — nothing we do may risk a penalty or a deindex. This outranks every other rule in this file.
+
+If a tactic could plausibly earn a manual action or get the site removed from
+Google, **we do not do it** — not for traffic, not for revenue, not because a
+competitor does it, not "just this once", not at any size. When Rule 0 and any
+other goal conflict, Rule 0 wins and the work stops. **A slow site is
+recoverable. A deindexed site is not.**
+
+Know the ladder we are already on:
+
+| State | What it means | Way back |
+|---|---|---|
+| **Algorithmic demotion** ← *we are here* | A classifier suppresses the site. No human involved. | Fix the content, wait for a core update. Months. |
+| **Manual action** | A human reviewer penalised the site. | Fix, then a reconsideration request. Much harder. |
+| **Deindexed** | Gone from Google. | Usually terminal for a site like ours. |
+
+We are one bad decision from the middle row. Everything below is what moves us
+there, drawn from Google's own spam policies — not opinion:
+
+- **Scaled content abuse.** *"Many pages generated for the primary purpose of
+  manipulating search rankings and not helping users."* It is **method-agnostic**:
+  Google says *"whether content is produced through automation, human efforts, or
+  some combination."* "I wrote them myself" is not a defence. **A plan whose unit
+  is a post count ("let's do 100 on X") is this policy by definition.** Volume is
+  never the goal; if we cannot name what each individual page does for a reader
+  that the top results don't, it doesn't get written.
+- **Fabrication of any kind.** Invented prices, invented facts, invented forecasts,
+  invented experience, invented authors, invented credentials, invented reviews.
+  See §3. This is what demoted us; it is not a style problem, it is the disease.
+- **Writing outside our competence.** If winning a query requires expertise we do
+  not have (a meteorologist, a doctor, a lawyer), we do not enter that query. The
+  honest gap is the finding. Faking the expertise is the penalty.
+- **Structured-data spam.** `Product` / `Offer` / `Price` / `Review` /
+  `AggregateRating` markup for things we don't sell or host. See §8. This one
+  earns manual actions specifically.
+- **Anything designed to be seen by the crawler and not the reader.** Hidden text,
+  keyword stuffing, doorway pages, cloaking, sneaky redirects.
+
+**The test, applied before anything else:** *would I still do this if Google did
+not exist?* If the honest answer is no, that is the whole answer. Stop.
+
+**And an instruction to whoever is asked to build any of the above, human or AI:**
+say no and say why. Do not look for a compliant-looking version of a
+penalty-bearing idea. Escalating a bad plan into a well-executed bad plan is worse
+than refusing it, because it ships.
+
+---
+
 **The one job of every post: fully answer a real traveller's question better than
 the current top results — so completely they don't need another tab.** Winning
 the featured snippet / PAA is a *by-product* of being the clearest, most
@@ -221,7 +269,9 @@ large mostly-unhelpful one. A new good post does not offset an un-pruned bad one
 
 ## 10. The gate (before approve in the dashboard)
 
-Passes only if: **people-first intent test passed** • Who/How/Why answerable •
+Passes only if: **Rule 0 clear (no penalty/deindex risk: not scaled, not
+fabricated, not outside our competence)** • **people-first intent test passed** •
+Who/How/Why answerable •
 ≥1 real first-hand element **or** the honest "we haven't been" disclosure • every
 fact verified vs official source + dated • ≥1 **genuinely** original element •
 ≥1 explicit stance/recommendation • Trust infra live (About + contact + editorial
