@@ -56,7 +56,7 @@ more authority than us. It is travel content, which is our actual lane.
 ## Why this pocket is winnable (verified, not theory)
 
 `will it snow in london` returns **europeinwinter.com, candaceabroad.com,
-timelesstravelsteps.com, travellingmandala.com, boundlessroads.com** — an ecosystem
+timelesstravelsteps.com, travellingmandala.com, boundlessroads.com**, an ecosystem
 of personal travel blogs, none with meteorological credentials. On US-geo Google,
 **firewoodfund.co.uk** (a firewood shop) ranks for UK winter predictions. That is
 what a soft SERP looks like.
@@ -78,7 +78,7 @@ networks shipped "Winter Weather Forecast 2027" on 15 July 2026).
 
 ---
 
-## About search volume — read once, then stop asking
+## About search volume: read once, then stop asking
 
 **There are no real volume numbers in this file, because we have no tool that
 produces them.** Volume comes from Ahrefs / SEMrush / Google Keyword Planner. We
@@ -90,8 +90,8 @@ What the "Demand" column below actually means: **the query autocompletes on Goog
 actually type. That proves demand **exists**. It does not size it.
 
 **To get real numbers, do these two free things:**
-1. **Bing Webmaster Tools** — free, includes a keyword research tool with volumes.
-2. **Google Search Console** — free. Also the one place the real historical numbers
+1. **Bing Webmaster Tools** is free and includes a keyword research tool with volumes.
+2. **Google Search Console** is free. It is also the one place the real historical numbers
    might still exist (a property holds ~16 months). If an old GSC property from the
    WordPress era is still alive, it settles the 3M question outright.
 
@@ -133,7 +133,7 @@ month-level modifiers that are where the real long-tail demand sits.
   `...in november`, `...in january`, `...at christmas`, `...every year`, `...in may`
 - **Competition:** travel blogs (europeinwinter #3 with a 2023 page, candaceabroad),
   netweather.tv, plus a firewood retailer. **No authority site owns it.**
-- **Angle:** the honest answer is "less than you think, and rarely settles" — this
+- **Angle:** the honest answer is "less than you think, and rarely settles". This
   contradicts the fantasy the query is really asking about, which satisfies
   `WRITING_RULES.md` §6 (take a position, contradict the common assumption).
 - **H2s:**
@@ -165,7 +165,7 @@ month-level modifiers that are where the real long-tail demand sits.
 - **Demand:** VERIFIED autocomplete; also `where to see snow in europe december`,
   `best time to see snow in europe`, `best places to visit for snow in europe`.
 - **Competition:** listicles. Beatable on specificity, not on being another listicle.
-- **Angle:** this is the money query of the three — it has **trip-planning intent**,
+- **Angle:** this is the money query of the three, because it has **trip-planning intent**,
   not curiosity intent. Reader is deciding where to spend money.
 - **Requirement:** must be a *decision* post, not a list of 15 places. Rank them,
   name who each is wrong for, and pick one. A post that decides nothing is a rewrite
@@ -186,7 +186,7 @@ month-level modifiers that are where the real long-tail demand sits.
 
 ## Timing
 
-Evergreen climatology has **no deadline** — that is the entire point of choosing it
+Evergreen climatology has **no deadline**, which is the entire point of choosing it
 over the forecast race. But readers plan winter trips from roughly September, so:
 
 - **Aug 2026:** draft posts 1-3, human fact-check against Met Office / Meteo-France.
@@ -199,7 +199,7 @@ over the forecast race. But readers plan winter trips from roughly September, so
 ## One thing to fix from the prune
 
 `pennsylvania-snow-predictions` was pruned on 17 Jul 2026, but its slug has **no
-year in it** — it was the one evergreen-slug winter post we had, and the better move
+year in it**. It was the one evergreen-slug winter post we had, and the better move
 would have been to rewrite it for 2026-27 rather than retire it. It is fully backed
 up. If we ever do want a US winter post, restore that URL and rewrite it in place
 rather than minting a new slug:
