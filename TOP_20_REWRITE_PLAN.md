@@ -70,7 +70,7 @@ cover image, not Unsplash.
 `Rev` = lifetime revenue. `RPM` = revenue per 1,000 views. `Story` = does an AMP
 Web Story exist today.
 
-### Tier 1 — the four that made 40% of all revenue (days 1 to 4)
+### Tier 1: the four that made 40% of all revenue (days 1 to 4)
 
 | # | Target keyword | Working title | Old slug | Slug to publish on | Rev | RPM | Story |
 |---|---|---|---|---|---|---|---|
@@ -90,7 +90,7 @@ average seasonal snowfall by city. Then the honest line the whole SERP is missin
 *nobody can give you a seasonal snowfall total in advance, and anyone printing one
 is guessing.*
 
-### Tier 2 — live pages, fix in place (days 5 to 7)
+### Tier 2: live pages, fix in place (days 5 to 7)
 
 | # | Target keyword | Working title | Slug (keep as-is) | Rev | RPM | Story |
 |---|---|---|---|---|---|---|
@@ -105,7 +105,7 @@ here is why: DPA / GDPR / airline policy). Highest-value single day on this list
 #7 and #17 get rewritten **for the reader, not for revenue.** #7 is the biggest
 page in site history (128,985 views) and earned $139. Do not build more of this.
 
-### Tier 3 — restore and consolidate (days 8 to 10)
+### Tier 3: restore and consolidate (days 8 to 10)
 
 | # | Target keyword | Working title | Slug | Rev | RPM | Story |
 |---|---|---|---|---|---|---|
@@ -118,7 +118,7 @@ back up. That kills the orphan problem the old snow cluster had.
 
 Also already evergreen and restorable as-is: `snow-predictions-for-wisconsin/`.
 
-### Tier 4 — blocked, small, or skipped
+### Tier 4: blocked, small, or skipped
 
 | # | Page | Rev | RPM | Decision |
 |---|---|---|---|---|
@@ -197,15 +197,15 @@ half of the recovery. The other half is time and a core update.
 
 ## Progress
 
-- [ ] Day 1 — Virginia + 301 + story
-- [ ] Day 2 — Tennessee + 301 + story
-- [ ] Day 3 — Georgia + 2x 301 + story
-- [ ] Day 4 — North Carolina + 301 + story
-- [ ] Day 5 — Passenger list (rewrite in place) + story
-- [ ] Day 6 — Kochi to Lakshadweep (rewrite in place, story exists)
-- [ ] Day 7 — India to Sri Lanka (rewrite in place, story exists)
-- [ ] Day 8 — Pennsylvania restore + story
-- [ ] Day 9 — Maryland + 301 + story
-- [ ] Day 10 — US hub + internal link pass
-- [ ] Blocked — Costco research
-- [ ] Pending — GSC export (Queries + Pages, 16 months) to confirm current positions
+- [ ] Day 1 to Virginia + 301 + story
+- [ ] Day 2 to Tennessee + 301 + story
+- [ ] Day 3 to Georgia + 2x 301 + story
+- [ ] Day 4 to North Carolina + 301 + story
+- [ ] Day 5 to Passenger list (rewrite in place) + story
+- [ ] Day 6 to Kochi to Lakshadweep (rewrite in place, story exists)
+- [ ] Day 7 to India to Sri Lanka (rewrite in place, story exists)
+- [ ] Day 8 to Pennsylvania restore + story
+- [ ] Day 9 to Maryland + 301 + story
+- [ ] Day 10 to US hub + internal link pass
+- [ ] Blocked to Costco research
+- [ ] Pending to GSC export (Queries + Pages, 16 months) to confirm current positions
