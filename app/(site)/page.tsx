@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { getAllPosts, getCategories, getFeaturedPosts, getLatestPosts } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { AdSlot } from "@/components/ads/AdSlot";
@@ -8,11 +9,22 @@ import { CategoryShowcase } from "@/components/home/CategoryShowcase";
 import { HomeStories } from "@/components/home/HomeStories";
 import { getStoryCards } from "@/lib/story-cards";
 import FlightPath from "@/components/home/FlightPathLazy";
-import DestinationsMarquee from "@/components/home/DestinationsMarquee";
 import { LatestGrid } from "@/components/home/LatestGrid";
-import { StatsBand } from "@/components/home/StatsBand";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import NewsletterCTA from "@/components/home/NewsletterCTA";
+
+// Both of these statically import GSAP, and both sit well below the fold. Left
+// as plain imports they pulled the 50KB GSAP + ScrollTrigger chunk into the home
+// page's initial JS, so the browser paid for a marquee and a counter animation
+// before it could finish the hero. Splitting them keeps the server-rendered
+// markup identical (still SSR'd, still in the HTML for crawlers) while the
+// animation code arrives after hydration.
+const DestinationsMarquee = dynamic(
+  () => import("@/components/home/DestinationsMarquee"),
+);
+const StatsBand = dynamic(() =>
+  import("@/components/home/StatsBand").then((m) => m.StatsBand),
+);
 
 // Keep the home page fresh: re-fetch CMS content every 5 minutes (ISR) so new
 // posts, categories and stories appear without a redeploy.

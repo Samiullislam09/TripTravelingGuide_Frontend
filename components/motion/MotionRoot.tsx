@@ -1,17 +1,35 @@
 "use client";
 
 import { useEffect } from "react";
-import Lenis from "lenis";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 /**
- * App-wide motion root. Mounts Lenis smooth-scroll and bridges it to GSAP
- * ScrollTrigger (one rAF loop drives both). Then wires a global scroll-reveal:
- * any element with `data-reveal` fades/slides in as it enters the viewport —
- * this powers the "full scroll animation" feel without each component importing
- * GSAP. Honors prefers-reduced-motion by skipping all motion.
+ * App-wide motion root. Drives the global scroll-reveal: any element with
+ * `data-reveal` fades/slides in as it enters the viewport, and any
+ * `data-reveal-stagger` container staggers its direct children.
  *
- * Opt-in attributes (set by components):
+ * This used to run on GSAP + ScrollTrigger, with Lenis smooth-scroll bridged
+ * into the same ticker. Because MotionRoot lives in the (site) layout, that
+ * pulled a 50KB GSAP chunk into EVERY page, including article pages that have
+ * no animation beyond these reveals. On a throttled mobile CPU that chunk cost
+ * ~7.7s of script evaluation and was the single largest contributor to a 7.7s
+ * total blocking time. The reveals themselves are a fade and a translate, which
+ * the compositor can do natively, so GSAP was buying us nothing here.
+ *
+ * Now: IntersectionObserver decides when, CSS does the animating, and nothing
+ * ships to the main thread but this file. GSAP still exists in the project for
+ * the one thing it is genuinely needed for (the MotionPath flight path on the
+ * home page), which imports it directly and lazily.
+ *
+ * Two correctness rules this has to keep:
+ *   1. Content is NEVER left hidden. Elements start visible in the markup; we
+ *      only hide one if we are certain it is off-screen and therefore has a
+ *      reveal to play. No JS, no observer support, an error, an unreachable
+ *      trigger: all fall through to visible.
+ *   2. Anything already on screen at mount is revealed with no transition. That
+ *      keeps the animation off the LCP element, which on the home page is the
+ *      hero paragraph.
+ *
+ * Opt-in attributes (unchanged, so no component had to be touched):
  *   data-reveal            → fade + slide up (default)
  *   data-reveal="left|right|up|down|zoom|none"
  *   data-reveal-delay="0.15"  (seconds)
@@ -20,120 +38,144 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 export function MotionRoot() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // Touch devices (phones/tablets) already get smooth, momentum-based native
-    // scrolling from the OS — Lenis's wheel-hijacking is a desktop-mouse nicety
-    // that adds a permanent per-frame rAF cost for no visible benefit on touch,
-    // which is exactly the kind of always-on JS that hurts low-end mobile CPUs.
-    // Skip it there; ScrollTrigger-driven reveals still work fine off the
-    // native scroll position.
-    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
-    let lenis: Lenis | null = null;
-    let ticker: ((time: number) => void) | null = null;
+    // Lenis is a desktop-mouse nicety: touch devices already have momentum
+    // scrolling from the OS. Importing it lazily and only when it will actually
+    // be used keeps it out of the mobile critical path entirely, which the old
+    // static import did not do (it downloaded and parsed on phones regardless).
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    let cleanupLenis: (() => void) | null = null;
 
     if (!reduce && !coarsePointer) {
-      lenis = new Lenis({
-        duration: 1.1,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-      });
-      lenis.on("scroll", ScrollTrigger.update);
-      // Single driver: gsap.ticker already runs its own rAF loop at display
-      // refresh rate, so this is the only tick Lenis needs. (A second,
-      // independent requestAnimationFrame loop used to also call lenis.raf()
-      // every frame — that drove Lenis's scroll-interpolation math twice per
-      // frame, all the time, on every page. Removed.)
-      ticker = (time: number) => lenis?.raf(time * 1000);
-      gsap.ticker.add(ticker);
-      gsap.ticker.lagSmoothing(0);
-      document.documentElement.classList.add("lenis");
+      let cancelled = false;
+      import("lenis")
+        .then(({ default: Lenis }) => {
+          if (cancelled) return;
+          const lenis = new Lenis({
+            duration: 1.1,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+          });
+          let raf = 0;
+          const loop = (time: number) => {
+            lenis.raf(time);
+            raf = requestAnimationFrame(loop);
+          };
+          raf = requestAnimationFrame(loop);
+          document.documentElement.classList.add("lenis");
+          cleanupLenis = () => {
+            cancelAnimationFrame(raf);
+            lenis.destroy();
+            document.documentElement.classList.remove("lenis");
+          };
+        })
+        .catch(() => {
+          /* Smooth scroll is decoration. Native scrolling is the fallback. */
+        });
+      cleanupLenis = () => {
+        cancelled = true;
+      };
     }
 
-    const ctx = gsap.context(() => {
-      const offsets: Record<string, gsap.TweenVars> = {
-        up: { y: 40 },
-        down: { y: -40 },
-        left: { x: 48 },
-        right: { x: -48 },
-        zoom: { scale: 0.92 },
-        none: {},
-      };
+    // Reduced motion, or a browser without IntersectionObserver: everything is
+    // already visible in the markup, so there is simply nothing to do.
+    if (reduce || typeof IntersectionObserver === "undefined") {
+      return () => cleanupLenis?.();
+    }
 
-      gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
-        const dir = el.dataset.reveal || "up";
-        const delay = parseFloat(el.dataset.revealDelay || "0");
-        const from = offsets[dir] ?? offsets.up;
-
-        if (reduce) {
-          gsap.set(el, { autoAlpha: 1, x: 0, y: 0, scale: 1 });
-          return;
-        }
-        gsap.set(el, { autoAlpha: 0, ...from });
-        gsap.to(el, {
-          autoAlpha: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          delay,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
-        });
-      });
-
-      gsap.utils.toArray<HTMLElement>("[data-reveal-stagger]").forEach((container) => {
-        const items = Array.from(container.children) as HTMLElement[];
-        if (reduce) {
-          gsap.set(items, { autoAlpha: 1, y: 0 });
-          return;
-        }
-        gsap.set(items, { autoAlpha: 0, y: 32 });
-        gsap.to(items, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: { trigger: container, start: "top 85%", once: true },
-        });
-      });
-
-      ScrollTrigger.refresh();
-    });
-
-    // Safety net: any reveal whose trigger start sits beyond the max scroll
-    // (e.g. the footer pinned at the very bottom) can never be reached, so its
-    // tween would never play and the element would stay invisible. After every
-    // refresh, force-complete those so content is NEVER left hidden.
-    const revealUnreachable = () => {
-      const max = ScrollTrigger.maxScroll(window);
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.animation && st.start > max + 1) st.animation.progress(1).pause();
-      });
+    // Expand stagger containers into their children so both kinds of reveal
+    // share one observer and one code path. The index drives the delay.
+    const DIRECTIONS = new Set(["up", "down", "left", "right", "zoom", "none"]);
+    const dirOf = (el: HTMLElement) => {
+      const d = el.dataset.reveal || "up";
+      return DIRECTIONS.has(d) ? d : "up";
     };
-    const onRefresh = () => revealUnreachable();
-    ScrollTrigger.addEventListener("refresh", onRefresh);
 
-    // Re-measure once images/fonts settle (they change page height).
-    const refresh = () => ScrollTrigger.refresh();
-    window.addEventListener("load", refresh);
-    const t1 = window.setTimeout(refresh, 400);
-    const t2 = window.setTimeout(refresh, 1500);
-    requestAnimationFrame(revealUnreachable);
+    const targets: { el: HTMLElement; delay: number; dir: string }[] = [];
+
+    for (const el of Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    )) {
+      targets.push({
+        el,
+        delay: parseFloat(el.dataset.revealDelay || "0") || 0,
+        dir: dirOf(el),
+      });
+    }
+
+    for (const container of Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal-stagger]"),
+    )) {
+      const children = Array.from(container.children) as HTMLElement[];
+      children.forEach((el, i) => {
+        // A stagger child that also carries its own data-reveal is already
+        // queued above; don't hide or observe it twice.
+        if (el.hasAttribute("data-reveal")) return;
+        targets.push({ el, delay: i * 0.1, dir: "up" });
+      });
+    }
+
+    if (targets.length === 0) return () => cleanupLenis?.();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const el = entry.target as HTMLElement;
+          el.setAttribute("data-reveal-in", "");
+          observer.unobserve(el);
+        }
+      },
+      // Matches the old ScrollTrigger "top 88%": start the reveal once the
+      // element's top has come 12% up into the viewport.
+      { rootMargin: "0px 0px -12% 0px" },
+    );
+
+    const viewportH = window.innerHeight;
+
+    for (const { el, delay, dir } of targets) {
+      const box = el.getBoundingClientRect();
+      const onScreen = box.top < viewportH && box.bottom > 0;
+
+      if (onScreen) {
+        // Already visible: reveal with no transition at all. Animating these
+        // would delay first paint of exactly the content the user came for.
+        el.setAttribute("data-reveal-in", "");
+        continue;
+      }
+
+      if (delay) el.style.transitionDelay = `${delay}s`;
+      // The value carries the direction: the CSS keys its starting transform
+      // off data-reveal-init="up|down|left|right|zoom|none".
+      el.setAttribute("data-reveal-init", dir);
+      observer.observe(el);
+    }
+
+    // Safety net for the case the old code also guarded: an element that can
+    // never be scrolled to (a footer reveal on a page shorter than the
+    // viewport, a hidden tab panel) would otherwise stay hidden forever.
+    // Anything still un-revealed after the page settles gets shown.
+    const flush = () => {
+      for (const { el } of targets) {
+        if (!el.hasAttribute("data-reveal-in")) {
+          const box = el.getBoundingClientRect();
+          if (box.top < window.innerHeight && box.bottom > 0) {
+            el.setAttribute("data-reveal-in", "");
+            observer.unobserve(el);
+          }
+        }
+      }
+    };
+    window.addEventListener("load", flush);
+    const t1 = window.setTimeout(flush, 600);
+    const t2 = window.setTimeout(flush, 2000);
 
     return () => {
-      ctx.revert();
-      ScrollTrigger.removeEventListener("refresh", onRefresh);
-      window.removeEventListener("load", refresh);
+      observer.disconnect();
+      window.removeEventListener("load", flush);
       window.clearTimeout(t1);
       window.clearTimeout(t2);
-      if (lenis) {
-        // Remove the exact function reference that was added — passing a new
-        // closure here (as before) silently fails to unregister it.
-        if (ticker) gsap.ticker.remove(ticker);
-        lenis.destroy();
-        document.documentElement.classList.remove("lenis");
-      }
+      cleanupLenis?.();
     };
   }, []);
 

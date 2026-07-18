@@ -242,3 +242,45 @@
 .prose-article th { @apply px-4 py-3 font-display font-bold text-ink-900; }
 .prose-article td { @apply border-t border-line px-4 py-3 align-top text-ink-700; }
 .prose-article tbody tr:nth-child(even) { @apply bg-ink-50/50; }
+
+/* Scroll reveal. Driven by MotionRoot's IntersectionObserver, animated here so
+   the work stays on the compositor instead of costing main-thread JS. This
+   replaced a GSAP + ScrollTrigger implementation that shipped 50KB into every
+   page for a fade and a translate.
+
+   Fail-safe by design: an element is only ever hidden once JS has set
+   data-reveal-init on it, and JS only does that for elements it has confirmed
+   are off-screen. No JS, no IntersectionObserver, or an error mid-run all leave
+   content visible, because visible is the markup default. */
+[data-reveal-init] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+[data-reveal-init="up"]    { transform: translateY(40px); }
+[data-reveal-init="down"]  { transform: translateY(-40px); }
+[data-reveal-init="left"]  { transform: translateX(48px); }
+[data-reveal-init="right"] { transform: translateX(-48px); }
+[data-reveal-init="zoom"]  { transform: scale(0.92); }
+[data-reveal-init="none"]  { transform: none; }
+
+[data-reveal-in] {
+  opacity: 1;
+  transform: none;
+  /* power3.out, the ease the GSAP version used. */
+  transition:
+    opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+  /* Drop the compositor hint once it has played, so a long page does not hold
+     dozens of promoted layers alive. */
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal-init] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal-in] {
+    transition: none;
+  }
+}

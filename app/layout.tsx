@@ -66,6 +66,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable}`}>
       <head>
+        {/* Open the TCP + TLS handshake to the ad and analytics origins while the
+            page is still parsing. These scripts load later by design (see the
+            strategies below), so without this the connection setup happens
+            serially at the moment they are requested. Costs nothing and does not
+            change when anything executes. */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fundingchoicesmessages.google.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+
         {/* Sitewide Organization + WebSite schema — present on every page. */}
         <JsonLd data={baseGraph()} />
         {/* Google AdSense — loads the library for the manual <AdSlot> units.

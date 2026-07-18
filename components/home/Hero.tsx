@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Search, Globe2, ArrowUpRight, Compass, PlayCircle } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+
 import { Container } from "@/components/ui/Container";
 import { iconForCategory } from "@/lib/category-icon";
 import type { Category } from "@/lib/types";
@@ -52,24 +52,42 @@ export function Hero({ categories = [] }: { categories?: Category[] }) {
     if (!section) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
-        const depth = Number(el.dataset.parallax) || 0;
-        gsap.to(el, {
-          yPercent: depth,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      });
-      ScrollTrigger.refresh();
-    }, section);
+    // GSAP is imported here rather than at module scope so it stays out of the
+    // home page's initial bundle. This effect only drives a decorative parallax
+    // on the background blobs, and the hero's text is the LCP element: making
+    // the browser parse 50KB of animation library before it can paint that text
+    // is a bad trade. Markup is unaffected, so SSR output is identical.
+    let cancelled = false;
+    let ctx: ReturnType<typeof import("gsap").gsap.context> | null = null;
 
-    return () => ctx.revert();
+    import("@/lib/gsap")
+      .then(({ gsap, ScrollTrigger }) => {
+        if (cancelled) return;
+        ctx = gsap.context(() => {
+          gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+            const depth = Number(el.dataset.parallax) || 0;
+            gsap.to(el, {
+              yPercent: depth,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
+          });
+          ScrollTrigger.refresh();
+        }, section);
+      })
+      .catch(() => {
+        /* Parallax is decoration. A static hero is the correct fallback. */
+      });
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (
