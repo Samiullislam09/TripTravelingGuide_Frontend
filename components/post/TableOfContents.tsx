@@ -34,14 +34,19 @@ export default function TableOfContents({
 
   // Build the list from the actual rendered article DOM so ids match anchors.
   useEffect(() => {
-    const article = document.querySelector<HTMLElement>(".prose-article");
-    if (!article) {
+    // The post page splits the body across several .prose-article blocks so ads
+    // can sit between sections, so this has to walk all of them. Querying only
+    // the first would silently drop every heading after the first ad break.
+    const blocks = Array.from(
+      document.querySelectorAll<HTMLElement>(".prose-article"),
+    );
+    if (blocks.length === 0) {
       setItems([]);
       return;
     }
 
-    const headings = Array.from(
-      article.querySelectorAll<HTMLHeadingElement>("h2, h3"),
+    const headings = blocks.flatMap((block) =>
+      Array.from(block.querySelectorAll<HTMLHeadingElement>("h2, h3")),
     );
     const used = new Set<string>();
     const next: TocItem[] = [];

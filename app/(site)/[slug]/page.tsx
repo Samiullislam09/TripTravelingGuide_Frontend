@@ -16,6 +16,7 @@ import { site } from "@/lib/site";
 import { Reveal } from "@/components/motion/Reveal";
 import ShareBar from "@/components/post/ShareBar";
 import { InContentLinks } from "@/components/post/InContentLinks";
+import TableOfContents from "@/components/post/TableOfContents";
 import { PostWebStories } from "@/components/post/PostWebStories";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
@@ -254,6 +255,12 @@ export default async function PostPage({
                 <AdSlot label="Advertisement" {...site.adUnits.postTop} />
               </div>
 
+              {/* Mobile TOC. The desktop copy lives in the sticky aside; both
+                  render themselves only when the article has headings. */}
+              <div className="mt-6 lg:hidden">
+                <TableOfContents html={post.contentHtml} variant="inline" />
+              </div>
+
               <div
                 className="prose-article mt-6 sm:mt-8"
                 dangerouslySetInnerHTML={{ __html: bodyChunks[0] }}
@@ -320,7 +327,8 @@ export default async function PostPage({
 
             {/* Sticky aside — desktop only: a large ad unit */}
             <aside className="hidden lg:block">
-              <div className="sticky top-28">
+              <div className="sticky top-28 space-y-6">
+                <TableOfContents html={post.contentHtml} variant="sidebar" />
                 <div className="rounded-3xl border border-line bg-surface/60 p-4">
                   <AdSlot label="Advertisement" minHeight={600} {...site.adUnits.postSidebar} />
                 </div>
