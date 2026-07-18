@@ -30,6 +30,11 @@ export interface WebStory {
 
 const U = "https://images.unsplash.com/photo-";
 
+// Our own Supabase-hosted story frames, uploaded by the dashboard's
+// scripts/host-images.mjs --portrait. Preferred over U for new stories.
+const S =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/how-can-i-check-the-passenger-list-on-an-airplane/";
+
 export const webStories: WebStory[] = [
   {
     slug: "kochi-to-lakshadweep-ship-ticket-price",
@@ -343,6 +348,24 @@ export const webStories: WebStory[] = [
       { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship at a tropical island", kicker: "Costs extra", heading: "Drinks aren't included", text: "Every drink is paid, even water beyond your cabin bottle. The two specialty restaurants cost extra too." },
       { image: U + "1599640842225-85d111c60e6b", alt: "Cruise ship on a bright day at sea", kicker: "Good to know", heading: "Veg, Jain and halal", text: "A separate veg and Jain section, and no beef or pork is served anywhere on the ship." },
       { image: U + "1580541631950-7282082b53ce", alt: "Cruise ship near a palm-lined shore", kicker: "Full guide", heading: "See what's free vs paid", text: "The full food, drinks and dining breakdown before you sail." },
+    ],
+  },
+  {
+    // First story built on our own hosted images rather than Unsplash, and the
+    // first covering a US-audience page. Frames are stored at 720x1280 because
+    // storyImage()'s crop params are Unsplash-only and Supabase ignores them.
+    slug: "how-can-i-check-the-passenger-list-on-an-airplane",
+    postSlug: "how-can-i-check-the-passenger-list-on-an-airplane",
+    popularRank: 4,
+    title: "Can You Check a Flight's Passenger List?",
+    description:
+      "You cannot see who else is on your flight. What the rules actually say, and what you can find out instead.",
+    pages: [
+      { image: S + "story-1.jpg", alt: "Airport information screen listing airline check-in areas", kicker: "Air travel", heading: "Can you check a passenger list?", text: "Short answer: no. Not by phone, not in the app, not on any tracker." },
+      { image: S + "story-2.jpg", alt: "A row of airline check-in counters in a terminal", kicker: "The myth", heading: "Nobody can download a manifest", text: "There is no such option on any airline site. Agents cannot confirm whether a named person is booked." },
+      { image: S + "story-3.jpg", alt: "Rows of empty seats inside an aircraft cabin", kicker: "Seat maps", heading: "Occupied is not a name", text: "Seat maps show status only. Blocked seats are often held for crew, with no passenger attached at all." },
+      { image: S + "story-4.jpg", alt: "A phone showing a travel app being held in one hand", kicker: "What works", heading: "Track the flight instead", text: "Status, gate, delays and landing time are all public. That answers the real question." },
+      { image: S + "story-5.jpg", alt: "People waiting in an airport arrivals hall", kicker: "Read this", heading: "Your boarding pass leaks more", text: "That six-character code opens your booking and your co-travellers' details. Cover it before you post." },
     ],
   },
 ];
