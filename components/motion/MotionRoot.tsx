@@ -155,24 +155,51 @@ export function MotionRoot() {
     // never be scrolled to (a footer reveal on a page shorter than the
     // viewport, a hidden tab panel) would otherwise stay hidden forever.
     // Anything still un-revealed after the page settles gets shown.
+    let remaining = targets.length;
     const flush = () => {
+      if (remaining === 0) return;
       for (const { el } of targets) {
         if (!el.hasAttribute("data-reveal-in")) {
           const box = el.getBoundingClientRect();
           if (box.top < window.innerHeight && box.bottom > 0) {
             el.setAttribute("data-reveal-in", "");
             observer.unobserve(el);
+            remaining -= 1;
           }
         }
       }
     };
+
+    // Scroll fallback. Chrome does not deliver IntersectionObserver callbacks to
+    // a tab that is not visible, so a page opened in a background tab (middle
+    // click, "open in new tab", a restored session) can hydrate, hide its
+    // off-screen elements, and have no observer running. Callbacks do resume on
+    // visibility change, but relying on that alone means the one failure mode
+    // is invisible content, which is the worst outcome this file can produce.
+    // A rAF-throttled scroll check costs nothing once everything has revealed
+    // (it removes itself) and guarantees the system fails open.
+    let scheduled = false;
+    const onScroll = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        flush();
+        if (remaining === 0) window.removeEventListener("scroll", onScroll);
+      });
+    };
+
     window.addEventListener("load", flush);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("visibilitychange", flush);
     const t1 = window.setTimeout(flush, 600);
     const t2 = window.setTimeout(flush, 2000);
 
     return () => {
       observer.disconnect();
       window.removeEventListener("load", flush);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("visibilitychange", flush);
       window.clearTimeout(t1);
       window.clearTimeout(t2);
       cleanupLenis?.();
