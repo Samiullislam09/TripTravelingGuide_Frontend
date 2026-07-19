@@ -17,7 +17,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import ShareBar from "@/components/post/ShareBar";
 import { InContentLinks } from "@/components/post/InContentLinks";
 import TableOfContents from "@/components/post/TableOfContents";
-import TranslateArticle from "@/components/post/TranslateArticle";
 import { PostWebStories } from "@/components/post/PostWebStories";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
@@ -261,11 +260,6 @@ export default async function PostPage({
               <div className="mt-6 lg:hidden">
                 <TableOfContents html={post.contentHtml} variant="inline" />
               </div>
-
-              {/* Client-side only: rewrites text nodes in place, creates no
-                  translated URL, so nothing machine-translated is ever
-                  crawlable. See the component header for the policy reason. */}
-              <TranslateArticle />
 
               <div
                 className="prose-article mt-6 sm:mt-8"

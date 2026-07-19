@@ -8,6 +8,7 @@ import { Menu, Search, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import TranslateArticle from "@/components/post/TranslateArticle";
 
 type NavItem = { label: string; href: string };
 
@@ -108,13 +109,22 @@ export function Header() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-2">
-          <Link
-            href="/#newsletter"
-            className="brand-fill hidden items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 sm:inline-flex"
-          >
-            <Sparkles className="h-4 w-4" aria-hidden="true" />
-            Subscribe
-          </Link>
+          {/* On a page with an article body this slot becomes the language
+              picker; everywhere else (and on browsers with no on-device
+              translator) it stays Subscribe. The component decides, because
+              the precondition is "is there prose to translate", not a route. */}
+          <TranslateArticle
+            variant="header"
+            fallback={
+              <Link
+                href="/#newsletter"
+                className="brand-fill hidden items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 sm:inline-flex"
+              >
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                Subscribe
+              </Link>
+            }
+          />
 
           <Link
             href="/search"

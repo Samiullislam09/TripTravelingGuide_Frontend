@@ -1,6 +1,8 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Check, Globe, Loader2, X } from "lucide-react";
 
 /**
@@ -69,14 +71,33 @@ const RTL = new Set(["ar"]);
 // symbols. Translating them wastes calls and often returns them mangled.
 const MIN_CHARS = 2;
 
-export default function TranslateArticle() {
+interface Props {
+  /**
+   * "inline" is the card that sits in the article body. "header" is the compact
+   * navbar control that takes the Subscribe button's slot on article pages.
+   */
+  variant?: "inline" | "header";
+  /**
+   * Header variant only: what to render instead when this page has no article
+   * body, or the browser cannot translate on-device. Lets the navbar fall back
+   * to Subscribe rather than showing a control that would do nothing.
+   */
+  fallback?: ReactNode;
+}
+
+export default function TranslateArticle({
+  variant = "inline",
+  fallback = null,
+}: Props) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("en");
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [supported, setSupported] = useState<boolean | null>(null);
+  const [hasArticle, setHasArticle] = useState(false);
 
+  const pathname = usePathname();
   const rootRef = useRef<HTMLDivElement>(null);
   // Captured once, on first translation: the pristine English text of every
   // node we touch, so "English" restores rather than round-trips.
@@ -85,6 +106,20 @@ export default function TranslateArticle() {
   useEffect(() => {
     setSupported(typeof window !== "undefined" && "Translator" in window);
   }, []);
+
+  // Which pages get the control is decided by whether there is prose to
+  // translate, not by matching route patterns. Article slugs live at the root
+  // (`/costco-travel-cruises/`) alongside `/about` and `/explore`, so a path
+  // test cannot tell them apart, and any allowlist would silently miss new
+  // templates. Presence of `.prose-article` is the actual precondition.
+  useEffect(() => {
+    setHasArticle(document.querySelector(".prose-article") !== null);
+    // A client-side navigation swaps the body without remounting the header, so
+    // the previous page's stored originals must not leak into the next one.
+    originals.current = null;
+    setActive("en");
+    setError(null);
+  }, [pathname]);
 
   // Close the menu on outside click and on Escape.
   useEffect(() => {
@@ -138,7 +173,36 @@ export default function TranslateArticle() {
     return found;
   }, []);
 
+  // The disclosure has to live inside the article, not next to the control.
+  // With the picker up in the navbar a reader can scroll past it in a second
+  // and then be reading translated prices, cancellation windows and policy
+  // quotes with nothing on screen saying the wording is machine-produced. So
+  // the notice is injected at the top of the body and travels with the text.
+  const setNotice = useCallback((code: string | null) => {
+    const existing = document.getElementById("translation-notice");
+    if (existing) existing.remove();
+    if (!code) return;
+
+    const block = document.querySelector(".prose-article");
+    if (!block) return;
+
+    const el = document.createElement("p");
+    el.id = "translation-notice";
+    el.lang = "en";
+    el.dir = "ltr";
+    el.setAttribute("role", "status");
+    el.className =
+      "mb-6 rounded-2xl border border-line bg-surface-2/70 px-4 py-3 text-sm text-ink-500";
+    el.textContent =
+      "Machine translated from English in your browser. Prices, dates and policy wording are only verified in the English original.";
+    // Sibling, not first child: `.prose-article > p:first-child::first-letter`
+    // is the magazine drop-cap, and it would land on this notice instead of the
+    // article's opening line.
+    block.parentElement?.insertBefore(el, block);
+  }, []);
+
   const restoreEnglish = useCallback(() => {
+    setNotice(null);
     for (const { node, text } of originals.current ?? []) {
       node.nodeValue = text;
     }
@@ -212,6 +276,7 @@ export default function TranslateArticle() {
       });
 
       translator.destroy?.();
+      setNotice(code);
       setActive(code);
     } catch {
       setError("Translation failed. The article is unchanged.");
@@ -224,9 +289,85 @@ export default function TranslateArticle() {
 
   // Rendering nothing until the capability check has run avoids a flash of a
   // control that is about to disappear.
-  if (supported === null) return null;
+  if (supported === null) return variant === "header" ? <>{fallback}</> : null;
 
   const current = LANGUAGES.find((l) => l.code === active) ?? LANGUAGES[0];
+
+  const menu =
+    open && supported ? (
+      <ul
+        role="listbox"
+        aria-label="Choose a language"
+        className="absolute right-0 z-50 mt-2 grid w-64 grid-cols-1 gap-1 rounded-3xl border border-line bg-surface p-2 shadow-lg sm:w-72 sm:grid-cols-2"
+      >
+        {LANGUAGES.map((lang) => {
+          const selected = lang.code === active;
+          return (
+            <li key={lang.code}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={selected}
+                onClick={() => translateTo(lang.code)}
+                className={`flex w-full items-center justify-between gap-2 rounded-2xl px-3 py-2 text-left text-sm transition ${
+                  selected
+                    ? "bg-brand-600/10 font-semibold text-brand-700"
+                    : "text-ink-700 hover:bg-ink-50"
+                }`}
+              >
+                <span className="min-w-0">
+                  <span className="block truncate">{lang.native}</span>
+                  <span className="block truncate text-xs text-ink-400">
+                    {lang.label}
+                  </span>
+                </span>
+                {selected ? (
+                  <Check aria-hidden className="h-4 w-4 shrink-0" />
+                ) : null}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    ) : null;
+
+  if (variant === "header") {
+    // No prose on this page, or no on-device engine: hand the slot back so the
+    // navbar shows Subscribe instead of a button that cannot do anything.
+    if (!hasArticle || !supported) return <>{fallback}</>;
+
+    return (
+      <div ref={rootRef} className="relative">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          disabled={busy}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+          aria-label={`Translate this article. Current language ${current.label}`}
+          className="brand-fill inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-70 sm:px-3.5"
+        >
+          {busy ? (
+            <Loader2 aria-hidden className="h-4 w-4 animate-spin" />
+          ) : (
+            <Globe aria-hidden className="h-4 w-4" />
+          )}
+          <span className="hidden sm:inline">
+            {busy ? (progress > 0 ? `${progress}%` : "Preparing") : current.native}
+          </span>
+        </button>
+        {menu}
+        {error ? (
+          <p
+            role="status"
+            className="absolute right-0 mt-2 w-56 rounded-2xl border border-line bg-surface px-3 py-2 text-xs text-ink-500 shadow-lg"
+          >
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div ref={rootRef} className="relative my-6">
@@ -268,42 +409,7 @@ export default function TranslateArticle() {
         ) : null}
       </div>
 
-      {open && supported ? (
-        <ul
-          role="listbox"
-          aria-label="Choose a language"
-          className="absolute right-0 z-30 mt-2 grid w-full max-w-xs grid-cols-1 gap-1 rounded-3xl border border-line bg-surface p-2 shadow-lg sm:grid-cols-2"
-        >
-          {LANGUAGES.map((lang) => {
-            const selected = lang.code === active;
-            return (
-              <li key={lang.code}>
-                <button
-                  type="button"
-                  role="option"
-                  aria-selected={selected}
-                  onClick={() => translateTo(lang.code)}
-                  className={`flex w-full items-center justify-between gap-2 rounded-2xl px-3 py-2 text-left text-sm transition ${
-                    selected
-                      ? "bg-brand-600/10 font-semibold text-brand-700"
-                      : "text-ink-700 hover:bg-ink-50"
-                  }`}
-                >
-                  <span className="min-w-0">
-                    <span className="block truncate">{lang.native}</span>
-                    <span className="block truncate text-xs text-ink-400">
-                      {lang.label}
-                    </span>
-                  </span>
-                  {selected ? (
-                    <Check aria-hidden className="h-4 w-4 shrink-0" />
-                  ) : null}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
+      {menu}
 
       {error ? (
         <p
@@ -312,13 +418,6 @@ export default function TranslateArticle() {
         >
           <X aria-hidden className="h-3.5 w-3.5 shrink-0" />
           {error}
-        </p>
-      ) : null}
-
-      {active !== "en" && !busy ? (
-        <p role="status" className="mt-2 text-xs text-ink-500">
-          Machine translated from English. Numbers, prices and policy wording are
-          only verified in the English original.
         </p>
       ) : null}
     </div>
