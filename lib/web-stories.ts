@@ -35,7 +35,25 @@ const U = "https://images.unsplash.com/photo-";
 const S =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/how-can-i-check-the-passenger-list-on-an-airplane/";
 
+const C =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/costco-travel-cruises/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "costco-travel-cruises",
+    postSlug: "costco-travel-cruises",
+    popularRank: 2,
+    title: "Costco Travel Cruises: What You Actually Get",
+    description:
+      "Costco puts a Digital Costco Shop Card on every sailing but does not show the amount until your invoice. What Costco's own pages confirm.",
+    pages: [
+      { image: C + "story-1.jpg", alt: "A cruise ship berthed at dusk", kicker: "Costco Travel", heading: "Booking a Cruise Through Costco", text: "What you get, and the one number Costco will not show you." },
+      { image: C + "story-2.jpg", alt: "Two cruise ships seen from above at a Caribbean port", kicker: "Every sailing", heading: "A Digital Costco Shop Card", text: "Costco puts one on every cruise it sells. The amount is not shown before you book." },
+      { image: C + "story-4.jpg", alt: "Passengers on a busy cruise ship pool deck", kicker: "Timing", heading: "It arrives 10 days after you sail", text: "Not after the trip ends. Costco emails it about 10 days after your cruise starts." },
+      { image: C + "story-3.jpg", alt: "Celebrity Equinox at sea off Key West", kicker: "Check first", heading: "It will not work at the pump", text: "Costco says the card is not accepted at gas stations, car washes or food court kiosks." },
+      { image: C + "story-5.jpg", alt: "A cruise ship photographed from directly overhead", kicker: "Full guide", heading: "What Costco confirms, and what it hides", text: "The 12 lines it sells, the 72-hour cancellation trap, and four claims other sites get wrong." },
+    ],
+  },
   {
     slug: "kochi-to-lakshadweep-ship-ticket-price",
     postSlug: "kochi-to-lakshadweep-ship-ticket-price",

@@ -33,6 +33,17 @@ const nextConfig = {
         destination: "https://triptravelingguide.com/:path*",
         permanent: true,
       },
+      // Old date-stamped Costco URL → the evergreen rebuild. The 2023-2024 page
+      // earned $244 lifetime at a $74 RPM (our highest) before it was pruned for
+      // carrying a likely-fabricated price table, so its link equity is worth
+      // preserving. Dropping the year from the slug also stops us minting one
+      // URL per season, which is the pattern that grew the snow cluster into 126
+      // near-duplicates and got the site flagged.
+      {
+        source: "/costco-travel-cruises-2023-2024",
+        destination: "/costco-travel-cruises/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
