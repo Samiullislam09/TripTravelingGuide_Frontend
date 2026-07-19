@@ -17,6 +17,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import ShareBar from "@/components/post/ShareBar";
 import { InContentLinks } from "@/components/post/InContentLinks";
 import TableOfContents from "@/components/post/TableOfContents";
+import TranslateArticle from "@/components/post/TranslateArticle";
 import { PostWebStories } from "@/components/post/PostWebStories";
 import CommentSystem from "@/components/comments/CommentSystem";
 import { formatDate, readingTimeMinutes } from "@/lib/utils";
@@ -261,6 +262,11 @@ export default async function PostPage({
                 <TableOfContents html={post.contentHtml} variant="inline" />
               </div>
 
+              {/* Client-side only: rewrites text nodes in place, creates no
+                  translated URL, so nothing machine-translated is ever
+                  crawlable. See the component header for the policy reason. */}
+              <TranslateArticle />
+
               <div
                 className="prose-article mt-6 sm:mt-8"
                 dangerouslySetInnerHTML={{ __html: bodyChunks[0] }}
@@ -325,13 +331,18 @@ export default async function PostPage({
               <CommentSystem postSlug={post.slug} />
             </div>
 
-            {/* Sticky aside — desktop only: a large ad unit */}
+            {/* Sticky aside — desktop only. Ad sits above the table of contents:
+                the top of the aside is the only part guaranteed to be in view
+                when the reader arrives, and the TOC is a navigation aid people
+                look for deliberately rather than something that has to catch the
+                eye. Mobile keeps the TOC inline near the top of the body, so
+                this ordering only affects desktop. */}
             <aside className="hidden lg:block">
               <div className="sticky top-28 space-y-6">
-                <TableOfContents html={post.contentHtml} variant="sidebar" />
                 <div className="rounded-3xl border border-line bg-surface/60 p-4">
                   <AdSlot label="Advertisement" minHeight={600} {...site.adUnits.postSidebar} />
                 </div>
+                <TableOfContents html={post.contentHtml} variant="sidebar" />
               </div>
             </aside>
           </div>
