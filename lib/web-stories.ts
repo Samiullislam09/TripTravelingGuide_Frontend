@@ -38,7 +38,55 @@ const S =
 const C =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/costco-travel-cruises/";
 
+const V =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-virginia-2026-2027/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "snow-predictions-for-virginia-2026-2027",
+    postSlug: "snow-predictions-for-virginia-2026-2027",
+    popularRank: 1,
+    title: "Virginia Snow: What the Records Actually Show",
+    description:
+      "Virginia averages 3.4 inches a season at Virginia Beach and 47.1 at Wise. Nobody can forecast the coming winter, and NOAA says so itself.",
+    pages: [
+      {
+        image: V + "story-1.jpg",
+        alt: "An ice-covered lane between bare trees after a winter storm",
+        kicker: "Virginia snow",
+        heading: "How much snow does Virginia get?",
+        text: "The honest answer is a range, not a number. And the range is enormous.",
+      },
+      {
+        image: V + "story-2.jpg",
+        alt: "Aerial view of snow lying between conifers across low forested ridges",
+        kicker: "Snowiest place",
+        heading: "Wise, at 47.1 inches a season",
+        text: "Fourteen times what Virginia Beach gets. It never shows up in the city tables.",
+      },
+      {
+        image: V + "story-3.jpg",
+        alt: "A snow-covered woodland track with fresh snow falling",
+        kicker: "Last five winters",
+        heading: "2022-23 delivered almost nothing",
+        text: "Dulles managed 0.4 inches all season. Two winters later Norfolk took 16.8.",
+      },
+      {
+        image: V + "story-4.jpg",
+        alt: "A snowbound residential street of brick rowhouses under a clear sky",
+        kicker: "Why the state stops",
+        heading: "Richmond gets 2.7 snow days a year",
+        text: "Not enough to pay for a plow fleet. So the roads go bad instead.",
+      },
+      {
+        image: V + "story-5.jpg",
+        alt: "A four-wheel-drive parked on a snow-covered forest road",
+        kicker: "Winter 2026-27",
+        heading: "No one can forecast this winter's snow",
+        text: "NOAA will not publish a seasonal total. See what the records do show.",
+      },
+    ],
+  },
   {
     slug: "costco-travel-cruises",
     postSlug: "costco-travel-cruises",
