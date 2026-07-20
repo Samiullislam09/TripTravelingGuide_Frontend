@@ -44,6 +44,18 @@ const nextConfig = {
         destination: "/costco-travel-cruises/",
         permanent: true,
       },
+      // Virginia was the single biggest earner this site ever had ($279 lifetime)
+      // before the WordPress migration lost it. The old page carried invented
+      // numbers (a "35.5 inch" statewide forecast against published normals that
+      // top out at 21.0), so the replacement is a rebuild, not a restore.
+      // NOTE: the destination slug carries a season, at the owner's decision.
+      // It will expire in July 2027 and will need either a fresh page plus
+      // another 301, or a prune. Revisit before then.
+      {
+        source: "/snow-predictions-for-virginia-2023-2024",
+        destination: "/snow-predictions-for-virginia-2026-2027/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
