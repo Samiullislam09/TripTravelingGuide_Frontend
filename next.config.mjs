@@ -56,6 +56,27 @@ const nextConfig = {
         destination: "/snow-predictions-for-virginia-2026-2027/",
         permanent: true,
       },
+      // Two live pages targeted "mangalore to lakshadweep ship ticket price"
+      // with contradictory content: the -2025 one invented fare ranges and
+      // carried raw WordPress ez-toc markup but held all the equity (803
+      // impressions / 3 clicks in 3 months), while the undated one had zero
+      // impressions and honestly refused to print any figure on a price query.
+      // Both collapse into the 2026 rebuild, which is sourced to the signed
+      // fare order dated 31 May 2025. Redirecting the undated slug too, since
+      // leaving it live would just re-create the cannibalisation.
+      // NOTE: the destination slug carries a year, at the owner's decision.
+      // It expires July 2027 and will need a fresh page plus another 301, or a
+      // prune. Revisit before then.
+      {
+        source: "/mangalore-to-lakshadweep-ship-ticket-price-2025",
+        destination: "/mangalore-to-lakshadweep-ship-ticket-price-2026/",
+        permanent: true,
+      },
+      {
+        source: "/mangalore-to-lakshadweep-ship-ticket-price",
+        destination: "/mangalore-to-lakshadweep-ship-ticket-price-2026/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
