@@ -77,6 +77,39 @@ const nextConfig = {
         destination: "/mangalore-to-lakshadweep-ship-ticket-price-2026/",
         permanent: true,
       },
+      // Georgia snow was the site's #3 revenue page ever: the 2023-2024 version
+      // earned $225 on 29,889 views before the WordPress migration lost the row
+      // entirely. Two later Georgia pages then split the same query between them
+      // and were pruned in July 2026. All four URLs below now collapse into one
+      // rebuild. The old page was sourced entirely to the Old Farmer's Almanac
+      // and carried two fabricated tables plus a February 1948 Atlanta snowstorm
+      // that the station record shows never happened, so this is a rebuild, not
+      // a restore.
+      // The fourth source is a typo slug ("202-2025") that went live by mistake
+      // and got crawled. Redirecting it too rather than leaving a stray 404.
+      // NOTE: the destination slug carries a season, at the owner's decision.
+      // It expires July 2027 and will need a fresh page plus another 301, or a
+      // prune. Revisit before then.
+      {
+        source: "/snow-predictions-for-georgia-2023-2024",
+        destination: "/snow-predictions-for-georgia-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/snow-predictions-for-georgia-2024-2025",
+        destination: "/snow-predictions-for-georgia-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/snow-predictions-for-georgia-202-2025",
+        destination: "/snow-predictions-for-georgia-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/will-it-snow-again-in-georgia-2025",
+        destination: "/snow-predictions-for-georgia-2026-2027/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
