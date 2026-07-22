@@ -41,6 +41,14 @@ const C =
 const V =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-virginia-2026-2027/";
 
+// Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
+// Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
+// street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
+// the story is how thin and patchy this snow actually is, and stock winter
+// scenery would have argued the opposite.
+const G =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-georgia-2026-2027/";
+
 export const webStories: WebStory[] = [
   {
     slug: "snow-predictions-for-virginia-2026-2027",
@@ -84,6 +92,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "No one can forecast this winter's snow",
         text: "NOAA will not publish a seasonal total. See what the records do show.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-georgia-2026-2027",
+    postSlug: "snow-predictions-for-georgia-2026-2027",
+    popularRank: 1,
+    title: "Georgia Snow: 2.2 Inches, and Often None",
+    description:
+      "Georgia averages 2.2 inches of snow a season at Atlanta, and eight of the last sixteen winters brought none at all. What the records show for 2026-2027.",
+    pages: [
+      {
+        image: G + "story-1.jpg",
+        alt: "A rural road curving through wooded foothills with thin snow on the grass verges",
+        kicker: "Georgia snow",
+        heading: "Will it snow in Georgia this winter?",
+        text: "Some years yes, most years barely. Eight of the last sixteen winters brought none.",
+      },
+      {
+        image: G + "story-2.jpg",
+        alt: "People standing on a bare grassy slope with a city skyline behind them as snow falls",
+        kicker: "Atlanta",
+        heading: "2.2 inches in an average season",
+        text: "That is the NOAA 1991-2020 normal. January carries almost half of it on its own.",
+      },
+      {
+        image: G + "story-3.jpg",
+        alt: "An empty suburban street covered in slush and tyre tracks after a snowfall",
+        kicker: "Snowjam 2014",
+        heading: "2.6 inches shut down Atlanta",
+        text: "Thousands slept in their cars. The depth was never the problem. The timing was.",
+      },
+      {
+        image: G + "story-4.jpg",
+        alt: "A snow-covered residential street with parked cars under a magnolia tree at dawn",
+        kicker: "El Nino",
+        heading: "Georgia's big snows were not El Nino winters",
+        text: "1993 and 2014 were neutral. The 2011 shutdown landed in a strong La Nina.",
+      },
+      {
+        image: G + "story-5.jpg",
+        alt: "Snow falling on a small-town main road with shopfronts and power lines behind",
+        kicker: "Winter 2026-27",
+        heading: "Nobody forecasts Georgia snowfall",
+        text: "NOAA will not publish a seasonal total. See what the records actually show.",
       },
     ],
   },
