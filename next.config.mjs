@@ -110,6 +110,18 @@ const nextConfig = {
         destination: "/snow-predictions-for-georgia-2026-2027/",
         permanent: true,
       },
+      // Two Vantara pages were splitting the same 171-query cluster: the
+      // step-by-step guide held 2,806 impressions at position 16.5, this one
+      // 331 at 35.3, and its slug carries a year it has already outlived. The
+      // surviving page absorbs its content. Both were flagged; the survivor has
+      // been rewritten against vantara.in's own FAQ, which states that in-person
+      // visits are permitted only with regulatory approval, so the honest answer
+      // to every "vantara ticket price" query is that no ticket exists.
+      {
+        source: "/vantara-jamnagar-complete-visitor-guide2025",
+        destination: "/how-to-visit-vantara-step-by-step-guide/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
