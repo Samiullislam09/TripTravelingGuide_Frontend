@@ -49,11 +49,19 @@ const V =
 const G =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-georgia-2026-2027/";
 
+// Vantara is closed to the public, so no usable photography of it exists: the
+// only image on Wikimedia Commons is a 525x262 shot of the elephant camp gate,
+// too small for a story frame. Rather than pass off stock as Vantara, frames 2
+// to 4 show the Jamnagar coast and Khijadiya, which are the places this guide
+// actually sends people, and the alt text never claims otherwise.
+const VN =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/how-to-visit-vantara-step-by-step-guide/";
+
 export const webStories: WebStory[] = [
   {
     slug: "snow-predictions-for-virginia-2026-2027",
     postSlug: "snow-predictions-for-virginia-2026-2027",
-    popularRank: 1,
+    popularRank: 2,
     title: "Virginia Snow: What the Records Actually Show",
     description:
       "Virginia averages 3.4 inches a season at Virginia Beach and 47.1 at Wise. Nobody can forecast the coming winter, and NOAA says so itself.",
@@ -96,9 +104,54 @@ export const webStories: WebStory[] = [
     ],
   },
   {
+    slug: "how-to-visit-vantara-step-by-step-guide",
+    postSlug: "how-to-visit-vantara-step-by-step-guide",
+    popularRank: 1,
+    title: "Vantara: Can You Actually Visit?",
+    description:
+      "Vantara is not open to the public. There is no ticket, no booking and no published entry fee, whatever the price tables online tell you.",
+    pages: [
+      {
+        image: VN + "story-1.jpg",
+        alt: "An Asian elephant walking along a dusty forest track with its ears spread",
+        kicker: "Vantara, Jamnagar",
+        heading: "Can you visit Vantara?",
+        text: "It cares for 275 elephants and more than 40,000 animals. You still cannot walk in.",
+      },
+      {
+        image: VN + "story-2.jpg",
+        alt: "A flock of black and white crab-plovers on a narrow sandbar surrounded by shallow sea",
+        kicker: "The honest answer",
+        heading: "No, and there is no ticket",
+        text: "No counter, no online booking, no published fee. Entry needs regulatory approval.",
+      },
+      {
+        image: VN + "story-3.jpg",
+        alt: "A long line of great white pelicans resting on a mudbank in front of tall reeds",
+        kicker: "Watch out",
+        heading: "Every entry fee online is invented",
+        text: "Family combo tickets, student discounts, 2026 price tables. None of it exists.",
+      },
+      {
+        image: VN + "story-4.jpg",
+        alt: "Crab-plovers standing in shallow water along a sandy shoreline",
+        kicker: "Go here instead",
+        heading: "The Jamnagar coast needs no permission",
+        text: "Marine National Park, Khijadiya and Lakhota Lake are open, and genuinely good.",
+      },
+      {
+        image: VN + "story-5.jpg",
+        alt: "An Asian elephant on a forest track, seen head on through drifting dust",
+        kicker: "Before you book",
+        heading: "Check vantara.in, and nothing else",
+        text: "No opening date has been announced. See what the official record actually says.",
+      },
+    ],
+  },
+  {
     slug: "snow-predictions-for-georgia-2026-2027",
     postSlug: "snow-predictions-for-georgia-2026-2027",
-    popularRank: 1,
+    popularRank: 3,
     title: "Georgia Snow: 2.2 Inches, and Often None",
     description:
       "Georgia averages 2.2 inches of snow a season at Atlanta, and eight of the last sixteen winters brought none at all. What the records show for 2026-2027.",
@@ -143,7 +196,7 @@ export const webStories: WebStory[] = [
   {
     slug: "costco-travel-cruises",
     postSlug: "costco-travel-cruises",
-    popularRank: 2,
+    popularRank: 4,
     title: "Costco Travel Cruises: What You Actually Get",
     description:
       "Costco puts a Digital Costco Shop Card on every sailing but does not show the amount until your invoice. What Costco's own pages confirm.",
@@ -158,7 +211,7 @@ export const webStories: WebStory[] = [
   {
     slug: "kochi-to-lakshadweep-ship-ticket-price",
     postSlug: "kochi-to-lakshadweep-ship-ticket-price",
-    popularRank: 3,
+    popularRank: 5,
     title: "Kochi to Lakshadweep by Ship",
     description:
       "Ship fares from Kochi to Lakshadweep, the entry permit you need, and how to book.",
@@ -168,21 +221,6 @@ export const webStories: WebStory[] = [
       { image: U + "1683043430721-f4a25e539cd5", alt: "Boat on clear water", kicker: "Do not skip this", heading: "You need an entry permit", text: "Every non-islander needs a permit before boarding. Apply well ahead of travel." },
       { image: U + "1572431447238-425af66a273b", alt: "Lakshadweep beach", kicker: "Plan it right", heading: "Best time to sail", text: "Seas are calmest from October to May. Avoid the rough monsoon months." },
       { image: U + "1683043430721-f4a25e539cd5", alt: "Lakshadweep lagoon", kicker: "Full guide", heading: "See every ship and fare", text: "Prices, the permit, and how to book, all in one guide." },
-    ],
-  },
-  {
-    slug: "how-to-visit-vantara-step-by-step-guide",
-    postSlug: "how-to-visit-vantara-step-by-step-guide",
-    popularRank: 6,
-    title: "Visiting Vantara, Jamnagar",
-    description:
-      "The real 2026 status of Vantara in Jamnagar, who can visit, and why there are no public tickets.",
-    pages: [
-      { image: U + "1500614922032-b6dd337b1313", alt: "Elephant in the wild", kicker: "Jamnagar", heading: "Visiting Vantara", text: "The honest 2026 status before you plan." },
-      { image: U + "1524309199871-1817307e6d36", alt: "Elephant close up", kicker: "Important", heading: "Not open to the public yet", text: "As of 2026 there is no public ticket counter and no online booking." },
-      { image: U + "1695339060174-7bdca449f485", alt: "Wildlife in a sanctuary", kicker: "What it is", heading: "A 3,000-acre rescue centre", text: "A Reliance animal rescue and rehabilitation home, not a zoo or theme park." },
-      { image: U + "1500614922032-b6dd337b1313", alt: "Elephant", kicker: "Stay safe", heading: "Ignore fake ticket sites", text: "No official price has been announced. Do not pay any third-party ticket site." },
-      { image: U + "1524309199871-1817307e6d36", alt: "Elephant portrait", kicker: "Full guide", heading: "Read the real 2026 status", text: "Who can visit now, and how to know when it opens." },
     ],
   },
   {
@@ -216,7 +254,7 @@ export const webStories: WebStory[] = [
   {
     slug: "how-to-visit-burj-khalifa-for-free",
     postSlug: "how-to-visit-burj-khalifa-for-free",
-    popularRank: 4,
+    popularRank: 6,
     title: "See Burj Khalifa for Free",
     description:
       "You cannot go up Burj Khalifa for free, but here are the best free views and the fountain show.",
@@ -385,7 +423,7 @@ export const webStories: WebStory[] = [
   {
     slug: "best-places-to-visit-in-lakshadweep",
     postSlug: "best-places-to-visit-in-lakshadweep",
-    popularRank: 5,
+    popularRank: 7,
     title: "Best Islands in Lakshadweep",
     description:
       "Which Lakshadweep islands to visit in 2026 — Agatti, Bangaram, Kadmat, Kavaratti and Minicoy, plus the permit.",
