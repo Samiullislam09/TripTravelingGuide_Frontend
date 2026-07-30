@@ -122,6 +122,26 @@ const nextConfig = {
         destination: "/how-to-visit-vantara-step-by-step-guide/",
         permanent: true,
       },
+      // Tennessee snow was the site's #3 revenue page ever: the 2023-2024 page
+      // earned $226 at a $7.9 RPM before the WordPress migration lost the row,
+      // and the 2024-2025 follow-up was pruned in the July 2026 sweep. Both
+      // collapse into the 2026-2027 rebuild. The earning version carried two
+      // fabricated year-by-year tables (perfect symmetric snowfall ramps) and a
+      // city table inflating Memphis and Nashville well above their real NOAA
+      // normals, so this is a rebuild, not a restore.
+      // NOTE: the destination slug carries a season, at the owner's decision.
+      // It expires July 2027 and will need a fresh page plus another 301, or a
+      // prune. Revisit before then.
+      {
+        source: "/snow-predictions-for-tennessee-2023-2024",
+        destination: "/snow-predictions-for-tennessee-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/snow-predictions-for-tennessee-2024-2025",
+        destination: "/snow-predictions-for-tennessee-2026-2027/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
