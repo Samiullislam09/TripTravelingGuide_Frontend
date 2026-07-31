@@ -57,11 +57,18 @@ const G =
 const VN =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/how-to-visit-vantara-step-by-step-guide/";
 
+// Lakshadweep package frames are real photos of the actual ship (M.V. Kavaratti
+// at Kochi) and the islands on the Samudram itinerary (Kalpeni, Kavaratti), from
+// Wikimedia Commons. Prices in the frames are the official Samudram tariff
+// verified against samudram.utl.gov.in, not the inflated operator figures.
+const LK =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/lakshadweep-tour-packages-from-kochi/";
+
 export const webStories: WebStory[] = [
   {
     slug: "snow-predictions-for-virginia-2026-2027",
     postSlug: "snow-predictions-for-virginia-2026-2027",
-    popularRank: 2,
+    popularRank: 3,
     title: "Virginia Snow: What the Records Actually Show",
     description:
       "Virginia averages 3.4 inches a season at Virginia Beach and 47.1 at Wise. Nobody can forecast the coming winter, and NOAA says so itself.",
@@ -104,9 +111,54 @@ export const webStories: WebStory[] = [
     ],
   },
   {
+    slug: "lakshadweep-tour-packages-from-kochi",
+    postSlug: "lakshadweep-tour-packages-from-kochi",
+    popularRank: 1,
+    title: "Lakshadweep by Ship: The Real Package Price",
+    description:
+      "The official Samudram cruise from Kochi is 22,500 rupees per adult in Gold class, 30,500 in Diamond. Not the 44,000 you see quoted online.",
+    pages: [
+      {
+        image: LK + "story-1.jpg",
+        alt: "The government passenger ship M.V. Kavaratti docked at Kochi with its name painted on the hull",
+        kicker: "Lakshadweep by ship",
+        heading: "One ship package from Kochi",
+        text: "The government Samudram cruise: 5 days, 4 nights, sleeping aboard M.V. Kavaratti.",
+      },
+      {
+        image: LK + "story-2.jpg",
+        alt: "Clear turquoise lagoon water over coral at Kalpeni island in Lakshadweep",
+        kicker: "Three islands",
+        heading: "Kavaratti, Kalpeni, Minicoy",
+        text: "You sail overnight and step onto a different island each day, lunch served ashore.",
+      },
+      {
+        image: LK + "story-3.jpg",
+        alt: "A palm frond over calm turquoise sea at Kavaratti, a boat on the far horizon",
+        kicker: "The real price",
+        heading: "22,500 in Gold, 30,500 in Diamond",
+        text: "Per adult, official 2026 tariff. The 42,000 to 44,000 quotes online are not the government fare.",
+      },
+      {
+        image: LK + "story-4.jpg",
+        alt: "Palm trees silhouetted against a pink sunset over the beach at Kavaratti, Lakshadweep",
+        kicker: "Before you book",
+        heading: "Every visitor needs a permit",
+        text: "A Lakshadweep entry permit is the law, handled through the package booking.",
+      },
+      {
+        image: LK + "story-5.jpg",
+        alt: "A Lakshadweep passenger ship at sea at dusk with people watching from shore",
+        kicker: "How to book",
+        heading: "Online only, book early",
+        text: "The cruise sells only through the official portal, and dates are released close in.",
+      },
+    ],
+  },
+  {
     slug: "how-to-visit-vantara-step-by-step-guide",
     postSlug: "how-to-visit-vantara-step-by-step-guide",
-    popularRank: 1,
+    popularRank: 2,
     title: "Vantara: Can You Actually Visit?",
     description:
       "Vantara is not open to the public. There is no ticket, no booking and no published entry fee, whatever the price tables online tell you.",
@@ -151,7 +203,7 @@ export const webStories: WebStory[] = [
   {
     slug: "snow-predictions-for-georgia-2026-2027",
     postSlug: "snow-predictions-for-georgia-2026-2027",
-    popularRank: 3,
+    popularRank: 4,
     title: "Georgia Snow: 2.2 Inches, and Often None",
     description:
       "Georgia averages 2.2 inches of snow a season at Atlanta, and eight of the last sixteen winters brought none at all. What the records show for 2026-2027.",
@@ -196,7 +248,7 @@ export const webStories: WebStory[] = [
   {
     slug: "costco-travel-cruises",
     postSlug: "costco-travel-cruises",
-    popularRank: 4,
+    popularRank: 5,
     title: "Costco Travel Cruises: What You Actually Get",
     description:
       "Costco puts a Digital Costco Shop Card on every sailing but does not show the amount until your invoice. What Costco's own pages confirm.",
@@ -211,7 +263,7 @@ export const webStories: WebStory[] = [
   {
     slug: "kochi-to-lakshadweep-ship-ticket-price",
     postSlug: "kochi-to-lakshadweep-ship-ticket-price",
-    popularRank: 5,
+    popularRank: 6,
     title: "Kochi to Lakshadweep by Ship",
     description:
       "Ship fares from Kochi to Lakshadweep, the entry permit you need, and how to book.",
@@ -254,7 +306,7 @@ export const webStories: WebStory[] = [
   {
     slug: "how-to-visit-burj-khalifa-for-free",
     postSlug: "how-to-visit-burj-khalifa-for-free",
-    popularRank: 6,
+    popularRank: 7,
     title: "See Burj Khalifa for Free",
     description:
       "You cannot go up Burj Khalifa for free, but here are the best free views and the fountain show.",
@@ -423,7 +475,7 @@ export const webStories: WebStory[] = [
   {
     slug: "best-places-to-visit-in-lakshadweep",
     postSlug: "best-places-to-visit-in-lakshadweep",
-    popularRank: 7,
+    popularRank: 8,
     title: "Best Islands in Lakshadweep",
     description:
       "Which Lakshadweep islands to visit in 2026 — Agatti, Bangaram, Kadmat, Kavaratti and Minicoy, plus the permit.",
