@@ -142,6 +142,22 @@ const nextConfig = {
         destination: "/snow-predictions-for-tennessee-2026-2027/",
         permanent: true,
       },
+      // Bhuj to Dholavira is an evergreen road trip, so it moves off the dated
+      // slug onto a clean one. The -2023 version ranked and earned before the
+      // WordPress migration lost it (now a 404); the -in-2025 version is the
+      // current live page, thin and flagged. Both 301 into the rewritten
+      // evergreen guide so the equity consolidates on one future-proof URL that
+      // gets updated in place rather than re-minted each year.
+      {
+        source: "/bhuj-to-dholavira-road-trip-2023",
+        destination: "/bhuj-to-dholavira-road-trip/",
+        permanent: true,
+      },
+      {
+        source: "/bhuj-to-dholavira-road-trip-in-2025",
+        destination: "/bhuj-to-dholavira-road-trip/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
