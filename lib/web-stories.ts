@@ -64,11 +64,19 @@ const VN =
 const LK =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/lakshadweep-tour-packages-from-kochi/";
 
+// Disneyland vs Disney World frames are real CC photos of each resort's icons
+// from Wikimedia Commons: Disneyland's Sleeping Beauty Castle and Radiator
+// Springs Racers (California), Disney World's Cinderella Castle, EPCOT Spaceship
+// Earth and Magic Kingdom Main Street (Florida). Two of each side, honestly
+// labelled.
+const DVW =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/disneyland-vs-disney-world/";
+
 export const webStories: WebStory[] = [
   {
     slug: "snow-predictions-for-virginia-2026-2027",
     postSlug: "snow-predictions-for-virginia-2026-2027",
-    popularRank: 3,
+    popularRank: 4,
     title: "Virginia Snow: What the Records Actually Show",
     description:
       "Virginia averages 3.4 inches a season at Virginia Beach and 47.1 at Wise. Nobody can forecast the coming winter, and NOAA says so itself.",
@@ -111,9 +119,54 @@ export const webStories: WebStory[] = [
     ],
   },
   {
+    slug: "disneyland-vs-disney-world",
+    postSlug: "disneyland-vs-disney-world",
+    popularRank: 1,
+    title: "Disneyland vs Disney World: Pick One",
+    description:
+      "Disneyland is smaller, walkable and needs 2-3 days. Disney World is 50 times bigger with 4 parks and needs a week. They are 2,500 miles apart.",
+    pages: [
+      {
+        image: DVW + "story-1.jpg",
+        alt: "Sleeping Beauty Castle at Disneyland in California with visitors walking below it",
+        kicker: "Disneyland vs Disney World",
+        heading: "Two places, opposite coasts",
+        text: "Disneyland is in California, Disney World in Florida, 2,500 miles apart. You pick one.",
+      },
+      {
+        image: DVW + "story-2.jpg",
+        alt: "Cinderella Castle at Magic Kingdom, Walt Disney World in Florida",
+        kicker: "The size gap",
+        heading: "Disney World is about 50x bigger",
+        text: "25,000 acres and 4 parks in Florida, versus 500 acres and 2 parks in California.",
+      },
+      {
+        image: DVW + "story-3.jpg",
+        alt: "Spaceship Earth, the geodesic sphere at EPCOT, Walt Disney World",
+        kicker: "How many days",
+        heading: "2-3 days vs a whole week",
+        text: "Disneyland fits a long weekend. Disney World's 4 parks need 4 to 7 days.",
+      },
+      {
+        image: DVW + "story-4.jpg",
+        alt: "Radiator Springs Racers ride in Cars Land at Disney California Adventure",
+        kicker: "For young kids",
+        heading: "Disneyland usually wins",
+        text: "Walkable, less overwhelming, cheaper. Little kids do not miss the bigger resort.",
+      },
+      {
+        image: DVW + "story-5.jpg",
+        alt: "Main Street USA at Magic Kingdom, Walt Disney World, leading toward the castle",
+        kicker: "Which first?",
+        heading: "Start with Disneyland",
+        text: "Cheaper and shorter for a first trip. Scale up to Disney World later. See the full comparison.",
+      },
+    ],
+  },
+  {
     slug: "lakshadweep-tour-packages-from-kochi",
     postSlug: "lakshadweep-tour-packages-from-kochi",
-    popularRank: 1,
+    popularRank: 2,
     title: "Lakshadweep by Ship: The Real Package Price",
     description:
       "The official Samudram cruise from Kochi is 22,500 rupees per adult in Gold class, 30,500 in Diamond. Not the 44,000 you see quoted online.",
@@ -158,7 +211,7 @@ export const webStories: WebStory[] = [
   {
     slug: "how-to-visit-vantara-step-by-step-guide",
     postSlug: "how-to-visit-vantara-step-by-step-guide",
-    popularRank: 2,
+    popularRank: 3,
     title: "Vantara: Can You Actually Visit?",
     description:
       "Vantara is not open to the public. There is no ticket, no booking and no published entry fee, whatever the price tables online tell you.",
@@ -203,7 +256,7 @@ export const webStories: WebStory[] = [
   {
     slug: "snow-predictions-for-georgia-2026-2027",
     postSlug: "snow-predictions-for-georgia-2026-2027",
-    popularRank: 4,
+    popularRank: 5,
     title: "Georgia Snow: 2.2 Inches, and Often None",
     description:
       "Georgia averages 2.2 inches of snow a season at Atlanta, and eight of the last sixteen winters brought none at all. What the records show for 2026-2027.",
@@ -248,7 +301,7 @@ export const webStories: WebStory[] = [
   {
     slug: "costco-travel-cruises",
     postSlug: "costco-travel-cruises",
-    popularRank: 5,
+    popularRank: 6,
     title: "Costco Travel Cruises: What You Actually Get",
     description:
       "Costco puts a Digital Costco Shop Card on every sailing but does not show the amount until your invoice. What Costco's own pages confirm.",
@@ -263,7 +316,7 @@ export const webStories: WebStory[] = [
   {
     slug: "kochi-to-lakshadweep-ship-ticket-price",
     postSlug: "kochi-to-lakshadweep-ship-ticket-price",
-    popularRank: 6,
+    popularRank: 7,
     title: "Kochi to Lakshadweep by Ship",
     description:
       "Ship fares from Kochi to Lakshadweep, the entry permit you need, and how to book.",
@@ -306,7 +359,7 @@ export const webStories: WebStory[] = [
   {
     slug: "how-to-visit-burj-khalifa-for-free",
     postSlug: "how-to-visit-burj-khalifa-for-free",
-    popularRank: 7,
+    popularRank: 8,
     title: "See Burj Khalifa for Free",
     description:
       "You cannot go up Burj Khalifa for free, but here are the best free views and the fountain show.",
@@ -475,7 +528,7 @@ export const webStories: WebStory[] = [
   {
     slug: "best-places-to-visit-in-lakshadweep",
     postSlug: "best-places-to-visit-in-lakshadweep",
-    popularRank: 8,
+    popularRank: 9,
     title: "Best Islands in Lakshadweep",
     description:
       "Which Lakshadweep islands to visit in 2026 — Agatti, Bangaram, Kadmat, Kavaratti and Minicoy, plus the permit.",
