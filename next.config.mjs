@@ -158,6 +158,19 @@ const nextConfig = {
         destination: "/bhuj-to-dholavira-road-trip/",
         permanent: true,
       },
+      // Maryland snow was #9 on the lifetime revenue list ($54 at a $7.7 RPM).
+      // The 2024 page was pruned on 17 Jul 2026; the -2025-2026 version stayed
+      // live and sat at position 83 in GSC on 4 Aug 2026, which is a thin,
+      // expired page dragging on a site still under an HCU classification. It
+      // collapses into the 2026-2027 rebuild.
+      // NOTE: dated destination slug, same decision as Virginia/Georgia/
+      // Tennessee. Frozen until 1 Apr 2027, then all four consolidate onto
+      // evergreen slugs off-season. See WRITING_RULES.md, season allocation.
+      {
+        source: "/snow-predictions-for-maryland-2025-2026",
+        destination: "/snow-predictions-for-maryland-2026-2027/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },

@@ -49,6 +49,17 @@ const V =
 const G =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-georgia-2026-2027/";
 
+// Maryland's frames are real dated photographs of Maryland snow, not stock:
+// Fells Point on 7 Feb 2010 (Laura Swiecicki, CC BY 2.0), Mount Vernon on
+// 4 Jan 2018 and an MTA bus the same morning (Elvert Barnes, CC BY-SA 2.0),
+// Howard Street on 23 Jan 2016 (Seth Sawyers, CC BY 2.0), and NASA's MODIS
+// scene of the Chesapeake under snow after the February 2010 blizzard, which
+// is public domain. Credits ride in the frame text because AMP stories have
+// no caption slot. The first candidate we tried, a public-domain "Deep Creek
+// Lake, December 2018" shot, was dropped after opening it: no snow in frame.
+const MD =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-maryland-2026-2027/";
+
 // Vantara is closed to the public, so no usable photography of it exists: the
 // only image on Wikimedia Commons is a 525x262 shot of the elephant camp gate,
 // too small for a story frame. Rather than pass off stock as Vantara, frames 2
@@ -295,6 +306,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "Nobody forecasts Georgia snowfall",
         text: "NOAA will not publish a seasonal total. See what the records actually show.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-maryland-2026-2027",
+    postSlug: "snow-predictions-for-maryland-2026-2027",
+    popularRank: 6,
+    title: "Maryland Snow: 19.3 Inches, or Almost None",
+    description:
+      "Baltimore averages 19.3 inches of snow a season. Its record winter hit 77 inches and its worst hit 0.2. What the NOAA records show going into 2026-2027.",
+    pages: [
+      {
+        image: MD + "story-1.jpg",
+        alt: "A Baltimore rowhouse street in Fells Point buried in deep snow under a blue sky, with cars covered to the roof",
+        kicker: "Maryland snow",
+        heading: "How much snow does Maryland get?",
+        text: "Baltimore averages 19.3 inches a season. Garrett County averages 104.9. Photo: Laura Swiecicki, CC BY.",
+      },
+      {
+        image: MD + "story-2.jpg",
+        alt: "A man in a winter coat walking a Baltimore pavement with only patchy melting snow, the Washington Monument behind him",
+        kicker: "A normal winter",
+        heading: "Most winters look like this",
+        text: "Nine seasons in a row have finished below normal. Photo: Elvert Barnes, CC BY-SA.",
+      },
+      {
+        image: MD + "story-3.jpg",
+        alt: "Satellite view of the Chesapeake Bay and Maryland almost entirely white with snow after the February 2010 blizzard",
+        kicker: "February 2010",
+        heading: "77 inches, the all-time record",
+        text: "The whole state went under. Still Baltimore's snowiest season since 1883. NASA image.",
+      },
+      {
+        image: MD + "story-4.jpg",
+        alt: "Cars buried to the roof outside Baltimore rowhouses on Howard Street during the January 2016 blizzard, snow still falling",
+        kicker: "El Nino",
+        heading: "A strong El Nino is not a promise",
+        text: "1997-98 was stronger and gave 3.2 inches. 2015-16 gave 35.1. Photo: Seth Sawyers, CC BY.",
+      },
+      {
+        image: MD + "story-5.jpg",
+        alt: "A red and yellow Baltimore transit bus on a wet cobbled street with light snow at the kerb",
+        kicker: "Winter 2026-27",
+        heading: "Nobody forecasts Maryland snowfall",
+        text: "NOAA does not publish a seasonal total. See what the records actually show.",
       },
     ],
   },
