@@ -1,5 +1,26 @@
 # Winter 2026-27 content plan
 
+> **Correction, 7 Aug 2026.** This file was written with **no Search Console
+> data**. GSC is now connected, and it reverses two calls below.
+>
+> **1. The US state snow pages are back on, and they are the priority.** The
+> "Deliberately NOT on this list" table says do not rebuild
+> `snow predictions [US state] 2026-2027`. We rebuilt them anyway (Virginia,
+> Georgia, Tennessee, Jul 2026) and they rank: Georgia **position 8.4**,
+> Tennessee **position 7.9**, in August, before the season. `will it snow in
+> atlanta in 2027` is at **position 7.7** with live impressions in high summer.
+> The US is 75% of lifetime revenue at $9.87 RPM. `WRITING_RULES.md` now sets a
+> binding **70% USA allocation from 7 Aug 2026 to 31 Mar 2027**.
+>
+> **2. The reason it works is that we are not forecasting.** Nothing above
+> changes about that. We rank on those queries with sourced CPC outlook plus NWS
+> historical record and an honest "nobody can predict a seasonal total". The ban
+> on inventing a forecast stands and is what makes this safe.
+>
+> The three UK/Europe climatology posts below are **not cancelled**, but they
+> drop to the 30% bucket and rank behind the US states. Everything else in this
+> file, especially the "no, we cannot write 100 posts" section, still holds.
+
 **Written 17 July 2026. Season target: publish Aug-Sep 2026.**
 Follows `WRITING_RULES.md` (house style) and `CONTENT_CHECKLIST.md` (publish gate).
 Every post here is **draft-first `pending_review`**. Never auto-publish.
@@ -180,7 +201,7 @@ month-level modifiers that are where the real long-tail demand sits.
 | `europe winter forecast 2026 2027` | Requires inventing a forecast. YMYL. severe-weather.eu has a meteorologist; we don't. |
 | `uk snow forecast` / `will it snow tomorrow` | Live conditions. snow-forecast.com and Met Office own it permanently, via data feeds. |
 | Anything La Nina for 2026-27 | Factually dead. El Nino is developing. |
-| `snow predictions [US state] 2026-2027` | The 2024-25 versions of these were pruned on 17 Jul 2026 for being thin and expired. NOAA/AccuWeather own US weather. Do not rebuild them. |
+| ~~`snow predictions [US state] 2026-2027`~~ | **REVERSED 7 Aug 2026, see the correction at the top of this file.** The rebuilt Georgia and Tennessee pages rank at position 8.4 and 7.9. NOAA/AccuWeather own the *forecast*; they do not own "does it snow in Georgia", which is a travel question. These are now the 70% priority. |
 
 ---
 

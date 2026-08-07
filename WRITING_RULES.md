@@ -48,6 +48,78 @@ than refusing it, because it ships.
 
 ---
 
+## Season allocation: 7 Aug 2026 to 31 Mar 2027, **70% of posts are USA**
+
+Binding for this window. **Seven of every ten posts we publish target a US
+reader.** The remaining three cover everything else (India ship/cruise, Vantara,
+road trips) so the live earners do not rot.
+
+**Why, from real data, not preference:**
+
+- **US = 75% of all revenue ever** ($1,787 of $2,226) at **$9.87 RPM**. India is
+  $1.06 RPM. We have been spending our writing on the $1 audience.
+- **Snow made 51% of lifetime revenue off 29% of traffic**, and it made it in a
+  single window: **Nov to Mar**. Outside that window snow content earns nothing,
+  which is why the allocation has an end date.
+- **The rebuilds are working.** GSC, 6 May to 4 Aug 2026:
+  `snow-predictions-for-georgia-2026-2027/` sits at **position 8.4**,
+  `snow-predictions-for-tennessee-2026-2027/` at **position 7.9**. Page one, in
+  August, before the season starts.
+- **Demand is already live.** `will it snow in atlanta in 2027` shows 64
+  impressions at **position 7.7** in high summer. `will it snow in georgia in
+  2027`: position 8.5. People start asking in August.
+- **The US has 3,575 impressions and 7 clicks** at average position 60.7. The
+  audience is already being shown to us. We are just not on page one for them.
+
+**This overrides the "do not rebuild US state snow pages" line in
+`WINTER_2026_PLAN.md`.** That call was made 17 Jul 2026 with no GSC data. We now
+have the data and it says the opposite. See that file for the correction note.
+
+### What "USA post" means here
+
+Anything a US reader searches, ranked by evidence we already hold:
+
+1. **State snow pages from the top-20 revenue list** (the queue in
+   `TOP_20_REWRITE_PLAN.md`): North Carolina, Pennsylvania, Maryland, then the
+   `snow-forecast-united-states` hub. These are proven earners at $7.50-8.20 RPM.
+2. **US snow *travel* questions**, which are our lane and not the almanacs':
+   "where to see snow near <city>", "does it snow in <state>", "closest place to
+   see snow to <city>", what to drive, when to go, what it costs.
+3. **Other US travel with commercial intent** (the Costco-shaped queries), but
+   only once the honesty question in `REVIVAL_PLAN.md` is answered.
+
+### What this rule does NOT authorise
+
+- **It is not permission to publish more.** The cap is still **≤5 published per
+  week**, and 70% is a share of that, not an increase to it. A post count is
+  never the target. Rule 0 is unchanged and still outranks this section.
+- **It is not permission to forecast.** We rank at position 8 on
+  `will it snow in atlanta in 2027` **without predicting anything**. We publish
+  the NOAA CPC outlook and say what it actually says, the NWS historical record,
+  and the honest line the whole SERP is missing: *nobody can give you a seasonal
+  snowfall total in advance, and anyone printing one is guessing.* We occupy the
+  query. We do not make the forecast. Inventing a snowfall number is the exact
+  thing that demoted us.
+- **It is not a reason to abandon the India pages.** `kochi-to-lakshadweep` is
+  145 clicks and our single biggest page. It stays maintained inside the 30%.
+
+### Two things this window specifically requires
+
+- **Fix titles and meta before writing anything new.** Position 7.7 with **zero
+  clicks** on 64 impressions is a title problem, not a ranking problem. Every US
+  snow page gets a `<title>` written to be *clicked* on a phone in a SERP full of
+  almanacs. Site CTR is 1.5%; mobile is 76% of our clicks.
+- **Slugs are frozen until 1 Apr 2027.** Georgia and Tennessee rank at position 8
+  on **dated** slugs (`...-2026-2027/`). Do not migrate them to evergreen slugs
+  mid-season. Ship North Carolina, Maryland and Pennsylvania on the same dated
+  pattern for consistency, then do the evergreen consolidation as **one planned
+  move in April 2027**, off-season, when nothing is at stake.
+
+**Review date: 31 Mar 2027.** Rewrite this section against the season's real GSC
+and AdSense numbers. If US did not earn, the allocation was wrong and it changes.
+
+---
+
 **The one job of every post: fully answer a real traveller's question better than
 the current top results — so completely they don't need another tab.** Winning
 the featured snippet / PAA is a *by-product* of being the clearest, most
