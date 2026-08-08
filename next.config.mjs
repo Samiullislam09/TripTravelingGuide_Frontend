@@ -33,6 +33,28 @@ const nextConfig = {
         destination: "https://triptravelingguide.com/:path*",
         permanent: true,
       },
+      // Yoast's sitemap URLs from the WordPress era. Search Console still has
+      // all three submitted (from Nov 2024 and Aug 2025) and has been reporting
+      // "Couldn't fetch" against them ever since the migration, because Next.js
+      // serves a single /sitemap.xml instead. Google follows a 301 on a sitemap
+      // URL, so this clears the errors and, more importantly, makes the stale
+      // submissions resolve to the real 103-URL sitemap without waiting for
+      // anyone to re-submit by hand.
+      {
+        source: "/sitemap_index.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/post-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/page-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
       // Old date-stamped Costco URL → the evergreen rebuild. The 2023-2024 page
       // earned $244 lifetime at a $74 RPM (our highest) before it was pruned for
       // carrying a likely-fabricated price table, so its link equity is worth
