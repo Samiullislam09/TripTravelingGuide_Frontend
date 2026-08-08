@@ -60,6 +60,16 @@ const G =
 const MD =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-maryland-2026-2027/";
 
+// North Carolina's frames are real photographs of North Carolina snow: the
+// Omni Grove Park golf course in Asheville (Bill McMannis, CC BY 2.0), Sanford
+// Mall at Appalachian State in Boone (Clayhefner, CC0), NASA's MODIS scene of
+// the coastal plain under snow on 14 Feb 2010, Asheville during the March 1993
+// Superstorm (NOAA) and the Blue Ridge Parkway's own snow warning sign (Ken
+// Thomas). The MODIS frame is the whole argument of the page in one image: the
+// coast white, the interior bare.
+const NC =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-north-carolina-2026-2027/";
+
 // Vantara is closed to the public, so no usable photography of it exists: the
 // only image on Wikimedia Commons is a 525x262 shot of the elephant camp gate,
 // too small for a story frame. Rather than pass off stock as Vantara, frames 2
@@ -351,6 +361,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "Nobody forecasts Maryland snowfall",
         text: "NOAA does not publish a seasonal total. See what the records actually show.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-north-carolina-2026-2027",
+    postSlug: "snow-predictions-for-north-carolina-2026-2027",
+    popularRank: 6,
+    title: "North Carolina Snow: 89 Inches, or Under One",
+    description:
+      "Mount Mitchell averages 89 inches of snow a season and Wilmington averages under an inch. What eight NWS station records show going into 2026-2027.",
+    pages: [
+      {
+        image: NC + "story-1.jpg",
+        alt: "Snow lying across the golf course and fairway trees at the Omni Grove Park Inn in Asheville, North Carolina",
+        kicker: "North Carolina snow",
+        heading: "How much snow does NC get?",
+        text: "Anything from 89 inches to under one, depending where you stand. Photo: Bill McMannis, CC BY.",
+      },
+      {
+        image: NC + "story-2.jpg",
+        alt: "Students crossing a snow-covered Sanford Mall on the Appalachian State University campus in Boone",
+        kicker: "Boone",
+        heading: "27 inches, and never a blank year",
+        text: "Boone has finished all 46 of its recorded seasons with measurable snow. Photo: Clayhefner, CC0.",
+      },
+      {
+        image: NC + "story-3.jpg",
+        alt: "Satellite view of eastern North Carolina with the coastal plain and Outer Banks white with snow while the interior stays bare brown",
+        kicker: "Last winter",
+        heading: "The coast beat the mountains",
+        text: "Wilmington had its 6th snowiest season in 76 years. Asheville ranked 47th. NASA image.",
+      },
+      {
+        image: NC + "story-4.jpg",
+        alt: "A snow-buried Asheville street during the March 1993 Storm of the Century",
+        kicker: "March 1993",
+        heading: "36 inches in 24 hours",
+        text: "The Superstorm still holds both state records: 36 inches in a day, 50 in total. NOAA photo.",
+      },
+      {
+        image: NC + "story-5.jpg",
+        alt: "A Blue Ridge Parkway sign warning drivers to avoid the parkway during fog, snow and ice",
+        kicker: "Winter 2026-27",
+        heading: "Check the road before you go",
+        text: "Parkway sections are still closed from Helene. See what the station records actually show.",
       },
     ],
   },

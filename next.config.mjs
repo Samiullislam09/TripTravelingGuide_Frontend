@@ -171,6 +171,29 @@ const nextConfig = {
         destination: "/snow-predictions-for-maryland-2026-2027/",
         permanent: true,
       },
+      // North Carolina snow was #4 on the lifetime revenue list ($174 at an
+      // $8.2 RPM, 21,291 views) and the last Tier 1 page still unbuilt. The old
+      // URL is an inference, not a confirmed archive hit: TOP_20_REWRITE_PLAN.md
+      // names "snow-predictions-for-nc-2023-2024" but Wayback has no capture of
+      // it, and the slug was reconstructed from the GA4 page title. A 301 from a
+      // URL that never existed costs nothing, so both spellings are covered.
+      // NOTE: dated destination slug, frozen until 1 Apr 2027 with the other
+      // four states. See WRITING_RULES.md, season allocation.
+      {
+        source: "/snow-predictions-for-nc-2023-2024",
+        destination: "/snow-predictions-for-north-carolina-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/snow-predictions-for-north-carolina-2023-2024",
+        destination: "/snow-predictions-for-north-carolina-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/snow-predictions-for-nc-2024-2025",
+        destination: "/snow-predictions-for-north-carolina-2026-2027/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
