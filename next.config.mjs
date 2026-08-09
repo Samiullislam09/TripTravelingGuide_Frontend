@@ -216,6 +216,21 @@ const nextConfig = {
         destination: "/snow-predictions-for-north-carolina-2026-2027/",
         permanent: true,
       },
+      // The old Colorado page was pruned on 8 Aug 2026 for carrying invented
+      // monthly snowfall totals, and returned 410 for two days because nothing
+      // equivalent existed to send it to. The 2026-2027 rebuild now does, so
+      // the URL redirects instead of dying. Same dated-slug decision and the
+      // same April 2027 review as the other five state pages.
+      {
+        source: "/colorado-snow-predictions-2025-2026",
+        destination: "/snow-predictions-for-colorado-2026-2027/",
+        permanent: true,
+      },
+      {
+        source: "/snow-predictions-for-colorado-2023-2024",
+        destination: "/snow-predictions-for-colorado-2026-2027/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },

@@ -70,6 +70,15 @@ const MD =
 const NC =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-north-carolina-2026-2027/";
 
+// Colorado's frames are public-domain photographs of Colorado snow: FEMA's
+// coverage of the 20 December 2006 storm (Michael Rieger), NASA's MODIS scene
+// of the state with the mountains white and the plains bare, and the Flattop
+// Mountain trail in Rocky Mountain National Park. The MODIS frame carries the
+// page's argument: Crested Butte averages 193.7 inches and Grand Junction 17.1,
+// inside one state.
+const CO =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-colorado-2026-2027/";
+
 // Vantara is closed to the public, so no usable photography of it exists: the
 // only image on Wikimedia Commons is a 525x262 shot of the elephant camp gate,
 // too small for a story frame. Rather than pass off stock as Vantara, frames 2
@@ -361,6 +370,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "Nobody forecasts Maryland snowfall",
         text: "NOAA does not publish a seasonal total. See what the records actually show.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-colorado-2026-2027",
+    postSlug: "snow-predictions-for-colorado-2026-2027",
+    popularRank: 6,
+    title: "Colorado Snow: What El Nino Actually Did",
+    description:
+      "In seven strong El Nino winters since 1950, southern Colorado ran well above normal and Steamboat ran below. What 12 station records show for 2026-2027.",
+    pages: [
+      {
+        image: CO + "story-1.jpg",
+        alt: "A snowplough with headlights on clearing a Colorado residential street in heavy falling snow",
+        kicker: "Colorado snow",
+        heading: "How much snow does Colorado get?",
+        text: "Anywhere from 194 inches to 17, depending on which side of the divide you stand. FEMA photo.",
+      },
+      {
+        image: CO + "story-2.jpg",
+        alt: "Satellite view of Colorado with the Rocky Mountains white with snow and the eastern plains bare brown",
+        kicker: "One state, two climates",
+        heading: "Crested Butte 194in, Grand Junction 17in",
+        text: "An eleven-fold gap inside one state. A statewide average describes nowhere. NASA image.",
+      },
+      {
+        image: CO + "story-3.jpg",
+        alt: "A snowplough clearing a Colorado street past a tavern during a heavy snowstorm",
+        kicker: "Last winter",
+        heading: "The worst season on record",
+        text: "2025-26 finished dead last at Fort Collins, Steamboat and Telluride. Denver came second worst.",
+      },
+      {
+        image: CO + "story-4.jpg",
+        alt: "A snow-covered trail through spruce forest in the Colorado high country under a blue sky",
+        kicker: "El Nino",
+        heading: "The south wins, the north does not",
+        text: "Colorado Springs beat its normal in all seven strong El Nino winters. Steamboat managed two.",
+      },
+      {
+        image: CO + "story-5.jpg",
+        alt: "A snowplough and a pickup truck on a snow-covered Colorado street during falling snow",
+        kicker: "Denver",
+        heading: "First snow lands 18 October",
+        text: "That is the median across 78 seasons. The earliest was 3 September, the latest 10 December.",
       },
     ],
   },

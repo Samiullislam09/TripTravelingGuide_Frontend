@@ -23,7 +23,11 @@ const GONE_SLUGS = new Set<string>([
   // Rows are backed up at dashboard scripts/backups/
   // prune-expired-forecasts-2026-08-08.json if either is ever needed again.
   "snow-prediction-2025-2026-winter-2025-2026-snow-forecast",
-  "colorado-snow-predictions-2025-2026",
+
+  // NOTE: colorado-snow-predictions-2025-2026 was 410 here from 8 to 10 Aug
+  // 2026. It now 301s to the 2026-2027 rebuild in next.config.mjs instead. A
+  // 410 was right while nothing equivalent existed; now that a real Colorado
+  // page does, sending the URL there beats throwing it away.
 
   // The Pittsburgh story, removed from lib/web-stories.ts the same day. Its
   // post was pruned in July 2026 and the story quoted a 97-99% El Nino
@@ -51,8 +55,6 @@ export const config = {
     "/how-to-visit-yukevalo-island/",
     "/snow-prediction-2025-2026-winter-2025-2026-snow-forecast",
     "/snow-prediction-2025-2026-winter-2025-2026-snow-forecast/",
-    "/colorado-snow-predictions-2025-2026",
-    "/colorado-snow-predictions-2025-2026/",
     "/web-stories/pittsburgh-winter-forecast-2024-2025",
     "/web-stories/pittsburgh-winter-forecast-2024-2025/",
   ],
