@@ -240,6 +240,47 @@ const nextConfig = {
         destination: "/snow-predictions-for-colorado-2026-2027/",
         permanent: true,
       },
+      // The WordPress-era category hubs lived at the bare slug. Next.js serves
+      // them under /category/<slug>/, so every old hub URL has been returning a
+      // 404 since the migration, and Search Console shows Google still ranking
+      // several of them well: /ship-travel/ at position 2.82 and /road-trips/ at
+      // 3.15 over the three months to 8 Aug 2026. Those are the best positions
+      // anything on this site holds, pointed at nothing.
+      {
+        source: "/air-travel",
+        destination: "/category/air-travel/",
+        permanent: true,
+      },
+      {
+        source: "/ship-travel",
+        destination: "/category/ship-travel/",
+        permanent: true,
+      },
+      {
+        source: "/road-trips",
+        destination: "/category/road-trips/",
+        permanent: true,
+      },
+      {
+        source: "/weather-for-traveling",
+        destination: "/category/weather-for-traveling/",
+        permanent: true,
+      },
+      {
+        source: "/traveling-best-places",
+        destination: "/category/traveling-best-places/",
+        permanent: true,
+      },
+      // /travel-insurance/ has no category to go home to: no such category
+      // exists in the CMS, and the site's only insurance content is the cruise
+      // guide. Sending it there is a judgement call, not an equivalence, so it
+      // is the one entry here worth revisiting. If a travel-insurance category
+      // is ever created, repoint this at it.
+      {
+        source: "/travel-insurance",
+        destination: "/what-is-the-best-travel-insurance-for-cruises/",
+        permanent: true,
+      },
     ];
     // Add migrated/pruned per-URL 301s here later (preserve ranking equity).
   },
