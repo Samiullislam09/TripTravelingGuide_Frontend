@@ -79,6 +79,15 @@ const NC =
 const CO =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-colorado-2026-2027/";
 
+// The Australia frames are real photographs of the aircraft and cities the
+// guide is actually about: a Qantas A380 and a United 787-9, then Melbourne and
+// Sydney. The story used to run generic stock of an airplane wing and told
+// readers the Qsuite was "widely rated the best business seat", which is the
+// unsourced superlative the guide itself was rewritten to remove. Every frame
+// now carries a number the guide can defend.
+const AU =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/best-airlines-travel-internationally-business-class-to-australia/";
+
 // Vantara is closed to the public, so no usable photography of it exists: the
 // only image on Wikimedia Commons is a 525x262 shot of the elephant camp gate,
 // too small for a story frame. Rather than pass off stock as Vantara, frames 2
@@ -584,15 +593,45 @@ export const webStories: WebStory[] = [
   {
     slug: "best-airlines-travel-internationally-business-class-to-australia",
     postSlug: "best-airlines-travel-internationally-business-class-to-australia",
-    title: "Business Class to Australia",
+    title: "Business Class to Australia From the US",
     description:
-      "The best airlines for business class to Australia, what each does best, and how to find a fare.",
+      "Four airlines fly business class nonstop from the US to Australia. The gateways, the cities, and why a Gulf connection adds up to 95% more flying.",
     pages: [
-      { image: U + "1436491865332-7a61a109cc05", alt: "Airplane wing above the clouds", kicker: "Business Class", heading: "Flying to Australia in Style", text: "The airlines that do the long haul best." },
-      { image: U + "1556388158-158ea5ccacbd", alt: "Airliner coming in to land", kicker: "Top pick", heading: "Qatar Airways Qsuite", text: "A private suite with a door, widely rated the best business seat." },
-      { image: U + "1569154941061-e231b4725ef1", alt: "Wide-body jet on the tarmac", kicker: "Also great", heading: "Singapore, Emirates, Qantas", text: "Singapore for service, Emirates for the A380 bar, Qantas for non-stop flights." },
-      { image: U + "1436491865332-7a61a109cc05", alt: "View from an aircraft window", kicker: "Save money", heading: "Book early and use points", text: "Fares swing with the season, and miles stretch furthest in business class." },
-      { image: U + "1556388158-158ea5ccacbd", alt: "Aircraft landing at dusk", kicker: "Full guide", heading: "Every airline compared", text: "What each does best and how to find a good fare." },
+      {
+        image: AU + "story1.jpg",
+        alt: "A Qantas Airbus A380 with Spirit of Australia titles on the taxiway at Los Angeles International Airport",
+        kicker: "Business class",
+        heading: "Only four airlines fly it nonstop",
+        text: "Qantas, United, Delta and American, from four mainland US gateways. Photo: Glenn Beltz, CC BY.",
+      },
+      {
+        image: AU + "story2.jpg",
+        alt: "A United Airlines Boeing 787-9 Dreamliner taxiing beside the water",
+        kicker: "United",
+        heading: "Four Australian cities from SFO",
+        text: "Sydney, Melbourne and Brisbane year round, Adelaide seasonally. Photo: Bill Abbott, CC BY-SA.",
+      },
+      {
+        image: AU + "story3.jpg",
+        alt: "The Melbourne skyline rising above the Yarra River on a clear day",
+        kicker: "Melbourne",
+        heading: "Three airlines fly there nonstop",
+        text: "Qantas from Dallas and LA, United from LA and San Francisco, Delta from LA. Photo: melalouise, CC BY.",
+      },
+      {
+        image: AU + "story4.jpg",
+        alt: "Sydney Opera House and the Harbour Bridge at dusk seen across the water",
+        kicker: "The detour",
+        heading: "Doha adds 45% more flying",
+        text: "New York to Sydney is 9,951 miles direct. Over Doha it is 14,382. Photo: Benh Lieu Song, CC BY-SA.",
+      },
+      {
+        image: AU + "story5.jpg",
+        alt: "A Qantas Airbus A380 at Los Angeles International Airport with other airline tails behind it",
+        kicker: "Full guide",
+        heading: "Every nonstop, city by city",
+        text: "Flight times from your airport and which cabin each airline flies. Photo: Eric Salard, CC BY-SA.",
+      },
     ],
   },
   {
