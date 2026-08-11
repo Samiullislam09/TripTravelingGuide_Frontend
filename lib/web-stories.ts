@@ -79,6 +79,13 @@ const NC =
 const CO =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-colorado-2026-2027/";
 
+// The Thanksgiving frames are real photographs of US checkpoints and terminals,
+// chosen so each one argues its own number: an empty Portland checkpoint for the
+// quietest day of the year, a packed O'Hare concourse for the busiest. The story
+// carries counts from the TSA record, never a forecast.
+const TG =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/best-day-to-fly-thanksgiving/";
+
 // The Australia frames are real photographs of the aircraft and cities the
 // guide is actually about: a Qantas A380 and a United 787-9, then Melbourne and
 // Sydney. The story used to run generic stock of an airplane wing and told
@@ -588,6 +595,50 @@ export const webStories: WebStory[] = [
       { image: U + "1548574505-5e239809ee19", alt: "Cruise ship deck", kicker: "The price", heading: "It depends on your cabin", text: "Interior cabins are cheapest, suites the priciest. Fares move with the season." },
       { image: U + "1572431447238-425af66a273b", alt: "Lakshadweep lagoon", kicker: "Included", heading: "Meals and shows on board", text: "Your cabin, meals and entertainment are included; excursions and drinks cost extra." },
       { image: U + "1548574505-5e239809ee19", alt: "Cruise ship at sea", kicker: "Full guide", heading: "Costs, itinerary and booking", text: "What it really costs and how to book officially." },
+    ],
+  },
+  {
+    slug: "best-day-to-fly-thanksgiving",
+    postSlug: "best-day-to-fly-thanksgiving",
+    title: "Best Day to Fly for Thanksgiving",
+    description:
+      "Thanksgiving Day is the quietest US flying day of the year and the Sunday after is the busiest. Counted from six years of TSA checkpoint records.",
+    pages: [
+      {
+        image: TG + "s1.jpg",
+        alt: "A passenger waiting at a Please Wait Here sign at an airport security checkpoint",
+        kicker: "Thanksgiving",
+        heading: "The busiest day is not the one you think",
+        text: "Six years of TSA counts, not forecasts. The peak is not the Wednesday. Photo: Michael Ball, CC0.",
+      },
+      {
+        image: TG + "s4.jpg",
+        alt: "An almost empty airport security checkpoint with stacked bins and one officer on duty",
+        kicker: "The quiet day",
+        heading: "Thanksgiving Day is the emptiest",
+        text: "TSA screened 1,559,165 people on Thanksgiving 2025, the quietest day of that whole year. Photo: M.O. Stevens, CC BY.",
+      },
+      {
+        image: TG + "s3.jpg",
+        alt: "A crowded airport concourse at Chicago O'Hare full of walking passengers",
+        kicker: "The peak",
+        heading: "The Sunday after is the busiest",
+        text: "3,134,613 screened on 30 November 2025. Busiest day of the year, six years running. Photo: Mattpopovich, CC0.",
+      },
+      {
+        image: TG + "s2.jpg",
+        alt: "Passengers queuing in the security line under the tented roof of Denver International Airport",
+        kicker: "The myth",
+        heading: "The Wednesday before is not the peak",
+        text: "In six years of records it has never been the busiest day even of its own week. Photo: Dbenbenn, CC BY-SA.",
+      },
+      {
+        image: TG + "s5.jpg",
+        alt: "A Thanksgiving dinner spread of side dishes laid out on a dark table",
+        kicker: "Full guide",
+        heading: "Fly out Thursday, home Tuesday",
+        text: "Thanksgiving 2026 is 26 November. Keep off Sunday 29 November. Photo: HaJunkiyada, CC BY-SA.",
+      },
     ],
   },
   {
