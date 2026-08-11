@@ -10,6 +10,15 @@ const nextConfig = {
   // build doesn't collide with a running `next dev`. Defaults to ".next".
   distDir: process.env.NEXT_DIST_DIR || ".next",
   images: {
+    // The host's image optimizer started answering every /_next/image request
+    // with 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED once the plan's monthly
+    // transformation quota ran out, which broke every cover, thumbnail and
+    // avatar on the site at once while the originals stayed fine. Serving the
+    // originals direct from Supabase removes that paid dependency entirely.
+    // scripts/host-images.mjs already writes them at the exact display size
+    // (1200x675 landscape, 720x1280 portrait), so there is nothing for the
+    // optimizer to do that upload time has not already done.
+    unoptimized: true,
     // Allow images served from the dashboard/CMS, WordPress (during migration),
     // and Vercel Blob storage. Add real hosts as they are confirmed.
     remotePatterns: [
