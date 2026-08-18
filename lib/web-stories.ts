@@ -118,7 +118,64 @@ const LK =
 const DVW =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/disneyland-vs-disney-world/";
 
+// The American Airlines frames are real CC photographs, and each one is the
+// aircraft or the place its own frame is about: a 787-9 for the headline count,
+// a 777-200ER for the Tel Aviv resumption (the type that actually flies it), an
+// A321neo for the seasonal-Europe point, the Bimini shallows shot from a plane
+// window for the shortest route, and Narita with Japan Airlines on the apron for
+// the Chicago to Tokyo launch, which is the partnership the guide cites. Two
+// earlier candidates were dropped after cropping and looking at them: a Zurich
+// apron shot that turned out to carry Swissair titles (defunct since 2002, so it
+// reads as an archive photo in a 2026 story) and a Philadelphia frame that was a
+// close-up of identifiable baggage handlers and argued nothing about routes.
+const AA =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/american-airlines-new-international-routes-2026/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "american-airlines-new-international-routes-2026",
+    postSlug: "american-airlines-new-international-routes-2026",
+    title: "American Airlines 2026: 15 New Routes, Not 13",
+    description:
+      "American added 15 new international routes in 2026, not the 13 most lists print. The two left out are New York to Tel Aviv and Dallas to Buenos Aires.",
+    pages: [
+      {
+        image: AA + "story-1.jpg",
+        alt: "An American Airlines Boeing 787-9 Dreamliner on the taxiway under a bright blue sky with scattered cloud",
+        kicker: "American Airlines",
+        heading: "Every list says 13 new routes",
+        text: "The real count for 2026 is 15. Two of them get left out of almost every roundup. Photo: Umedha Hettigoda, CC BY-SA.",
+      },
+      {
+        image: AA + "story-2.jpg",
+        alt: "An American Airlines Boeing 777-200ER with its landing gear down, coming in to land in evening light",
+        kicker: "The one they missed",
+        heading: "New York to Tel Aviv came back",
+        text: "Daily on the 777-200 from 28 March 2026, after a suspension that started in October 2023. Photo: BriYYZ, CC BY-SA.",
+      },
+      {
+        image: AA + "story-3.jpg",
+        alt: "An American Airlines Airbus A321neo climbing against a clear blue sky, wing and both engines in view",
+        kicker: "The catch",
+        heading: "Only one new European route runs all year",
+        text: "Miami to Milan. Dallas to Zurich lasted about ten weeks and finished on 4 August 2026. Photo: 4300streetcar, CC BY.",
+      },
+      {
+        image: AA + "story-4.jpg",
+        alt: "The Bimini islands and their turquoise shallows seen from the air, with deep blue ocean alongside",
+        kicker: "Shortest flight",
+        heading: "Miami to Bimini, about 50 miles",
+        text: "American's shortest route, three days a week on an Embraer E175, from 14 February 2026. Photo: LBM1948, CC BY-SA.",
+      },
+      {
+        image: AA + "story-5.jpg",
+        alt: "Japan Airlines and Jetstar aircraft parked on the apron beside Terminal 3 at Tokyo Narita Airport",
+        kicker: "Full guide",
+        heading: "The biggest one starts in 2027",
+        text: "Chicago to Tokyo Narita, daily on the 787-9 from 27 March 2027. See all 15 routes. Photo: Calistemon, CC BY-SA.",
+      },
+    ],
+  },
   {
     slug: "snow-predictions-for-virginia-2026-2027",
     postSlug: "snow-predictions-for-virginia-2026-2027",
