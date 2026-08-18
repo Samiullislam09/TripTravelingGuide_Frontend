@@ -240,6 +240,22 @@ const nextConfig = {
         destination: "/snow-predictions-for-colorado-2026-2027/",
         permanent: true,
       },
+      // Pennsylvania was #16 on the lifetime revenue list ($23 at a $7.6 RPM,
+      // 3,058 views) and was pruned on 17 Jul 2026. It was the one winter post
+      // whose slug carried no year, and WINTER_2026_PLAN.md records that
+      // rewriting it in place would have been the better call. The owner chose
+      // the dated slug instead, to match the other six states, so the evergreen
+      // URL 301s into the rebuild rather than being restored.
+      // Held back until the destination was actually live (published 16 Aug
+      // 2026, verified 200) because a 301 to a 404 is worse than the 404.
+      // NOTE: dated destination slug, frozen until 1 Apr 2027, when this and
+      // the other six state pages consolidate onto evergreen slugs off-season.
+      // This is the one whose evergreen URL already exists; point it back here.
+      {
+        source: "/pennsylvania-snow-predictions",
+        destination: "/snow-predictions-for-pennsylvania-2026-2027/",
+        permanent: true,
+      },
       // The WordPress-era category hubs lived at the bare slug. Next.js serves
       // them under /category/<slug>/, so every old hub URL has been returning a
       // 404 since the migration, and Search Console shows Google still ranking
