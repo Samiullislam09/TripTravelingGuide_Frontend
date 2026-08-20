@@ -131,7 +131,62 @@ const DVW =
 const AA =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/american-airlines-new-international-routes-2026/";
 
+// The government-shutdown frames reuse the guide's own vetted photos, cropped
+// separately to 720x1280 since Supabase ignores storyImage()'s Unsplash-only
+// crop params: the Capitol (Martin Falbisoner-style shot, no people) opens and
+// closes the story, the Global Entry kiosk (CBP, public domain) covers the one
+// program that was actually suspended, and the Joshua Tree closure sign (NPS,
+// public domain) covers parks. Only 3 source photos exist for this guide, so
+// frames 4 and 5 reuse frames 1 and 2, the same pattern already used on the
+// Costco and Lakshadweep-booking stories above when photo variety is limited.
+const GS =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/government-shutdown-travel-2026/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "government-shutdown-travel-2026",
+    postSlug: "government-shutdown-travel-2026",
+    title: "Government Shutdown Travel: The Dec 4 Deadline",
+    description:
+      "Congress funded the government only through December 4, 2026, a week after Thanksgiving. What the two 2026 shutdowns already showed about flights, TSA lines and parks.",
+    pages: [
+      {
+        image: GS + "story-1.jpg",
+        alt: "The east front of the United States Capitol building under a clear blue sky",
+        kicker: "Government shutdown",
+        heading: "Funded only through December 4, 2026",
+        text: "A week after Thanksgiving, three weeks before Christmas travel peaks. Photo: Martin Falbisoner, CC BY-SA.",
+      },
+      {
+        image: GS + "story-2.jpg",
+        alt: "Automated Passport Control kiosks at an airport, the kind of self-service kiosk Global Entry members use",
+        kicker: "What actually closed",
+        heading: "Global Entry, not PreCheck",
+        text: "DHS suspended Global Entry in Feb 2026 and reversed a PreCheck suspension within a day. Photo: US CBP, public domain.",
+      },
+      {
+        image: GS + "story-3.jpg",
+        alt: "A Road Closed Ahead sign at a Joshua Tree National Park entrance, with a park ranger vehicle behind it",
+        kicker: "National parks",
+        heading: "Roads stay open, staff don't",
+        text: "Permits, visitor centres and restrooms stop; the road and trail usually don't. Photo: NPS.",
+      },
+      {
+        image: GS + "story-4.jpg",
+        alt: "The east front of the United States Capitol building under a clear blue sky",
+        kicker: "Know your rights",
+        heading: "Cancelled flight? You get a refund",
+        text: "Even on a nonrefundable fare, by DOT rule. Accepting a rebooking forfeits it.",
+      },
+      {
+        image: GS + "story-5.jpg",
+        alt: "Automated Passport Control kiosks at an airport terminal",
+        kicker: "Full guide",
+        heading: "How to fly smart before Dec 4",
+        text: "What the two 2026 shutdowns proved, and what still isn't known. See the full guide.",
+      },
+    ],
+  },
   {
     slug: "american-airlines-new-international-routes-2026",
     postSlug: "american-airlines-new-international-routes-2026",
