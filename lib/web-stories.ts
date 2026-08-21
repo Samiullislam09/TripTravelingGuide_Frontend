@@ -142,7 +142,68 @@ const AA =
 const GS =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/government-shutdown-travel-2026/";
 
+// The Royal Caribbean 2027 frames are five DISTINCT real photographs of the
+// exact ships and ports the story is about, so unlike the government-shutdown
+// story above there is no frame reuse here: Freedom of the Seas at Port Miami
+// (Kiran891, CC BY-SA 4.0), Navigator of the Seas docked at Ensenada (Jack
+// Adamenko, CC BY 4.0), Ovation of the Seas in Sydney Harbour (Dicklyon,
+// CC BY-SA 4.0), Icon of the Seas under way (Chakie2, CC BY-SA 4.0) and Royal
+// Caribbean's own Terminal 10 at Galveston (Larry D. Moore, CC BY 4.0).
+// Ensenada is deliberate: it is one of the ports Royal Caribbean named in the
+// November 2025 Los Angeles deployment it later cancelled, so frame 2 shows
+// the actual ship at an actual cancelled port. Frame 3's caption says Sydney,
+// not Brisbane, because that is where the photograph was taken; Ovation's 2027
+// home port is Brisbane and the frame text carries that separately. Cropped to
+// 720x1280 by scripts/host-images.mjs --portrait, since Supabase ignores
+// storyImage()'s Unsplash-only crop params.
+const RC =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/royal-caribbean-2027-cruise-changes/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "royal-caribbean-2027-cruise-changes",
+    postSlug: "royal-caribbean-2027-cruise-changes",
+    title: "Royal Caribbean 2027: What Actually Changed",
+    description:
+      "Seven ships, three announcements and about 20 cancelled sailings. Which 2027 cruises are gone, what refund you actually get, and where the ships went instead.",
+    pages: [
+      {
+        image: RC + "story-1.jpg",
+        alt: "Freedom of the Seas, a Royal Caribbean cruise ship, berthed at Port Miami with its name visible on the hull",
+        kicker: "Royal Caribbean 2027",
+        heading: "About 20 sailings cancelled",
+        text: "Freedom of the Seas leaves Miami and the Caribbean for Southampton, May to October 2027. Photo: Kiran891, CC BY-SA.",
+      },
+      {
+        image: RC + "story-2.jpg",
+        alt: "Navigator of the Seas docked at the cruise port in Ensenada, Mexico, with port cranes behind it",
+        kicker: "Los Angeles",
+        heading: "The Mexican Riviera season vanished",
+        text: "Announced November 2025 with Ensenada and Cabo named. Pulled nine months later. Photo: Jack Adamenko, CC BY.",
+      },
+      {
+        image: RC + "story-3.jpg",
+        alt: "Ovation of the Seas berthed in Sydney Harbour, towering over the surrounding buildings",
+        kicker: "Where the ships went",
+        heading: "Singapore and Brisbane",
+        text: "Navigator stays in Singapore year-round; Ovation home ports in Brisbane from November 2027. Shown here in Sydney. Photo: Dicklyon, CC BY-SA.",
+      },
+      {
+        image: RC + "story-4.jpg",
+        alt: "Icon of the Seas, a large Royal Caribbean cruise ship with a glass dome, under way at sea",
+        kicker: "Know your rights",
+        heading: "Cancelled means a refund",
+        text: "Port swapped but the ship still sails? By Royal Caribbean's own terms, no fare refund is owed. Photo: Chakie2, CC BY-SA.",
+      },
+      {
+        image: RC + "story-5.jpg",
+        alt: "The Royal Caribbean crown logo on the terminal building at the Port of Galveston, Texas",
+        kicker: "The good news",
+        heading: "Icon of the Seas comes to Galveston",
+        text: "From August 2027, on 6 to 8-night Caribbean runs. See the full guide for every ship affected. Photo: Larry D. Moore, CC BY.",
+      },
+    ],
+  },
   {
     slug: "government-shutdown-travel-2026",
     postSlug: "government-shutdown-travel-2026",
