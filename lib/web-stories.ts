@@ -159,7 +159,72 @@ const GS =
 const RC =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/royal-caribbean-2027-cruise-changes/";
 
+// The Pittsburgh frames are five distinct real photographs of Pittsburgh in
+// winter, no reuse: snow falling on the Smithfield Street Bridge (daveynin,
+// CC BY 2.0), the Duquesne Incline over an ice-choked river with the Fort Pitt
+// Bridge behind it (daveynin, CC BY 2.0), a bare grey December skyline
+// (Cbaile19, CC0), cars buried during the 2010 storms (Asamudra, CC BY 3.0) and
+// I-376 the morning after a snowfall (daveynin, CC BY 2.0).
+// Two of these are deliberate arguments rather than decoration. Frame 3 shows
+// NO snow on purpose: it carries the 16.3 inch line, which is what the last
+// strong El Nino winter actually looked like on the ground, and a pretty snow
+// scene would have contradicted the number. Frame 4 is genuinely from the
+// 2009-10 winter the frame is about, the 77.4 inch counterexample, so the
+// story's own caveat is illustrated by the season that produced it.
+// This story replaces a page pruned on 8 Aug 2026 whose frames quoted a 97-99%
+// NOAA El Nino confidence figure that was never published; every number below
+// traces to the guide, which sources each one. That dead story slug stays a 410
+// in middleware.ts, and its slug differs from this one, so there is no clash.
+// Cropped to 720x1280 by scripts/host-images.mjs --portrait, since storyImage()
+// only appends Unsplash crop params and Supabase ignores them.
+const PGH =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/pittsburgh-winter-forecast-2026-2027/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "pittsburgh-winter-forecast-2026-2027",
+    postSlug: "pittsburgh-winter-forecast-2026-2027",
+    title: "Pittsburgh Winter 2026-27: What 73 Winters Show",
+    description:
+      "NOAA expects the strongest El Nino since 1950. Pittsburgh's own record says 8 of its 9 strong El Nino winters finished below normal, and one buried the city anyway.",
+    pages: [
+      {
+        image: PGH + "story-1.jpg",
+        alt: "Snow falling on the walkway of the yellow Smithfield Street Bridge in downtown Pittsburgh, with footprints in the snow",
+        kicker: "Pittsburgh 2026-27",
+        heading: "Nobody forecasts a snow total",
+        text: "No agency issues a seasonal snowfall number for a city. What exists is 73 years of record. Photo: daveynin, CC BY.",
+      },
+      {
+        image: PGH + "story-2.jpg",
+        alt: "The red Duquesne Incline car above an ice-covered river, with the yellow Fort Pitt Bridge and the Pittsburgh skyline behind it",
+        kicker: "NOAA, 13 August 2026",
+        heading: "A record El Nino is coming",
+        text: "Greater than 90% chance of a very strong event, and a 69% chance it beats every El Nino since 1950. Photo: daveynin, CC BY.",
+      },
+      {
+        image: PGH + "story-3.jpg",
+        alt: "The downtown Pittsburgh skyline on a grey December day with no snow anywhere on the ground",
+        kicker: "The last one",
+        heading: "16.3 inches, the lowest ever",
+        text: "2023-24 was a strong El Nino and the emptiest winter in the record. Eight of nine finished below normal. Photo: Cbaile19, CC0.",
+      },
+      {
+        image: PGH + "story-4.jpg",
+        alt: "Cars buried under deep snow beneath snow-laden tree branches during the 2010 Pittsburgh snowstorms",
+        kicker: "But",
+        heading: "2009-10 gave 77.4 inches",
+        text: "Second snowiest season on record, under an El Nino. A tendency is not a promise. This is that winter. Photo: Asamudra, CC BY.",
+      },
+      {
+        image: PGH + "story-5.jpg",
+        alt: "Traffic on Interstate 376 in Pittsburgh the morning after a snowfall, with snow-covered hillsides above the clear road",
+        kicker: "What matters",
+        heading: "Hills, not the total",
+        text: "Only 14 days a year bring an inch or more. Two inches on a Pittsburgh grade beats six on flat ground. Full record in the guide.",
+      },
+    ],
+  },
   {
     slug: "royal-caribbean-2027-cruise-changes",
     postSlug: "royal-caribbean-2027-cruise-changes",
