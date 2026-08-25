@@ -180,7 +180,77 @@ const RC =
 const PGH =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/pittsburgh-winter-forecast-2026-2027/";
 
+// Texas is five real photographs of Texas winter from five different places and
+// four different winters: NASA's ISS view of North Texas under snow (28 Feb
+// 2013, public domain), El Paso from the air with the Franklin Mountains white
+// behind it (Dicklyon, CC BY-SA 4.0), Laredo at night with snow falling through
+// the palms (Miguel Angel Omana Rojas, CC BY 4.0, 8 Dec 2017), a live oak in
+// Austin during Winter Storm Uri (David Kitto, CC0) and downtown Dallas in the
+// same storm (Matthew T Rader, CC BY-SA 4.0, 15 Feb 2021).
+// Frame 2 is a deliberate argument. It was taken on 28 December 2015, inside the
+// last very strong El Nino, and El Paso is the city whose snowfall nearly triples
+// in those winters, so the picture is the claim. It is a companion shot to the
+// article's own El Paso body image: same photographer, same day, different
+// vantage. It was still the right choice because it is natively 2270x3775, so it
+// crops to 720x1280 without losing anything, and because no other El Paso snow
+// photograph on Commons sits inside a super El Nino winter.
+// Frame 3 is Laredo rather than Brownsville because Commons has no Brownsville
+// snow photograph, and 8 Dec 2017 is the same date Corpus Christi and Brownsville
+// last recorded measurable snow, so the frame is at least of the right event.
+// Wikimedia Commons has no usable Amarillo or Lubbock snow photograph at all,
+// which is why the Panhandle appears here only through the satellite frame. A
+// Cadillac Ranch shot from a January 2016 series was rejected after looking at
+// it: the whole frame is bare brown dirt with no snow anywhere in it.
+// Cropped to 720x1280 by scripts/host-images.mjs --portrait, since storyImage()
+// only appends Unsplash crop params and Supabase ignores them.
+const TX =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-texas-2026-2027/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "snow-predictions-for-texas-2026-2027",
+    postSlug: "snow-predictions-for-texas-2026-2027",
+    title: "Texas Snow: 16 Inches, or Two Days Ever",
+    description:
+      "Amarillo averages 16.5 inches a season and Brownsville has recorded snow on two days in its entire history. What 76 winters show about a record El Nino.",
+    pages: [
+      {
+        image: TX + "story-1.jpg",
+        alt: "Astronaut photograph looking down on North Texas farmland, roads and a town all covered in snow",
+        kicker: "Texas 2026-27",
+        heading: "A record El Nino is coming",
+        text: "NOAA gives it a greater than 90% chance. Texas is two snow states, and it will not treat them alike. NASA image.",
+      },
+      {
+        image: TX + "story-2.jpg",
+        alt: "Aerial view of snow-covered El Paso neighbourhoods with the white Franklin Mountains rising behind the city",
+        kicker: "West Texas",
+        heading: "El Paso averages 12 inches",
+        text: "That is its average in strong El Nino winters, against 4.5 normally. This photo is from the last one. Dicklyon, CC BY-SA.",
+      },
+      {
+        image: TX + "story-3.jpg",
+        alt: "Snow falling at night through palm trees behind a chain link fence in Laredo, south Texas",
+        kicker: "The other half",
+        heading: "16 of 17 came up empty",
+        text: "Across the three strongest El Ninos, east and south Texas recorded no snow at all. Photo: Miguel Angel Omana Rojas, CC BY.",
+      },
+      {
+        image: TX + "story-4.jpg",
+        alt: "A person in a red coat walking across deep snow past a live oak during heavy snowfall in Austin, Texas",
+        kicker: "But",
+        heading: "The biggest one was a La Nina",
+        text: "February 2021 set the snowiest season on record at Abilene, Waco and Austin. Photo: David Kitto, CC0.",
+      },
+      {
+        image: TX + "story-5.jpg",
+        alt: "A downtown Dallas office tower at night with snow falling and snow covering the empty street below",
+        kicker: "What matters",
+        heading: "Geography, not the forecast",
+        text: "Dallas averages 2.3 inches and runs below normal in strong El Ninos. Full record in the guide.",
+      },
+    ],
+  },
   {
     slug: "pittsburgh-winter-forecast-2026-2027",
     postSlug: "pittsburgh-winter-forecast-2026-2027",
