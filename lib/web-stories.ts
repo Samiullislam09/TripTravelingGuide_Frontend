@@ -206,7 +206,143 @@ const PGH =
 const TX =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-texas-2026-2027/";
 
+// Michigan is five real photographs from five different places and five
+// different winters, and each frame is the place its own claim is about:
+// Keweenaw County's roadside snow gauge on US-41 (Richie Diesterheft, CC BY 2.0,
+// October 2008), the Soo Locks at Sault Ste Marie in heavy snow (US Army Corps
+// of Engineers, public domain, 25 March 2015), Pentwater's main street on the
+// west lakeshore (Luensu1959, CC BY-SA 4.0, 29 December 2018), the Grand River
+// full of ice floes below the Grand Rapids skyline (Eric Lanning, CC BY 2.0,
+// 2 February 2013) and Michigan Stadium under snow at Ann Arbor (jeff wilcox,
+// CC BY 2.0, 20 February 2005).
+// Frame 1 is a deliberate argument rather than scenery. The sign carries
+// Keweenaw County's own numbers, a 390.4 inch record in 1978-79 against a 161.1
+// inch all-time low, which is the point of the whole guide: the spread inside
+// Michigan is larger than the spread any forecast is talking about. It was shot
+// in October so there is no snow on the ground, and the frame text says what it
+// is instead of implying otherwise.
+// Frames 2 and 3 are paired on purpose. Sault Ste Marie is the north, which
+// barely moves in a strong El Nino; Pentwater sits on the west lakeshore beside
+// Muskegon, which loses half its snow in the same winters. Putting a lake effect
+// town on both sides of that split is what breaks the standard explanation.
+// Cropped to 720x1280 by scripts/host-images.mjs --portrait, since storyImage()
+// only appends Unsplash crop params and Supabase ignores them.
+const MI =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-michigan-2026-2027/";
+
+// Ohio is five real photographs from five different places and five different
+// winters, and every frame is the place its own claim is about: the Harpersfield
+// Covered Bridge in Ashtabula County (Andre Carrotflower, CC BY-SA 4.0,
+// 16 February 2022), Chardon Square and the Geauga County Courthouse (Andre
+// Carrotflower, CC BY-SA 4.0, 12 February 2020), downtown Cleveland in falling
+// snow (Erik Drost, CC BY 2.0, 13 December 2017), drifts burying a Mansfield
+// back garden (User OHWiki, public domain, 8 March 2008) and a Clifton street in
+// Cincinnati under a thin, sunlit cover (Warren LeMay, CC0, 20 January 2019).
+// The sequence is the argument. Frames 1 to 3 walk the snowbelt down to the
+// lakeshore city; frame 5 is deliberately bright and barely covered, because
+// Cincinnati normals 23.3 inches against Chardon's 113.7 and a stock winter
+// scene would have argued the opposite. Frame 4 is the twist: the deepest snow
+// in the story is Mansfield, the station that later posted 8.4 inches for a
+// whole season, its lowest ever, in the last El Nino.
+// Frame 2 matters more than it looks. Chardon is the town the disputed 113.7
+// inch normal actually comes from, and showing it named is what lets the frame
+// text carry the number honestly.
+// Cropped to 720x1280 by scripts/host-images.mjs --portrait, since storyImage()
+// only appends Unsplash crop params and Supabase ignores them. Each crop got its
+// own horizontal focus: a centre crop cut the bridge out of frame 1 and left
+// frame 5 as a photograph of a slide.
+const OH =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-ohio-2026-2027/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "snow-predictions-for-ohio-2026-2027",
+    postSlug: "snow-predictions-for-ohio-2026-2027",
+    title: "Ohio Snow: 114 Inches, or 23",
+    description:
+      "Chardon normals 113.7 inches a season and Cincinnati 23.3. What 77 winters of daily records show about a very strong El Nino, and which part of Ohio it actually hits.",
+    pages: [
+      {
+        image: OH + "story-1.jpg",
+        alt: "The Harpersfield Covered Bridge in Ashtabula County, Ohio under snow with icicles along its roof line",
+        kicker: "Ohio 2026-27",
+        heading: "One state, two winters",
+        text: "Chardon averages 113.7 inches a season. Cincinnati averages 23.3. Same state, 4.6 times the snow. Photo: Andre Carrotflower, CC BY-SA.",
+      },
+      {
+        image: OH + "story-2.jpg",
+        alt: "Snow on Chardon Square at dusk with the lit Geauga County Courthouse clock tower behind it",
+        kicker: "The snowbelt",
+        heading: "The number nobody agrees on",
+        text: "One aggregator says Chardon gets 47.5 inches. Ohio State said 106, the Weather Service says 70 to over 100, NOAA's own station says 113.7.",
+      },
+      {
+        image: OH + "story-3.jpg",
+        alt: "Snow falling on a downtown Cleveland street corner with brick buildings and a traffic light",
+        kicker: "Cleveland",
+        heading: "The airport misses it",
+        text: "Cleveland Hopkins normals 63.8 inches, sitting west of the city and out of the fetch. Twenty-five miles east and 350 feet up, the total nearly doubles.",
+      },
+      {
+        image: OH + "story-4.jpg",
+        alt: "Deep drifted snow burying raised garden beds in a Mansfield, Ohio back garden during a snowstorm",
+        kicker: "But",
+        heading: "This town set the record low",
+        text: "Mansfield, March 2008. In the 2023-24 El Nino it took 8.4 inches for the entire season, 20% of its own average and the lowest ever measured there.",
+      },
+      {
+        image: OH + "story-5.jpg",
+        alt: "A Victorian house in Clifton, Cincinnati behind a lawn under a thin cover of sunlit snow",
+        kicker: "The exception",
+        heading: "Cincinnati barely flinches",
+        text: "In the three strongest El Ninos it held 81% of its average, the best in Ohio, while Dayton kept 36%. Full 77-year record in the guide.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-michigan-2026-2027",
+    postSlug: "snow-predictions-for-michigan-2026-2027",
+    title: "Michigan Snow: 197 Inches, or 45",
+    description:
+      "Marquette averages 196.8 inches a season and Detroit Metro 45.0. What 77 winters of daily records show about a record El Nino, and where it actually bites.",
+    pages: [
+      {
+        image: MI + "story-1.jpg",
+        alt: "A tall roadside snowfall gauge sign in Keweenaw County, Michigan marked with a record of 390.4 inches",
+        kicker: "Michigan 2026-27",
+        heading: "A record El Nino is coming",
+        text: "Keweenaw County keeps its own scoreboard by the road: 390.4 inches in 1978-79, 161.1 in 1999-2000. Photo: Richie Diesterheft, CC BY.",
+      },
+      {
+        image: MI + "story-2.jpg",
+        alt: "Heavy snow falling over the observation platform and flag at the Soo Locks in Sault Ste Marie, Michigan",
+        kicker: "The north",
+        heading: "The UP barely notices",
+        text: "Across the three strongest El Ninos Marquette held 99% of its own average and Alpena 102%. Photo: US Army Corps of Engineers.",
+      },
+      {
+        image: MI + "story-3.jpg",
+        alt: "The snow-covered main street of Pentwater on the west Michigan lakeshore during a snowfall",
+        kicker: "The west shore",
+        heading: "Muskegon loses half",
+        text: "51% of its own average in those same winters, the biggest deficit in the state. It is a lake effect town, which breaks the usual explanation.",
+      },
+      {
+        image: MI + "story-4.jpg",
+        alt: "Ice floes on the Grand River below a snow-covered truss bridge and the Grand Rapids skyline",
+        kicker: "1982-83",
+        heading: "Four record lows at once",
+        text: "Grand Rapids, Muskegon, Traverse City and Pellston all set their lowest season ever. Marquette took 199.3 inches the same winter.",
+      },
+      {
+        image: MI + "story-5.jpg",
+        alt: "Michigan Stadium in Ann Arbor with its seats and field completely covered in snow",
+        kicker: "But",
+        heading: "The biggest one was normal",
+        text: "2015-16 was the strongest El Nino on record and Michigan finished near average. Full 77-year record in the guide.",
+      },
+    ],
+  },
   {
     slug: "snow-predictions-for-texas-2026-2027",
     postSlug: "snow-predictions-for-texas-2026-2027",
