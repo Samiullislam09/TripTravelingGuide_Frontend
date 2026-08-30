@@ -37,11 +37,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  const storyPages: MetadataRoute.Sitemap = webStories.map((s) => ({
-    url: absoluteUrl(`/web-stories/${s.slug}`),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  // A story is written and its frames uploaded before its guide is approved in
+  // the CMS, so webStories can hold a story whose post is not published yet. Its
+  // AMP page renders either way, but its only CTA would 404, and submitting that
+  // to Search Console is a soft-404 report waiting to happen. Gate on the post
+  // being live, the same rule getStoryCards() already applies to the cards.
+  const publishedSlugs = new Set(posts.map((p) => p.slug));
+  const storyPages: MetadataRoute.Sitemap = webStories
+    .filter((s) => publishedSlugs.has(s.postSlug))
+    .map((s) => ({
+      url: absoluteUrl(`/web-stories/${s.slug}`),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
 
   const postPages: MetadataRoute.Sitemap = posts.map((p) => ({
     url: absoluteUrl(`/${p.slug}/`),
