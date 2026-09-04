@@ -254,7 +254,60 @@ const MI =
 const OH =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-ohio-2026-2027/";
 
+// The almanac story is the only one here that is not about a place, so its
+// frames carry the argument instead of scenery: the instruments the actual
+// numbers come from, then three dated satellite scenes showing snow edges that
+// cut across the region lines a single forecast has to cover. All five are
+// public domain or CC BY-SA and every date is the one the file itself records.
+// Frame 3 is false-colour, where snow reads red, so the frame text says so.
+const FA =
+  "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/how-accurate-is-the-farmers-almanac/";
+
 export const webStories: WebStory[] = [
+  {
+    slug: "how-accurate-is-the-farmers-almanac",
+    postSlug: "how-accurate-is-the-farmers-almanac",
+    title: "The Almanac Says 80%. We Got 29.5%.",
+    description:
+      "We pulled five winters of archived Farmers' Almanac forecasts off the Wayback Machine and scored them against NOAA station records for the almanac's own cities.",
+    pages: [
+      {
+        image: FA + "story-1.jpg",
+        alt: "A WSR-88D Doppler radar tower under heavy storm clouds at a National Weather Service forecast office",
+        kicker: "Almanac accuracy",
+        heading: "80 percent, or 29.5?",
+        text: "The almanacs claim about 80 percent. We scored five winters of their archived forecasts and got 29.5. Photo: Famartin, CC BY-SA.",
+      },
+      {
+        image: FA + "story-2.jpg",
+        alt: "An alter-shielded precipitation gauge inside a fenced National Weather Service Cooperative Observer weather station",
+        kicker: "The method",
+        heading: "Scored against real gauges",
+        text: "139 station-seasons from NOAA daily records, at the 50 cities the almanac itself lists. We did not get to pick the sample.",
+      },
+      {
+        image: FA + "story-3.jpg",
+        alt: "False-colour satellite view where snow appears bright red, showing the snow edge stopping partway across Pennsylvania and Maryland",
+        kicker: "25 Feb 2021",
+        heading: "Snow stops at a line",
+        text: "False colour: red is snow, green is bare ground. The edge cuts straight through states. One forecast covers all of it. Image: NASA.",
+      },
+      {
+        image: FA + "story-4.jpg",
+        alt: "Satellite view of a patch of snow lying on the eastern Colorado plains surrounded by bare brown ground",
+        kicker: "Colorado",
+        heading: "One state, two calls",
+        text: "Denver sits in the region called below normal this winter, Grand Junction in the one called above normal. Same state. Image: NASA, 13 Nov 2024.",
+      },
+      {
+        image: FA + "story-5.jpg",
+        alt: "Satellite view of the Great Lakes in ice with snow covering the Appalachians and bare ground to the south",
+        kicker: "Last winter",
+        heading: "It was partly right",
+        text: "For 2025-26 it called below normal and 66% of our stations finished below. A rule saying below normal every year scored 82%.",
+      },
+    ],
+  },
   {
     slug: "snow-predictions-for-ohio-2026-2027",
     postSlug: "snow-predictions-for-ohio-2026-2027",
