@@ -173,6 +173,29 @@ const nextConfig = {
         destination: "/snow-predictions-for-tennessee-2026-2027/",
         permanent: true,
       },
+      // The two-sides page is a pre-rewrite legacy post: published 23 Sep 2025
+      // and never modified since, built on "a transition to La Nina" when NOAA
+      // now has a strong El Nino under advisory, so its scientific spine is
+      // inverted rather than merely stale. It also carries the exact patterns
+      // the house gate now bans: numbered "1. Executive Summary" headings, a
+      // truncated "Frequently Asked Questions (" heading over ten FAQ H4s, raw
+      // &#8220; entities rendering inside headings, a meta description that is
+      // just the first sentence of the body, and outbound internal links to a
+      // Kochi flight page and to /snow-predictions-for-tennessee-2024-2025,
+      // which is itself already 301'd above.
+      // There is no rewrite that saves the URL, because the season is IN the
+      // slug: making it current means a new URL, which means this redirect
+      // anyway. So it consolidates into the almanac guide, which supersedes its
+      // subject with five winters of scored forecasts. A 301 keeps whatever
+      // equity it has rather than discarding it.
+      // The NOAA-versus-almanac comparison is still worth having as a topic,
+      // but as its own correctly-slugged page written after the CPC winter
+      // outlook lands in mid-Oct 2026, not as a rewrite of a 2025-26 URL.
+      {
+        source: "/the-two-sides-of-the-winter-2025-26-forecast-la-nina-vs-the-almanacs",
+        destination: "/how-accurate-is-the-farmers-almanac/",
+        permanent: true,
+      },
       // Bhuj to Dholavira is an evergreen road trip, so it moves off the dated
       // slug onto a clean one. The -2023 version ranked and earned before the
       // WordPress migration lost it (now a 404); the -in-2025 version is the
