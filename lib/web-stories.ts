@@ -263,6 +263,17 @@ const OH =
 const FA =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/how-accurate-is-the-farmers-almanac/";
 
+// The national forecast-comparison story's frames: a real GOES storm scene over
+// the Great Lakes (30 Dec 2025), a NASA MODIS scene of snow across the Mountain
+// West (16 Jan 2025), a NOAA weather balloon launch during a public open house
+// (Davenport, Iowa, 17 Oct 2005, illustrating how NOAA's own data is actually
+// gathered), and two real dated street scenes, Atlanta (Feb 2014) and Boston
+// (7 Feb 2015), standing in for how differently this same pattern plays out by
+// state. Hosted on the NEW Supabase project from the start, unlike the older
+// story constants above.
+const NW =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/usa-winter-forecast-2026-2027/";
+
 export const webStories: WebStory[] = [
   {
     slug: "how-accurate-is-the-farmers-almanac",
@@ -1375,6 +1386,50 @@ export const webStories: WebStory[] = [
       { image: S + "story-3.jpg", alt: "Rows of empty seats inside an aircraft cabin", kicker: "Seat maps", heading: "Occupied is not a name", text: "Seat maps show status only. Blocked seats are often held for crew, with no passenger attached at all." },
       { image: S + "story-4.jpg", alt: "A phone showing a travel app being held in one hand", kicker: "What works", heading: "Track the flight instead", text: "Status, gate, delays and landing time are all public. That answers the real question." },
       { image: S + "story-5.jpg", alt: "People waiting in an airport arrivals hall", kicker: "Read this", heading: "Your boarding pass leaks more", text: "That six-character code opens your booking and your co-travellers' details. Cover it before you post." },
+    ],
+  },
+  {
+    slug: "usa-winter-forecast-2026-2027",
+    postSlug: "usa-winter-forecast-2026-2027",
+    title: "5 Forecasters, 14 States, 1 Storm",
+    description:
+      "NOAA, both almanacs, AccuWeather and the Weather Channel each said something different about winter 2026-2027. We checked every one against real station data, state by state.",
+    pages: [
+      {
+        image: NW + "story-1.jpg",
+        alt: "GOES satellite view of a large winter storm system covering the Great Lakes and Midwest, with lake-effect snow bands over Lake Michigan and Lake Erie",
+        kicker: "Winter 2026-2027",
+        heading: "5 forecasts, 1 storm",
+        text: "NOAA, two almanacs, AccuWeather and the Weather Channel. We checked what each one actually said, not what the internet assumed. Image: CSU/CIRA & NOAA.",
+      },
+      {
+        image: NW + "story-3.jpg",
+        alt: "A NOAA meteorologist launching a white weather balloon outside a National Weather Service office under a clear blue sky",
+        kicker: "Only one is checkable",
+        heading: "NOAA shows its work",
+        text: "Real balloon launches, real station data, a published model. Both almanacs use a formula they have never fully disclosed.",
+      },
+      {
+        image: NW + "story-2.jpg",
+        alt: "NASA satellite image of the Rocky Mountains blanketed in snow across Wyoming, Montana, Colorado, Utah and Idaho",
+        kicker: "Colorado & Utah",
+        heading: "Split by one mountain range",
+        text: "Colorado's own state climatologist says it is too early to call. Utah's NOAA source calls it the hardest state on the map.",
+      },
+      {
+        image: NW + "story-4.jpg",
+        alt: "A snow and slush covered residential street in Atlanta, Georgia, with bare trees overhead",
+        kicker: "Georgia",
+        heading: "8 snow events, maybe",
+        text: "A CPC meteorologist told Atlanta News First to expect wetter weather and real ice risk in North Georgia this winter.",
+      },
+      {
+        image: NW + "story-5.jpg",
+        alt: "A snow-covered street in downtown Boston at dusk, with tall buildings and illuminated street lamps",
+        kicker: "Read the full comparison",
+        heading: "14 states, one page",
+        text: "Georgia to Washington state, each with NOAA, both almanacs and our own read of which source to actually trust.",
+      },
     ],
   },
 ];
