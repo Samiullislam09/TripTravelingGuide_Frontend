@@ -274,6 +274,17 @@ const FA =
 const NW =
   "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/usa-winter-forecast-2026-2027/";
 
+// Boston's frames: an authentic City of Boston Archives photo of the Blizzard
+// of 1978 (Mayor Kevin White's office, buried car outside a Mobil station), a
+// real MassDOT photo of a snow blower clearing a Logan Airport runway, the same
+// Bromfield Street scene used as the article's cover, a 27 Jan 2015 street
+// scene from Providence during Winter Storm Juno (illustrating the same kind
+// of nor'easter that set Providence's all-time record in Feb 2026, not that
+// storm itself, captioned with its own real date), and the Massachusetts State
+// House under snow for the close. All real, dated, CC0/CC-BY-SA/public domain.
+const BOS =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/boston-snow-forecast-2026-2027/";
+
 export const webStories: WebStory[] = [
   {
     slug: "how-accurate-is-the-farmers-almanac",
@@ -1429,6 +1440,50 @@ export const webStories: WebStory[] = [
         kicker: "Read the full comparison",
         heading: "14 states, one page",
         text: "Georgia to Washington state, each with NOAA, both almanacs and our own read of which source to actually trust.",
+      },
+    ],
+  },
+  {
+    slug: "boston-snow-forecast-2026-2027",
+    postSlug: "boston-snow-forecast-2026-2027",
+    title: "Boston's 17.1 Inches, and 90 Years Before It",
+    description:
+      "Last winter's February 2026 blizzard dropped 17.1 inches on Logan Airport and set Rhode Island's all-time snow record. Here is how that compares to 90 years of Boston winters, and what a strong El Nino usually does next.",
+    pages: [
+      {
+        image: BOS + "story-1.jpg",
+        alt: "A black-and-white archival photo of a car buried in a snow bank outside a Mobil Service station after the Blizzard of 1978 in Boston",
+        kicker: "Boston, February 1978",
+        heading: "The blizzard that set the bar",
+        text: "27.1 inches over two days. Almost 50 years later, Boston has only beaten it once. Photo: City of Boston Archives.",
+      },
+      {
+        image: BOS + "story-2.jpg",
+        alt: "A snow blower throws a huge plume of snow across a runway at Boston Logan International Airport as a plane takes off in the background",
+        kicker: "Logan Airport",
+        heading: "958 flights, cancelled",
+        text: "The February 2026 storm alone grounded most of a day's schedule. The official snow count came from right here.",
+      },
+      {
+        image: BOS + "story-3.jpg",
+        alt: "A snow-covered downtown Boston street at dusk near Bromfield Street, with tall buildings and illuminated street lamps",
+        kicker: "23 February 2026",
+        heading: "17.1 inches, one day",
+        text: "That is the National Weather Service's own number for Logan Airport. Towns south of the city saw more than double it.",
+      },
+      {
+        image: BOS + "story-4.jpg",
+        alt: "A snow-covered street at night in Providence, Rhode Island, with illuminated shop signs and a person walking through the snow",
+        kicker: "Next door",
+        heading: "Rhode Island's record fell",
+        text: "The same February storm dropped 37.9 inches on Providence, a new all-time state record. Photo from a similar 2015 nor'easter.",
+      },
+      {
+        image: BOS + "story-5.jpg",
+        alt: "The golden dome of the Massachusetts State House seen across a snow-covered Boston Common park",
+        kicker: "Read the full forecast",
+        heading: "So what happens next winter?",
+        text: "Strong El Nino winters here have run from 20 to 91 percent of normal. We pulled all seven to find out.",
       },
     ],
   },
