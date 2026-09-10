@@ -285,6 +285,21 @@ const NW =
 const BOS =
   "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/boston-snow-forecast-2026-2027/";
 
+// Florida's frames are five real, dated photographs of the January 20-22,
+// 2025 Gulf Coast blizzard, the actual event the guide's record numbers come
+// from, not stock winter scenery: a snow-covered car in Niceville with "JAN
+// 21, 2025" written into the snow itself (Dane314pizza, CC0), a snow field in
+// Century, the panhandle town that took the storm's single highest total
+// (Necroticneurotic, CC0), a whiteout street scene in Milton with a palm tree
+// visible through the blowing snow (Jesselikesweather, CC BY-SA), a
+// Tallahassee restaurant under a light dusting with Spanish moss on the oaks
+// behind it (The Bushranger, CC BY-SA), and NOAA Climate.gov's own map of
+// every station record broken across the Southeast that week, which is the
+// close because it shows the scale beyond any single city. All five carry the
+// storm's real date in the frame text rather than a vague "recently."
+const FL =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/does-it-snow-in-florida/";
+
 export const webStories: WebStory[] = [
   {
     slug: "how-accurate-is-the-farmers-almanac",
@@ -1484,6 +1499,50 @@ export const webStories: WebStory[] = [
         kicker: "Read the full forecast",
         heading: "So what happens next winter?",
         text: "Strong El Nino winters here have run from 20 to 91 percent of normal. We pulled all seven to find out.",
+      },
+    ],
+  },
+  {
+    slug: "does-it-snow-in-florida",
+    postSlug: "does-it-snow-in-florida",
+    title: "Does It Snow in Florida? Yes, Actually",
+    description:
+      "Florida has recorded snow at least seven times since the 1800s, most recently a state record 8.9 inches at Pensacola in January 2025. Here is the real history, city by city.",
+    pages: [
+      {
+        image: FL + "story-1.jpg",
+        alt: "A snow-covered car in Niceville, Florida with the date January 21, 2025 written into the snow on the windshield",
+        kicker: "Florida, January 2025",
+        heading: "Yes, it really snowed here",
+        text: "Written into the snow itself: January 21, 2025. Not a typo, not an old photo. Photo: Dane314pizza, CC0.",
+      },
+      {
+        image: FL + "story-2.jpg",
+        alt: "A snow-covered field with bare trees under a clear blue sky in Century, Florida",
+        kicker: "Century",
+        heading: "10 inches, the storm's highest total",
+        text: "This panhandle town took the deepest snow of the whole event. Photo: Necroticneurotic, CC0.",
+      },
+      {
+        image: FL + "story-3.jpg",
+        alt: "A whiteout snowstorm on a street in Milton, Florida with a palm tree visible through the blowing snow",
+        kicker: "Milton",
+        heading: "A palm tree, in a blizzard",
+        text: "Milton reported up to 10 inches, the same storm that set Pensacola's official state record next door. Photo: Jesselikesweather, CC BY-SA.",
+      },
+      {
+        image: FL + "story-4.jpg",
+        alt: "A Tallahassee restaurant with a light dusting of snow on its roof, Spanish moss hanging from the oak trees behind it",
+        kicker: "Tallahassee",
+        heading: "Even the state capital got snow",
+        text: "Tallahassee also holds Florida's coldest verified temperature on record, set back in 1899. Photo: The Bushranger, CC BY-SA.",
+      },
+      {
+        image: FL + "story-5.jpg",
+        alt: "A NOAA Climate.gov map showing snowfall records broken at weather stations across the southeastern United States in January 2025",
+        kicker: "Read the full guide",
+        heading: "How rare is this, really?",
+        text: "Seven documented snow events since 1800, and a city-by-city breakdown of who actually gets it. See the full record.",
       },
     ],
   },
