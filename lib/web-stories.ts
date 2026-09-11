@@ -300,6 +300,22 @@ const BOS =
 const FL =
   "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/does-it-snow-in-florida/";
 
+// The snow-forecast-accuracy frames are five real photographs of how a snow
+// forecast actually gets made and measured, not decorative winter scenery: a
+// WSR-88D NEXRAD radar tower under mammatus clouds near Sterling, Virginia
+// (Famartin, CC BY-SA), NOAA incident meteorologists launching a weather
+// balloon during 2023 training (NOAA, public domain), a USDA snow course
+// marker station below a Montana peak (USDA NRCS Montana, public domain), the
+// National Weather Service forecast office for Northern Indiana (Chris Light,
+// CC BY-SA), and NASA's MODIS satellite view of snow cutting across the Great
+// Lakes and Northeast on 13 February 2026 (public domain), used as the close
+// because it is the scale a single point forecast is trying to capture.
+// Frames 1 and 3 are the same two photographs used as the guide's own cover
+// and body image, reused deliberately rather than duplicated stock, the same
+// pattern already used on this site's Boston story.
+const SA =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/how-accurate-are-weather-forecasts-for-snowfall/";
+
 export const webStories: WebStory[] = [
   {
     slug: "how-accurate-is-the-farmers-almanac",
@@ -1543,6 +1559,50 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "How rare is this, really?",
         text: "Seven documented snow events since 1800, and a city-by-city breakdown of who actually gets it. See the full record.",
+      },
+    ],
+  },
+  {
+    slug: "how-accurate-are-weather-forecasts-for-snowfall",
+    postSlug: "how-accurate-are-weather-forecasts-for-snowfall",
+    title: "Snow Forecasts: Accurate to 1.7 Inches, Or 2.5",
+    description:
+      "Real station data on how accurate a snow forecast actually is by lead time, why totals vary a mile apart, and why big storms get under-forecast the most.",
+    pages: [
+      {
+        image: SA + "story-1.jpg",
+        alt: "A WSR-88D NEXRAD weather radar tower under mammatus clouds at sunset near Sterling, Virginia",
+        kicker: "Snow forecast accuracy",
+        heading: "1.7 inches off, one day out",
+        text: "That is the real average error, based on 754 station comparisons. Nobody prints that number. We did. Photo: Famartin, CC BY-SA.",
+      },
+      {
+        image: SA + "story-2.jpg",
+        alt: "NOAA incident meteorologists launching a weather balloon during training, with support vehicles behind them",
+        kicker: "Where the data comes from",
+        heading: "It starts with a balloon",
+        text: "Weather balloons, radar and satellites feed every model a snow forecast depends on. Photo: NOAA.",
+      },
+      {
+        image: SA + "story-3.jpg",
+        alt: "A green USDA snow course marker station in a snow-covered forest below a mountain peak",
+        kicker: "Ground truth",
+        heading: "This is what gets measured",
+        text: "Stations like this one are how a forecast gets checked against what actually fell. Photo: USDA NRCS Montana.",
+      },
+      {
+        image: SA + "story-4.jpg",
+        alt: "The brick National Weather Service forecast office building for Northern Indiana, with an American flag out front",
+        kicker: "The source that matters",
+        heading: "Free, and no login required",
+        text: "The National Weather Service's own point forecast beats most apps inside a week. Photo: Chris Light, CC BY-SA.",
+      },
+      {
+        image: SA + "story-5.jpg",
+        alt: "NASA satellite image of snow cutting across the Great Lakes and northeastern United States on 13 February 2026",
+        kicker: "Read the full guide",
+        heading: "The bigger the storm, the bigger the miss",
+        text: "Storms over 10 inches got under-forecast the most. See the full lead-time data and why.",
       },
     ],
   },
