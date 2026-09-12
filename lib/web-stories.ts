@@ -316,6 +316,19 @@ const FL =
 const SA =
   "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/how-accurate-are-weather-forecasts-for-snowfall/";
 
+// Buffalo's frames are five real, dated photographs of the two storms this guide's own record
+// numbers come from, plus the ordinary winters between them: snow being dumped at Buffalo's
+// Central Terminal after the December 2022 blizzard (the guide's own cover, Andre Carrotflower,
+// CC BY-SA), a "City of Buffalo" sign in the November 2014 Snowvember whiteout (the guide's own
+// body image, Anthony Quintano, CC BY 2.0), a skid-steer clearing a mountain of plowed snow at a
+// Delaware Avenue Burger King during the same December 2022 storm (Andre Carrotflower, CC
+// BY-SA), a car reduced to a snow-covered mound on West Ferry Street in January 2022 (Andre
+// Carrotflower, CC BY-SA), and the season's first light snowfall on a Laurel Street rooftop in
+// November 2020 (Andre Carrotflower, CC BY-SA), used as the close because it is the ordinary,
+// unremarkable start every one of Buffalo's famous storms actually begins as.
+const BUF =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/buffalo-snow-forecast-2026-2027/";
+
 export const webStories: WebStory[] = [
   {
     slug: "how-accurate-is-the-farmers-almanac",
@@ -1603,6 +1616,50 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "The bigger the storm, the bigger the miss",
         text: "Storms over 10 inches got under-forecast the most. See the full lead-time data and why.",
+      },
+    ],
+  },
+  {
+    slug: "buffalo-snow-forecast-2026-2027",
+    postSlug: "buffalo-snow-forecast-2026-2027",
+    title: "Buffalo Snow: Airport vs. the Real Number",
+    description:
+      "Buffalo's airport averages 95 inches a season, but the southern suburbs have measured 65 inches in a single storm. The real, sourced record behind both numbers.",
+    pages: [
+      {
+        image: BUF + "story-1.jpg",
+        alt: "Dump trucks unloading snow at Central Terminal after the December 2022 Buffalo blizzard, with the terminal's tower visible in the background",
+        kicker: "Buffalo, December 2022",
+        heading: "50 inches, at the airport alone",
+        text: "The Elliott blizzard buried the city for five days straight. Photo: Andre Carrotflower, CC BY-SA.",
+      },
+      {
+        image: BUF + "story-2.jpg",
+        alt: "A City of Buffalo sign in a whiteout snowstorm at night during the November 2014 Snowvember lake-effect event",
+        kicker: "Snowvember, 2014",
+        heading: "The airport saw 17 inches",
+        text: "A few miles south, South Cheektowaga measured 65. Same storm, two different storms. Photo: Anthony Quintano, CC BY.",
+      },
+      {
+        image: BUF + "story-3.jpg",
+        alt: "A skid-steer loader clearing a massive pile of plowed snow in a Burger King parking lot after the December 2022 Buffalo blizzard",
+        kicker: "The cleanup",
+        heading: "Where do you even put it all",
+        text: "Snow got trucked out of the city and dumped at Central Terminal by the ton. Photo: Andre Carrotflower, CC BY-SA.",
+      },
+      {
+        image: BUF + "story-4.jpg",
+        alt: "A car completely buried under a smooth mound of snow on a residential street in Buffalo, New York",
+        kicker: "January 2022",
+        heading: "Somewhere under here is a car",
+        text: "An ordinary lake-effect week, not even one of the famous storms. Photo: Andre Carrotflower, CC BY-SA.",
+      },
+      {
+        image: BUF + "story-5.jpg",
+        alt: "A light dusting of the season's first snow on a residential street in Buffalo, New York in late November",
+        kicker: "Read the full guide",
+        heading: "It all starts this quietly",
+        text: "December and January carry more than half the season. See the real month-by-month numbers.",
       },
     ],
   },
