@@ -329,6 +329,19 @@ const SA =
 const BUF =
   "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/buffalo-snow-forecast-2026-2027/";
 
+// Kentucky's frames are five real, dated photographs from Wikimedia Commons, not
+// stock: Waterfront Park in Louisville under snow with the Ohio River bridges
+// behind it (William Alden, CC BY-SA, the guide's own cover), a frosted rural
+// road in the Bluegrass region (PEO ACWA, CC BY, the guide's own body image), a
+// Kentucky National Guard Humvee helping a jack-knifed semi on I-75 during the
+// January 2016 storm (The National Guard, CC BY), a car buried in a Paducah
+// snowdrift in December 2004 (Beau Dodson, public domain), and kids sledding on
+// a Kentucky hillside (PEO ACWA, CC BY, the guide's own body image), used as the
+// close since it is the ordinary end of most Kentucky snow days: a hill, not a
+// headline.
+const KY =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-kentucky-2026-2027/";
+
 export const webStories: WebStory[] = [
   {
     slug: "how-accurate-is-the-farmers-almanac",
@@ -1660,6 +1673,50 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "It all starts this quietly",
         text: "December and January carry more than half the season. See the real month-by-month numbers.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-kentucky-2026-2027",
+    postSlug: "snow-predictions-for-kentucky-2026-2027",
+    title: "Kentucky Snow: 22 Inches, or 9?",
+    description:
+      "Louisville's 10-year average is 9 inches a winter. Lexington's is 10.3. Then 2024-25 gave both cities over 21. What 150 years of real records show.",
+    pages: [
+      {
+        image: KY + "story-1.jpg",
+        alt: "Snow-covered benches and the Gracehoper sculpture at Waterfront Park in Louisville, Kentucky, with the Ohio River bridges behind it",
+        kicker: "Kentucky 2026-27",
+        heading: "A record El Nino is coming",
+        text: "NOAA gives it a greater than 90% chance. But the Ohio Valley gets no confident temperature lean either way. Photo: William Alden, CC BY-SA.",
+      },
+      {
+        image: KY + "story-2.jpg",
+        alt: "A frost and snow covered rural road through the Bluegrass region of Kentucky, lined with bare winter trees",
+        kicker: "Central Kentucky",
+        heading: "Lexington averages 14 inches",
+        text: "Under the 30-year NWS normal, concentrated almost entirely in January and February. Photo: PEO ACWA, CC BY.",
+      },
+      {
+        image: KY + "story-3.jpg",
+        alt: "A Kentucky National Guard Humvee stopped beside a jack-knifed semi truck buried in snow on Interstate 75",
+        kicker: "On the road",
+        heading: "I-75 gets caught off guard",
+        text: "Kentucky's snow events are short and sharp, not steady. This is January 2016. Photo: The National Guard, CC BY.",
+      },
+      {
+        image: KY + "story-4.jpg",
+        alt: "A car almost completely buried under a deep snowdrift outside a house in Paducah, Kentucky",
+        kicker: "Western Kentucky",
+        heading: "Louisville's end averages 9 inches",
+        text: "The mildest of the state's three snow regions. This is Paducah, December 2004. Photo: Beau Dodson, public domain.",
+      },
+      {
+        image: KY + "story-5.jpg",
+        alt: "Children sledding down a snow-covered hill in Kentucky, with a house and bare trees in the background",
+        kicker: "Read the full guide",
+        heading: "2024-25 was the decade's snowiest",
+        text: "22.1 inches at Louisville, 21.6 at Lexington. See the full 10-year, city-by-city history.",
       },
     ],
   },
