@@ -41,6 +41,15 @@ const C =
 const V =
   "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-virginia-2026-2027/";
 
+// South Carolina's frames are generic but real, CC-licensed winter photographs
+// (Wikimedia Commons: a snow-covered parked car, two pine-forest snow scenes,
+// a snow-covered dirt road), not photos of the actual January 2026 storm: no
+// CC-licensed photograph of that specific event exists on Commons yet, so we
+// have not passed off a generic image as being "from" it. The story's numbers
+// are all real and dated regardless of the frame art.
+const SC =
+  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-south-carolina-2026-2027/";
+
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
 // street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
@@ -917,6 +926,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "Nobody forecasts Georgia snowfall",
         text: "NOAA will not publish a seasonal total. See what the records actually show.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-south-carolina-2026-2027",
+    postSlug: "snow-predictions-for-south-carolina-2026-2027",
+    popularRank: 10,
+    title: "South Carolina Snow: What January 2026 Showed",
+    description:
+      "South Carolina's coast averages 0.2 inches of snow a season, and the Upstate 2.6. Then January 2026 put 7-8 inches on the ground statewide. What that means for 2026-2027.",
+    pages: [
+      {
+        image: SC + "story-1.jpg",
+        alt: "A car on a residential street buried under a thick layer of snow",
+        kicker: "South Carolina snow",
+        heading: "Will it snow in South Carolina in 2027?",
+        text: "Nobody can say yet. But January 2026 just showed what it looks like when it does.",
+      },
+      {
+        image: SC + "story-2.jpg",
+        alt: "Snow-covered pine trees in a dense forest under an overcast sky",
+        kicker: "The 30-year average",
+        heading: "Most of the coast: 0.2 inches a year",
+        text: "NOAA's 1991-2020 normal. Charleston, Beaufort and the Lowcountry mostly go without.",
+      },
+      {
+        image: SC + "story-3.jpg",
+        alt: "Sunlight breaking through snow-laden pine branches after a storm",
+        kicker: "January 2026",
+        heading: "Then Spartanburg took 7 inches in a day",
+        text: "Fingerville hit 8.4. A band near the NC line saw 13 to 18. Four people died statewide.",
+      },
+      {
+        image: SC + "story-4.jpg",
+        alt: "A dirt road covered in snow winding between bare winter trees",
+        kicker: "Why it shuts down",
+        heading: "SC does not run a northern plow fleet",
+        text: "A storm like that happens once every four or five years. The state does not equip for it.",
+      },
+      {
+        image: SC + "story-5.jpg",
+        alt: "A car parked on a snow-covered street after a winter storm",
+        kicker: "Winter 2026-27",
+        heading: "NOAA leans wetter, not snowier",
+        text: "A strong El Nino favors more precipitation. Whether it's snow depends on cold air, not odds.",
       },
     ],
   },
