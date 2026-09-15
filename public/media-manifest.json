@@ -1,0 +1,514 @@
+[
+  {
+    "path": "articles/american-airlines-new-international-routes-2026/aircraft.jpg",
+    "size": 107595
+  },
+  {
+    "path": "articles/american-airlines-new-international-routes-2026/cover.jpg",
+    "size": 171476
+  },
+  {
+    "path": "articles/best-airlines-travel-internationally-business-class-to-australia/cover.jpg",
+    "size": 130144
+  },
+  {
+    "path": "articles/best-airlines-travel-internationally-business-class-to-australia/united787.jpg",
+    "size": 71080
+  },
+  {
+    "path": "articles/best-day-to-fly-thanksgiving/cover.jpg",
+    "size": 133778
+  },
+  {
+    "path": "articles/bhuj-to-dholavira-road-trip/cover.jpg",
+    "size": 73119
+  },
+  {
+    "path": "articles/bhuj-to-dholavira-road-trip/site.jpg",
+    "size": 222736
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/body1.jpg",
+    "size": 124046
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/cover.jpg",
+    "size": 142344
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/story-1.jpg",
+    "size": 114361
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/story-2.jpg",
+    "size": 121840
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/story-3.jpg",
+    "size": 158642
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/story-4.jpg",
+    "size": 135855
+  },
+  {
+    "path": "articles/boston-snow-forecast-2026-2027/story-5.jpg",
+    "size": 192938
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/body1.jpg",
+    "size": 148343
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/cover.jpg",
+    "size": 212594
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/story-1.jpg",
+    "size": 269187
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/story-2.jpg",
+    "size": 143890
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/story-3.jpg",
+    "size": 145166
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/story-4.jpg",
+    "size": 223380
+  },
+  {
+    "path": "articles/buffalo-snow-forecast-2026-2027/story-5.jpg",
+    "size": 306055
+  },
+  {
+    "path": "articles/cache-test/test.jpg",
+    "size": 115760
+  },
+  {
+    "path": "articles/chicago-winter-forecast-2026-2027/body1.jpg",
+    "size": 60801
+  },
+  {
+    "path": "articles/chicago-winter-forecast-2026-2027/body2.jpg",
+    "size": 247350
+  },
+  {
+    "path": "articles/chicago-winter-forecast-2026-2027/cover.jpg",
+    "size": 128238
+  },
+  {
+    "path": "articles/cordelia-cruise-food-dining/bar-drinks.jpg",
+    "size": 32857
+  },
+  {
+    "path": "articles/cordelia-cruise-food-dining/buffet-cover.jpg",
+    "size": 139431
+  },
+  {
+    "path": "articles/cordelia-cruise-food-dining/buffet-spread.jpg",
+    "size": 139431
+  },
+  {
+    "path": "articles/cordelia-cruise-food-dining/specialty-asian.jpg",
+    "size": 226886
+  },
+  {
+    "path": "articles/cordelia-cruise-food-dining/veg-thali.jpg",
+    "size": 203968
+  },
+  {
+    "path": "articles/costco-travel-cruises/cover.jpg",
+    "size": 185940
+  },
+  {
+    "path": "articles/costco-travel-cruises/inline-1.jpg",
+    "size": 259012
+  },
+  {
+    "path": "articles/costco-travel-cruises/inline-2.jpg",
+    "size": 140691
+  },
+  {
+    "path": "articles/disneyland-vs-disney-world/cinderella.jpg",
+    "size": 133112
+  },
+  {
+    "path": "articles/disneyland-vs-disney-world/cover.jpg",
+    "size": 226704
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/body1.jpg",
+    "size": 320287
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/cover.jpg",
+    "size": 208665
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/story-1.jpg",
+    "size": 105013
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/story-2.jpg",
+    "size": 168880
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/story-3.jpg",
+    "size": 47293
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/story-4.jpg",
+    "size": 173162
+  },
+  {
+    "path": "articles/does-it-snow-in-florida/story-5.jpg",
+    "size": 132838
+  },
+  {
+    "path": "articles/government-shutdown-travel-2026/body1.jpg",
+    "size": 208992
+  },
+  {
+    "path": "articles/government-shutdown-travel-2026/body2.jpg",
+    "size": 121605
+  },
+  {
+    "path": "articles/government-shutdown-travel-2026/cover.jpg",
+    "size": 118721
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/body1.jpg",
+    "size": 303069
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/cover.jpg",
+    "size": 94989
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/story-1.jpg",
+    "size": 81145
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/story-2.jpg",
+    "size": 192562
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/story-3.jpg",
+    "size": 259451
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/story-4.jpg",
+    "size": 139911
+  },
+  {
+    "path": "articles/how-accurate-are-weather-forecasts-for-snowfall/story-5.jpg",
+    "size": 271873
+  },
+  {
+    "path": "articles/how-accurate-is-the-farmers-almanac/coop.jpg",
+    "size": 257464
+  },
+  {
+    "path": "articles/how-accurate-is-the-farmers-almanac/cover.jpg",
+    "size": 110011
+  },
+  {
+    "path": "articles/how-accurate-is-the-farmers-almanac/extent.jpg",
+    "size": 227228
+  },
+  {
+    "path": "articles/how-can-i-check-the-passenger-list-on-an-airplane/cover.jpg",
+    "size": 193703
+  },
+  {
+    "path": "articles/how-can-i-check-the-passenger-list-on-an-airplane/desk.jpg",
+    "size": 145636
+  },
+  {
+    "path": "articles/how-can-i-check-the-passenger-list-on-an-airplane/window.jpg",
+    "size": 62484
+  },
+  {
+    "path": "articles/how-long-does-fall-foliage-last/cover.jpg",
+    "size": 174397
+  },
+  {
+    "path": "articles/how-to-visit-vantara-step-by-step-guide/cover.jpg",
+    "size": 196141
+  },
+  {
+    "path": "articles/how-to-visit-vantara-step-by-step-guide/jamnagar-coast.jpg",
+    "size": 168951
+  },
+  {
+    "path": "articles/how-to-visit-vantara-step-by-step-guide/khijadiya.jpg",
+    "size": 252580
+  },
+  {
+    "path": "articles/lakshadweep-tour-packages-from-kochi/cover.jpg",
+    "size": 110989
+  },
+  {
+    "path": "articles/lakshadweep-tour-packages-from-kochi/kalpeni.jpg",
+    "size": 163719
+  },
+  {
+    "path": "articles/pittsburgh-winter-forecast-2026-2027/body1.jpg",
+    "size": 319170
+  },
+  {
+    "path": "articles/pittsburgh-winter-forecast-2026-2027/body2.jpg",
+    "size": 160749
+  },
+  {
+    "path": "articles/pittsburgh-winter-forecast-2026-2027/cover.jpg",
+    "size": 145293
+  },
+  {
+    "path": "articles/royal-caribbean-2027-cruise-changes/body1.jpg",
+    "size": 159363
+  },
+  {
+    "path": "articles/royal-caribbean-2027-cruise-changes/body2.jpg",
+    "size": 136854
+  },
+  {
+    "path": "articles/royal-caribbean-2027-cruise-changes/cover.jpg",
+    "size": 147075
+  },
+  {
+    "path": "articles/snow-predictions-for-colorado-2026-2027/cover.jpg",
+    "size": 186521
+  },
+  {
+    "path": "articles/snow-predictions-for-colorado-2026-2027/highcountry.jpg",
+    "size": 225375
+  },
+  {
+    "path": "articles/snow-predictions-for-colorado-2026-2027/plow.jpg",
+    "size": 186521
+  },
+  {
+    "path": "articles/snow-predictions-for-colorado-2026-2027/statewide.jpg",
+    "size": 223894
+  },
+  {
+    "path": "articles/snow-predictions-for-georgia-2026-2027/cover.jpg",
+    "size": 236026
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/body1.jpg",
+    "size": 281511
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/body2.jpg",
+    "size": 115534
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/cover.jpg",
+    "size": 144401
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/story-1.jpg",
+    "size": 153185
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/story-2.jpg",
+    "size": 264256
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/story-3.jpg",
+    "size": 124739
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/story-4.jpg",
+    "size": 82310
+  },
+  {
+    "path": "articles/snow-predictions-for-kentucky-2026-2027/story-5.jpg",
+    "size": 121421
+  },
+  {
+    "path": "articles/snow-predictions-for-maryland-2026-2027/cover.jpg",
+    "size": 234413
+  },
+  {
+    "path": "articles/snow-predictions-for-maryland-2026-2027/howard-street-2016.jpg",
+    "size": 102170
+  },
+  {
+    "path": "articles/snow-predictions-for-maryland-2026-2027/midatlantic-2010.jpg",
+    "size": 256473
+  },
+  {
+    "path": "articles/snow-predictions-for-michigan-2026-2027/body1.jpg",
+    "size": 279399
+  },
+  {
+    "path": "articles/snow-predictions-for-michigan-2026-2027/body2.jpg",
+    "size": 307925
+  },
+  {
+    "path": "articles/snow-predictions-for-michigan-2026-2027/cover.jpg",
+    "size": 83913
+  },
+  {
+    "path": "articles/snow-predictions-for-north-carolina-2026-2027/boone.jpg",
+    "size": 202782
+  },
+  {
+    "path": "articles/snow-predictions-for-north-carolina-2026-2027/cover.jpg",
+    "size": 187118
+  },
+  {
+    "path": "articles/snow-predictions-for-north-carolina-2026-2027/parkway.jpg",
+    "size": 258683
+  },
+  {
+    "path": "articles/snow-predictions-for-north-carolina-2026-2027/storm1993.jpg",
+    "size": 133440
+  },
+  {
+    "path": "articles/snow-predictions-for-ohio-2026-2027/body1.jpg",
+    "size": 273434
+  },
+  {
+    "path": "articles/snow-predictions-for-ohio-2026-2027/body2.jpg",
+    "size": 140354
+  },
+  {
+    "path": "articles/snow-predictions-for-ohio-2026-2027/cover.jpg",
+    "size": 291811
+  },
+  {
+    "path": "articles/snow-predictions-for-pennsylvania-2026-2027/barn.jpg",
+    "size": 248116
+  },
+  {
+    "path": "articles/snow-predictions-for-pennsylvania-2026-2027/cover.jpg",
+    "size": 209394
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/cover.jpg",
+    "size": 115760
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/inline-1.jpg",
+    "size": 247047
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/inline-2.jpg",
+    "size": 206122
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/story-1.jpg",
+    "size": 103422
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/story-2.jpg",
+    "size": 293417
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/story-3.jpg",
+    "size": 188353
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/story-4.jpg",
+    "size": 302750
+  },
+  {
+    "path": "articles/snow-predictions-for-south-carolina-2026-2027/story-5.jpg",
+    "size": 103422
+  },
+  {
+    "path": "articles/snow-predictions-for-tennessee-2026-2027/cover.jpg",
+    "size": 350382
+  },
+  {
+    "path": "articles/snow-predictions-for-tennessee-2026-2027/smokies.jpg",
+    "size": 216849
+  },
+  {
+    "path": "articles/snow-predictions-for-texas-2026-2027/body1.jpg",
+    "size": 325091
+  },
+  {
+    "path": "articles/snow-predictions-for-texas-2026-2027/body2.jpg",
+    "size": 165140
+  },
+  {
+    "path": "articles/snow-predictions-for-texas-2026-2027/cover.jpg",
+    "size": 125523
+  },
+  {
+    "path": "articles/snow-predictions-for-virginia-2026-2027/cover.jpg",
+    "size": 155770
+  },
+  {
+    "path": "articles/snow-predictions-for-virginia-2026-2027/inline-1.jpg",
+    "size": 114687
+  },
+  {
+    "path": "articles/snow-predictions-for-virginia-2026-2027/inline-2.jpg",
+    "size": 293975
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/body1.jpg",
+    "size": 272934
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/body2.jpg",
+    "size": 187997
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/cover.jpg",
+    "size": 142982
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/story-1.jpg",
+    "size": 104278
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/story-2.jpg",
+    "size": 327378
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/story-3.jpg",
+    "size": 104828
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/story-4.jpg",
+    "size": 239728
+  },
+  {
+    "path": "articles/usa-winter-forecast-2026-2027/story-5.jpg",
+    "size": 158642
+  },
+  {
+    "path": "articles/where-to-see-snow-near-atlanta/cover.jpg",
+    "size": 184090
+  },
+  {
+    "path": "articles/where-to-see-snow-near-atlanta/tubing.jpg",
+    "size": 216367
+  },
+  {
+    "path": "articles/winter-snow-predictions-usa/cities-seasonal.jpg",
+    "size": 95794
+  },
+  {
+    "path": "articles/winter-snow-predictions-usa/cover.jpg",
+    "size": 276626
+  },
+  {
+    "path": "articles/winter-snow-predictions-usa/spread-seasonal.jpg",
+    "size": 47975
+  },
+  {
+    "path": "articles/winter-snow-predictions-usa/winters-seasonal.jpg",
+    "size": 47305
+  }
+]

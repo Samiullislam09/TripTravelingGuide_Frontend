@@ -48,7 +48,7 @@ const V =
 // have not passed off a generic image as being "from" it. The story's numbers
 // are all real and dated regardless of the frame art.
 const SC =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-south-carolina-2026-2027/";
+  "/media/articles/snow-predictions-for-south-carolina-2026-2027/";
 
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
@@ -281,7 +281,7 @@ const FA =
 // state. Hosted on the NEW Supabase project from the start, unlike the older
 // story constants above.
 const NW =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/usa-winter-forecast-2026-2027/";
+  "/media/articles/usa-winter-forecast-2026-2027/";
 
 // Boston's frames: an authentic City of Boston Archives photo of the Blizzard
 // of 1978 (Mayor Kevin White's office, buried car outside a Mobil station), a
@@ -292,7 +292,7 @@ const NW =
 // storm itself, captioned with its own real date), and the Massachusetts State
 // House under snow for the close. All real, dated, CC0/CC-BY-SA/public domain.
 const BOS =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/boston-snow-forecast-2026-2027/";
+  "/media/articles/boston-snow-forecast-2026-2027/";
 
 // Florida's frames are five real, dated photographs of the January 20-22,
 // 2025 Gulf Coast blizzard, the actual event the guide's record numbers come
@@ -307,7 +307,7 @@ const BOS =
 // close because it shows the scale beyond any single city. All five carry the
 // storm's real date in the frame text rather than a vague "recently."
 const FL =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/does-it-snow-in-florida/";
+  "/media/articles/does-it-snow-in-florida/";
 
 // The snow-forecast-accuracy frames are five real photographs of how a snow
 // forecast actually gets made and measured, not decorative winter scenery: a
@@ -323,7 +323,7 @@ const FL =
 // and body image, reused deliberately rather than duplicated stock, the same
 // pattern already used on this site's Boston story.
 const SA =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/how-accurate-are-weather-forecasts-for-snowfall/";
+  "/media/articles/how-accurate-are-weather-forecasts-for-snowfall/";
 
 // Buffalo's frames are five real, dated photographs of the two storms this guide's own record
 // numbers come from, plus the ordinary winters between them: snow being dumped at Buffalo's
@@ -336,7 +336,7 @@ const SA =
 // November 2020 (Andre Carrotflower, CC BY-SA), used as the close because it is the ordinary,
 // unremarkable start every one of Buffalo's famous storms actually begins as.
 const BUF =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/buffalo-snow-forecast-2026-2027/";
+  "/media/articles/buffalo-snow-forecast-2026-2027/";
 
 // Kentucky's frames are five real, dated photographs from Wikimedia Commons, not
 // stock: Waterfront Park in Louisville under snow with the Ohio River bridges
@@ -349,7 +349,7 @@ const BUF =
 // close since it is the ordinary end of most Kentucky snow days: a hill, not a
 // headline.
 const KY =
-  "https://barkirfhlwkazxewhemt.supabase.co/storage/v1/object/public/post-images/articles/snow-predictions-for-kentucky-2026-2027/";
+  "/media/articles/snow-predictions-for-kentucky-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
