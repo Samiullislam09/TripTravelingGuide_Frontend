@@ -50,6 +50,13 @@ const V =
 const SC =
   "/media/articles/snow-predictions-for-south-carolina-2026-2027/";
 
+// Alabama's frames are generic but real, CC-licensed winter photographs
+// (Wikimedia Commons), not photos of any specific Alabama storm; no
+// CC-licensed photo of the January 2025 Mobile event or Winter Storm Fern
+// exists on Commons yet, so nothing is passed off as being "from" either.
+const AL =
+  "/media/articles/snow-predictions-for-alabama-2026-2027/";
+
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
 // street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
@@ -971,6 +978,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "NOAA leans wetter, not snowier",
         text: "A strong El Nino favors more precipitation. Whether it's snow depends on cold air, not odds.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-alabama-2026-2027",
+    postSlug: "snow-predictions-for-alabama-2026-2027",
+    popularRank: 11,
+    title: "Alabama Snow: Mobile's 130-Year Record",
+    description:
+      "Mobile averages 0.2 inches of snow a season. In January 2025 it got 7.5, breaking a record that stood since 1895. What that means for 2026-2027.",
+    pages: [
+      {
+        image: AL + "story-1.jpg",
+        alt: "A dirt road covered in snow winding between bare winter trees",
+        kicker: "Alabama snow",
+        heading: "Will it snow in Alabama in 2027?",
+        text: "North Alabama has real odds. The coast is usually a no, until it isn't.",
+      },
+      {
+        image: AL + "story-2.jpg",
+        alt: "Snow-covered pine trees in a dense forest under an overcast sky",
+        kicker: "The 30-year average",
+        heading: "Huntsville: 2.4 inches a year",
+        text: "Mobile, on the coast, averages just 0.2. Twelve times less snow, on paper.",
+      },
+      {
+        image: AL + "story-3.jpg",
+        alt: "A tree branch coated in a thick layer of ice after an ice storm",
+        kicker: "January 2026",
+        heading: "Winter Storm Fern hit Alabama twice over",
+        text: "Ice forced a 19-county emergency in the north. An EF2 tornado hit the south.",
+      },
+      {
+        image: AL + "story-4.jpg",
+        alt: "A snow-covered rural road running between bare trees",
+        kicker: "January 2025",
+        heading: "Then Mobile broke a 130-year record",
+        text: "7.5 inches, beating the 6 inches set in 1895. On the coast, not the hills.",
+      },
+      {
+        image: AL + "story-5.jpg",
+        alt: "Sunlight breaking through snow-covered pine branches after a winter storm",
+        kicker: "Winter 2026-27",
+        heading: "NOAA leans wetter, not snowier",
+        text: "A strong El Nino favors more precipitation. Snow depends on cold air, not odds.",
       },
     ],
   },
