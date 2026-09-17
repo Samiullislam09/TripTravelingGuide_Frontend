@@ -57,6 +57,13 @@ const SC =
 const AL =
   "/media/articles/snow-predictions-for-alabama-2026-2027/";
 
+// Louisiana's frames are generic but real, CC-licensed winter photographs
+// (Wikimedia Commons), not photos of the actual January 2025 Gulf Coast
+// blizzard or January 2026 Winter Storm Fern; no CC-licensed photo of either
+// event exists on Commons yet, so nothing is passed off as being "from" it.
+const LA =
+  "/media/articles/snow-predictions-for-louisiana-2026-2027/";
+
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
 // street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
@@ -1023,6 +1030,51 @@ export const webStories: WebStory[] = [
         kicker: "Winter 2026-27",
         heading: "NOAA leans wetter, not snowier",
         text: "A strong El Nino favors more precipitation. Snow depends on cold air, not odds.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-louisiana-2026-2027",
+    postSlug: "snow-predictions-for-louisiana-2026-2027",
+    popularRank: 12,
+    title: "Louisiana Snow: The 2025 Gulf Blizzard",
+    description:
+      "New Orleans averages 0.0 inches of snow a year. In January 2025 it got 10, in a blizzard the region had never seen before. What that means for 2026-2027.",
+    pages: [
+      {
+        image: LA + "story-1.jpg",
+        alt: "Palm trees dusted with snow after a rare cold-weather event",
+        kicker: "Louisiana snow",
+        heading: "Will it snow in Louisiana in 2027?",
+        text: "Most years, barely at all. Then January 2025 happened.",
+      },
+      {
+        image: LA + "story-2.jpg",
+        alt: "Snow-covered pine trees in a dense forest under an overcast sky",
+        kicker: "The 30-year average",
+        heading: "New Orleans: 0.0 inches a year",
+        text: "Shreveport in the north is the state's snowiest city, at just 0.9.",
+      },
+      {
+        image: LA + "story-3.jpg",
+        alt: "A tree branch coated in a thick layer of ice after an ice storm",
+        kicker: "January 2026",
+        heading: "Winter Storm Fern hit Louisiana too",
+        text: "Ice, not snow. Two hypothermia deaths in the Shreveport area.",
+      },
+      {
+        image: LA + "story-4.jpg",
+        alt: "A snow-covered rural road running between bare trees",
+        kicker: "January 2025",
+        heading: "Then New Orleans got 10 inches",
+        text: "The first-ever Blizzard Warning on this coast. 13 deaths, $200M in damage.",
+      },
+      {
+        image: LA + "story-5.jpg",
+        alt: "Sunlight breaking through snow-covered pine branches after a winter storm",
+        kicker: "Winter 2026-27",
+        heading: "NOAA leans wetter, not snowier",
+        text: "A strong El Nino favors more storms. A repeat blizzard isn't the base case.",
       },
     ],
   },
