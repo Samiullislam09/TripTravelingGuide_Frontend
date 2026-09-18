@@ -1113,7 +1113,7 @@ export const webStories: WebStory[] = [
         alt: "The National Gallery of Art in Washington DC closed during the October 2025 shutdown",
         kicker: "Washington DC",
         heading: "Smithsonian museums close first",
-        text: "Every Smithsonian museum shut within days in October 2025.",
+        text: "Smithsonian museums were documented closed by 15 October 2025.",
       },
       {
         image: GSH + "story-4.jpg",
