@@ -174,10 +174,10 @@ profile. Never invent an author or credentials. For AI-drafted + human-edited
 posts, credit the accountable human: *"Reviewed by <real name>, <role>, on
 <date>."*
 
-**AI-use disclosure** (answers Google's "How"): a short honest process line near
-the byline —
-> *"Researched and drafted with AI assistance, then fact-checked and edited by
-> <named human> against the official sources listed below on <date>."*
+**No AI-use disclosure line in posts.** Removed 18 Sep 2026 at the owner's
+instruction: do not add a "Researched and drafted with AI assistance..." line to
+any post, and never write a named person as having fact-checked or reviewed a
+post unless that person actually did.
 
 ## 3. Facts, sourcing & originality (non-negotiable)
 
