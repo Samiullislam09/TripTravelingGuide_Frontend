@@ -69,7 +69,7 @@ const LA =
 // shutdown notice, Mesa Verde's closure sign, the National Gallery of Art's
 // closed notice and the WWII Memorial's closed information station. Not
 // generic stock, and not the December 2026 event, which has not happened.
-const GS =
+const GSH =
   "/media/articles/government-shutdown-holiday-travel-2026/";
 
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
@@ -1095,35 +1095,35 @@ export const webStories: WebStory[] = [
       "Government funding runs out 11 December 2026, days before Christmas. What the last two shutdowns did to flights, TSA lines, parks and DC museums.",
     pages: [
       {
-        image: GS + "story-1.jpg",
+        image: GSH + "story-1.jpg",
         alt: "A federal shutdown notice posted at Detroit Metropolitan Airport during the October 2025 shutdown",
         kicker: "Holiday travel",
         heading: "Funding runs out 11 December",
         text: "Ten days before Christmas. Congress has to act again in peak travel week.",
       },
       {
-        image: GS + "story-2.jpg",
+        image: GSH + "story-2.jpg",
         alt: "A closure notice at the entrance to Mesa Verde National Park during the 2025 shutdown",
         kicker: "National parks",
         heading: "Parks stay open, services do not",
         text: "Roads and trails stay accessible. Visitor centers and rangers do not.",
       },
       {
-        image: GS + "story-3.jpg",
+        image: GSH + "story-3.jpg",
         alt: "The National Gallery of Art in Washington DC closed during the October 2025 shutdown",
         kicker: "Washington DC",
         heading: "Smithsonian museums close first",
         text: "Every Smithsonian museum shut within days in October 2025.",
       },
       {
-        image: GS + "story-4.jpg",
+        image: GSH + "story-4.jpg",
         alt: "A closed information station at the WWII Memorial during a lapse in appropriations",
         kicker: "Cost",
         heading: "$1 billion a week for travel",
         text: "US Travel Association's estimate. The 43-day 2025 shutdown cost $6.1 billion.",
       },
       {
-        image: GS + "story-5.jpg",
+        image: GSH + "story-5.jpg",
         alt: "A shutdown notice at a US airport",
         kicker: "Before you fly",
         heading: "Flights keep flying, lines get longer",
