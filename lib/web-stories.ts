@@ -72,6 +72,13 @@ const LA =
 const GSH =
   "/media/articles/government-shutdown-holiday-travel-2026/";
 
+// The Christmas-flights frames: three real photographs (JFK Terminal 8 departure
+// hall 2024, an American 737 at O'Hare 2025, Denver security lines 2021, all
+// Wikimedia Commons with licenses credited in the guide) and two original date
+// cards built from Google's published low-price ranges, counted back to 2026.
+const XM =
+  "/media/articles/when-to-book-christmas-flights-2026/";
+
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
 // street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
@@ -641,16 +648,16 @@ export const webStories: WebStory[] = [
   {
     slug: "government-shutdown-travel-2026",
     postSlug: "government-shutdown-travel-2026",
-    title: "Government Shutdown Travel: The Dec 4 Deadline",
+    title: "Government Shutdown Travel: The Dec 11 Deadline",
     description:
-      "Congress funded the government only through December 4, 2026, a week after Thanksgiving. What the two 2026 shutdowns already showed about flights, TSA lines and parks.",
+      "Congress funded the government only through December 11, 2026, two weeks after Thanksgiving. What the two 2026 shutdowns already showed about flights, TSA lines and parks.",
     pages: [
       {
         image: GS + "story-1.jpg",
         alt: "The east front of the United States Capitol building under a clear blue sky",
         kicker: "Government shutdown",
-        heading: "Funded only through December 4, 2026",
-        text: "A week after Thanksgiving, three weeks before Christmas travel peaks. Photo: Martin Falbisoner, CC BY-SA.",
+        heading: "Funded only through December 11, 2026",
+        text: "Two weeks after Thanksgiving, two weeks before Christmas. Photo: Martin Falbisoner, CC BY-SA.",
       },
       {
         image: GS + "story-2.jpg",
@@ -677,7 +684,7 @@ export const webStories: WebStory[] = [
         image: GS + "story-5.jpg",
         alt: "Automated Passport Control kiosks at an airport terminal",
         kicker: "Full guide",
-        heading: "How to fly smart before Dec 4",
+        heading: "How to fly smart before Dec 11",
         text: "What the two 2026 shutdowns proved, and what still isn't known. See the full guide.",
       },
     ],
@@ -1099,7 +1106,7 @@ export const webStories: WebStory[] = [
         alt: "A federal shutdown notice posted at Detroit Metropolitan Airport during the October 2025 shutdown",
         kicker: "Holiday travel",
         heading: "Funding runs out 11 December",
-        text: "Ten days before Christmas. Congress has to act again in peak travel week.",
+        text: "Two weeks before Christmas. Congress has to act again in peak travel season.",
       },
       {
         image: GSH + "story-2.jpg",
@@ -1128,6 +1135,51 @@ export const webStories: WebStory[] = [
         kicker: "Before you fly",
         heading: "Flights keep flying, lines get longer",
         text: "TSA and controllers work unpaid. Arrive early. See what the record shows.",
+      },
+    ],
+  },
+  {
+    slug: "when-to-book-christmas-flights-2026",
+    postSlug: "when-to-book-christmas-flights-2026",
+    popularRank: 14,
+    title: "When to Book Christmas Flights in 2026",
+    description:
+      "Google says Christmas fares bottom out 32 to 73 days before departure. That is October 7 to November 1 for December 19 to 23 flights. Here is why this year's fares change the advice.",
+    pages: [
+      {
+        image: XM + "story-1.jpg",
+        alt: "The departure hall of Terminal 8 at John F. Kennedy International Airport in New York",
+        kicker: "Christmas flights 2026",
+        heading: "When should you book?",
+        text: "Google's data says 32 to 73 days out. For December 19 to 23 flights, that is October 7 to November 1.",
+      },
+      {
+        image: XM + "story-2.jpg",
+        alt: "An American Airlines Boeing 737-800 at gate H17 at Chicago O'Hare with ground service vehicles beside it",
+        kicker: "Why this year",
+        heading: "Airfares are up 23.4%",
+        text: "Jet fuel is $4.71 a gallon, and airlines say they are cutting their least profitable flights.",
+      },
+      {
+        image: XM + "story-3.jpg",
+        alt: "Passengers waiting in line to clear the TSA security checkpoint at Denver International Airport",
+        kicker: "Cheapest days",
+        heading: "Fly Christmas Eve or Christmas Day",
+        text: "The least crowded days in NerdWallet's TSA analysis. Mondays to Wednesdays run about 13% cheaper.",
+      },
+      {
+        image: XM + "story-4.jpg",
+        alt: "A date card showing the October 7 to November 1 booking window for December 19 to 23 flights",
+        kicker: "Our advice",
+        heading: "Buy by October 30",
+        text: "Halloween falls on a Saturday, so Friday, October 30 is the practical last day.",
+      },
+      {
+        image: XM + "story-5.jpg",
+        alt: "A date card showing the Thanksgiving booking window opening on September 26",
+        kicker: "Thanksgiving",
+        heading: "That window opens September 26",
+        text: "For a Tuesday, November 24 flight, the low point is October 20. See the full guide.",
       },
     ],
   },
