@@ -85,6 +85,12 @@ const XM =
 const TF =
   "/media/articles/when-to-book-thanksgiving-flights-2026/";
 
+// Flight-cancelled-by-snow frames: one real Wikimedia Commons photo (Lufthansa
+// 747 snowed in at Denver gate A41, February 2016, CC BY-SA 4.0) and four original
+// text cards built from 14 CFR 260.2 and 260.6 and the AP guide of 24 Jan 2026.
+const FC =
+  "/media/articles/flight-cancelled-due-to-snow/";
+
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
 // street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
@@ -1231,6 +1237,51 @@ export const webStories: WebStory[] = [
         kicker: "Our advice",
         heading: "Buy by October 30",
         text: "Halloween falls on a Saturday, so Friday is the practical last day. See the full guide.",
+      },
+    ],
+  },
+  {
+    slug: "flight-cancelled-due-to-snow",
+    postSlug: "flight-cancelled-due-to-snow",
+    popularRank: 16,
+    title: "Flight Cancelled Due to Snow? What You're Owed",
+    description:
+      "US rules give you a full refund when snow cancels your flight, even on a non-refundable ticket. They do not require cash compensation, meals or a hotel. Here is what to do next.",
+    pages: [
+      {
+        image: FC + "story-1.jpg",
+        alt: "A snow-covered Lufthansa Boeing 747 at gate A41 at Denver International Airport",
+        kicker: "Winter travel",
+        heading: "Flight cancelled by snow?",
+        text: "Here is what US rules say you are owed, and what they do not cover.",
+      },
+      {
+        image: FC + "story-2.jpg",
+        alt: "A green card reading Refund: yes, even on a non-refundable ticket",
+        kicker: "Your right",
+        heading: "You get a full refund",
+        text: "If the airline cancels and you decline the rebooking or a voucher. The cause, weather included, does not matter.",
+      },
+      {
+        image: FC + "story-3.jpg",
+        alt: "A red card reading Hotel and meals: no, not required when snow is the cause",
+        kicker: "Not required",
+        heading: "No hotel, meals or cash",
+        text: "Federal rules do not require them for weather. Your card's trip-delay cover might pay.",
+      },
+      {
+        image: FC + "story-4.jpg",
+        alt: "A card reading 7 or 20 days for the refund deadline",
+        kicker: "The clock",
+        heading: "7 business days by card",
+        text: "20 calendar days if you paid by cash, check or debit.",
+      },
+      {
+        image: FC + "story-5.jpg",
+        alt: "A purple card reading Ask for the refund and decline the voucher unless you want it",
+        kicker: "Our advice",
+        heading: "Ask for the refund",
+        text: "A voucher is the airline's offer, not your right. See the full guide.",
       },
     ],
   },
