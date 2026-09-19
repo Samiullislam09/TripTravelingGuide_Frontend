@@ -79,6 +79,12 @@ const GSH =
 const XM =
   "/media/articles/when-to-book-christmas-flights-2026/";
 
+// Thanksgiving-flights frames: one real Wikimedia Commons photo (Austin airport
+// crowd, April 2022, CC BY 4.0) and four original text/date cards built from
+// Google's Thanksgiving low-price range and Points Path fare data.
+const TF =
+  "/media/articles/when-to-book-thanksgiving-flights-2026/";
+
 // Georgia's frames are real CC0 photographs of Georgia snow from Wikimedia
 // Commons, not stock: Cherokee County 2016, Piedmont Park 2008, an Atlanta
 // street after the 2014 storm, Valdosta 2025 and Fairmount 2017. The point of
@@ -1180,6 +1186,51 @@ export const webStories: WebStory[] = [
         kicker: "Thanksgiving",
         heading: "That window opens September 26",
         text: "For a Tuesday, November 24 flight, the low point is October 20. See the full guide.",
+      },
+    ],
+  },
+  {
+    slug: "when-to-book-thanksgiving-flights-2026",
+    postSlug: "when-to-book-thanksgiving-flights-2026",
+    popularRank: 15,
+    title: "When to Book Thanksgiving Flights in 2026",
+    description:
+      "Google says Thanksgiving fares bottom out 24 to 59 days before departure. That is September 26 to October 31 for a November 24 flight. Fares are up 9% to 13% this year.",
+    pages: [
+      {
+        image: TF + "story-1.jpg",
+        alt: "Travelers with luggage walking through the crowded Barbara Jordan Terminal at Austin-Bergstrom International Airport",
+        kicker: "Thanksgiving flights 2026",
+        heading: "When should you book?",
+        text: "Google's data says 24 to 59 days out. For a Tuesday, November 24 flight, that is September 26 to October 31.",
+      },
+      {
+        image: TF + "story-2.jpg",
+        alt: "A purple card reading up 9 to 13 percent for Thanksgiving fares compared with last year",
+        kicker: "Why now",
+        heading: "Fares are up 9% to 13%",
+        text: "Points Path data shows Thanksgiving fares above 2025. Last year, waiting saved travelers essentially nothing.",
+      },
+      {
+        image: TF + "story-3.jpg",
+        alt: "A card reading about 13 percent cheaper for Monday to Wednesday flights compared with the weekend",
+        kicker: "Save money",
+        heading: "Fly Monday to Wednesday",
+        text: "About 13% cheaper than the weekend, per Google. A layover saves about 22%.",
+      },
+      {
+        image: TF + "story-4.jpg",
+        alt: "A date card showing the September 26 to October 20 booking window for Tuesday, November 24 flights",
+        kicker: "The window",
+        heading: "September 26 to October 20",
+        text: "Google's low-price range counted back to 2026 dates. The lowest point for November 24 is October 20.",
+      },
+      {
+        image: TF + "story-5.jpg",
+        alt: "A date card showing October 30 as the last day to buy Thanksgiving flights",
+        kicker: "Our advice",
+        heading: "Buy by October 30",
+        text: "Halloween falls on a Saturday, so Friday is the practical last day. See the full guide.",
       },
     ],
   },
