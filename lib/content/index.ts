@@ -18,6 +18,22 @@ import { readingTimeMinutes } from "@/lib/utils";
 const TABLE = "Article";
 
 // Prisma stores columns in camelCase (quoted identifiers) — select them as-is.
+//
+// Two column sets, on purpose. `contentHtml` is the only large field on this
+// table (each post runs ~15-20KB of HTML; everything else is a few hundred
+// bytes), so selecting it for every listing query is what blew the Supabase
+// free-tier egress quota to 340% in September 2026 and took the whole site
+// down with a 402 "exceed_egress_quota" — every list-type page (home, blog,
+// explore, every category page, sitemap.xml, /api/search, /api/indexnow, and
+// getRelatedPosts on EVERY single post page) pulled the full body of every
+// published post just to read a title and an excerpt, then threw the HTML
+// away. SUMMARY_COLUMNS drops contentHtml and adds wordCount (already written
+// by the CMS) so reading time can still be computed without transferring the
+// body. Only loadPostBySlug — the single targeted row a post page renders —
+// still selects the full COLUMNS including contentHtml.
+const SUMMARY_COLUMNS =
+  "slug,title,metaTitle,metaDescription,primaryKeyword,wordCount," +
+  "coverImageUrl,coverImageAlt,categoryName,categorySlug,tags,publishedAt,createdAt,status";
 const COLUMNS =
   "slug,title,metaTitle,metaDescription,primaryKeyword,contentHtml," +
   "coverImageUrl,coverImageAlt,categoryName,categorySlug,tags,publishedAt,createdAt,status";
@@ -61,6 +77,10 @@ interface Row {
   createdAt: string | null;
   status: string | null;
 }
+
+// Same row shape minus contentHtml, plus wordCount — what SUMMARY_COLUMNS
+// actually returns. See the comment on SUMMARY_COLUMNS above.
+type SummaryRow = Omit<Row, "contentHtml"> & { wordCount: number | null };
 
 function toIso(value: string | null): string {
   const d = value ? new Date(value) : new Date();
@@ -159,28 +179,42 @@ function rowToPost(r: Row, opts: { faq?: boolean } = {}): Post {
   };
 }
 
-function toSummary(p: Post): PostSummary {
+// Builds a PostSummary straight from a summary row — no contentHtml ever
+// crosses the wire for a listing/related/category/sitemap read. Reading time
+// comes from the CMS-computed wordCount column instead of stripping HTML;
+// a post somehow missing wordCount just gets a flat estimate rather than
+// paying for a full-body fetch to compute it precisely.
+function rowToSummary(r: SummaryRow): PostSummary {
+  const category: Category = {
+    name: r.categoryName?.trim() || "Travel",
+    slug: r.categorySlug?.trim() || "travel",
+  };
+  const coverImage = r.coverImageUrl?.trim() || undefined;
+  const excerpt = cleanExcerpt(r.metaDescription || "");
+  const words = r.wordCount ?? 0;
+
   return {
-    slug: p.slug,
-    title: p.title,
-    excerpt: p.excerpt,
-    coverImage: p.coverImage,
-    coverAlt: p.coverAlt,
-    category: p.category,
-    author: { name: p.author.name, slug: p.author.slug, image: p.author.image },
-    publishedAt: p.publishedAt,
-    readingMinutes: p.readingMinutes ?? readingTimeMinutes(p.contentHtml),
-    featured: p.featured,
+    slug: r.slug,
+    title: r.title || r.slug,
+    excerpt,
+    coverImage,
+    coverAlt: r.coverImageAlt?.trim() || undefined,
+    category,
+    author: { name: DEFAULT_AUTHOR.name, slug: DEFAULT_AUTHOR.slug, image: DEFAULT_AUTHOR.image },
+    publishedAt: toIso(r.publishedAt || r.createdAt),
+    readingMinutes: words > 0 ? Math.max(1, Math.round(words / 220)) : 5,
+    featured: Boolean(coverImage),
   };
 }
 
-// One Supabase round-trip per render, shared across all callers.
-const loadPosts = cache(async (): Promise<Post[]> => {
+// One Supabase round-trip per render, shared across all callers. Summary
+// columns only — see SUMMARY_COLUMNS above for why this matters.
+const loadPosts = cache(async (): Promise<PostSummary[]> => {
   try {
     const sb = supabaseAdmin();
     const { data, error } = await sb
       .from(TABLE)
-      .select(COLUMNS)
+      .select(SUMMARY_COLUMNS)
       .eq("status", "published")
       .order("publishedAt", { ascending: false, nullsFirst: false });
 
@@ -188,7 +222,7 @@ const loadPosts = cache(async (): Promise<Post[]> => {
       console.error("[content] Supabase read failed:", error.message);
       return [];
     }
-    return ((data ?? []) as unknown as Row[]).map((r) => rowToPost(r));
+    return ((data ?? []) as unknown as SummaryRow[]).map((r) => rowToSummary(r));
   } catch (e) {
     console.error("[content] Supabase read threw:", (e as Error).message);
     return [];
@@ -196,7 +230,7 @@ const loadPosts = cache(async (): Promise<Post[]> => {
 });
 
 export async function getAllPosts(): Promise<PostSummary[]> {
-  return (await loadPosts()).map(toSummary);
+  return loadPosts();
 }
 
 export async function getPostSlugs(): Promise<string[]> {
