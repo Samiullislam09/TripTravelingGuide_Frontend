@@ -11,32 +11,39 @@ import "server-only";
 
 import { cache } from "react";
 import type { Post, PostSummary, Category, FaqItem } from "@/lib/types";
-import { supabaseAdmin } from "@/lib/supabase/server";
+import { pgPool } from "@/lib/db/pg";
 import { site } from "@/lib/site";
 import { readingTimeMinutes } from "@/lib/utils";
 
-const TABLE = "Article";
+const TABLE = '"Article"';
 
-// Prisma stores columns in camelCase (quoted identifiers) — select them as-is.
+// Reads go straight over Postgres (lib/db/pg.ts), not Supabase's REST API.
+// See the comment there: Supabase can (and on 23 Sep 2026, did) freeze the
+// REST/Storage/Auth layer for exceeding the free-tier egress quota while
+// leaving the raw Postgres connection through its own pooler up. Reading
+// over that connection instead keeps every public page off the layer that
+// actually gets throttled.
+//
+// Postgres column names are camelCase and must stay double-quoted.
 //
 // Two column sets, on purpose. `contentHtml` is the only large field on this
 // table (each post runs ~15-20KB of HTML; everything else is a few hundred
 // bytes), so selecting it for every listing query is what blew the Supabase
-// free-tier egress quota to 340% in September 2026 and took the whole site
-// down with a 402 "exceed_egress_quota" — every list-type page (home, blog,
-// explore, every category page, sitemap.xml, /api/search, /api/indexnow, and
-// getRelatedPosts on EVERY single post page) pulled the full body of every
-// published post just to read a title and an excerpt, then threw the HTML
-// away. SUMMARY_COLUMNS drops contentHtml and adds wordCount (already written
-// by the CMS) so reading time can still be computed without transferring the
-// body. Only loadPostBySlug — the single targeted row a post page renders —
-// still selects the full COLUMNS including contentHtml.
+// free-tier egress quota to 340% in September 2026 in the first place —
+// every list-type page (home, blog, explore, every category page,
+// sitemap.xml, /api/search, /api/indexnow, and getRelatedPosts on EVERY
+// single post page) pulled the full body of every published post just to
+// read a title and an excerpt, then threw the HTML away. SUMMARY_COLUMNS
+// drops contentHtml and adds wordCount (already written by the CMS) so
+// reading time can still be computed without transferring the body. Only
+// loadPostBySlug — the single targeted row a post page renders — still
+// selects the full COLUMNS including contentHtml.
 const SUMMARY_COLUMNS =
-  "slug,title,metaTitle,metaDescription,primaryKeyword,wordCount," +
-  "coverImageUrl,coverImageAlt,categoryName,categorySlug,tags,publishedAt,createdAt,status";
+  '"slug","title","metaTitle","metaDescription","primaryKeyword","wordCount",' +
+  '"coverImageUrl","coverImageAlt","categoryName","categorySlug","tags","publishedAt","createdAt","status"';
 const COLUMNS =
-  "slug,title,metaTitle,metaDescription,primaryKeyword,contentHtml," +
-  "coverImageUrl,coverImageAlt,categoryName,categorySlug,tags,publishedAt,createdAt,status";
+  '"slug","title","metaTitle","metaDescription","primaryKeyword","contentHtml",' +
+  '"coverImageUrl","coverImageAlt","categoryName","categorySlug","tags","publishedAt","createdAt","status"';
 
 // Posts carry no author column yet; every byline uses the editorial identity.
 // A real bio + social links here are a genuine E-E-A-T trust signal (they show
@@ -73,8 +80,8 @@ interface Row {
   categoryName: string | null;
   categorySlug: string | null;
   tags: string | null;
-  publishedAt: string | null;
-  createdAt: string | null;
+  publishedAt: string | Date | null;
+  createdAt: string | Date | null;
   status: string | null;
 }
 
@@ -82,7 +89,9 @@ interface Row {
 // actually returns. See the comment on SUMMARY_COLUMNS above.
 type SummaryRow = Omit<Row, "contentHtml"> & { wordCount: number | null };
 
-function toIso(value: string | null): string {
+// node-postgres returns timestamp columns as Date objects (not strings, the
+// way Supabase's REST/JSON layer did) — accept either.
+function toIso(value: string | Date | null): string {
   const d = value ? new Date(value) : new Date();
   return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
 }
@@ -207,24 +216,17 @@ function rowToSummary(r: SummaryRow): PostSummary {
   };
 }
 
-// One Supabase round-trip per render, shared across all callers. Summary
+// One Postgres round-trip per render, shared across all callers. Summary
 // columns only — see SUMMARY_COLUMNS above for why this matters.
 const loadPosts = cache(async (): Promise<PostSummary[]> => {
   try {
-    const sb = supabaseAdmin();
-    const { data, error } = await sb
-      .from(TABLE)
-      .select(SUMMARY_COLUMNS)
-      .eq("status", "published")
-      .order("publishedAt", { ascending: false, nullsFirst: false });
-
-    if (error) {
-      console.error("[content] Supabase read failed:", error.message);
-      return [];
-    }
-    return ((data ?? []) as unknown as SummaryRow[]).map((r) => rowToSummary(r));
+    const { rows } = await pgPool().query<SummaryRow>(
+      `SELECT ${SUMMARY_COLUMNS} FROM ${TABLE} WHERE "status" = $1 ORDER BY "publishedAt" DESC NULLS LAST`,
+      ["published"],
+    );
+    return rows.map((r) => rowToSummary(r));
   } catch (e) {
-    console.error("[content] Supabase read threw:", (e as Error).message);
+    console.error("[content] Postgres read failed:", (e as Error).message);
     return [];
   }
 });
@@ -246,22 +248,14 @@ export async function getPostSlugs(): Promise<string[]> {
 // Supabase round trip.
 const loadPostBySlug = cache(async (slug: string): Promise<Post | null> => {
   try {
-    const sb = supabaseAdmin();
-    const { data, error } = await sb
-      .from(TABLE)
-      .select(COLUMNS)
-      .eq("slug", slug)
-      .eq("status", "published")
-      .maybeSingle();
-
-    if (error) {
-      console.error("[content] Supabase read failed:", error.message);
-      return null;
-    }
-    if (!data) return null;
-    return rowToPost(data as unknown as Row, { faq: true });
+    const { rows } = await pgPool().query<Row>(
+      `SELECT ${COLUMNS} FROM ${TABLE} WHERE "slug" = $1 AND "status" = $2 LIMIT 1`,
+      [slug, "published"],
+    );
+    if (!rows[0]) return null;
+    return rowToPost(rows[0], { faq: true });
   } catch (e) {
-    console.error("[content] Supabase read threw:", (e as Error).message);
+    console.error("[content] Postgres read failed:", (e as Error).message);
     return null;
   }
 });
