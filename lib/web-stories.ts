@@ -85,6 +85,12 @@ const XM =
 const TF =
   "/media/articles/when-to-book-thanksgiving-flights-2026/";
 
+// White-christmas-odds frames: one real Wikimedia Commons photo (snowy Main
+// Street, Woodstock VT, CC BY 3.0) and four original data cards built from
+// NOAA NCEI's white Christmas odds dataset and this year's El Nino outlook.
+const WC =
+  "/media/articles/white-christmas-odds-2026/";
+
 // Flight-cancelled-by-snow frames: one real Wikimedia Commons photo (Lufthansa
 // 747 snowed in at Denver gate A41, February 2016, CC BY-SA 4.0) and four original
 // text cards built from 14 CFR 260.2 and 260.6 and the AP guide of 24 Jan 2026.
@@ -1282,6 +1288,51 @@ export const webStories: WebStory[] = [
         kicker: "Our advice",
         heading: "Ask for the refund",
         text: "A voucher is the airline's offer, not your right. See the full guide.",
+      },
+    ],
+  },
+  {
+    slug: "white-christmas-odds-2026",
+    postSlug: "white-christmas-odds-2026",
+    popularRank: 17,
+    title: "White Christmas Odds 2026: Chances by City and State",
+    description:
+      "NOAA's real historical odds of a white Christmas by US city and state, from Alaska's 84% to Florida's 0%. Plus how this year's strong El Nino shifts the odds.",
+    pages: [
+      {
+        image: WC + "story-1.jpg",
+        alt: "Snow-covered pine branch with Christmas lights glowing on Main Street in Woodstock, Vermont at night",
+        kicker: "White Christmas 2026",
+        heading: "What are your real odds?",
+        text: "NOAA's data says 1 inch of snow on the ground at 7am, Dec 25. Here is how often that happens, by city.",
+      },
+      {
+        image: WC + "story-2.jpg",
+        alt: "A blue card reading 1 inch of snow, NOAA's official definition of a white Christmas",
+        kicker: "The definition",
+        heading: "1 inch of snow",
+        text: "On the ground at 7am, December 25. That is NOAA's official rule, not a guess.",
+      },
+      {
+        image: WC + "story-3.jpg",
+        alt: "A green card reading Alaska 84 percent, the best historical odds of any state",
+        kicker: "Best odds",
+        heading: "Alaska: 84%",
+        text: "Minnesota, Vermont and Maine all sit above 74% too.",
+      },
+      {
+        image: WC + "story-4.jpg",
+        alt: "A red card reading Georgia 0.4 percent, among the lowest odds in the country",
+        kicker: "Lowest odds",
+        heading: "Georgia: 0.4%",
+        text: "Florida and Hawaii sit at 0%. The whole Deep South runs under 1%.",
+      },
+      {
+        image: WC + "story-5.jpg",
+        alt: "A purple card reading This year El Nino, odds shift up in the western mountains and down across the East",
+        kicker: "This year",
+        heading: "El Nino changes it",
+        text: "NOAA gives over 90% odds of a very strong El Nino. See the full guide.",
       },
     ],
   },
