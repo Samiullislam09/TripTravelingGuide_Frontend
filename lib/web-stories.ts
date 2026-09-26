@@ -1334,6 +1334,13 @@ export const webStories: WebStory[] = [
         heading: "El Nino changes it",
         text: "NOAA gives over 90% odds of a very strong El Nino. See the full guide.",
       },
+      {
+        image: WC + "story-6.jpg",
+        alt: "NOAA satellite image showing lake-effect snow bands streaming off the Great Lakes",
+        kicker: "The long game",
+        heading: "Odds are shrinking",
+        text: "A Penn State scientist says warming narrows the window for snow, except near the Great Lakes. See why.",
+      },
     ],
   },
   {
