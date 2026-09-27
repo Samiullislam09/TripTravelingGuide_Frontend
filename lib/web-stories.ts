@@ -91,6 +91,12 @@ const TF =
 const WC =
   "/media/articles/white-christmas-odds-2026/";
 
+// Best-day-to-fly-new-years frames: one real Wikimedia Commons photo (Denver
+// airport terminal, CC BY-SA 4.0) and four original data cards built from our
+// own 5-year TSA checkpoint-count average.
+const NY =
+  "/media/articles/best-day-to-fly-new-years/";
+
 // Flight-cancelled-by-snow frames: one real Wikimedia Commons photo (Lufthansa
 // 747 snowed in at Denver gate A41, February 2016, CC BY-SA 4.0) and four original
 // text cards built from 14 CFR 260.2 and 260.6 and the AP guide of 24 Jan 2026.
@@ -1340,6 +1346,51 @@ export const webStories: WebStory[] = [
         kicker: "The long game",
         heading: "Odds are shrinking",
         text: "A Penn State scientist says warming narrows the window for snow, except near the Great Lakes. See why.",
+      },
+    ],
+  },
+  {
+    slug: "best-day-to-fly-new-years",
+    postSlug: "best-day-to-fly-new-years",
+    popularRank: 18,
+    title: "Best Day to Fly Around New Year's 2026-27",
+    description:
+      "New Year's Day is the quietest day to fly, beating even New Year's Eve. Five years of TSA checkpoint data show the busiest and quietest days around New Year's.",
+    pages: [
+      {
+        image: NY + "story-1.jpg",
+        alt: "Travelers walking through the main concourse of the Jeppesen Terminal at Denver International Airport",
+        kicker: "New Year's travel",
+        heading: "When should you fly?",
+        text: "5 years of TSA data say New Year's Day is the quietest day of the whole holiday window.",
+      },
+      {
+        image: NY + "story-2.jpg",
+        alt: "A green card reading Jan 1 is quietest, the single quietest day in an 11-day TSA window",
+        kicker: "The finding",
+        heading: "Jan 1 is quietest",
+        text: "Quieter than New Year's Eve, and far quieter than the days before Christmas.",
+      },
+      {
+        image: NY + "story-3.jpg",
+        alt: "A blue card comparing New Year's Day to New Year's Eve travel volume",
+        kicker: "Eve vs Day",
+        heading: "Quieter than NYE",
+        text: "2.10 million average travelers on Jan 1, versus 2.12 million on Dec 31.",
+      },
+      {
+        image: NY + "story-4.jpg",
+        alt: "A red card reading Avoid Jan 2, the busiest return day",
+        kicker: "Avoid",
+        heading: "Skip January 2",
+        text: "14% busier than New Year's Day. The whole return weekend stays crowded.",
+      },
+      {
+        image: NY + "story-5.jpg",
+        alt: "A purple card reading Fly out December 31, 19 percent quieter than the pre-holiday rush",
+        kicker: "Full breakdown",
+        heading: "See every day",
+        text: "Day by day odds from Dec 26 to Jan 5. Read the full guide.",
       },
     ],
   },
