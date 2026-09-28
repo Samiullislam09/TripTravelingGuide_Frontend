@@ -62,13 +62,32 @@ function stripInlineFaq(html: string): string {
 
 // Split article HTML into n roughly-equal chunks at paragraph boundaries, so we
 // can drop native in-content ads between them (well spaced, not stacked).
+//
+// Never split inside a <table>...</table> block. A table cut in half loses its
+// opening or closing tag in one of the two fragments, and browsers silently
+// drop orphaned <tr>/<td> markup that has no <table> ancestor when it's
+// injected via innerHTML — the table disappears and its cell text just runs
+// together as plain paragraphs. Worse, a stray cell <p> can land as the new
+// first-child paragraph of its chunk and pick up the drop-cap style meant for
+// the article's opening line. This bit in production on a table whose cells
+// the CMS editor had wrapped in <p> tags, which gave the naive </p>-boundary
+// splitter candidate split points inside the table for the first time.
 function splitHtmlIntoChunks(html: string, n: number): string[] {
+  const protectedRanges: Array<[number, number]> = [];
+  const tableRe = /<table\b[\s\S]*?<\/table>/gi;
+  let tm: RegExpExecArray | null;
+  while ((tm = tableRe.exec(html)) !== null) {
+    protectedRanges.push([tm.index, tm.index + tm[0].length]);
+  }
+  const insideTable = (pos: number) => protectedRanges.some(([s, e]) => pos > s && pos < e);
+
   const marker = "</p>";
   const ends: number[] = [];
   let i = html.indexOf(marker);
   while (i !== -1) {
-    ends.push(i + marker.length);
-    i = html.indexOf(marker, i + marker.length);
+    const end = i + marker.length;
+    if (!insideTable(end)) ends.push(end);
+    i = html.indexOf(marker, end);
   }
   if (ends.length < n + 1) return [html]; // too short to split cleanly
   const chunks: string[] = [];
