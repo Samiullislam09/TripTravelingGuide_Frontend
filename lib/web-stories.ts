@@ -91,6 +91,12 @@ const TF =
 const WC =
   "/media/articles/white-christmas-odds-2026/";
 
+// When-will-it-first-snow frames: one real Wikimedia Commons photo (Grand
+// Teton snow over fall foliage, NPS, public domain) and four original data
+// cards built from NOAA/NWS/NCEI's 30-year first-snow climate averages.
+const FSN =
+  "/media/articles/when-will-it-first-snow-2026/";
+
 // Best-day-to-fly-new-years frames: one real Wikimedia Commons photo (Denver
 // airport terminal, CC BY-SA 4.0) and four original data cards built from our
 // own 5-year TSA checkpoint-count average.
@@ -1391,6 +1397,51 @@ export const webStories: WebStory[] = [
         kicker: "Full breakdown",
         heading: "See every day",
         text: "Day by day odds from Dec 26 to Jan 5. Read the full guide.",
+      },
+    ],
+  },
+  {
+    slug: "when-will-it-first-snow-2026",
+    postSlug: "when-will-it-first-snow-2026",
+    popularRank: 19,
+    title: "When Will It First Snow This Year?",
+    description:
+      "Denver's average first snow is October 16, New York City's is December 14. NOAA's real first-snowfall dates by city and state, plus this year's outlook.",
+    pages: [
+      {
+        image: FSN + "story-1.jpg",
+        alt: "Fresh snow on the Teton Range peaks above golden aspen fall foliage in Grand Teton National Park",
+        kicker: "First snow 2026",
+        heading: "When does it start?",
+        text: "NOAA's 30-year averages say when the first snow typically reaches your state.",
+      },
+      {
+        image: FSN + "story-2.jpg",
+        alt: "A blue card reading 0.1 inch equals snow, NOAA's own threshold for a measurable first snowfall",
+        kicker: "The definition",
+        heading: "0.1 inch = snow",
+        text: "That is NOAA's official threshold for a measurable first snowfall.",
+      },
+      {
+        image: FSN + "story-3.jpg",
+        alt: "A green card reading Denver's average first snow is October 16, with a record as early as September 3",
+        kicker: "Colorado",
+        heading: "Denver: Oct 16",
+        text: "The 30-year average, with a record as early as Sep 3.",
+      },
+      {
+        image: FSN + "story-4.jpg",
+        alt: "A red card reading New York City's average first snow is December 14, nearly 2 months behind Denver",
+        kicker: "New York City",
+        heading: "NYC: Dec 14",
+        text: "Almost 2 months behind Denver, despite a similar latitude.",
+      },
+      {
+        image: FSN + "story-5.jpg",
+        alt: "A purple card reading this is not this year's date, averages are a guide only",
+        kicker: "Remember",
+        heading: "Not a forecast",
+        text: "Averages can be weeks off in either direction. See the full state-by-state guide.",
       },
     ],
   },
