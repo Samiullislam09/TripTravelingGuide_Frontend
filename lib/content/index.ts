@@ -52,8 +52,9 @@ const DEFAULT_AUTHOR = {
   name: "Samiul Islam",
   slug: "samiul-islam",
   role: "Founder of TripTravelingGuide",
-  image:
-    "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/2025/face.jpg",
+  // Static file, not Supabase — the old Supabase project this used to point
+  // at was deleted, and its DNS is gone, so the avatar broke sitewide.
+  image: "https://triptravelingguide.com/authors/samiul-islam.jpg",
   url: "/founder",
   bio:
     "Samiul Islam is the founder of TripTravelingGuide and a full-stack web developer behind projects like CGHEVEN and SnowPredictions. He researches routes, prices, and the on-the-ground details that decide a trip, fact-checks every guide before it goes live, and revisits the most-read ones through the year.",

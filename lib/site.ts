@@ -23,8 +23,9 @@ export const site = {
   founder: {
     name: "Samiul Islam",
     url: "https://samiulislam.vercel.app/",
-    image:
-      "https://etuqhwpyfdpkgykexhnb.supabase.co/storage/v1/object/public/post-images/2025/face.jpg",
+    // Static file, not Supabase — the old Supabase project this used to point
+    // at was deleted, and its DNS is gone, so the avatar broke sitewide.
+    image: "https://triptravelingguide.com/authors/samiul-islam.jpg",
   },
 
   // Social profiles — used in Organization sameAs schema + the footer.
