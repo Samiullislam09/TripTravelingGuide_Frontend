@@ -409,6 +409,8 @@ const BUF =
 // headline.
 const KY =
   "/media/articles/snow-predictions-for-kentucky-2026-2027/";
+const MN =
+  "/media/articles/snow-predictions-for-minnesota-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -2242,6 +2244,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "2024-25 was the decade's snowiest",
         text: "22.1 inches at Louisville, 21.6 at Lexington. See the full 10-year, city-by-city history.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-minnesota-2026-2027",
+    postSlug: "snow-predictions-for-minnesota-2026-2027",
+    title: "Minnesota Snow: What a Super El Nino Really Means",
+    description:
+      "NOAA gives over 90% odds of a very strong El Nino, historically 24% less Twin Cities snow. But the 1991 Halloween Blizzard hit during an El Nino winter too.",
+    pages: [
+      {
+        image: MN + "story-1.jpg",
+        alt: "Snow-covered Government Plaza and Minneapolis City Hall in downtown Minneapolis on a winter afternoon",
+        kicker: "Minnesota 2026-27",
+        heading: "A Super El Nino is coming",
+        text: "NOAA gives it over 90% odds. Historically, that has meant less snow for Minnesota. Photo: Tony Webster, CC BY-SA.",
+      },
+      {
+        image: MN + "story-2.jpg",
+        alt: "A dark blue card reading greater than 90 percent chance, NOAA's odds of a very strong El Nino this winter",
+        kicker: "The odds",
+        heading: ">90% chance",
+        text: "NOAA's Climate Prediction Center's odds of a very strong El Nino this fall and winter.",
+      },
+      {
+        image: MN + "story-3.jpg",
+        alt: "A green card reading 24 percent less snow, the average El Nino winter snowfall drop for the Twin Cities",
+        kicker: "The history",
+        heading: "24% less snow, on average",
+        text: "Minnesota DNR's own figure, across 27 El Nino winters since 1950. Not a promise for this year.",
+      },
+      {
+        image: MN + "story-4.jpg",
+        alt: "A purple card reading Duluth 90.2 inches, its normal season, almost double Minneapolis-St Paul's 51.2 inches",
+        kicker: "Two Minnesotas",
+        heading: "Duluth: 90.2\" a season",
+        text: "Almost double the Twin Cities' 51.2 inch normal. Lake Superior is the reason why.",
+      },
+      {
+        image: MN + "story-5.jpg",
+        alt: "A red card reading 28.4 inches in 1 storm, the Halloween Blizzard, which hit during an El Nino winter too",
+        kicker: "The exception",
+        heading: "1991: 28.4\" in one storm",
+        text: "The Halloween Blizzard hit during an El Nino winter. A milder lean is not a guarantee. See the full guide.",
+      },
+      {
+        image: MN + "story-6.jpg",
+        alt: "Winter sunset over the Aerial Lift Bridge and Lake Superior in Duluth, Minnesota, with snow along the shoreline",
+        kicker: "Read the full guide",
+        heading: "What both almanacs say",
+        text: "NOAA, the Farmers' Almanac and the Old Farmer's Almanac compared, city by city, season by season.",
       },
     ],
   },
