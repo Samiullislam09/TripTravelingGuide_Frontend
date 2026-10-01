@@ -411,6 +411,8 @@ const KY =
   "/media/articles/snow-predictions-for-kentucky-2026-2027/";
 const MN =
   "/media/articles/snow-predictions-for-minnesota-2026-2027/";
+const WI =
+  "/media/articles/snow-predictions-for-wisconsin-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -2295,6 +2297,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What both almanacs say",
         text: "NOAA, the Farmers' Almanac and the Old Farmer's Almanac compared, city by city, season by season.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-wisconsin-2026-2027",
+    postSlug: "snow-predictions-for-wisconsin-2026-2027",
+    title: "Wisconsin Snow: 3 Forecasters, 3 Different Answers",
+    description:
+      "NOAA says below-normal snow for Wisconsin. The Farmers' Almanac says above average. Real history from Hurley's 277.7 inch record to the 1991 Halloween Blizzard.",
+    pages: [
+      {
+        image: WI + "story-1.jpg",
+        alt: "Milwaukee's downtown skyline under snow on a winter morning, January 2026",
+        kicker: "Wisconsin 2026-27",
+        heading: "Forecasters can't agree",
+        text: "NOAA says less snow. One almanac says more. Photo: Michael Barera, CC BY-SA.",
+      },
+      {
+        image: WI + "story-2.jpg",
+        alt: "A dark blue card reading plus 4 to plus 6 degrees Fahrenheit, NOAA's warmest anomaly range for northern Wisconsin this winter",
+        kicker: "The temperature call",
+        heading: "+4 to +6°F up north",
+        text: "NOAA's warmest anomaly range for northern Wisconsin this El Nino winter.",
+      },
+      {
+        image: WI + "story-3.jpg",
+        alt: "A green card reading 3 forecasts, 3 answers, NOAA says below normal snow, Farmers Almanac says above average",
+        kicker: "The disagreement",
+        heading: "3 forecasts, 3 answers",
+        text: "NOAA and the Old Farmer's Almanac lean below normal. The Farmers' Almanac says above average.",
+      },
+      {
+        image: WI + "story-4.jpg",
+        alt: "A purple card reading Hurley 277.7 inches, Wisconsin's seasonal snowfall record set in winter 1996-97",
+        kicker: "The record",
+        heading: "Hurley: 277.7\" in one season",
+        text: "Wisconsin's seasonal snowfall record, set in the Lake Superior snowbelt, winter 1996-97.",
+      },
+      {
+        image: WI + "story-5.jpg",
+        alt: "A red card reading 1991, 32 inches in Brule, the Halloween Blizzard hit western Wisconsin during an El Nino winter too",
+        kicker: "The exception",
+        heading: "1991: 32\" in Brule",
+        text: "The Halloween Blizzard hit western Wisconsin during an El Nino winter. See the full guide.",
+      },
+      {
+        image: WI + "story-6.jpg",
+        alt: "Red dusk sky over a frozen, snow-covered Lake Michigan along the Wisconsin shoreline",
+        kicker: "Read the full guide",
+        heading: "What all 3 sources say",
+        text: "NOAA, the Farmers' Almanac and the Old Farmer's Almanac compared, city by city.",
       },
     ],
   },
