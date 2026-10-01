@@ -2305,7 +2305,7 @@ export const webStories: WebStory[] = [
     postSlug: "snow-predictions-for-wisconsin-2026-2027",
     title: "Wisconsin Snow: 3 Forecasters, 3 Different Answers",
     description:
-      "NOAA says below-normal snow for Wisconsin. The Farmers' Almanac says above average. Real history from Hurley's 277.7 inch record to the 1991 Halloween Blizzard.",
+      "NOAA says below-normal snow for Wisconsin. The Farmers' Almanac says above average. Real history from Hurley's 295.4 inch record to the 1991 Halloween Blizzard.",
     pages: [
       {
         image: WI + "story-1.jpg",
@@ -2330,9 +2330,9 @@ export const webStories: WebStory[] = [
       },
       {
         image: WI + "story-4.jpg",
-        alt: "A purple card reading Hurley 277.7 inches, Wisconsin's seasonal snowfall record set in winter 1996-97",
+        alt: "A purple card reading Hurley 295.4 inches, Wisconsin's seasonal snowfall record set in winter 1996-97",
         kicker: "The record",
-        heading: "Hurley: 277.7\" in one season",
+        heading: "Hurley: 295.4\" in one season",
         text: "Wisconsin's seasonal snowfall record, set in the Lake Superior snowbelt, winter 1996-97.",
       },
       {
