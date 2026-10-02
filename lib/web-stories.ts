@@ -413,6 +413,8 @@ const MN =
   "/media/articles/snow-predictions-for-minnesota-2026-2027/";
 const WI =
   "/media/articles/snow-predictions-for-wisconsin-2026-2027/";
+const IL =
+  "/media/articles/snow-predictions-for-illinois-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -2348,6 +2350,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What all 3 sources say",
         text: "NOAA, the Farmers' Almanac and the Old Farmer's Almanac compared, city by city.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-illinois-2026-2027",
+    postSlug: "snow-predictions-for-illinois-2026-2027",
+    title: "Illinois Snow: 38 Inches North, 11 Inches South",
+    description:
+      "One state, two completely different winters. Rockford and Chicago average 37-38 inches a season. Carbondale averages 11. Real NWS data, city by city.",
+    pages: [
+      {
+        image: IL + "story-1.jpg",
+        alt: "Aerial drone view of a snow-covered prairie and farmland in central Illinois, February 2018",
+        kicker: "Illinois 2026-27",
+        heading: "One state, two winters",
+        text: "Snowfall drops more than 3x from north to south. Photo: Ron Frazier, CC BY.",
+      },
+      {
+        image: IL + "story-2.jpg",
+        alt: "A dark blue card reading 37 inches to 11 inches, Rockford's normal season versus Carbondale's, same state",
+        kicker: "The gradient",
+        heading: "37\" to 11\"",
+        text: "Rockford's normal season versus Carbondale's. Same state, same winter.",
+      },
+      {
+        image: IL + "story-3.jpg",
+        alt: "A green card reading greater than 90 percent chance, NOAA's odds of a very strong El Nino this winter",
+        kicker: "The odds",
+        heading: ">90% chance",
+        text: "NOAA's Climate Prediction Center's odds of a very strong El Nino this fall and winter.",
+      },
+      {
+        image: IL + "story-4.jpg",
+        alt: "A purple card reading 1978-79, 105.1 inches, Illinois's snowiest winter on record statewide",
+        kicker: "The record",
+        heading: "1978-79: 105.1\"",
+        text: "Illinois's snowiest winter on record statewide. The same winter set Chicago's O'Hare record too.",
+      },
+      {
+        image: IL + "story-5.jpg",
+        alt: "A red card reading November 20 to December 20, first snow comes a full month later in southern Illinois than near Chicago",
+        kicker: "The timing",
+        heading: "Nov 20 to Dec 20",
+        text: "First snow lands a full month later in the south than near Chicago. See the full guide.",
+      },
+      {
+        image: IL + "story-6.jpg",
+        alt: "Illinois State Capitol building in Springfield at sunset",
+        kicker: "Read the full guide",
+        heading: "What all 3 sources say",
+        text: "NOAA, the Farmers' Almanac and the Old Farmer's Almanac compared, region by region.",
       },
     ],
   },
