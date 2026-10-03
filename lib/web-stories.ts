@@ -415,6 +415,8 @@ const WI =
   "/media/articles/snow-predictions-for-wisconsin-2026-2027/";
 const IL =
   "/media/articles/snow-predictions-for-illinois-2026-2027/";
+const PV =
+  "/media/articles/polar-vortex-disruption-winter-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -2401,6 +2403,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What all 3 sources say",
         text: "NOAA, the Farmers' Almanac and the Old Farmer's Almanac compared, region by region.",
+      },
+    ],
+  },
+  {
+    slug: "polar-vortex-disruption-winter-2026-2027",
+    postSlug: "polar-vortex-disruption-winter-2026-2027",
+    title: "The Polar Vortex Risk Behind This Mild Winter",
+    description:
+      "NOAA and both almanacs call for a mild El Nino winter. Forecasters also flag a polar vortex weakening signal for Jan-Feb 2027, the same setup behind the 2021 Texas freeze.",
+    pages: [
+      {
+        image: PV + "story-1.jpg",
+        alt: "NOAA diagram comparing a stable polar vortex with a disrupted polar vortex that lets frigid air spill south into the United States and Europe",
+        kicker: "Winter 2026-27",
+        heading: "The risk under the headline",
+        text: "A mild winter forecast doesn't rule out a severe cold snap. Diagram: NOAA.",
+      },
+      {
+        image: PV + "story-2.jpg",
+        alt: "A dark blue card reading January to February 2027, the window forecasters are watching for a polar vortex weakening signal",
+        kicker: "The window",
+        heading: "Jan-Feb 2027",
+        text: "ECMWF and UK Met Office seasonal guidance both flag this window to watch.",
+      },
+      {
+        image: PV + "story-3.jpg",
+        alt: "A green card reading Super El Nino, research links strong El Nino winters to a higher chance of polar vortex disruption",
+        kicker: "The link",
+        heading: "Super El Nino raises the odds",
+        text: "Strong El Nino winters see larger average stratospheric disruptions, per 2024 research.",
+      },
+      {
+        image: PV + "story-4.jpg",
+        alt: "A red card reading 290 plus deaths, NOAA's official toll from the February 2021 Texas freeze",
+        kicker: "Last time",
+        heading: "290+ deaths in 2021",
+        text: "NOAA's official toll from the Texas freeze, triggered by a stratospheric warming event.",
+      },
+      {
+        image: PV + "story-5.jpg",
+        alt: "A purple card reading that freeze was La Nina, a major cold outbreak does not need El Nino to happen",
+        kicker: "The honest part",
+        heading: "2021 was a La Nina winter",
+        text: "This risk isn't exclusive to El Nino years. See the full guide for what that means.",
+      },
+      {
+        image: PV + "story-6.jpg",
+        alt: "NOAA satellite image of snow-covered Texas on 15 February 2021, days after the historic freeze",
+        kicker: "Read the full guide",
+        heading: "What forecasters know now",
+        text: "The seasonal signal, the research, and the honest limits of this forecast.",
       },
     ],
   },
