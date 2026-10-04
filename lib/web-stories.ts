@@ -417,6 +417,8 @@ const IL =
   "/media/articles/snow-predictions-for-illinois-2026-2027/";
 const PV =
   "/media/articles/polar-vortex-disruption-winter-2026-2027/";
+const HW =
+  "/media/articles/halloween-weather-forecast-2026/";
 
 export const webStories: WebStory[] = [
   {
@@ -2454,6 +2456,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What forecasters know now",
         text: "The seasonal signal, the research, and the honest limits of this forecast.",
+      },
+    ],
+  },
+  {
+    slug: "halloween-weather-forecast-2026",
+    postSlug: "halloween-weather-forecast-2026",
+    title: "Will It Be Cold on Halloween 2026?",
+    description:
+      "Dallas averages 73°F on Halloween. Chicago averages 56°F. Real city-by-city averages, the 1991 and 2011 Halloween snowstorms, and what El Nino means this year.",
+    pages: [
+      {
+        image: HW + "story-1.jpg",
+        alt: "A child in a skeleton Halloween costume trick-or-treating in Redford, Michigan, October 1979",
+        kicker: "Halloween 2026",
+        heading: "One date, two climates",
+        text: "73°F in Dallas, 56°F in Chicago, same day. Photo: Don Scarborough, CC BY-SA.",
+      },
+      {
+        image: HW + "story-2.jpg",
+        alt: "A dark blue card reading Chicago 56 degrees Fahrenheit, the 30-year average high for October 31",
+        kicker: "The average",
+        heading: "Chicago: 56°F",
+        text: "The 30-year NWS average high for October 31. Not this year's forecast.",
+      },
+      {
+        image: HW + "story-3.jpg",
+        alt: "A purple card reading 1991, 28.4 inches in Minneapolis, the Halloween Blizzard",
+        kicker: "The classic",
+        heading: "1991: 28.4\" in Minneapolis",
+        text: "The Halloween Blizzard. Still the benchmark for a ruined Halloween.",
+      },
+      {
+        image: HW + "story-4.jpg",
+        alt: "A green card reading 2011, 32 inches in Peru Massachusetts, the Halloween nor'easter broke records in over 20 cities",
+        kicker: "The repeat",
+        heading: "2011: 32\" in Peru, MA",
+        text: "The Halloween nor'easter. Records broke in more than 20 cities that year.",
+      },
+      {
+        image: HW + "story-5.jpg",
+        alt: "A red card reading El Nino this year, wetter in the south, milder in the north, per NOAA",
+        kicker: "This year",
+        heading: "El Nino tilts the odds",
+        text: "Wetter South, milder North, per NOAA. A trend, not a guarantee. See the full guide.",
+      },
+      {
+        image: HW + "story-6.jpg",
+        alt: "Trees weighed down by heavy snow the morning after the 2011 Halloween nor'easter, Charlton, Massachusetts",
+        kicker: "Read the full guide",
+        heading: "What to actually plan for",
+        text: "City-by-city averages, real history, and the honest limits of a 3-week forecast.",
       },
     ],
   },
