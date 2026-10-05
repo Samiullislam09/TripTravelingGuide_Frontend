@@ -419,6 +419,8 @@ const PV =
   "/media/articles/polar-vortex-disruption-winter-2026-2027/";
 const HW =
   "/media/articles/halloween-weather-forecast-2026/";
+const DS =
+  "/media/articles/daylight-saving-time-2026-travel/";
 
 export const webStories: WebStory[] = [
   {
@@ -2507,6 +2509,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What to actually plan for",
         text: "City-by-city averages, real history, and the honest limits of a 3-week forecast.",
+      },
+    ],
+  },
+  {
+    slug: "daylight-saving-time-2026-travel",
+    postSlug: "daylight-saving-time-2026-travel",
+    title: "Daylight Saving Time 2026: The Travel Guide",
+    description:
+      "Clocks fall back November 1, 2026. Flight length doesn't change, but sunset jumps an hour earlier overnight, and the Senate is still sitting on a bill to end this for good.",
+    pages: [
+      {
+        image: DS + "story-1.jpg",
+        alt: "Sunset seen through a terminal window at O'Hare International Airport, Chicago, with a United Express plane on the tarmac",
+        kicker: "Daylight saving 2026",
+        heading: "Nov 1: clocks fall back",
+        text: "2am, almost every US clock moves back an hour. Photo: MarcEGottlieb, CC BY-SA.",
+      },
+      {
+        image: DS + "story-2.jpg",
+        alt: "A dark blue card reading November 1 at 2am, clocks fall back 1 hour across almost all of the US",
+        kicker: "The date",
+        heading: "Nov 1, 2am",
+        text: "Arizona and Hawaii don't change. Everywhere else does.",
+      },
+      {
+        image: DS + "story-3.jpg",
+        alt: "A green card reading flight length zero change, aviation runs on UTC so your flight doesn't get longer or shorter",
+        kicker: "The flight myth",
+        heading: "Flight length: no change",
+        text: "Aviation runs on UTC. But a US-Europe connection that week can get confusing.",
+      },
+      {
+        image: DS + "story-4.jpg",
+        alt: "A purple card reading sunset 1 hour earlier overnight in every city, the same Sunday morning",
+        kicker: "The jump",
+        heading: "Sunset: 1 hour earlier",
+        text: "Overnight. Chicago goes from 5:45pm to 4:44pm between Saturday and Sunday.",
+      },
+      {
+        image: DS + "story-5.jpg",
+        alt: "A red card reading 308 to 117, the House already passed a bill to make daylight saving time permanent",
+        kicker: "The bill",
+        heading: "House passed it, 308-117",
+        text: "Now stuck in the Senate with no vote scheduled. See the full guide.",
+      },
+      {
+        image: DS + "story-6.jpg",
+        alt: "A simple analog wall clock",
+        kicker: "Read the full guide",
+        heading: "What to actually plan for",
+        text: "Sunset times, flight myths, and where the permanent-DST bill really stands.",
       },
     ],
   },
