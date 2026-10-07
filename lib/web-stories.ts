@@ -421,6 +421,8 @@ const HW =
   "/media/articles/halloween-weather-forecast-2026/";
 const DS =
   "/media/articles/daylight-saving-time-2026-travel/";
+const SS =
+  "/media/articles/ski-season-2026-2027-opening-dates/";
 
 export const webStories: WebStory[] = [
   {
@@ -2560,6 +2562,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What to actually plan for",
         text: "Sunset times, flight myths, and where the permanent-DST bill really stands.",
+      },
+    ],
+  },
+  {
+    slug: "ski-season-2026-2027-opening-dates",
+    postSlug: "ski-season-2026-2027-opening-dates",
+    title: "Ski Season 2026-2027: The Race to Open",
+    description:
+      "Arizona Snowbowl already got real snow. Arapahoe Basin is targeting October 9. Every Colorado resort's 2026-2027 opening date, and how resorts open this early.",
+    pages: [
+      {
+        image: SS + "story-1.jpg",
+        alt: "Snow-covered slopes and lifts at Winter Park Ski Resort in Colorado",
+        kicker: "Ski season 2026-27",
+        heading: "The race is already on",
+        text: "Real snow fell before October did. Photo: Murray Foubister, CC BY-SA.",
+      },
+      {
+        image: SS + "story-2.jpg",
+        alt: "A dark blue card reading September 29, 2 inches of snow, Arizona Snowbowl got real snow months before its scheduled opening",
+        kicker: "Already happened",
+        heading: "Sep 29: 2\" of snow",
+        text: "Arizona Snowbowl's first snow, months ahead of its scheduled November 20 opening.",
+      },
+      {
+        image: SS + "story-3.jpg",
+        alt: "A green card reading October 9, Arapahoe Basin, Arapahoe Basin's projected opening, earliest in Colorado",
+        kicker: "The target",
+        heading: "Oct 9: A-Basin",
+        text: "Arapahoe Basin's projected opening date, the earliest in Colorado this season.",
+      },
+      {
+        image: SS + "story-4.jpg",
+        alt: "A purple card reading 13 resorts 13 dates, Colorado's full 2026-2027 opening lineup, October 9 to December 12",
+        kicker: "The full list",
+        heading: "13 resorts, 13 dates",
+        text: "Colorado's complete opening lineup for 2026-2027. See every date in the guide.",
+      },
+      {
+        image: SS + "story-5.jpg",
+        alt: "A red card reading snow before the season, Levi and Ruka Finland already open on stockpiled snow",
+        kicker: "The trick",
+        heading: "Snow before the season",
+        text: "Levi and Ruka in Finland are already open, on snow saved since last winter.",
+      },
+      {
+        image: SS + "story-6.jpg",
+        alt: "Snow cannons making snow at a ski resort in Porvoo, Finland",
+        kicker: "Read the full guide",
+        heading: "How resorts open this early",
+        text: "Snowmaking, stockpiled snow, and what it means for planning a ski trip.",
       },
     ],
   },
