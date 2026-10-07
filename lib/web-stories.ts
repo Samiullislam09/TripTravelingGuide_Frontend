@@ -2570,7 +2570,7 @@ export const webStories: WebStory[] = [
     postSlug: "ski-season-2026-2027-opening-dates",
     title: "Ski Season 2026-2027: The Race to Open",
     description:
-      "Arizona Snowbowl already got real snow. Arapahoe Basin is targeting October 9. Every Colorado resort's 2026-2027 opening date, and how resorts open this early.",
+      "Arizona Snowbowl already got real snow. Arapahoe Basin is targeting October 9. 35+ resorts across the US and Canada now have an opening date, and here's how resorts open this early.",
     pages: [
       {
         image: SS + "story-1.jpg",
@@ -2595,10 +2595,10 @@ export const webStories: WebStory[] = [
       },
       {
         image: SS + "story-4.jpg",
-        alt: "A purple card reading 13 resorts 13 dates, Colorado's full 2026-2027 opening lineup, October 9 to December 12",
+        alt: "A purple card reading 35 plus resorts, every 2026-2027 opening date across the US and Canada, October 9 to December 31",
         kicker: "The full list",
-        heading: "13 resorts, 13 dates",
-        text: "Colorado's complete opening lineup for 2026-2027. See every date in the guide.",
+        heading: "35+ resorts, every date",
+        text: "Every announced 2026-2027 opening date, US and Canada. See the full list in the guide.",
       },
       {
         image: SS + "story-5.jpg",
