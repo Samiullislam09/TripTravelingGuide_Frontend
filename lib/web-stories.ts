@@ -423,6 +423,8 @@ const DS =
   "/media/articles/daylight-saving-time-2026-travel/";
 const SS =
   "/media/articles/ski-season-2026-2027-opening-dates/";
+const HI =
+  "/media/articles/hurricane-isaias-flight-travel-impact-2026/";
 
 export const webStories: WebStory[] = [
   {
@@ -2613,6 +2615,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "How resorts open this early",
         text: "Snowmaking, stockpiled snow, and what it means for planning a ski trip.",
+      },
+    ],
+  },
+  {
+    slug: "hurricane-isaias-flight-travel-impact-2026",
+    postSlug: "hurricane-isaias-flight-travel-impact-2026",
+    title: "Hurricane Isaias: Gulf Coast Flight Impact",
+    description:
+      "Landfall expected Oct 9-10 near the Florida Panhandle or Mississippi coast. Confirmed airport closures, airline waiver status, and your refund rights if your flight is canceled.",
+    pages: [
+      {
+        image: HI + "story-1.jpg",
+        alt: "Archival NOAA GOES satellite image of a hurricane over the Gulf of Mexico",
+        kicker: "Hurricane Isaias",
+        heading: "The season's first hurricane",
+        text: "Landfall expected Oct 9-10 on the Gulf Coast. Image: NOAA, public domain.",
+      },
+      {
+        image: HI + "story-2.jpg",
+        alt: "A dark blue card reading landfall October 9 to 10, Mississippi coast to the Florida Panhandle, per NHC's track",
+        kicker: "The timing",
+        heading: "Landfall: Oct 9-10",
+        text: "Mississippi coast to the Florida Panhandle, per the NHC's track as of Thursday.",
+      },
+      {
+        image: HI + "story-3.jpg",
+        alt: "An orange card reading VPS airport closed, Destin-Fort Walton Beach closed 9pm October 8 until further notice",
+        kicker: "Confirmed",
+        heading: "VPS airport: closed",
+        text: "Destin-Fort Walton Beach closed 9pm Thursday. Other airports are under advisory.",
+      },
+      {
+        image: HI + "story-4.jpg",
+        alt: "A red card reading Florida and Alabama state of emergency, declared ahead of Hurricane Isaias's expected landfall",
+        kicker: "The response",
+        heading: "FL and AL: emergency declared",
+        text: "Hurricane and storm surge warnings are in effect for the central Gulf Coast.",
+      },
+      {
+        image: HI + "story-5.jpg",
+        alt: "A green card reading canceled flight, full refund, federal rules require a refund if you decline rebooking",
+        kicker: "Your rights",
+        heading: "Canceled flight? Full refund.",
+        text: "Even on a non-refundable ticket, if you decline the rebooking. See the full guide.",
+      },
+      {
+        image: HI + "story-6.jpg",
+        alt: "White sand beach on Santa Rosa Island, Pensacola Beach, Florida",
+        kicker: "Read the full guide",
+        heading: "What to do right now",
+        text: "Airport status, waiver checks, and refund rights, all in one place.",
       },
     ],
   },
