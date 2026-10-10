@@ -425,6 +425,8 @@ const SS =
   "/media/articles/ski-season-2026-2027-opening-dates/";
 const HI =
   "/media/articles/hurricane-isaias-flight-travel-impact-2026/";
+const MT =
+  "/media/articles/montana-snow-predictions-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -2666,6 +2668,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What to do right now",
         text: "Airport status, waiver checks, and refund rights, all in one place.",
+      },
+    ],
+  },
+  {
+    slug: "montana-snow-predictions-2026-2027",
+    postSlug: "montana-snow-predictions-2026-2027",
+    title: "Montana's Rare Hurricane-Fed Snowstorm",
+    description:
+      "NWS Missoula calls it a very rare circumstance: Hurricane Rachel's remnant moisture is forecast to drop 6-12 inches on Montana valleys Oct 10-12, 2026.",
+    pages: [
+      {
+        image: MT + "story-1.jpg",
+        alt: "Aerial winter view of the Judith Mountains in Fergus County, Montana",
+        kicker: "Montana, Oct 2026",
+        heading: "A rare setup",
+        text: "Hurricane moisture meets a cold front. Photo: Daniel Schwen, CC BY-SA.",
+      },
+      {
+        image: MT + "story-2.jpg",
+        alt: "A dark blue card reading a rare setup, NWS Missoula calls Hurricane Rachel's remnant moisture a very rare circumstance",
+        kicker: "Why it's unusual",
+        heading: "NWS: \"very rare\"",
+        text: "Hurricane Rachel's remnant moisture combining with a cold front this early.",
+      },
+      {
+        image: MT + "story-3.jpg",
+        alt: "A green card reading up to 1 foot of snow at the highest Montana elevations, 6 to 12 inches as low as 4,000 feet",
+        kicker: "The forecast",
+        heading: "Up to 1 foot of snow",
+        text: "6-12 inches as low as 4,000 feet, Oct 10-12. AccuWeather, NWS Missoula.",
+      },
+      {
+        image: MT + "story-4.jpg",
+        alt: "A purple card reading Billings September 7 1962, Montana's earliest snowfall record, 2 inches",
+        kicker: "The record",
+        heading: "Billings: Sept 7, 1962",
+        text: "Montana's earliest snowfall record. Early snow isn't new here.",
+      },
+      {
+        image: MT + "story-5.jpg",
+        alt: "A red card reading one storm isn't a season, a rare early snowstorm doesn't predict the whole winter",
+        kicker: "The honest part",
+        heading: "One storm isn't a season",
+        text: "This winter's El Nino still leans milder overall. See the full guide.",
+      },
+      {
+        image: MT + "story-6.jpg",
+        alt: "Snow covering the landscape in Glacier National Park, Montana",
+        kicker: "Read the full guide",
+        heading: "What the data really shows",
+        text: "Real city normals, historical records, and this week's forecast.",
       },
     ],
   },
