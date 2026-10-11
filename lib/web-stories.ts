@@ -427,6 +427,8 @@ const HI =
   "/media/articles/hurricane-isaias-flight-travel-impact-2026/";
 const MT =
   "/media/articles/montana-snow-predictions-2026-2027/";
+const UT2 =
+  "/media/articles/utah-first-snow-tropical-storm-2026/";
 
 export const webStories: WebStory[] = [
   {
@@ -2719,6 +2721,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What the data really shows",
         text: "Real city normals, historical records, and this week's forecast.",
+      },
+    ],
+  },
+  {
+    slug: "utah-first-snow-tropical-storm-2026",
+    postSlug: "utah-first-snow-tropical-storm-2026",
+    title: "Utah's Rare Tropical-Storm Snow",
+    description:
+      "NWS Salt Lake City says it's happened twice in 20 years: tropical moisture reaching Utah, forecast to bring the season's first real snow Oct 13-14, 2026.",
+    pages: [
+      {
+        image: UT2 + "story-1.jpg",
+        alt: "The Snowbird tram at Snowbird ski resort in the Wasatch Mountains, Utah",
+        kicker: "Utah, Oct 2026",
+        heading: "A rare setup",
+        text: "Tropical Storm Rachel's remnants reach Utah. Photo: Kasiarunachalam, CC BY-SA.",
+      },
+      {
+        image: UT2 + "story-2.jpg",
+        alt: "A dark blue card quoting NWS Salt Lake City: twice in 20 years, how rare this setup is",
+        kicker: "How rare",
+        heading: "\"Twice in 20 years\"",
+        text: "NWS Salt Lake City's own forecaster on tropical moisture reaching Utah.",
+      },
+      {
+        image: UT2 + "story-3.jpg",
+        alt: "A green card reading Snowbird up to 14 inches, OpenSnow's high end call, down from 19 inches days earlier",
+        kicker: "The optimistic call",
+        heading: "Snowbird: up to 14\"",
+        text: "OpenSnow's forecast. NWS itself calls for just 2 to 5 inches.",
+      },
+      {
+        image: UT2 + "story-4.jpg",
+        alt: "A purple card quoting the NWS forecaster: I don't know that it's skiable",
+        kicker: "The honest quote",
+        heading: "\"Not sure it's skiable\"",
+        text: "The NWS forecaster's own read on this snow's quality.",
+      },
+      {
+        image: UT2 + "story-5.jpg",
+        alt: "A red card reading gone by Thursday, both forecasters agree this snow won't last",
+        kicker: "Won't last",
+        heading: "Melting fast",
+        text: "Both forecasters agree. See the full guide for every number.",
+      },
+      {
+        image: UT2 + "story-6.jpg",
+        alt: "The Wasatch Mountains in winter, seen from Utah Valley",
+        kicker: "Read the full guide",
+        heading: "NWS vs OpenSnow",
+        text: "Every resort, every forecast, compared side by side.",
       },
     ],
   },
