@@ -429,6 +429,8 @@ const MT =
   "/media/articles/montana-snow-predictions-2026-2027/";
 const UT2 =
   "/media/articles/utah-first-snow-tropical-storm-2026/";
+const WY =
+  "/media/articles/wyoming-snow-predictions-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -2772,6 +2774,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "NWS vs OpenSnow",
         text: "Every resort, every forecast, compared side by side.",
+      },
+    ],
+  },
+  {
+    slug: "wyoming-snow-predictions-2026-2027",
+    postSlug: "wyoming-snow-predictions-2026-2027",
+    title: "Wyoming: 2 Feet Possible at Gannett Peak",
+    description:
+      "The same storm that hit Montana and Utah is forecast to drop 2+ feet at Gannett Peak and double-digit totals in the Wind River Range, Oct 10-14, 2026.",
+    pages: [
+      {
+        image: WY + "story-1.jpg",
+        alt: "The Grand Teton mountain covered in snow, Wyoming",
+        kicker: "Wyoming, Oct 2026",
+        heading: "The storm continues",
+        text: "Montana's storm reaches Wyoming. Photo: NPS, public domain.",
+      },
+      {
+        image: WY + "story-2.jpg",
+        alt: "A dark blue card reading Gannett Peak 2 plus feet, Wyoming's highest point could see this much snow",
+        kicker: "The forecast",
+        heading: "Gannett Peak: 2+ feet",
+        text: "Wyoming's highest point, per Chris Tomer's 7 October 2026 outlook.",
+      },
+      {
+        image: WY + "story-3.jpg",
+        alt: "A green card reading Cheyenne October 7 average, one of the earliest average first-snow dates in the Lower 48",
+        kicker: "Already early",
+        heading: "Cheyenne: Oct 7 average",
+        text: "One of the earliest average first-snow dates in the Lower 48.",
+      },
+      {
+        image: WY + "story-4.jpg",
+        alt: "A purple card reading same storm as Montana, Rachel's moisture and a cold front are hitting the whole northern Rockies",
+        kicker: "The connection",
+        heading: "Same storm as Montana",
+        text: "See our Montana and Utah guides for the rest of the story.",
+      },
+      {
+        image: WY + "story-5.jpg",
+        alt: "A red card reading Casper 75.4 inches a year, Wyoming's own normal, well above what most states average",
+        kicker: "The normal",
+        heading: "Casper: 75.4\" a year",
+        text: "Wyoming's own seasonal normal. See the full guide for every number.",
+      },
+      {
+        image: WY + "story-6.jpg",
+        alt: "A snow-covered field with a disused tractor in Star Valley, Wyoming",
+        kicker: "Read the full guide",
+        heading: "The whole storm, mapped",
+        text: "Gannett Peak, the Winds, Jackson Hole, and real Wyoming normals.",
       },
     ],
   },
