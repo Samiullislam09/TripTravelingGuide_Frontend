@@ -431,6 +431,8 @@ const UT2 =
   "/media/articles/utah-first-snow-tropical-storm-2026/";
 const WY =
   "/media/articles/wyoming-snow-predictions-2026-2027/";
+const CO2 =
+  "/media/articles/colorado-mountain-snow-october-2026/";
 
 export const webStories: WebStory[] = [
   {
@@ -2825,6 +2827,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "The whole storm, mapped",
         text: "Gannett Peak, the Winds, Jackson Hole, and real Wyoming normals.",
+      },
+    ],
+  },
+  {
+    slug: "colorado-mountain-snow-october-2026",
+    postSlug: "colorado-mountain-snow-october-2026",
+    title: "Colorado Snow Right Now: Mountains Get Hit, Denver Gets Rain",
+    description:
+      "Live NWS advisories call for 4 to 12 inches above 9,000 feet across Colorado's mountains on October 14, 2026, while Denver itself gets rain.",
+    pages: [
+      {
+        image: CO2 + "story-1.jpg",
+        alt: "Snow covered Bear Lake in Rocky Mountain National Park, Colorado",
+        kicker: "Colorado, Oct 2026",
+        heading: "The high country right now",
+        text: "Bear Lake, Rocky Mountain National Park. Photo: Jonathan Wisner, CC BY 2.0.",
+      },
+      {
+        image: CO2 + "story-2.jpg",
+        alt: "A blue card reading 4 to 12 inches, forecast for Colorado's high country above 9,000 feet, October 14 2026",
+        kicker: "The forecast",
+        heading: "4 to 12 inches",
+        text: "Across the high country above 9,000 feet, per live NWS advisories.",
+      },
+      {
+        image: CO2 + "story-3.jpg",
+        alt: "A dark blue card reading Denver just rain, upper 40s to low 50s on the Front Range while the mountains get snow",
+        kicker: "The split",
+        heading: "Denver: just rain",
+        text: "Elevation is the whole story today.",
+      },
+      {
+        image: CO2 + "story-4.jpg",
+        alt: "A purple card reading watch these passes, Wolf Creek, Rabbit Ears, and the Summit County passes along I-70",
+        kicker: "Driving today",
+        heading: "Watch these passes",
+        text: "Check COtrip before you drive the high country.",
+      },
+      {
+        image: CO2 + "story-5.jpg",
+        alt: "An amber card reading A-Basin not yet, Colorado's usual first resort to open still has no confirmed date",
+        kicker: "Ski season",
+        heading: "A-Basin: not yet",
+        text: "See our full ski season guide for every resort we're tracking.",
+      },
+      {
+        image: CO2 + "story-6.jpg",
+        alt: "An aerial view of I-70 near Copper Mountain, Colorado, with snow",
+        kicker: "Read the full guide",
+        heading: "Every pass, every total",
+        text: "The full breakdown of today's storm across Colorado's mountains.",
       },
     ],
   },
