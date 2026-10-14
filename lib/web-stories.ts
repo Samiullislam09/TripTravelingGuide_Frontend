@@ -2833,9 +2833,9 @@ export const webStories: WebStory[] = [
   {
     slug: "colorado-mountain-snow-october-2026",
     postSlug: "colorado-mountain-snow-october-2026",
-    title: "Colorado Snow Right Now: Mountains Get Hit, Denver Gets Rain",
+    title: "Colorado Snow This Week: 9-16 Inches on I-70, Next Storm Oct 21-22",
     description:
-      "Live NWS advisories call for 4 to 12 inches above 9,000 feet across Colorado's mountains on October 14, 2026, while Denver itself gets rain.",
+      "NWS mapping shows 9 to 16 inches at the I-70 tunnels through October 16, 2026, with a second storm forecast for October 21-22, while Denver gets rain.",
     pages: [
       {
         image: CO2 + "story-1.jpg",
@@ -2846,30 +2846,30 @@ export const webStories: WebStory[] = [
       },
       {
         image: CO2 + "story-2.jpg",
-        alt: "A blue card reading 4 to 12 inches, forecast for Colorado's high country above 9,000 feet, October 14 2026",
+        alt: "A blue card reading I-70 9 to 16 inches, likely vs high-end NWS scenario at the Eisenhower-Johnson Tunnels by Friday",
         kicker: "The forecast",
-        heading: "4 to 12 inches",
-        text: "Across the high country above 9,000 feet, per live NWS advisories.",
+        heading: "I-70: 9 to 16 inches",
+        text: "Likely vs. high-end NWS scenario at the Eisenhower-Johnson Tunnels.",
       },
       {
         image: CO2 + "story-3.jpg",
         alt: "A dark blue card reading Denver just rain, upper 40s to low 50s on the Front Range while the mountains get snow",
         kicker: "The split",
         heading: "Denver: just rain",
-        text: "Elevation is the whole story today.",
+        text: "Elevation is the whole story this week.",
       },
       {
         image: CO2 + "story-4.jpg",
-        alt: "A purple card reading watch these passes, Wolf Creek, Rabbit Ears, and the Summit County passes along I-70",
-        kicker: "Driving today",
-        heading: "Watch these passes",
-        text: "Check COtrip before you drive the high country.",
+        alt: "A purple card reading another storm October 21 to 22, southwest Colorado could see 33 inches combined by October 23",
+        kicker: "What's next",
+        heading: "Another storm: Oct 21-22",
+        text: "Southwest Colorado could see 33 inches combined by October 23.",
       },
       {
         image: CO2 + "story-5.jpg",
-        alt: "An amber card reading A-Basin not yet, Colorado's usual first resort to open still has no confirmed date",
+        alt: "An amber card reading Keystone opening soon, Vail Resorts says as soon as possible in October",
         kicker: "Ski season",
-        heading: "A-Basin: not yet",
+        heading: "Keystone: opening soon",
         text: "See our full ski season guide for every resort we're tracking.",
       },
       {
