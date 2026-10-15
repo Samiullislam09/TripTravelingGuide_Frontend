@@ -2886,7 +2886,7 @@ export const webStories: WebStory[] = [
   {
     slug: "sierra-nevada-first-snow-october-2026",
     postSlug: "sierra-nevada-first-snow-october-2026",
-    title: "Sierra Nevada Snow: It Was Rachel Again, Mt. Rose Opens Nov 6",
+    title: "Sierra Nevada's First Snow of 2026-27: It Was Rachel Again",
     description:
       "Tropical Storm Rachel reached the Sierra Nevada on October 12, 2026. Every Tahoe resort opening date, from Mt. Rose on November 6 to Kirkwood on December 4.",
     pages: [
