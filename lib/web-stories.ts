@@ -433,6 +433,8 @@ const WY =
   "/media/articles/wyoming-snow-predictions-2026-2027/";
 const CO2 =
   "/media/articles/colorado-mountain-snow-october-2026/";
+const SN =
+  "/media/articles/sierra-nevada-first-snow-october-2026/";
 
 export const webStories: WebStory[] = [
   {
@@ -2878,6 +2880,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "Every pass, every total",
         text: "The full breakdown of today's storm across Colorado's mountains.",
+      },
+    ],
+  },
+  {
+    slug: "sierra-nevada-first-snow-october-2026",
+    postSlug: "sierra-nevada-first-snow-october-2026",
+    title: "Sierra Nevada's First Snow, Plus 2026-27 Opening Dates",
+    description:
+      "A light dusting hit Sierra Nevada peaks on October 12, 2026. Mammoth targets November 13, Heavenly November 20, Palisades Tahoe November 25.",
+    pages: [
+      {
+        image: SN + "story-1.jpg",
+        alt: "Snow capped peaks of the Sierra Nevada mountain range in California",
+        kicker: "California, Oct 2026",
+        heading: "The first dusting",
+        text: "Sierra Nevada peaks seen from Latrobe, California. Photo: Quintin Soloviev, CC0.",
+      },
+      {
+        image: SN + "story-2.jpg",
+        alt: "A blue card reading the first dusting, light snow fell on many Sierra Nevada peaks on October 12 2026",
+        kicker: "This week",
+        heading: "The first dusting",
+        text: "Light snow fell on many Sierra Nevada peaks on October 12, 2026.",
+      },
+      {
+        image: SN + "story-3.jpg",
+        alt: "A dark blue card reading Mammoth November 13, the earliest announced California opening this season",
+        kicker: "Opening targets",
+        heading: "Mammoth: Nov 13",
+        text: "The earliest announced California opening, though last year's date slipped twice.",
+      },
+      {
+        image: SN + "story-4.jpg",
+        alt: "A purple card reading Heavenly November 20, Palisades Tahoe November 25, the day before Thanksgiving",
+        kicker: "Opening targets",
+        heading: "Heavenly: Nov 20",
+        text: "Palisades Tahoe: Nov 25, the day before Thanksgiving.",
+      },
+      {
+        image: SN + "story-5.jpg",
+        alt: "An amber card reading not the Rockies storm, a separate West Coast system in the same week as Montana, Utah, Wyoming, Colorado",
+        kicker: "Not connected",
+        heading: "Not the Rockies storm",
+        text: "A separate West Coast system, same week as our Rockies coverage.",
+      },
+      {
+        image: SN + "story-6.jpg",
+        alt: "Mammoth Mountain and rime-encrusted trees at Minaret Vista, California",
+        kicker: "Read the full guide",
+        heading: "Every opening date, mapped",
+        text: "Mammoth, Heavenly, Palisades Tahoe, and what's coming next for the Sierra.",
       },
     ],
   },
