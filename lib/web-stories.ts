@@ -2886,9 +2886,9 @@ export const webStories: WebStory[] = [
   {
     slug: "sierra-nevada-first-snow-october-2026",
     postSlug: "sierra-nevada-first-snow-october-2026",
-    title: "Sierra Nevada's First Snow, Plus 2026-27 Opening Dates",
+    title: "Sierra Nevada Snow: It Was Rachel Again, Mt. Rose Opens Nov 6",
     description:
-      "A light dusting hit Sierra Nevada peaks on October 12, 2026. Mammoth targets November 13, Heavenly November 20, Palisades Tahoe November 25.",
+      "Tropical Storm Rachel reached the Sierra Nevada on October 12, 2026. Every Tahoe resort opening date, from Mt. Rose on November 6 to Kirkwood on December 4.",
     pages: [
       {
         image: SN + "story-1.jpg",
@@ -2899,31 +2899,31 @@ export const webStories: WebStory[] = [
       },
       {
         image: SN + "story-2.jpg",
-        alt: "A blue card reading the first dusting, light snow fell on many Sierra Nevada peaks on October 12 2026",
+        alt: "A blue card reading Sierra-at-Tahoe first snow, the only resort with measurable snowfall, October 12 2026",
         kicker: "This week",
-        heading: "The first dusting",
-        text: "Light snow fell on many Sierra Nevada peaks on October 12, 2026.",
+        heading: "Sierra-at-Tahoe: first snow",
+        text: "The only resort with measurable snowfall, October 12, 2026.",
       },
       {
         image: SN + "story-3.jpg",
-        alt: "A dark blue card reading Mammoth November 13, the earliest announced California opening this season",
-        kicker: "Opening targets",
-        heading: "Mammoth: Nov 13",
-        text: "The earliest announced California opening, though last year's date slipped twice.",
+        alt: "A dark blue card reading it's Rachel again, the same tropical storm remnant that hit Montana, Utah, Wyoming, Colorado",
+        kicker: "The connection",
+        heading: "It's Rachel again",
+        text: "Fox Weather flagged the Sierra as a target days earlier.",
       },
       {
         image: SN + "story-4.jpg",
-        alt: "A purple card reading Heavenly November 20, Palisades Tahoe November 25, the day before Thanksgiving",
+        alt: "A purple card reading Mt. Rose November 6, the earliest 2026-27 opening target of any Tahoe resort",
         kicker: "Opening targets",
-        heading: "Heavenly: Nov 20",
-        text: "Palisades Tahoe: Nov 25, the day before Thanksgiving.",
+        heading: "Mt. Rose: Nov 6",
+        text: "The earliest opening target of any Tahoe resort this season.",
       },
       {
         image: SN + "story-5.jpg",
-        alt: "An amber card reading not the Rockies storm, a separate West Coast system in the same week as Montana, Utah, Wyoming, Colorado",
-        kicker: "Not connected",
-        heading: "Not the Rockies storm",
-        text: "A separate West Coast system, same week as our Rockies coverage.",
+        alt: "An amber card reading won't last long, valley highs back in the 80s within days as a dry pattern returns",
+        kicker: "What's next",
+        heading: "Won't last long",
+        text: "This week's coating is a preview, not a base.",
       },
       {
         image: SN + "story-6.jpg",
