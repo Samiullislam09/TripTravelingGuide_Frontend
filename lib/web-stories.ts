@@ -435,6 +435,8 @@ const CO2 =
   "/media/articles/colorado-mountain-snow-october-2026/";
 const SN =
   "/media/articles/sierra-nevada-first-snow-october-2026/";
+const CT =
+  "/media/articles/colorado-traction-law-2026/";
 
 export const webStories: WebStory[] = [
   {
@@ -2931,6 +2933,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "Every opening date, mapped",
         text: "Mammoth, Heavenly, Palisades Tahoe, and what's coming next for the Sierra.",
+      },
+    ],
+  },
+  {
+    slug: "colorado-traction-law-2026",
+    postSlug: "colorado-traction-law-2026",
+    title: "Colorado's Traction Law Changed for 2026: Now Your 2WD Car Is Covered Too",
+    description:
+      "HB26-1237 took effect September 1, 2026, extending Colorado's Traction Law to two-wheel-drive cars. Tread requirements, fines, and what AWD does and doesn't cover.",
+    pages: [
+      {
+        image: CT + "story-1.jpg",
+        alt: "Westbound Interstate 70 approaching the Eisenhower Tunnel in the Colorado mountains with a truckers gear down sign",
+        kicker: "Colorado, 2026-27",
+        heading: "The law changed",
+        text: "Westbound I-70 approaching the Eisenhower Tunnel. Photo: formulanone, CC BY-SA 2.0.",
+      },
+      {
+        image: CT + "story-2.jpg",
+        alt: "A blue card reading 2WD is covered now, HB26-1237 closes the gap, effective September 1 2026",
+        kicker: "What changed",
+        heading: "2WD is covered now",
+        text: "No more assuming the traction law doesn't apply to your car.",
+      },
+      {
+        image: CT + "story-3.jpg",
+        alt: "A dark blue card reading 3/16 inch, Colorado's minimum tire tread, no matter what's driving the wheels",
+        kicker: "The requirement",
+        heading: "3/16 inch",
+        text: "AWD and 4WD are not a substitute for tires.",
+      },
+      {
+        image: CT + "story-4.jpg",
+        alt: "A purple card reading chains always work, cable chains or an approved device satisfy the law on any tires",
+        kicker: "The fallback",
+        heading: "Chains always work",
+        text: "AutoSock, ISSE Tire Sock, Alpha Trax, and EasySox all qualify.",
+      },
+      {
+        image: CT + "story-5.jpg",
+        alt: "An amber card reading $100 to $500, CDOT's published fine range, higher if you close a lane",
+        kicker: "The fine",
+        heading: "$100 to $500",
+        text: "Check codot.gov before you drive, figures vary by source.",
+      },
+      {
+        image: CT + "story-6.jpg",
+        alt: "Radial cable chains installed on a car tire",
+        kicker: "Read the full guide",
+        heading: "What AWD doesn't cover",
+        text: "Everything that changed in Colorado's traction law for 2026-27.",
       },
     ],
   },
