@@ -2939,7 +2939,7 @@ export const webStories: WebStory[] = [
   {
     slug: "colorado-traction-law-2026",
     postSlug: "colorado-traction-law-2026",
-    title: "Colorado's Traction Law Changed for 2026: Now Your 2WD Car Is Covered Too",
+    title: "Colorado Traction Law 2026: Now Your 2WD Car Is Covered Too",
     description:
       "HB26-1237 took effect September 1, 2026, extending Colorado's Traction Law to two-wheel-drive cars. Tread requirements, fines, and what AWD does and doesn't cover.",
     pages: [
