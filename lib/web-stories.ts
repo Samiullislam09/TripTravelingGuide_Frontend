@@ -437,6 +437,8 @@ const SN =
   "/media/articles/sierra-nevada-first-snow-october-2026/";
 const CT =
   "/media/articles/colorado-traction-law-2026/";
+const AS =
+  "/media/articles/altitude-sickness-colorado-guide/";
 
 export const webStories: WebStory[] = [
   {
@@ -2984,6 +2986,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What actually changed",
         text: "Why 2WD cars still need chains, and what AWD/4WD gets instead.",
+      },
+    ],
+  },
+  {
+    slug: "altitude-sickness-colorado-guide",
+    postSlug: "altitude-sickness-colorado-guide",
+    title: "Altitude Sickness in Colorado: How Common It Is and What Actually Helps",
+    description:
+      "Altitude sickness in Colorado hits about 1 in 4 visitors. A UCHealth doctor on the real odds, when symptoms start, and what actually prevents it.",
+    pages: [
+      {
+        image: AS + "story-1.jpg",
+        alt: "Satellite view of Denver, Colorado, with the snow-capped Rocky Mountains rising immediately to the west",
+        kicker: "Colorado travel",
+        heading: "Why Denver tricks you",
+        text: "Denver sits at 5,280 feet, with the Rockies climbing straight up behind it.",
+      },
+      {
+        image: AS + "story-2.jpg",
+        alt: "A blue card reading 1 in 4 visitors get mild to moderate altitude sickness in Colorado's mountains",
+        kicker: "The real odds",
+        heading: "1 in 4 visitors",
+        text: "Denver locals: only 7 to 8 percent get it.",
+      },
+      {
+        image: AS + "story-3.jpg",
+        alt: "A dark blue card reading 6 to 24 hours, when symptoms usually start, not right when you land",
+        kicker: "The timing",
+        heading: "6 to 24 hours",
+        text: "Easy to mistake for a hangover or jet lag.",
+      },
+      {
+        image: AS + "story-4.jpg",
+        alt: "A purple card reading 4x the risk from skipping a night in Denver before going above 8,000 feet",
+        kicker: "The fix",
+        heading: "4x the risk",
+        text: "Acclimatizing in Denver first cuts your odds sharply.",
+      },
+      {
+        image: AS + "story-5.jpg",
+        alt: "An amber card reading under 1 percent of cases become the serious HACE or HAPE complications",
+        kicker: "The reassurance",
+        heading: "Under 1 percent",
+        text: "Most mild cases clear up in a day or two.",
+      },
+      {
+        image: AS + "story-6.jpg",
+        alt: "View of the mountain town of Breckenridge, Colorado, at sunset from Bald Mountain",
+        kicker: "Read the full guide",
+        heading: "What actually helps",
+        text: "Real numbers, real risk factors, and when to actually worry.",
       },
     ],
   },
