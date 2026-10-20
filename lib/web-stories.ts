@@ -3098,9 +3098,9 @@ export const webStories: WebStory[] = [
   {
     slug: "does-it-snow-in-seattle",
     postSlug: "does-it-snow-in-seattle",
-    title: "Does It Snow in Seattle? The Real Numbers, and Why It's So Patchy",
+    title: "Does It Snow in Seattle? Yes, and the Hills Are Why It Shuts the City Down",
     description:
-      "Does it snow in Seattle? Yes, about 4.7 days a year on average, and one neighborhood can get buried while another stays dry. Here is why, and the real records.",
+      "Does it snow in Seattle? About 6.3 inches a year. The real question is why the hills turn a couple of inches into a city-wide shutdown. Real records inside.",
     pages: [
       {
         image: SE + "story-1.jpg",
@@ -3111,10 +3111,10 @@ export const webStories: WebStory[] = [
       },
       {
         image: SE + "story-2.jpg",
-        alt: "A blue card reading 4.7 days a year, the NOAA average for measurable snow at Sea-Tac Airport",
+        alt: "A blue card reading about 6.3 inches a year, the NOAA average snowfall at Sea-Tac Airport",
         kicker: "The real odds",
-        heading: "4.7 days a year",
-        text: "Most of those days bring just a dusting.",
+        heading: "6.3 inches a year",
+        text: "Spread across about 5 days, most of it a dusting.",
       },
       {
         image: SE + "story-3.jpg",
