@@ -441,6 +441,8 @@ const AS =
   "/media/articles/altitude-sickness-colorado-guide/";
 const FT =
   "/media/articles/florida-afternoon-thunderstorms-disney-world/";
+const SE =
+  "/media/articles/does-it-snow-in-seattle/";
 
 export const webStories: WebStory[] = [
   {
@@ -3090,6 +3092,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "Plan around it",
         text: "Why the storms happen, when, and what they mean for your day.",
+      },
+    ],
+  },
+  {
+    slug: "does-it-snow-in-seattle",
+    postSlug: "does-it-snow-in-seattle",
+    title: "Does It Snow in Seattle? The Real Numbers, and Why It's So Patchy",
+    description:
+      "Does it snow in Seattle? Yes, about 4.7 days a year on average, and one neighborhood can get buried while another stays dry. Here is why, and the real records.",
+    pages: [
+      {
+        image: SE + "story-1.jpg",
+        alt: "The Space Needle in Seattle covered in snow during the February 2021 snowstorm",
+        kicker: "Seattle weather",
+        heading: "It happens, barely",
+        text: "The Space Needle during Seattle's February 2021 snowstorm. Photo: Seattle City Council, CC BY 2.0.",
+      },
+      {
+        image: SE + "story-2.jpg",
+        alt: "A blue card reading 4.7 days a year, the NOAA average for measurable snow at Sea-Tac Airport",
+        kicker: "The real odds",
+        heading: "4.7 days a year",
+        text: "Most of those days bring just a dusting.",
+      },
+      {
+        image: SE + "story-3.jpg",
+        alt: "A dark blue card reading blame the ocean, the Pacific keeps Seattle's air too mild for snow most winters",
+        kicker: "Why so rare",
+        heading: "Blame the ocean",
+        text: "Real snow needs cold air from inland Canada first.",
+      },
+      {
+        image: SE + "story-4.jpg",
+        alt: "A purple card reading the snow hole, the Puget Sound Convergence Zone can snow one neighborhood and skip the next",
+        kicker: "The microclimate",
+        heading: "The “snow hole”",
+        text: "Ballard has a reputation for staying dry.",
+      },
+      {
+        image: SE + "story-5.jpg",
+        alt: "An amber card reading 20.2 inches fell in February 2019, Snowmageddon, the snowiest February in 50 plus years",
+        kicker: "The record",
+        heading: "20.2 inches",
+        text: "Buses stopped running for days.",
+      },
+      {
+        image: SE + "story-6.jpg",
+        alt: "A snow-covered playground near the Space Needle in Seattle after the February 2021 snowstorm",
+        kicker: "Read the full guide",
+        heading: "The real numbers",
+        text: "How often, how much, and why some neighborhoods see it and others don't.",
       },
     ],
   },
