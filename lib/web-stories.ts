@@ -2843,9 +2843,9 @@ export const webStories: WebStory[] = [
   {
     slug: "colorado-mountain-snow-october-2026",
     postSlug: "colorado-mountain-snow-october-2026",
-    title: "Colorado Snow This Week: 9-16 Inches on I-70, Next Storm Oct 21-22",
+    title: "Colorado Snow, October 2026: This Week's Storm and the 2026-2027 Season Outlook",
     description:
-      "NWS mapping shows 9 to 16 inches at the I-70 tunnels through October 16, 2026, with a second storm forecast for October 21-22, while Denver gets rain.",
+      "Colorado snow in October 2026: two storms so far, plus what NOAA and the Farmers Almanac say about the 2026-2027 season. Real numbers, no inch-count guesses.",
     pages: [
       {
         image: CO2 + "story-1.jpg",
