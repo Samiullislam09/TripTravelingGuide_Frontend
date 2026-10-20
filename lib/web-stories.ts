@@ -439,6 +439,8 @@ const CT =
   "/media/articles/colorado-traction-law-2026/";
 const AS =
   "/media/articles/altitude-sickness-colorado-guide/";
+const FT =
+  "/media/articles/florida-afternoon-thunderstorms-disney-world/";
 
 export const webStories: WebStory[] = [
   {
@@ -3037,6 +3039,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "What actually helps",
         text: "Real numbers, real risk factors, and when to actually worry.",
+      },
+    ],
+  },
+  {
+    slug: "florida-afternoon-thunderstorms-disney-world",
+    postSlug: "florida-afternoon-thunderstorms-disney-world",
+    title: "Does It Rain Every Day at Disney World? The Real Thunderstorm Pattern",
+    description:
+      "Does it rain every day at Disney World? Almost. Central Florida sees storms 16 to 17 days a month in summer. Here is why, when, and what actually closes rides.",
+    pages: [
+      {
+        image: FT + "story-1.jpg",
+        alt: "Looking up at a roller coaster at a Florida theme park during a thunderstorm, with dark storm clouds overhead",
+        kicker: "Florida travel",
+        heading: "Pack for this",
+        text: "A Florida theme park mid-storm, rides closed for lightning. Photo: MatthewHoobin, CC0.",
+      },
+      {
+        image: FT + "story-2.jpg",
+        alt: "A blue card reading 16 to 17 days a month see measurable rain in central Florida in summer",
+        kicker: "The real odds",
+        heading: "16 to 17 days",
+        text: "Almost, but not quite, every single day.",
+      },
+      {
+        image: FT + "story-3.jpg",
+        alt: "A dark blue card reading number 1 for lightning, Four Corners where Disney World sits is the most lightning struck spot in the US",
+        kicker: "Why here",
+        heading: "#1 for lightning",
+        text: "Two sea breezes collide almost directly overhead.",
+      },
+      {
+        image: FT + "story-4.jpg",
+        alt: "A purple card reading after 2pm is when afternoon storms most commonly build and arrive",
+        kicker: "The timing",
+        heading: "After 2pm",
+        text: "Most storms clear within 30 to 60 minutes.",
+      },
+      {
+        image: FT + "story-5.jpg",
+        alt: "An amber card reading lightning closes rides, not rain, parks close outdoor rides on detection before rain even falls",
+        kicker: "What actually matters",
+        heading: "Lightning closes rides",
+        text: "Indoor attractions usually keep running.",
+      },
+      {
+        image: FT + "story-6.jpg",
+        alt: "Dark storm clouds building over a parking lot in Tampa, Florida, before an afternoon thunderstorm",
+        kicker: "Read the full guide",
+        heading: "Plan around it",
+        text: "Why the storms happen, when, and what they mean for your day.",
       },
     ],
   },
