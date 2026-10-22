@@ -3153,7 +3153,7 @@ export const webStories: WebStory[] = [
     postSlug: "snow-predictions-for-new-jersey-2026-2027",
     title: "Snow Predictions for New Jersey 2026-2027: The El Nino Paradox",
     description:
-      "Snow predictions for New Jersey 2026-2027: 76 years of station data show strong El Nino winters actually bring less snow to the coast, not more.",
+      "Snow predictions for New Jersey 2026-2027: AccuWeather calls this the strongest El Nino on record, but 76 years of station data say that's historically meant less coastal snow, not more.",
     pages: [
       {
         image: NJ + "story-1.jpg",
@@ -3189,6 +3189,13 @@ export const webStories: WebStory[] = [
         kicker: "The surprise",
         heading: "February, not January",
         text: "Jan and Feb together are 61% of the whole season.",
+      },
+      {
+        image: NJ + "story-6b.jpg",
+        alt: "A dark card reading December 8, Newark's computed median first-snow date, with Nov 20 to Jan 12 the typical range",
+        kicker: "First snow",
+        heading: "December 8",
+        text: "Earliest on record: October 20, 1952.",
       },
       {
         image: NJ + "story-6.jpg",
