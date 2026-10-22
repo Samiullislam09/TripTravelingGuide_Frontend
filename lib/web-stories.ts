@@ -443,6 +443,8 @@ const FT =
   "/media/articles/florida-afternoon-thunderstorms-disney-world/";
 const SE =
   "/media/articles/does-it-snow-in-seattle/";
+const NJ =
+  "/media/articles/snow-predictions-for-new-jersey-2026-2027/";
 
 export const webStories: WebStory[] = [
   {
@@ -3143,6 +3145,57 @@ export const webStories: WebStory[] = [
         kicker: "Read the full guide",
         heading: "The real numbers",
         text: "How often, how much, and why some neighborhoods see it and others don't.",
+      },
+    ],
+  },
+  {
+    slug: "snow-predictions-for-new-jersey-2026-2027",
+    postSlug: "snow-predictions-for-new-jersey-2026-2027",
+    title: "Snow Predictions for New Jersey 2026-2027: The El Nino Paradox",
+    description:
+      "Snow predictions for New Jersey 2026-2027: 76 years of station data show strong El Nino winters actually bring less snow to the coast, not more.",
+    pages: [
+      {
+        image: NJ + "story-1.jpg",
+        alt: "An ambulance drives through heavy snow during Winter Storm Fern in Jersey City, New Jersey",
+        kicker: "New Jersey, 2026-27",
+        heading: "The El Nino twist",
+        text: "Jersey City during Winter Storm Fern, January 2026. Photo: Tzim78, CC BY-SA 4.0.",
+      },
+      {
+        image: NJ + "story-2.jpg",
+        alt: "A blue card reading -30% to -48%, how much less snow NJ's coast got in strong El Nino winters",
+        kicker: "The real pattern",
+        heading: "-30% to -48%",
+        text: "Computed from 76 years of NOAA station data.",
+      },
+      {
+        image: NJ + "story-3.jpg",
+        alt: "A dark blue card reading AccuWeather below average, NYC 10 to 20 inches, Philly 5 to 15 inches forecast for 2026-27",
+        kicker: "The forecasters",
+        heading: "AccuWeather: below average",
+        text: "The Almanac is softer: only slightly below normal.",
+      },
+      {
+        image: NJ + "story-4.jpg",
+        alt: "A purple card reading 17.6 inches to 32 inches, Atlantic City vs Newark, nearly double the snow",
+        kicker: "The split",
+        heading: "17.6in to 32in",
+        text: "Coastal air changes more storms to rain.",
+      },
+      {
+        image: NJ + "story-5.jpg",
+        alt: "An amber card reading February, not January, is Newark's real snowiest month at 10.3 inches",
+        kicker: "The surprise",
+        heading: "February, not January",
+        text: "Jan and Feb together are 61% of the whole season.",
+      },
+      {
+        image: NJ + "story-6.jpg",
+        alt: "A snow-covered school parking lot at night during a winter storm in Ewing Township, Mercer County, New Jersey",
+        kicker: "Read the full guide",
+        heading: "The full breakdown",
+        text: "76 years of station data, and what two forecasters actually say.",
       },
     ],
   },
